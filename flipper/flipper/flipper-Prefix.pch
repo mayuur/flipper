@@ -1,0 +1,31 @@
+//
+//  flipper-Prefix.pch
+//  flipper
+//
+//  Created by Mayur Joshi on 26/01/16.
+//  Copyright © 2016 Mayur Joshi. All rights reserved.
+//
+
+#ifndef flipper_Prefix_pch
+#define flipper_Prefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* flipper_Prefix_pch */
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+
+#import "flipperMacros.h"
+#import "flipperNotificationsAndAlerts.h"
+
+#endif
+
+
+// Do not log when not running in DEBUG mode.  This works because a define without a substitution will
+// delete anything that matches the define.
+#ifndef DEBUG
+#define NSLog(fmt,...)
+#endif

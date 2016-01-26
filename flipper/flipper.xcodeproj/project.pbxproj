@@ -38,6 +38,9 @@
 /* Begin PBXFileReference section */
 		77E5C9CF1C575A4400E6CD4F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		77E5C9D01C575A4400E6CD4F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		77E5C9D21C575CBE00E6CD4F /* flipper-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "flipper-Prefix.pch"; sourceTree = "<group>"; };
+		77E5C9D31C57629500E6CD4F /* flipperMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flipperMacros.h; sourceTree = "<group>"; };
+		77E5C9D41C5762AD00E6CD4F /* flipperNotificationsAndAlerts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = flipperNotificationsAndAlerts.h; sourceTree = "<group>"; };
 		77F2E86D1C57552700DFA74E /* flipper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flipper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77F2E8711C57552700DFA74E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		77F2E8731C57552700DFA74E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -137,6 +140,9 @@
 				77F2E8731C57552700DFA74E /* AppDelegate.h */,
 				77F2E8741C57552700DFA74E /* AppDelegate.m */,
 				77F2E8791C57552700DFA74E /* Main.storyboard */,
+				77E5C9D21C575CBE00E6CD4F /* flipper-Prefix.pch */,
+				77E5C9D31C57629500E6CD4F /* flipperMacros.h */,
+				77E5C9D41C5762AD00E6CD4F /* flipperNotificationsAndAlerts.h */,
 				77E5C9CB1C57572A00E6CD4F /* Categories */,
 				77E5C9CC1C57572A00E6CD4F /* Vendors */,
 				77E5C9CD1C57572A00E6CD4F /* Models */,
@@ -449,6 +455,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "flipper/flipper-Prefix.pch";
 				INFOPLIST_FILE = flipper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.flipper;
@@ -460,6 +467,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "flipper/flipper-Prefix.pch";
 				INFOPLIST_FILE = flipper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.flipper;
