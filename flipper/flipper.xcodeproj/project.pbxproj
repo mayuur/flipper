@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5460B5111C59439000D9E92E /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5460B5101C59439000D9E92E /* Intro.storyboard */; };
 		77E5C9D11C575A4400E6CD4F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E5C9D01C575A4400E6CD4F /* LoginViewController.m */; };
 		77F2E8721C57552700DFA74E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F2E8711C57552700DFA74E /* main.m */; };
 		77F2E8751C57552700DFA74E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F2E8741C57552700DFA74E /* AppDelegate.m */; };
@@ -37,7 +36,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5460B5101C59439000D9E92E /* Intro.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Intro.storyboard; sourceTree = "<group>"; };
 		77E5C9CF1C575A4400E6CD4F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		77E5C9D01C575A4400E6CD4F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		77E5C9D21C575CBE00E6CD4F /* flipper-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "flipper-Prefix.pch"; sourceTree = "<group>"; };
@@ -142,7 +140,6 @@
 				77F2E8731C57552700DFA74E /* AppDelegate.h */,
 				77F2E8741C57552700DFA74E /* AppDelegate.m */,
 				77F2E8791C57552700DFA74E /* Main.storyboard */,
-				5460B5101C59439000D9E92E /* Intro.storyboard */,
 				77E5C9D21C575CBE00E6CD4F /* flipper-Prefix.pch */,
 				77E5C9D31C57629500E6CD4F /* flipperMacros.h */,
 				77E5C9D41C5762AD00E6CD4F /* flipperNotificationsAndAlerts.h */,
@@ -292,7 +289,6 @@
 				77F2E8801C57552800DFA74E /* LaunchScreen.storyboard in Resources */,
 				77F2E87D1C57552800DFA74E /* Assets.xcassets in Resources */,
 				77F2E87B1C57552700DFA74E /* Main.storyboard in Resources */,
-				5460B5111C59439000D9E92E /* Intro.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
