@@ -10,10 +10,16 @@
 
 @implementation NSString (Validations)
 
-- (NSMutableArray* ) checkBasicValidations {
+- (BOOL) validString
+{
+    if ([self isEqualToString:@""] || [self isEqualToString:@"(null)"] || self == nil) {
+        return NO;
+        
+    } else if ([[self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@""]) {
+        return NO;
+    }
     
-    
-    return nil;
+    return YES;
 }
 
 - (NSMutableArray* ) checkPasswordValidations {
@@ -21,10 +27,14 @@
     NSMutableArray* validations = [NSMutableArray arrayWithCapacity:0];
     
     //check for basic string validations at start
-    [validations addObjectsFromArray:[self checkBasicValidations]];
+    if(![self validString]) {
+        [validations addObject:@"Password cannot be blank"];
+    }
     
     //add other validations for password
-    
+    if (self.length < 6) {
+        [validations addObject:@"Password cannot be less than 6 characters"];
+    }
     
     return validations;
 }

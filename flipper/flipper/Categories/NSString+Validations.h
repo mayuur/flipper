@@ -10,7 +10,7 @@
 
 @interface NSString (Validations)
 
-- (NSMutableArray* ) checkBasicValidations;
+- (BOOL) validString;
 - (NSMutableArray* ) checkPasswordValidations;
 
 @end
