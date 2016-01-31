@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		5460B5111C59439000D9E92E /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5460B5101C59439000D9E92E /* Intro.storyboard */; };
+		7712707E1C5BE7D50013DDD1 /* WalkthroughViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7712707D1C5BE7D50013DDD1 /* WalkthroughViewController.m */; };
+		7724C4CB1C5CF7CA00267097 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7724C4CA1C5CF7CA00267097 /* SignUpViewController.m */; };
+		7724C4D01C5D001C00267097 /* PageWalkthrough.m in Sources */ = {isa = PBXBuildFile; fileRef = 7724C4CF1C5D001C00267097 /* PageWalkthrough.m */; };
+		7724C4D31C5E498A00267097 /* NSString+Validations.m in Sources */ = {isa = PBXBuildFile; fileRef = 7724C4D21C5E498A00267097 /* NSString+Validations.m */; };
+		7724C4D61C5E4E7700267097 /* UIPageControl+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 7724C4D51C5E4E7700267097 /* UIPageControl+Extra.m */; };
 		77E5C9D11C575A4400E6CD4F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E5C9D01C575A4400E6CD4F /* LoginViewController.m */; };
 		77F2E8721C57552700DFA74E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F2E8711C57552700DFA74E /* main.m */; };
 		77F2E8751C57552700DFA74E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F2E8741C57552700DFA74E /* AppDelegate.m */; };
@@ -38,6 +43,16 @@
 
 /* Begin PBXFileReference section */
 		5460B5101C59439000D9E92E /* Intro.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Intro.storyboard; sourceTree = "<group>"; };
+		7712707C1C5BE7D50013DDD1 /* WalkthroughViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalkthroughViewController.h; sourceTree = "<group>"; };
+		7712707D1C5BE7D50013DDD1 /* WalkthroughViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalkthroughViewController.m; sourceTree = "<group>"; };
+		7724C4C91C5CF7CA00267097 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		7724C4CA1C5CF7CA00267097 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		7724C4CE1C5D001C00267097 /* PageWalkthrough.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageWalkthrough.h; sourceTree = "<group>"; };
+		7724C4CF1C5D001C00267097 /* PageWalkthrough.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageWalkthrough.m; sourceTree = "<group>"; };
+		7724C4D11C5E498A00267097 /* NSString+Validations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Validations.h"; sourceTree = "<group>"; };
+		7724C4D21C5E498A00267097 /* NSString+Validations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Validations.m"; sourceTree = "<group>"; };
+		7724C4D41C5E4E7700267097 /* UIPageControl+Extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIPageControl+Extra.h"; sourceTree = "<group>"; };
+		7724C4D51C5E4E7700267097 /* UIPageControl+Extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIPageControl+Extra.m"; sourceTree = "<group>"; };
 		77E5C9CF1C575A4400E6CD4F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		77E5C9D01C575A4400E6CD4F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		77E5C9D21C575CBE00E6CD4F /* flipper-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "flipper-Prefix.pch"; sourceTree = "<group>"; };
@@ -86,9 +101,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7724C4CD1C5CFFF400267097 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				7724C4CE1C5D001C00267097 /* PageWalkthrough.h */,
+				7724C4CF1C5D001C00267097 /* PageWalkthrough.m */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
 		77E5C9CB1C57572A00E6CD4F /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				7724C4D11C5E498A00267097 /* NSString+Validations.h */,
+				7724C4D21C5E498A00267097 /* NSString+Validations.m */,
+				7724C4D41C5E4E7700267097 /* UIPageControl+Extra.h */,
+				7724C4D51C5E4E7700267097 /* UIPageControl+Extra.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -110,8 +138,12 @@
 		77E5C9CE1C57572A00E6CD4F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				7712707C1C5BE7D50013DDD1 /* WalkthroughViewController.h */,
+				7712707D1C5BE7D50013DDD1 /* WalkthroughViewController.m */,
 				77E5C9CF1C575A4400E6CD4F /* LoginViewController.h */,
 				77E5C9D01C575A4400E6CD4F /* LoginViewController.m */,
+				7724C4C91C5CF7CA00267097 /* SignUpViewController.h */,
+				7724C4CA1C5CF7CA00267097 /* SignUpViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -146,6 +178,7 @@
 				77E5C9D21C575CBE00E6CD4F /* flipper-Prefix.pch */,
 				77E5C9D31C57629500E6CD4F /* flipperMacros.h */,
 				77E5C9D41C5762AD00E6CD4F /* flipperNotificationsAndAlerts.h */,
+				7724C4CD1C5CFFF400267097 /* Custom */,
 				77E5C9CB1C57572A00E6CD4F /* Categories */,
 				77E5C9CC1C57572A00E6CD4F /* Vendors */,
 				77E5C9CD1C57572A00E6CD4F /* Models */,
@@ -319,7 +352,12 @@
 			files = (
 				77E5C9D11C575A4400E6CD4F /* LoginViewController.m in Sources */,
 				77F2E8781C57552700DFA74E /* ViewController.m in Sources */,
+				7724C4D31C5E498A00267097 /* NSString+Validations.m in Sources */,
+				7724C4CB1C5CF7CA00267097 /* SignUpViewController.m in Sources */,
+				7724C4D01C5D001C00267097 /* PageWalkthrough.m in Sources */,
 				77F2E8751C57552700DFA74E /* AppDelegate.m in Sources */,
+				7712707E1C5BE7D50013DDD1 /* WalkthroughViewController.m in Sources */,
+				7724C4D61C5E4E7700267097 /* UIPageControl+Extra.m in Sources */,
 				77F2E8721C57552700DFA74E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

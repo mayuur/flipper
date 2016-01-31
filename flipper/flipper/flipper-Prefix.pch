@@ -15,11 +15,17 @@
 #endif /* flipper_Prefix_pch */
 
 #ifdef __OBJC__
+    //frameworks
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 
+//macros and common files
 #import "flipperMacros.h"
 #import "flipperNotificationsAndAlerts.h"
+
+//categories
+#import "NSString+Validations.h"
+#import "UIPageControl+Extra.h"
 
 #endif
 
