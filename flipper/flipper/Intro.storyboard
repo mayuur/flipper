@@ -24,7 +24,7 @@
         <!--Walkthrough View Controller-->
         <scene sceneID="cHE-iX-5iT">
             <objects>
-                <viewController id="SCe-xj-ggS" customClass="WalkthroughViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="SCe-xj-ggS" customClass="WalkthroughViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4eT-pX-HZh"/>
                         <viewControllerLayoutGuide type="bottom" id="fqW-ND-2Vs"/>
@@ -63,7 +63,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ihq-cy-2jJ" firstAttribute="leading" secondItem="FAG-E5-ofi" secondAttribute="leading" id="0JJ-TN-4g5"/>
                             <constraint firstItem="ihq-cy-2jJ" firstAttribute="top" secondItem="FAG-E5-ofi" secondAttribute="top" id="D3b-BB-1nQ"/>

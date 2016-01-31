@@ -8,8 +8,6 @@
 
 #import "PageWalkthrough.h"
 
-#define LOGO_SIZE CGSizeMake (80, 80)
-
 @interface PageWalkthrough()
 
 @property (nonatomic, strong) UIImageView* imageViewBackground;
@@ -28,7 +26,7 @@
 }
 */
 
-- (instancetype) initWithFrame:(CGRect)frame text:(NSString* ) descriptionText backgroundImage: (NSString* ) imageName andLogoImage:(NSString* ) logoImageName {
+- (instancetype) initWithFrame:(CGRect)frame text:(NSString* ) descriptionText backgroundImage: (NSString* ) imageName logoImage:(NSString* ) logoImageName withLogoSize: (CGSize) logoSize {
     if(self == [super initWithFrame:frame]) {
         
         //add BackgroundImageView
@@ -46,10 +44,11 @@
         [self addSubview:self.textViewDescription];
         
         //add LogoImageView at centre... this also contains the ripple effect
-        self.imageViewLogo = [[UIImageView alloc] initWithFrame:CGRectMake(0, 300, LOGO_SIZE.width, LOGO_SIZE.height)];
-        self.imageViewLogo.center = CGPointMake(self.center.x, self.imageViewLogo.center.y);
+        self.imageViewLogo = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetWidth(frame)/2 - logoSize.width/2, 300, logoSize.width, logoSize.height)];
+        self.imageViewLogo.center = CGPointMake(self.imageViewLogo.center.x, self.imageViewLogo.center.y);
         self.imageViewLogo.image = [UIImage imageNamed:logoImageName];
         self.imageViewLogo.backgroundColor = [UIColor blackColor];
+        self.imageViewLogo.layer.cornerRadius = logoSize.width/2;
         self.imageViewLogo.contentMode = UIViewContentModeScaleAspectFit;
         [self addSubview:self.imageViewLogo];
     }

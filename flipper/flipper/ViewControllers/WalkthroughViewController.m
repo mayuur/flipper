@@ -33,15 +33,15 @@
 
 #pragma mark - General Methods
 - (void) createWalkthrough {
-    PageWalkthrough* page1 = [[PageWalkthrough alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)) text:@"This is the first page of the walkthrough" backgroundImage:@"WalkthroughPage1" andLogoImage:@"logoFlipper"];
+    PageWalkthrough* page1 = [[PageWalkthrough alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)) text:@"follow once follow everywhere" backgroundImage:@"WalkthroughPage1" logoImage:@"logoFlipper" withLogoSize:CGSizeMake(105, 105)];
     page1.backgroundColor = [UIColor redColor];
     [self.scrollView addSubview:page1];
     
-    PageWalkthrough* page2 = [[PageWalkthrough alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.view.frame), 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)) text:@"This is the second page of the walkthrough" backgroundImage:@"WalkthroughPage2" andLogoImage:@"logoPlus"];
+    PageWalkthrough* page2 = [[PageWalkthrough alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.view.frame), 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)) text:@"Follow multiple timelines from Facebook, Twitter, Vine, Instagram, Youtube and more" backgroundImage:@"WalkthroughPage2" logoImage:@"logoPlus" withLogoSize:CGSizeMake(55, 55)];
     page2.backgroundColor = [UIColor greenColor];
     [self.scrollView addSubview:page2];
     
-    PageWalkthrough* page3 = [[PageWalkthrough alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.view.frame) * 2, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)) text:@"This is the third page of the walkthrough" backgroundImage:@"WalkthroughPage3" andLogoImage:@"logoPlus"];
+    PageWalkthrough* page3 = [[PageWalkthrough alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.view.frame) * 2, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)) text:@"Instantly follow your favorite celebrities, influencers and interests" backgroundImage:@"WalkthroughPage3" logoImage:@"logoPlus" withLogoSize:CGSizeMake(55, 55)];
     page3.backgroundColor = [UIColor orangeColor];
     [self.scrollView addSubview:page3];
     

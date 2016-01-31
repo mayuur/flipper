@@ -13,6 +13,7 @@
 		7724C4D01C5D001C00267097 /* PageWalkthrough.m in Sources */ = {isa = PBXBuildFile; fileRef = 7724C4CF1C5D001C00267097 /* PageWalkthrough.m */; };
 		7724C4D31C5E498A00267097 /* NSString+Validations.m in Sources */ = {isa = PBXBuildFile; fileRef = 7724C4D21C5E498A00267097 /* NSString+Validations.m */; };
 		7724C4D61C5E4E7700267097 /* UIPageControl+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 7724C4D51C5E4E7700267097 /* UIPageControl+Extra.m */; };
+		7724C4D81C5E931700267097 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7724C4D71C5E931700267097 /* QuartzCore.framework */; };
 		77E5C9D11C575A4400E6CD4F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E5C9D01C575A4400E6CD4F /* LoginViewController.m */; };
 		77F2E8721C57552700DFA74E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F2E8711C57552700DFA74E /* main.m */; };
 		77F2E8751C57552700DFA74E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F2E8741C57552700DFA74E /* AppDelegate.m */; };
@@ -53,6 +54,7 @@
 		7724C4D21C5E498A00267097 /* NSString+Validations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Validations.m"; sourceTree = "<group>"; };
 		7724C4D41C5E4E7700267097 /* UIPageControl+Extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIPageControl+Extra.h"; sourceTree = "<group>"; };
 		7724C4D51C5E4E7700267097 /* UIPageControl+Extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIPageControl+Extra.m"; sourceTree = "<group>"; };
+		7724C4D71C5E931700267097 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		77E5C9CF1C575A4400E6CD4F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		77E5C9D01C575A4400E6CD4F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		77E5C9D21C575CBE00E6CD4F /* flipper-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "flipper-Prefix.pch"; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7724C4D81C5E931700267097 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +154,7 @@
 		77F2E8641C57552700DFA74E = {
 			isa = PBXGroup;
 			children = (
+				7724C4D71C5E931700267097 /* QuartzCore.framework */,
 				77F2E86F1C57552700DFA74E /* flipper */,
 				77F2E8891C57552800DFA74E /* flipperTests */,
 				77F2E8941C57552900DFA74E /* flipperUITests */,
@@ -497,6 +501,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PREFIX_HEADER = "flipper/flipper-Prefix.pch";
 				INFOPLIST_FILE = flipper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -509,6 +514,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PREFIX_HEADER = "flipper/flipper-Prefix.pch";
 				INFOPLIST_FILE = flipper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
