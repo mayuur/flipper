@@ -12,8 +12,10 @@
 
 - (void) setPageForScrollView: (UIScrollView* ) scrollView {
     //get the current page of scrollview
-    
+    NSInteger currentPage = scrollView.contentOffset.x/CGRectGetWidth(scrollView.frame);
+
     //set that page to pagecontrol
+    self.currentPage = currentPage;
 }
 
 @end

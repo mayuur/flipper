@@ -46,6 +46,9 @@
     [self.scrollView addSubview:page3];
     
     self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.view.frame)*3, CGRectGetHeight(self.scrollView.frame));
+    
+    self.pageControl.numberOfPages = 3;
+    self.pageControl.currentPage = 0;
 }
 
 #pragma mark - Button actions
