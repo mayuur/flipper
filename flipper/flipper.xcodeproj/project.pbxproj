@@ -14,6 +14,7 @@
 		7724C4D31C5E498A00267097 /* NSString+Validations.m in Sources */ = {isa = PBXBuildFile; fileRef = 7724C4D21C5E498A00267097 /* NSString+Validations.m */; };
 		7724C4D61C5E4E7700267097 /* UIPageControl+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 7724C4D51C5E4E7700267097 /* UIPageControl+Extra.m */; };
 		7724C4D81C5E931700267097 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7724C4D71C5E931700267097 /* QuartzCore.framework */; };
+		7724C4DC1C60FEB100267097 /* LNBRippleEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 7724C4DB1C60FEB100267097 /* LNBRippleEffect.m */; };
 		77E5C9D11C575A4400E6CD4F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E5C9D01C575A4400E6CD4F /* LoginViewController.m */; };
 		77F2E8721C57552700DFA74E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F2E8711C57552700DFA74E /* main.m */; };
 		77F2E8751C57552700DFA74E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F2E8741C57552700DFA74E /* AppDelegate.m */; };
@@ -55,6 +56,8 @@
 		7724C4D41C5E4E7700267097 /* UIPageControl+Extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIPageControl+Extra.h"; sourceTree = "<group>"; };
 		7724C4D51C5E4E7700267097 /* UIPageControl+Extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIPageControl+Extra.m"; sourceTree = "<group>"; };
 		7724C4D71C5E931700267097 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		7724C4DA1C60FEB100267097 /* LNBRippleEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNBRippleEffect.h; sourceTree = "<group>"; };
+		7724C4DB1C60FEB100267097 /* LNBRippleEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNBRippleEffect.m; sourceTree = "<group>"; };
 		77E5C9CF1C575A4400E6CD4F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		77E5C9D01C575A4400E6CD4F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		77E5C9D21C575CBE00E6CD4F /* flipper-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "flipper-Prefix.pch"; sourceTree = "<group>"; };
@@ -113,6 +116,15 @@
 			path = Custom;
 			sourceTree = "<group>";
 		};
+		7724C4D91C60FEB100267097 /* LNBRippleEffect */ = {
+			isa = PBXGroup;
+			children = (
+				7724C4DA1C60FEB100267097 /* LNBRippleEffect.h */,
+				7724C4DB1C60FEB100267097 /* LNBRippleEffect.m */,
+			);
+			path = LNBRippleEffect;
+			sourceTree = "<group>";
+		};
 		77E5C9CB1C57572A00E6CD4F /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +139,7 @@
 		77E5C9CC1C57572A00E6CD4F /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				7724C4D91C60FEB100267097 /* LNBRippleEffect */,
 			);
 			path = Vendors;
 			sourceTree = "<group>";
@@ -357,6 +370,7 @@
 				77E5C9D11C575A4400E6CD4F /* LoginViewController.m in Sources */,
 				77F2E8781C57552700DFA74E /* ViewController.m in Sources */,
 				7724C4D31C5E498A00267097 /* NSString+Validations.m in Sources */,
+				7724C4DC1C60FEB100267097 /* LNBRippleEffect.m in Sources */,
 				7724C4CB1C5CF7CA00267097 /* SignUpViewController.m in Sources */,
 				7724C4D01C5D001C00267097 /* PageWalkthrough.m in Sources */,
 				77F2E8751C57552700DFA74E /* AppDelegate.m in Sources */,

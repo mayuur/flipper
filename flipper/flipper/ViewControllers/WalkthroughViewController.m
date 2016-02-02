@@ -33,16 +33,18 @@
 
 #pragma mark - General Methods
 - (void) createWalkthrough {
-    PageWalkthrough* page1 = [[PageWalkthrough alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)) text:@"follow once follow everywhere" backgroundImage:@"WalkthroughPage1" logoImage:@"logoFlipper" withLogoSize:CGSizeMake(105, 105)];
-    page1.backgroundColor = [UIColor redColor];
+    PageWalkthrough* page1 = [[PageWalkthrough alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)) text:@"follow once follow everywhere" backgroundImage:@"WalkthroughPage1" logoImage:@"logoFlipper" withLogoRadius:105];
+    [page1 setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.scrollView addSubview:page1];
     
-    PageWalkthrough* page2 = [[PageWalkthrough alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.view.frame), 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)) text:@"Follow multiple timelines from Facebook, Twitter, Vine, Instagram, Youtube and more" backgroundImage:@"WalkthroughPage2" logoImage:@"logoPlus" withLogoSize:CGSizeMake(55, 55)];
-    page2.backgroundColor = [UIColor greenColor];
+    
+    
+    PageWalkthrough* page2 = [[PageWalkthrough alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.view.frame), 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)) text:@"Follow multiple timelines from Facebook, Twitter, Vine, Instagram, Youtube and more" backgroundImage:@"WalkthroughPage2" logoImage:@"logoPlus" withLogoRadius:105];
+    [page2 setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.scrollView addSubview:page2];
     
-    PageWalkthrough* page3 = [[PageWalkthrough alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.view.frame) * 2, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)) text:@"Instantly follow your favorite celebrities, influencers and interests" backgroundImage:@"WalkthroughPage3" logoImage:@"logoPlus" withLogoSize:CGSizeMake(55, 55)];
-    page3.backgroundColor = [UIColor orangeColor];
+    PageWalkthrough* page3 = [[PageWalkthrough alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.view.frame) * 2, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)) text:@"Instantly follow your favorite celebrities, influencers and interests" backgroundImage:@"WalkthroughPage3" logoImage:@"logoPlus" withLogoRadius:105];
+    [page3 setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.scrollView addSubview:page3];
     
     self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.view.frame)*3, CGRectGetHeight(self.scrollView.frame));

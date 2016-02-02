@@ -10,6 +10,6 @@
 
 @interface PageWalkthrough : UIView
 
-- (instancetype) initWithFrame:(CGRect)frame text:(NSString* ) descriptionText backgroundImage: (NSString* ) imageName logoImage:(NSString* ) logoImageName withLogoSize: (CGSize) logoSize;
+- (instancetype) initWithFrame:(CGRect)frame text:(NSString* ) descriptionText backgroundImage: (NSString* ) imageName logoImage:(NSString* ) logoImageName withLogoRadius: (int) logoRadius;
 
 @end

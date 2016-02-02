@@ -7,11 +7,12 @@
 //
 
 #import "PageWalkthrough.h"
+#import "LNBRippleEffect.h"
 
 @interface PageWalkthrough()
 
 @property (nonatomic, strong) UIImageView* imageViewBackground;
-@property (nonatomic, strong) UIImageView* imageViewLogo;
+@property (nonatomic, strong) LNBRippleEffect *imageViewLogo;
 @property (nonatomic, strong) UITextView* textViewDescription;
 
 @end
@@ -26,7 +27,7 @@
 }
 */
 
-- (instancetype) initWithFrame:(CGRect)frame text:(NSString* ) descriptionText backgroundImage: (NSString* ) imageName logoImage:(NSString* ) logoImageName withLogoSize: (CGSize) logoSize {
+- (instancetype) initWithFrame:(CGRect)frame text:(NSString* ) descriptionText backgroundImage: (NSString* ) imageName logoImage:(NSString* ) logoImageName withLogoRadius: (int) logoRadius {
     if(self == [super initWithFrame:frame]) {
         
         //add BackgroundImageView
@@ -44,13 +45,16 @@
         [self addSubview:self.textViewDescription];
         
         //add LogoImageView at centre... this also contains the ripple effect
-        self.imageViewLogo = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetWidth(frame)/2 - logoSize.width/2, 300, logoSize.width, logoSize.height)];
-        self.imageViewLogo.center = CGPointMake(self.imageViewLogo.center.x, self.imageViewLogo.center.y);
-        self.imageViewLogo.image = [UIImage imageNamed:logoImageName];
-        self.imageViewLogo.backgroundColor = [UIColor blackColor];
-        self.imageViewLogo.layer.cornerRadius = logoSize.width/2;
-        self.imageViewLogo.contentMode = UIViewContentModeScaleAspectFit;
+        //CGRectMake(CGRectGetWidth(frame)/2 - logoSize.width/2, 300, logoSize.width, logoSize.height) Color:[UIColor blackColor]
+
+        self.imageViewLogo = [[LNBRippleEffect alloc] initWithImage:[UIImage imageNamed:logoImageName] Frame:CGRectMake(CGRectGetWidth(frame)/2 - logoRadius/2, 300, logoRadius, logoRadius) Color:[UIColor blackColor] Target:@selector(buttonTapped:) ID:self];
+        [self.imageViewLogo setRippleTrailColor:[UIColor colorWithWhite:0.9 alpha:1]];
+        [self.imageViewLogo setRippleColor:[UIColor whiteColor]];
         [self addSubview:self.imageViewLogo];
+        
+        //self.imageViewLogo.layer.cornerRadius = logoRadius;
+        //self.imageViewLogo.contentMode = UIViewContentModeScaleAspectFit;
+
     }
     
     return self;
