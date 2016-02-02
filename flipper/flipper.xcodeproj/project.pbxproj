@@ -15,6 +15,27 @@
 		7724C4D61C5E4E7700267097 /* UIPageControl+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 7724C4D51C5E4E7700267097 /* UIPageControl+Extra.m */; };
 		7724C4D81C5E931700267097 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7724C4D71C5E931700267097 /* QuartzCore.framework */; };
 		7724C4DC1C60FEB100267097 /* LNBRippleEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 7724C4DB1C60FEB100267097 /* LNBRippleEffect.m */; };
+		7724C4FA1C6117C100267097 /* SF-UI-Display-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7724C4E41C6117C100267097 /* SF-UI-Display-Black.otf */; };
+		7724C4FB1C6117C100267097 /* SF-UI-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7724C4E51C6117C100267097 /* SF-UI-Display-Bold.otf */; };
+		7724C4FC1C6117C100267097 /* SF-UI-Display-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7724C4E61C6117C100267097 /* SF-UI-Display-Heavy.otf */; };
+		7724C4FD1C6117C100267097 /* SF-UI-Display-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7724C4E71C6117C100267097 /* SF-UI-Display-Light.otf */; };
+		7724C4FE1C6117C100267097 /* SF-UI-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7724C4E81C6117C100267097 /* SF-UI-Display-Medium.otf */; };
+		7724C4FF1C6117C100267097 /* SF-UI-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7724C4E91C6117C100267097 /* SF-UI-Display-Regular.otf */; };
+		7724C5001C6117C100267097 /* SF-UI-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7724C4EA1C6117C100267097 /* SF-UI-Display-Semibold.otf */; };
+		7724C5011C6117C100267097 /* SF-UI-Display-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7724C4EB1C6117C100267097 /* SF-UI-Display-Thin.otf */; };
+		7724C5021C6117C100267097 /* SF-UI-Display-Ultralight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7724C4EC1C6117C100267097 /* SF-UI-Display-Ultralight.otf */; };
+		7724C5031C6117C100267097 /* SF-UI-Text-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7724C4ED1C6117C100267097 /* SF-UI-Text-Bold.otf */; };
+		7724C5041C6117C100267097 /* SF-UI-Text-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7724C4EE1C6117C100267097 /* SF-UI-Text-BoldItalic.otf */; };
+		7724C5051C6117C100267097 /* SF-UI-Text-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7724C4EF1C6117C100267097 /* SF-UI-Text-Heavy.otf */; };
+		7724C5061C6117C100267097 /* SF-UI-Text-HeavyItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7724C4F01C6117C100267097 /* SF-UI-Text-HeavyItalic.otf */; };
+		7724C5071C6117C100267097 /* SF-UI-Text-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7724C4F11C6117C100267097 /* SF-UI-Text-Light.otf */; };
+		7724C5081C6117C100267097 /* SF-UI-Text-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7724C4F21C6117C100267097 /* SF-UI-Text-LightItalic.otf */; };
+		7724C5091C6117C100267097 /* SF-UI-Text-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7724C4F31C6117C100267097 /* SF-UI-Text-Medium.otf */; };
+		7724C50A1C6117C100267097 /* SF-UI-Text-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7724C4F41C6117C100267097 /* SF-UI-Text-MediumItalic.otf */; };
+		7724C50B1C6117C100267097 /* SF-UI-Text-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7724C4F51C6117C100267097 /* SF-UI-Text-Regular.otf */; };
+		7724C50C1C6117C100267097 /* SF-UI-Text-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7724C4F61C6117C100267097 /* SF-UI-Text-RegularItalic.otf */; };
+		7724C50D1C6117C100267097 /* SF-UI-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7724C4F71C6117C100267097 /* SF-UI-Text-Semibold.otf */; };
+		7724C50E1C6117C100267097 /* SF-UI-Text-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7724C4F81C6117C100267097 /* SF-UI-Text-SemiboldItalic.otf */; };
 		77E5C9D11C575A4400E6CD4F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E5C9D01C575A4400E6CD4F /* LoginViewController.m */; };
 		77F2E8721C57552700DFA74E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F2E8711C57552700DFA74E /* main.m */; };
 		77F2E8751C57552700DFA74E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F2E8741C57552700DFA74E /* AppDelegate.m */; };
@@ -58,6 +79,27 @@
 		7724C4D71C5E931700267097 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7724C4DA1C60FEB100267097 /* LNBRippleEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNBRippleEffect.h; sourceTree = "<group>"; };
 		7724C4DB1C60FEB100267097 /* LNBRippleEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNBRippleEffect.m; sourceTree = "<group>"; };
+		7724C4E41C6117C100267097 /* SF-UI-Display-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Black.otf"; sourceTree = "<group>"; };
+		7724C4E51C6117C100267097 /* SF-UI-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Bold.otf"; sourceTree = "<group>"; };
+		7724C4E61C6117C100267097 /* SF-UI-Display-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Heavy.otf"; sourceTree = "<group>"; };
+		7724C4E71C6117C100267097 /* SF-UI-Display-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Light.otf"; sourceTree = "<group>"; };
+		7724C4E81C6117C100267097 /* SF-UI-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Medium.otf"; sourceTree = "<group>"; };
+		7724C4E91C6117C100267097 /* SF-UI-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Regular.otf"; sourceTree = "<group>"; };
+		7724C4EA1C6117C100267097 /* SF-UI-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Semibold.otf"; sourceTree = "<group>"; };
+		7724C4EB1C6117C100267097 /* SF-UI-Display-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Thin.otf"; sourceTree = "<group>"; };
+		7724C4EC1C6117C100267097 /* SF-UI-Display-Ultralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Ultralight.otf"; sourceTree = "<group>"; };
+		7724C4ED1C6117C100267097 /* SF-UI-Text-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Bold.otf"; sourceTree = "<group>"; };
+		7724C4EE1C6117C100267097 /* SF-UI-Text-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-BoldItalic.otf"; sourceTree = "<group>"; };
+		7724C4EF1C6117C100267097 /* SF-UI-Text-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Heavy.otf"; sourceTree = "<group>"; };
+		7724C4F01C6117C100267097 /* SF-UI-Text-HeavyItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-HeavyItalic.otf"; sourceTree = "<group>"; };
+		7724C4F11C6117C100267097 /* SF-UI-Text-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Light.otf"; sourceTree = "<group>"; };
+		7724C4F21C6117C100267097 /* SF-UI-Text-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-LightItalic.otf"; sourceTree = "<group>"; };
+		7724C4F31C6117C100267097 /* SF-UI-Text-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Medium.otf"; sourceTree = "<group>"; };
+		7724C4F41C6117C100267097 /* SF-UI-Text-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-MediumItalic.otf"; sourceTree = "<group>"; };
+		7724C4F51C6117C100267097 /* SF-UI-Text-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Regular.otf"; sourceTree = "<group>"; };
+		7724C4F61C6117C100267097 /* SF-UI-Text-RegularItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-RegularItalic.otf"; sourceTree = "<group>"; };
+		7724C4F71C6117C100267097 /* SF-UI-Text-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Semibold.otf"; sourceTree = "<group>"; };
+		7724C4F81C6117C100267097 /* SF-UI-Text-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-SemiboldItalic.otf"; sourceTree = "<group>"; };
 		77E5C9CF1C575A4400E6CD4F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		77E5C9D01C575A4400E6CD4F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		77E5C9D21C575CBE00E6CD4F /* flipper-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "flipper-Prefix.pch"; sourceTree = "<group>"; };
@@ -123,6 +165,42 @@
 				7724C4DB1C60FEB100267097 /* LNBRippleEffect.m */,
 			);
 			path = LNBRippleEffect;
+			sourceTree = "<group>";
+		};
+		7724C4E11C6117C100267097 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				7724C4E21C6117C100267097 /* SF-UI */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		7724C4E21C6117C100267097 /* SF-UI */ = {
+			isa = PBXGroup;
+			children = (
+				7724C4E41C6117C100267097 /* SF-UI-Display-Black.otf */,
+				7724C4E51C6117C100267097 /* SF-UI-Display-Bold.otf */,
+				7724C4E61C6117C100267097 /* SF-UI-Display-Heavy.otf */,
+				7724C4E71C6117C100267097 /* SF-UI-Display-Light.otf */,
+				7724C4E81C6117C100267097 /* SF-UI-Display-Medium.otf */,
+				7724C4E91C6117C100267097 /* SF-UI-Display-Regular.otf */,
+				7724C4EA1C6117C100267097 /* SF-UI-Display-Semibold.otf */,
+				7724C4EB1C6117C100267097 /* SF-UI-Display-Thin.otf */,
+				7724C4EC1C6117C100267097 /* SF-UI-Display-Ultralight.otf */,
+				7724C4ED1C6117C100267097 /* SF-UI-Text-Bold.otf */,
+				7724C4EE1C6117C100267097 /* SF-UI-Text-BoldItalic.otf */,
+				7724C4EF1C6117C100267097 /* SF-UI-Text-Heavy.otf */,
+				7724C4F01C6117C100267097 /* SF-UI-Text-HeavyItalic.otf */,
+				7724C4F11C6117C100267097 /* SF-UI-Text-Light.otf */,
+				7724C4F21C6117C100267097 /* SF-UI-Text-LightItalic.otf */,
+				7724C4F31C6117C100267097 /* SF-UI-Text-Medium.otf */,
+				7724C4F41C6117C100267097 /* SF-UI-Text-MediumItalic.otf */,
+				7724C4F51C6117C100267097 /* SF-UI-Text-Regular.otf */,
+				7724C4F61C6117C100267097 /* SF-UI-Text-RegularItalic.otf */,
+				7724C4F71C6117C100267097 /* SF-UI-Text-Semibold.otf */,
+				7724C4F81C6117C100267097 /* SF-UI-Text-SemiboldItalic.otf */,
+			);
+			path = "SF-UI";
 			sourceTree = "<group>";
 		};
 		77E5C9CB1C57572A00E6CD4F /* Categories */ = {
@@ -213,6 +291,7 @@
 		77F2E8701C57552700DFA74E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7724C4E11C6117C100267097 /* Fonts */,
 				77F2E8711C57552700DFA74E /* main.m */,
 			);
 			name = "Supporting Files";
@@ -339,10 +418,31 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7724C5031C6117C100267097 /* SF-UI-Text-Bold.otf in Resources */,
+				7724C4FB1C6117C100267097 /* SF-UI-Display-Bold.otf in Resources */,
+				7724C5081C6117C100267097 /* SF-UI-Text-LightItalic.otf in Resources */,
+				7724C5051C6117C100267097 /* SF-UI-Text-Heavy.otf in Resources */,
+				7724C5061C6117C100267097 /* SF-UI-Text-HeavyItalic.otf in Resources */,
 				77F2E8801C57552800DFA74E /* LaunchScreen.storyboard in Resources */,
+				7724C50C1C6117C100267097 /* SF-UI-Text-RegularItalic.otf in Resources */,
+				7724C4FE1C6117C100267097 /* SF-UI-Display-Medium.otf in Resources */,
 				77F2E87D1C57552800DFA74E /* Assets.xcassets in Resources */,
+				7724C4FA1C6117C100267097 /* SF-UI-Display-Black.otf in Resources */,
+				7724C50A1C6117C100267097 /* SF-UI-Text-MediumItalic.otf in Resources */,
+				7724C50E1C6117C100267097 /* SF-UI-Text-SemiboldItalic.otf in Resources */,
+				7724C50B1C6117C100267097 /* SF-UI-Text-Regular.otf in Resources */,
+				7724C4FD1C6117C100267097 /* SF-UI-Display-Light.otf in Resources */,
 				77F2E87B1C57552700DFA74E /* Main.storyboard in Resources */,
+				7724C5091C6117C100267097 /* SF-UI-Text-Medium.otf in Resources */,
+				7724C5011C6117C100267097 /* SF-UI-Display-Thin.otf in Resources */,
+				7724C5041C6117C100267097 /* SF-UI-Text-BoldItalic.otf in Resources */,
+				7724C5001C6117C100267097 /* SF-UI-Display-Semibold.otf in Resources */,
+				7724C4FF1C6117C100267097 /* SF-UI-Display-Regular.otf in Resources */,
+				7724C5021C6117C100267097 /* SF-UI-Display-Ultralight.otf in Resources */,
 				5460B5111C59439000D9E92E /* Intro.storyboard in Resources */,
+				7724C4FC1C6117C100267097 /* SF-UI-Display-Heavy.otf in Resources */,
+				7724C5071C6117C100267097 /* SF-UI-Text-Light.otf in Resources */,
+				7724C50D1C6117C100267097 /* SF-UI-Text-Semibold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
