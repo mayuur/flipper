@@ -28,6 +28,9 @@
                     <rect key="frame" x="65" y="22" width="510" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="eZV-R9-m29"/>
+                    </connections>
                 </textField>
                 <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UxZ-aa-ldu">
                     <rect key="frame" x="0.0" y="59" width="600" height="1"/>
