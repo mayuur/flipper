@@ -147,6 +147,9 @@
                                         <state key="normal" title="Forgot Password">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="forgotClicked:" destination="MZs-GQ-LXf" eventType="touchUpInside" id="QjT-pb-zs7"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GGF-GP-ZGb">
                                         <rect key="frame" x="0.0" y="472" width="600" height="60"/>
@@ -181,14 +184,34 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="F7C-jd-Qqe"/>
                                         </constraints>
-                                        <state key="normal" title="Login With Facebook">
+                                        <inset key="imageEdgeInsets" minX="-100" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="Login with Facebook" image="iconFacebook">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AX9-to-hbf" customClass="IntroButton">
+                                        <rect key="frame" x="0.0" y="100" width="600" height="60"/>
+                                        <color key="backgroundColor" red="0.29803921568627451" green="0.6705882352941176" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="S7w-bC-IEZ"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="-120" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="Login with Twitter" image="iconTwitter">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or with email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4i1-9t-vhe">
+                                        <rect key="frame" x="251" y="184" width="98" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.67450980390000004" green="0.63529411759999999" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="AX9-to-hbf" secondAttribute="trailing" id="0R6-si-o1B"/>
                                     <constraint firstItem="eIO-Mj-YlV" firstAttribute="top" secondItem="jKv-IP-DwY" secondAttribute="top" constant="230" id="3sE-Nr-MEc"/>
                                     <constraint firstAttribute="trailing" secondItem="umP-d5-dWI" secondAttribute="trailing" id="4zM-t2-3sB"/>
+                                    <constraint firstItem="4i1-9t-vhe" firstAttribute="centerX" secondItem="AX9-to-hbf" secondAttribute="centerX" id="9fd-fd-zyn"/>
                                     <constraint firstItem="GGF-GP-ZGb" firstAttribute="leading" secondItem="jKv-IP-DwY" secondAttribute="leading" id="BpV-Yt-hiS"/>
                                     <constraint firstItem="2bX-EF-OXh" firstAttribute="top" secondItem="umP-d5-dWI" secondAttribute="bottom" constant="10" id="IjE-VO-MtW"/>
                                     <constraint firstItem="4Rd-cq-eNc" firstAttribute="top" secondItem="jKv-IP-DwY" secondAttribute="top" constant="20" id="Jwh-mB-NLG"/>
@@ -202,9 +225,12 @@
                                     <constraint firstAttribute="bottom" secondItem="l4t-Fa-B3s" secondAttribute="bottom" constant="25" id="fYR-N8-DNG"/>
                                     <constraint firstAttribute="trailing" secondItem="2bX-EF-OXh" secondAttribute="trailing" constant="20" id="gwg-wt-zWA"/>
                                     <constraint firstItem="4Rd-cq-eNc" firstAttribute="leading" secondItem="jKv-IP-DwY" secondAttribute="leading" id="jHn-SY-T6L"/>
+                                    <constraint firstItem="4i1-9t-vhe" firstAttribute="top" secondItem="AX9-to-hbf" secondAttribute="bottom" constant="24" id="mdl-UF-jTq"/>
+                                    <constraint firstItem="AX9-to-hbf" firstAttribute="leading" secondItem="jKv-IP-DwY" secondAttribute="leading" id="nYE-a7-KGY"/>
                                     <constraint firstAttribute="trailing" secondItem="4Rd-cq-eNc" secondAttribute="trailing" id="pCO-5V-vA7"/>
                                     <constraint firstItem="GGF-GP-ZGb" firstAttribute="top" secondItem="2bX-EF-OXh" secondAttribute="bottom" constant="82" id="rlY-Bk-WyB"/>
                                     <constraint firstItem="l4t-Fa-B3s" firstAttribute="top" secondItem="GGF-GP-ZGb" secondAttribute="bottom" constant="20" id="sTL-M1-g9i"/>
+                                    <constraint firstItem="AX9-to-hbf" firstAttribute="top" secondItem="4Rd-cq-eNc" secondAttribute="bottom" constant="20" id="vTI-XY-unB"/>
                                     <constraint firstItem="eIO-Mj-YlV" firstAttribute="leading" secondItem="jKv-IP-DwY" secondAttribute="leading" id="w3b-4v-gT9"/>
                                 </constraints>
                             </scrollView>
@@ -305,17 +331,51 @@
                                             <action selector="loginClicked:" destination="pGD-ei-BPr" eventType="touchUpInside" id="dhe-AJ-SQd"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Th3-RN-m3i" customClass="IntroButton">
+                                        <rect key="frame" x="0.0" y="20" width="600" height="60"/>
+                                        <color key="backgroundColor" red="0.21960784310000001" green="0.33725490200000002" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="9KX-19-gM9"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="-100" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="Sign Up with Facebook" image="iconFacebook">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4dJ-B6-4Fw" customClass="IntroButton">
+                                        <rect key="frame" x="0.0" y="100" width="600" height="60"/>
+                                        <color key="backgroundColor" red="0.29803921570000003" green="0.6705882353" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="KlY-Gh-k8T"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="-120" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="Sign Up with Twitter" image="iconTwitter">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or with email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBd-i3-nHB">
+                                        <rect key="frame" x="251" y="184" width="98" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.67450980392156867" green="0.63529411764705879" blue="0.63529411764705879" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="4dJ-B6-4Fw" firstAttribute="top" secondItem="Th3-RN-m3i" secondAttribute="bottom" constant="20" id="25o-dB-8nU"/>
+                                    <constraint firstItem="Th3-RN-m3i" firstAttribute="top" secondItem="etM-pB-qBo" secondAttribute="top" constant="20" id="452-wn-wAn"/>
                                     <constraint firstAttribute="trailing" secondItem="edf-6g-9iK" secondAttribute="trailing" id="7Lg-DB-QFa"/>
                                     <constraint firstItem="3Ck-BZ-hGF" firstAttribute="top" secondItem="2SJ-du-Tgx" secondAttribute="bottom" id="9Rc-is-XyI"/>
                                     <constraint firstItem="edf-6g-9iK" firstAttribute="leading" secondItem="etM-pB-qBo" secondAttribute="leading" id="A16-bU-DOU"/>
                                     <constraint firstAttribute="bottom" secondItem="Mcd-gJ-UGE" secondAttribute="bottom" constant="25" id="CMR-tt-uDc"/>
                                     <constraint firstItem="H5G-Gd-hST" firstAttribute="leading" secondItem="etM-pB-qBo" secondAttribute="leading" id="CVW-Fr-7mY"/>
                                     <constraint firstItem="Mcd-gJ-UGE" firstAttribute="top" secondItem="H5G-Gd-hST" secondAttribute="bottom" constant="20" id="I7L-vO-Wch"/>
+                                    <constraint firstItem="IBd-i3-nHB" firstAttribute="top" secondItem="4dJ-B6-4Fw" secondAttribute="bottom" constant="24" id="KQZ-lU-DAx"/>
                                     <constraint firstAttribute="trailing" secondItem="3Ck-BZ-hGF" secondAttribute="trailing" id="PEo-ri-mJG"/>
                                     <constraint firstItem="H5G-Gd-hST" firstAttribute="top" secondItem="3Ck-BZ-hGF" secondAttribute="bottom" constant="65" id="R7g-TV-UGT"/>
                                     <constraint firstAttribute="trailing" secondItem="2SJ-du-Tgx" secondAttribute="trailing" id="RxL-03-2hj"/>
+                                    <constraint firstItem="IBd-i3-nHB" firstAttribute="centerX" secondItem="4dJ-B6-4Fw" secondAttribute="centerX" id="SoZ-bf-Dck"/>
+                                    <constraint firstAttribute="trailing" secondItem="4dJ-B6-4Fw" secondAttribute="trailing" id="aHL-pi-cyv"/>
+                                    <constraint firstAttribute="trailing" secondItem="Th3-RN-m3i" secondAttribute="trailing" id="dXu-of-CrE"/>
                                     <constraint firstAttribute="trailing" secondItem="H5G-Gd-hST" secondAttribute="trailing" id="fr8-H9-pC1"/>
                                     <constraint firstItem="2SJ-du-Tgx" firstAttribute="leading" secondItem="etM-pB-qBo" secondAttribute="leading" id="l8q-hf-vjA"/>
                                     <constraint firstItem="2SJ-du-Tgx" firstAttribute="top" secondItem="edf-6g-9iK" secondAttribute="bottom" id="mmo-8x-ehW"/>
@@ -325,6 +385,8 @@
                                     <constraint firstItem="Ig4-Em-PQw" firstAttribute="leading" secondItem="Mcd-gJ-UGE" secondAttribute="trailing" constant="8" id="tdK-Fy-9nq"/>
                                     <constraint firstItem="Ig4-Em-PQw" firstAttribute="centerY" secondItem="Mcd-gJ-UGE" secondAttribute="centerY" id="tvp-2c-Z0T"/>
                                     <constraint firstItem="Mcd-gJ-UGE" firstAttribute="centerX" secondItem="H5G-Gd-hST" secondAttribute="centerX" constant="-30" id="uZJ-Xj-gC2"/>
+                                    <constraint firstItem="Th3-RN-m3i" firstAttribute="leading" secondItem="etM-pB-qBo" secondAttribute="leading" id="vz9-RL-TMP"/>
+                                    <constraint firstItem="4dJ-B6-4Fw" firstAttribute="leading" secondItem="etM-pB-qBo" secondAttribute="leading" id="yrm-FN-kci"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -353,4 +415,8 @@
             <point key="canvasLocation" x="1894" y="537"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="iconFacebook" width="38" height="38"/>
+        <image name="iconTwitter" width="38" height="32"/>
+    </resources>
 </document>

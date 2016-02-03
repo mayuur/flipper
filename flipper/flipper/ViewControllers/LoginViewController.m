@@ -92,6 +92,28 @@
     }
     [UIView commitAnimations];
 }
+- (IBAction)forgotClicked:(UIButton *)sender {
+    UIAlertAction *actionOk = [UIAlertAction actionWithTitle:@"OK"
+                                             style:UIAlertActionStyleDefault
+                                           handler:nil];
+    
+    UIAlertAction *actionCancel = [UIAlertAction actionWithTitle:@"Cancel"
+                                                       style:UIAlertActionStyleCancel
+                                                     handler:nil];
+    actionOk.enabled = NO;
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Forgot Password" message:@"Enter your email"
+                                                                 preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        
+        textField.delegate = self;
+    }];
+    
+    [alertController addAction:actionOk];
+    [alertController addAction:actionCancel];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
