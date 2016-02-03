@@ -728,7 +728,7 @@
 				GCC_PREFIX_HEADER = "flipper/flipper-Prefix.pch";
 				INFOPLIST_FILE = flipper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.flipper;
+				PRODUCT_BUNDLE_IDENTIFIER = co.getflipper.flipper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "53d59169-a8a1-4c31-af9a-ec4364e7ae11";
 			};
@@ -744,7 +744,7 @@
 				GCC_PREFIX_HEADER = "flipper/flipper-Prefix.pch";
 				INFOPLIST_FILE = flipper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.flipper;
+				PRODUCT_BUNDLE_IDENTIFIER = co.getflipper.flipper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "53d59169-a8a1-4c31-af9a-ec4364e7ae11";
 			};
@@ -754,10 +754,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Aditya Chhabra (T9J6HA2A46)";
 				INFOPLIST_FILE = flipperTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.flipperTests;
+				PRODUCT_BUNDLE_IDENTIFIER = co.getflipper.flipper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "53d59169-a8a1-4c31-af9a-ec4364e7ae11";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/flipper.app/flipper";
 			};
 			name = Debug;
@@ -766,10 +768,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Aditya Chhabra (T9J6HA2A46)";
 				INFOPLIST_FILE = flipperTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.flipperTests;
+				PRODUCT_BUNDLE_IDENTIFIER = co.getflipper.flipper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "53d59169-a8a1-4c31-af9a-ec4364e7ae11";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/flipper.app/flipper";
 			};
 			name = Release;
@@ -777,10 +781,12 @@
 		77F2E8A11C57552900DFA74E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Aditya Chhabra (T9J6HA2A46)";
 				INFOPLIST_FILE = flipperUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.flipperUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = co.getflipper.flipper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "53d59169-a8a1-4c31-af9a-ec4364e7ae11";
 				TEST_TARGET_NAME = flipper;
 				USES_XCTRUNNER = YES;
 			};
@@ -789,10 +795,12 @@
 		77F2E8A21C57552900DFA74E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Aditya Chhabra (T9J6HA2A46)";
 				INFOPLIST_FILE = flipperUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.flipperUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = co.getflipper.flipper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "53d59169-a8a1-4c31-af9a-ec4364e7ae11";
 				TEST_TARGET_NAME = flipper;
 				USES_XCTRUNNER = YES;
 			};
