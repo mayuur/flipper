@@ -36,11 +36,11 @@
     [_textViewEmail.imageView setImage:[UIImage imageNamed:@"iconEmail"]];
     
     [_textViewPassword.textField setPlaceholder:@"Password"];
+    [_textViewPassword.textField setSecureTextEntry:YES];
     [_textViewPassword.imageView setImage:[UIImage imageNamed:@"iconPassword"]];
     
     _buttonFacebook = [[IntroButton alloc]initWithFrame:CGRectMake(0, 50, CGRectGetWidth(self.view.frame), 60.0f)];
     [_buttonFacebook.imageViewButton setImage:[UIImage imageNamed:@"iconFacebook"]];
-    
 }
 
 
