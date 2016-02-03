@@ -19,15 +19,7 @@
 
 @implementation PageWalkthrough
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
-
-- (instancetype) initWithFrame:(CGRect)frame text:(NSString* ) descriptionText backgroundImage: (NSString* ) imageName logoImage:(NSString* ) logoImageName withLogoRadius: (int) logoRadius {
+- (instancetype) initWithFrame:(CGRect)frame text:(NSString* ) descriptionText backgroundImage: (NSString* ) imageName logoImage:(NSString* ) logoImageName withLogoRadius: (int) logoRadius logoAbove: (BOOL) logoIsAbove {
     if(self == [super initWithFrame:frame]) {
         
         //add BackgroundImageView
@@ -37,7 +29,9 @@
         [self addSubview:self.imageViewBackground];
         
         //add TextView
-        self.textViewDescription = [[UITextView alloc] initWithFrame:CGRectMake(0, 100, CGRectGetWidth(frame), 60)];
+        self.textViewDescription = [[UITextView alloc] initWithFrame:CGRectMake(10, 100, CGRectGetWidth(frame) - 20, 100)];
+        self.textViewDescription.textColor = [UIColor whiteColor];
+        self.textViewDescription.font = [UIFont fontWithName:@"SFUIText-Regular" size:21];
         self.textViewDescription.editable = NO;
         self.textViewDescription.textAlignment = NSTextAlignmentCenter;
         self.textViewDescription.text = descriptionText;
@@ -45,19 +39,26 @@
         [self addSubview:self.textViewDescription];
         
         //add LogoImageView at centre... this also contains the ripple effect
-        //CGRectMake(CGRectGetWidth(frame)/2 - logoSize.width/2, 300, logoSize.width, logoSize.height) Color:[UIColor blackColor]
-
         self.imageViewLogo = [[LNBRippleEffect alloc] initWithImage:[UIImage imageNamed:logoImageName] Frame:CGRectMake(CGRectGetWidth(frame)/2 - logoRadius/2, 300, logoRadius, logoRadius) Color:[UIColor blackColor] Target:@selector(buttonTapped:) ID:self];
         [self.imageViewLogo setRippleTrailColor:[UIColor colorWithWhite:0.9 alpha:1]];
         [self.imageViewLogo setRippleColor:[UIColor whiteColor]];
         [self addSubview:self.imageViewLogo];
         
-        //self.imageViewLogo.layer.cornerRadius = logoRadius;
-        //self.imageViewLogo.contentMode = UIViewContentModeScaleAspectFit;
-
+        //set UI according to "logoIsAbove" flag
+        CGRect logoFrame = self.imageViewLogo.frame;
+        CGRect textViewFrame = self.textViewDescription.frame;
+        if(logoIsAbove) {
+            self.imageViewLogo.center = self.center;
+            textViewFrame.origin.y = CGRectGetMaxY(self.imageViewLogo.frame) + 100;
+            self.textViewDescription.frame = textViewFrame;
+        }
     }
     
     return self;
+}
+
+- (void) buttonTapped : (id) sender {
+    
 }
 
 @end

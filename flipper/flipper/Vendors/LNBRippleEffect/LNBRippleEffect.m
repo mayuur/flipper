@@ -43,7 +43,7 @@
     buttonImage = [[UIImageView alloc]initWithImage:image];
     buttonImage.contentMode = UIViewContentModeScaleAspectFit;
     buttonImage.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
-    buttonImage.backgroundColor = [UIColor blackColor];
+    buttonImage.backgroundColor = [UIColor clearColor];
     //buttonImage.layer.borderColor = [UIColor clearColor].CGColor;
     //buttonImage.layer.borderWidth = 3;
     buttonImage.clipsToBounds = YES;
@@ -140,7 +140,7 @@
 -(void)buttonTapped:(id)sender {
     CGRect pathFrame = CGRectMake(-CGRectGetMidX(self.bounds), -CGRectGetMidY(self.bounds), self.bounds.size.width, self.bounds.size.height);
     UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:pathFrame cornerRadius:self.layer.cornerRadius];
-    CGPoint shapePosition = [self convertPoint:self.center fromView:nil];
+    CGPoint shapePosition = [self convertPoint:CGPointMake(self.center.x+100, self.center.y+100) fromView:nil];
     
         CAShapeLayer *circleShape = [CAShapeLayer layer];
         circleShape.path = path.CGPath;
