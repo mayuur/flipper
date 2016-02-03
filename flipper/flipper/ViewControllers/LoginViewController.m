@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "IntroHeaderView.h"
 #import "IntroTextView.h"
+#import "IntroButton.h"
 
 @interface LoginViewController()
 
@@ -16,6 +17,8 @@
 
 @property (weak, nonatomic) IBOutlet IntroTextView *textViewEmail;
 @property (weak, nonatomic) IBOutlet IntroTextView *textViewPassword;
+
+@property (strong, nonatomic) IBOutlet IntroButton *buttonFacebook;
 
 @end
 
@@ -32,7 +35,11 @@
     [_textViewPassword.textField setPlaceholder:@"Password"];
     [_textViewPassword.imageView setImage:[UIImage imageNamed:@"iconPassword"]];
     
+    _buttonFacebook = [[IntroButton alloc]initWithFrame:CGRectMake(0, 50, CGRectGetWidth(self.view.frame), 60.0f)];
+    [_buttonFacebook.imageViewButton setImage:[UIImage imageNamed:@"iconFacebook"]];
+    
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

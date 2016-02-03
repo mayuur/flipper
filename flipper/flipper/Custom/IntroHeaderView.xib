@@ -3,10 +3,12 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IntroHeaderView">
             <connections>
+                <outlet property="buttonHeader" destination="Adq-yf-glw" id="u5y-eG-xJY"/>
                 <outlet property="labelHeaderTitle" destination="9Uu-55-Npk" id="dPQ-4y-hsF"/>
             </connections>
         </placeholder>
@@ -21,10 +23,20 @@
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Adq-yf-glw">
+                    <rect key="frame" x="12" y="20" width="25" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="25" id="3Ux-cz-Xkv"/>
+                        <constraint firstAttribute="width" secondItem="Adq-yf-glw" secondAttribute="height" multiplier="1:1" id="cbs-Q2-FAs"/>
+                    </constraints>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="Adq-yf-glw" firstAttribute="centerY" secondItem="9Uu-55-Npk" secondAttribute="centerY" id="9Jf-2w-L5S"/>
                 <constraint firstItem="9Uu-55-Npk" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="B9E-9q-FLM"/>
+                <constraint firstItem="Adq-yf-glw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="Fd6-V9-YCa"/>
                 <constraint firstItem="9Uu-55-Npk" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="f4x-U0-qLJ"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

@@ -11,5 +11,6 @@
 @interface IntroHeaderView : UIView
 
 @property (weak, nonatomic) IBOutlet UILabel *labelHeaderTitle;
+@property (weak, nonatomic) IBOutlet UIButton *buttonHeader;
 
 @end

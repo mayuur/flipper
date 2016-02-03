@@ -31,6 +31,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [_signUpHeaderView.labelHeaderTitle setText:@"Sign Up"];
+    [_signUpHeaderView.buttonHeader setImage:[UIImage imageNamed:@"iconBack"] forState:UIControlStateNormal];
+    [_signUpHeaderView.buttonHeader addTarget:self action:@selector(loginClicked:) forControlEvents:UIControlEventTouchUpInside];
     
     [_textViewName.textField setPlaceholder:@"Name"];
     [_textViewName.imageView setImage:[UIImage imageNamed:@"iconName"]];
@@ -122,6 +124,11 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Button Actions
+- (IBAction)loginClicked:(UIButton *)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 /*
