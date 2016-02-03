@@ -37,16 +37,14 @@
     [page1 setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.scrollView addSubview:page1];
     
-    
-    
-    PageWalkthrough* page2 = [[PageWalkthrough alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.view.frame), 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)) text:@"Follow multiple timelines from Facebook, Twitter, Vine, Instagram, Youtube and more" backgroundImage:@"WalkthroughPage2" logoImage:@"logoPlus" withLogoRadius:105];
+    PageWalkthrough* page2 = [[PageWalkthrough alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.view.frame), 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)) text:@"Follow multiple timelines from Facebook, Twitter, Vine, Instagram, Youtube and more" backgroundImage:@"WalkthroughPage2" logoImage:@"logoPlus" withLogoRadius:55];
     [page2 setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.scrollView addSubview:page2];
     
-    PageWalkthrough* page3 = [[PageWalkthrough alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.view.frame) * 2, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)) text:@"Instantly follow your favorite celebrities, influencers and interests" backgroundImage:@"WalkthroughPage3" logoImage:@"logoPlus" withLogoRadius:105];
+    PageWalkthrough* page3 = [[PageWalkthrough alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.view.frame) * 2, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)) text:@"Instantly follow your favorite celebrities, influencers and interests" backgroundImage:@"WalkthroughPage3" logoImage:@"logoPlus" withLogoRadius:55];
     [page3 setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.scrollView addSubview:page3];
-    
+
     self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.view.frame)*3, CGRectGetHeight(self.scrollView.frame));
     
     self.pageControl.numberOfPages = 3;

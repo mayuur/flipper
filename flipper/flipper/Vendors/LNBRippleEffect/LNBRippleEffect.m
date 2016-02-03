@@ -55,10 +55,11 @@
     //self.layer.borderWidth = 5;
     //self.layer.borderColor = bordercolor.CGColor;
     
-    backgroundView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
+    backgroundView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width+200, frame.size.height+200)];
     backgroundView.center = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
-    backgroundView.backgroundColor = [UIColor redColor];
-    backgroundView.layer.cornerRadius = self.frame.size.height/2;
+    backgroundView.clipsToBounds = YES;
+    backgroundView.backgroundColor = [UIColor clearColor];
+    backgroundView.layer.cornerRadius = (self.frame.size.height+200)/2;
     [self addSubview:backgroundView];
     [self sendSubviewToBack:backgroundView];
     
@@ -105,13 +106,42 @@
     rippleTrailColor = color;
 }
 
--(void)buttonTapped:(id)sender {
-        CGRect pathFrame = CGRectMake(-CGRectGetMidX(self.bounds), -CGRectGetMidY(self.bounds), self.bounds.size.width, self.bounds.size.height);
-        UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:pathFrame cornerRadius:self.layer.cornerRadius];
-        
+-(void)continuoousripples
+{
+    CGRect pathFrame = CGRectMake(-CGRectGetMidX(self.bounds), -CGRectGetMidY(self.bounds), self.bounds.size.width, self.bounds.size.height);
+    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:pathFrame cornerRadius:self.layer.cornerRadius];
+    CGPoint shapePosition = [self convertPoint:CGPointMake(self.center.x+100, self.center.y+100) fromView:nil];
     
-        CGPoint shapePosition = [self convertPoint:self.center fromView:nil];
-        
+    CAShapeLayer *circleShape = [CAShapeLayer layer];
+    circleShape.path = path.CGPath;
+    circleShape.position = shapePosition;
+    circleShape.fillColor = rippleTrailColor.CGColor;
+    circleShape.opacity = 0;
+    circleShape.strokeColor = rippleColor.CGColor;
+    circleShape.lineWidth = 2;
+    
+    [backgroundView.layer addSublayer:circleShape];
+    
+    CABasicAnimation *scaleAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    scaleAnimation.fromValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
+    scaleAnimation.toValue = [NSValue valueWithCATransform3D:CATransform3DMakeScale(2.5, 2.5, 1)];
+    
+    CABasicAnimation *alphaAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    alphaAnimation.fromValue = @1;
+    alphaAnimation.toValue = @0;
+    
+    CAAnimationGroup *animation = [CAAnimationGroup animation];
+    animation.animations = @[scaleAnimation, alphaAnimation];
+    animation.duration = 2.0f;
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+    [circleShape addAnimation:animation forKey:nil];
+}
+
+-(void)buttonTapped:(id)sender {
+    CGRect pathFrame = CGRectMake(-CGRectGetMidX(self.bounds), -CGRectGetMidY(self.bounds), self.bounds.size.width, self.bounds.size.height);
+    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:pathFrame cornerRadius:self.layer.cornerRadius];
+    CGPoint shapePosition = [self convertPoint:self.center fromView:nil];
+    
         CAShapeLayer *circleShape = [CAShapeLayer layer];
         circleShape.path = path.CGPath;
         circleShape.position = shapePosition;
@@ -156,37 +186,6 @@
         }];
         
     }];
-}
-
--(void)continuoousripples
-{
-    CGRect pathFrame = CGRectMake(-CGRectGetMidX(self.bounds), -CGRectGetMidY(self.bounds), self.bounds.size.width, self.bounds.size.height);
-    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:pathFrame cornerRadius:self.layer.cornerRadius];
-    CGPoint shapePosition = [self convertPoint:self.center fromView:nil];
-    
-    CAShapeLayer *circleShape = [CAShapeLayer layer];
-    circleShape.path = path.CGPath;
-    circleShape.position = shapePosition;
-    circleShape.fillColor = rippleTrailColor.CGColor;
-    circleShape.opacity = 0;
-    circleShape.strokeColor = rippleColor.CGColor;
-    circleShape.lineWidth = 2;
-    
-    [backgroundView.layer.superlayer insertSublayer:circleShape atIndex:0];//addSublayer:circleShape];
-    
-    CABasicAnimation *scaleAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
-    scaleAnimation.fromValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
-    scaleAnimation.toValue = [NSValue valueWithCATransform3D:CATransform3DMakeScale(2.5, 2.5, 1)];
-    
-    CABasicAnimation *alphaAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
-    alphaAnimation.fromValue = @1;
-    alphaAnimation.toValue = @0;
-    
-    CAAnimationGroup *animation = [CAAnimationGroup animation];
-    animation.animations = @[scaleAnimation, alphaAnimation];
-    animation.duration = 2.0f;
-    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
-    [circleShape addAnimation:animation forKey:nil];
 }
 
 @end
