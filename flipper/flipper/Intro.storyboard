@@ -124,7 +124,7 @@
                                     <constraint firstAttribute="height" constant="64" id="MZN-g8-g6m"/>
                                 </constraints>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jKv-IP-DwY">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="jKv-IP-DwY">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="umP-d5-dWI" customClass="IntroTextView">
@@ -224,6 +224,7 @@
                     <connections>
                         <outlet property="buttonFacebook" destination="4Rd-cq-eNc" id="do2-ro-m8J"/>
                         <outlet property="loginHeaderView" destination="vGa-0Z-Edp" id="UJB-0l-AkN"/>
+                        <outlet property="scrollViewLogin" destination="jKv-IP-DwY" id="NTj-Kd-qo4"/>
                         <outlet property="textViewEmail" destination="eIO-Mj-YlV" id="5Sz-dN-6JT"/>
                         <outlet property="textViewPassword" destination="umP-d5-dWI" id="4GH-pu-DV3"/>
                     </connections>

@@ -21,8 +21,6 @@
 @property (weak, nonatomic) IBOutlet IntroTextView *textViewPassword;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollViewSignUp;
 
-@property (weak, nonatomic) IBOutlet UIView *viewSignUp;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *viewSignUpBottomConstraint;
 @end
 
 @implementation SignUpViewController
@@ -78,46 +76,21 @@
 
 -(void)keyboardWillShow {
     // Animate the current view out of the way
-    if (_viewSignUpBottomConstraint.constant < kOFFSET_FOR_KEYBOARD)
-    {
-        [self moveScrollViewUp:YES];
-    }
+   [self moveScrollViewUp:YES];
 }
 
 -(void)keyboardWillHide {
-    if (_viewSignUpBottomConstraint.constant >= kOFFSET_FOR_KEYBOARD)
-    {
-        [self moveScrollViewUp:NO];
-    }
-//    else if (_viewSignUpBottomConstraint.constant < kOFFSET_FOR_KEYBOARD)
-//    {
-//        [self moveScrollViewUp:YES];
-//    }
+    [self moveScrollViewUp:NO];
 }
 
 -(void)moveScrollViewUp:(BOOL)movedUp {
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.3]; // if you want to slide up the view
     
-    CGRect rect = _viewSignUp.frame;
     if (movedUp)
     {
-        // 1. move the view's origin up so that the text field that will be hidden come above the keyboard
-        // 2. increase the size of the view so that the area behind the keyboard is covered up.
-        _viewSignUpBottomConstraint.constant += kOFFSET_FOR_KEYBOARD;
         [_scrollViewSignUp setContentOffset:CGPointMake(0, kOFFSET_FOR_KEYBOARD) animated:YES];
-//        rect.origin.y -= kOFFSET_FOR_KEYBOARD;
-//        rect.size.height += kOFFSET_FOR_KEYBOARD;
     }
-    else
-    {
-        // revert back to the normal state.
-        _viewSignUpBottomConstraint.constant -= kOFFSET_FOR_KEYBOARD;
-//        rect.origin.y += kOFFSET_FOR_KEYBOARD;
-//        rect.size.height -= kOFFSET_FOR_KEYBOARD;
-    }
-    _viewSignUp.frame = rect;
-    NSLog(@"Frame:%@",_viewSignUp);
     [UIView commitAnimations];
 }
 
