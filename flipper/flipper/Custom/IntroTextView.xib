@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IntroTextView">
+            <connections>
+                <outlet property="imageView" destination="ONU-Bb-ryh" id="WVy-fl-aQn"/>
+                <outlet property="textField" destination="M0D-MG-d0j" id="1az-dl-1Fv"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ONU-Bb-ryh">
+                    <rect key="frame" x="25" y="18" width="25" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="EEP-vh-eQF"/>
+                        <constraint firstAttribute="width" secondItem="ONU-Bb-ryh" secondAttribute="height" multiplier="1:1" id="sbl-5z-9KG"/>
+                    </constraints>
+                </imageView>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M0D-MG-d0j">
+                    <rect key="frame" x="65" y="22" width="510" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UxZ-aa-ldu">
+                    <rect key="frame" x="0.0" y="59" width="600" height="1"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="pgn-rY-tUT"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="UxZ-aa-ldu" secondAttribute="bottom" id="OxZ-LF-Q3X"/>
+                <constraint firstItem="M0D-MG-d0j" firstAttribute="leading" secondItem="ONU-Bb-ryh" secondAttribute="trailing" constant="15" id="PZo-br-uVE"/>
+                <constraint firstItem="ONU-Bb-ryh" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="dSP-kH-Cal"/>
+                <constraint firstItem="M0D-MG-d0j" firstAttribute="centerY" secondItem="ONU-Bb-ryh" secondAttribute="centerY" id="jFq-Cx-s7S"/>
+                <constraint firstAttribute="trailing" secondItem="UxZ-aa-ldu" secondAttribute="trailing" id="sk3-tw-7gP"/>
+                <constraint firstAttribute="trailing" secondItem="M0D-MG-d0j" secondAttribute="trailing" constant="25" id="t6N-EJ-LXt"/>
+                <constraint firstItem="UxZ-aa-ldu" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="wUJ-kc-Oyr"/>
+                <constraint firstItem="ONU-Bb-ryh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="25" id="yma-XN-Jhz"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="543" y="200"/>
+        </view>
+    </objects>
+</document>
