@@ -261,10 +261,10 @@
 		77F2E8641C57552700DFA74E = {
 			isa = PBXGroup;
 			children = (
-				7724C4D71C5E931700267097 /* QuartzCore.framework */,
 				77F2E86F1C57552700DFA74E /* flipper */,
 				77F2E8891C57552800DFA74E /* flipperTests */,
 				77F2E8941C57552900DFA74E /* flipperUITests */,
+				7724C4D71C5E931700267097 /* QuartzCore.framework */,
 				77F2E86E1C57552700DFA74E /* Products */,
 			);
 			sourceTree = "<group>";
