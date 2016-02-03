@@ -724,11 +724,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Aditya Chhabra (T9J6HA2A46)";
 				GCC_PREFIX_HEADER = "flipper/flipper-Prefix.pch";
 				INFOPLIST_FILE = flipper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.flipper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "53d59169-a8a1-4c31-af9a-ec4364e7ae11";
 			};
 			name = Debug;
 		};
@@ -738,11 +740,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Aditya Chhabra (T9J6HA2A46)";
 				GCC_PREFIX_HEADER = "flipper/flipper-Prefix.pch";
 				INFOPLIST_FILE = flipper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.flipper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "53d59169-a8a1-4c31-af9a-ec4364e7ae11";
 			};
 			name = Release;
 		};
