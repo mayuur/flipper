@@ -10,10 +10,11 @@
 #import "IntroHeaderView.h"
 #import "IntroTextView.h"
 #import "IntroButton.h"
+#import <Parse/Parse.h>
 
 #define kOFFSET_FOR_KEYBOARD 180.0
 
-@interface LoginViewController()
+@interface LoginViewController() <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet IntroHeaderView *loginHeaderView;
 
@@ -92,15 +93,9 @@
     }
     [UIView commitAnimations];
 }
+
 - (IBAction)forgotClicked:(UIButton *)sender {
-    UIAlertAction *actionOk = [UIAlertAction actionWithTitle:@"OK"
-                                             style:UIAlertActionStyleDefault
-                                           handler:nil];
-    
-    UIAlertAction *actionCancel = [UIAlertAction actionWithTitle:@"Cancel"
-                                                       style:UIAlertActionStyleCancel
-                                                     handler:nil];
-    actionOk.enabled = NO;
+//    actionOk.enabled = NO;
     
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Forgot Password" message:@"Enter your email"
                                                                  preferredStyle:UIAlertControllerStyleAlert];
@@ -110,9 +105,43 @@
         textField.delegate = self;
     }];
     
+    UIAlertAction *actionOk = [UIAlertAction actionWithTitle:@"Submit"
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction * _Nonnull action) {
+                                                         [PFUser requestPasswordResetForEmailInBackground:alertController.textFields[0].text block:^(BOOL succeeded, NSError * _Nullable error) {
+                                                             if(succeeded) {
+                                                                 NSLog(@"email address found! sending an email for password reset");
+                                                                 [UIAlertView addDismissableAlertWithText:@"Sent an email for password reset!" OnController:self];
+                                                             }
+                                                             else {
+                                                                 NSLog(@"Error >> %@", [error localizedDescription]);
+                                                                 [UIAlertView addDismissableAlertWithText:[NSString stringWithFormat:@"Reset Password failed with error - %@", [error localizedDescription]] OnController:self];
+                                                             }
+                                                         }];
+                                                     }];
+    
+    UIAlertAction *actionCancel = [UIAlertAction actionWithTitle:@"Cancel"
+                                                           style:UIAlertActionStyleCancel
+                                                         handler:nil];
+
     [alertController addAction:actionOk];
     [alertController addAction:actionCancel];
     [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (IBAction)loginClicked:(id)sender {    
+    [PFUser logInWithUsernameInBackground:_textViewEmail.textField.text password:_textViewPassword.textField.text
+                                    block:^(PFUser *user, NSError *error) {
+                                      if (user) {
+                                          // Do stuff after successful login.
+                                          NSLog(@"user logged in!");
+                                          [UIAlertView addDismissableAlertWithText:@"User did login!" OnController:self];
+                                      }
+                                      else {
+                                          NSLog(@"Error >> %@", [error localizedDescription]);
+                                          [UIAlertView addDismissableAlertWithText:[NSString stringWithFormat:@"Login failed with error - %@", [error localizedDescription]] OnController:self];
+                                      }
+                                  }];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -9,6 +9,7 @@
 #import "SignUpViewController.h"
 #import "IntroHeaderView.h"
 #import "IntroTextView.h"
+#import <Parse/Parse.h>
 
 #define kOFFSET_FOR_KEYBOARD 180.0
 
@@ -102,6 +103,23 @@
 #pragma mark - Button Actions
 - (IBAction)loginClicked:(UIButton *)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)signUpClicked:(id)sender {
+    PFUser *user = [PFUser user];
+    user.username = _textViewEmail.textField.text;
+    user.password = _textViewPassword.textField.text;
+    
+    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if(succeeded) {
+            NSLog(@"user did sign up!");
+            [UIAlertView addDismissableAlertWithText:@"User did sign up!" OnController:self];
+        }
+        else {
+            NSLog(@"Error >> %@", [error localizedDescription]);
+            [UIAlertView addDismissableAlertWithText:[NSString stringWithFormat:@"Sign Up failed with error - %@", [error localizedDescription]] OnController:self];
+        }
+    }];
 }
 
 /*

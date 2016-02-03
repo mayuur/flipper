@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "Parse.h"
 
 @interface AppDelegate ()
 
@@ -35,6 +36,10 @@
     //setting status bar to white
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 
+    //setup Parse
+    [Parse setApplicationId:@"Su7pHG4D6hT0TJiVUcLyWcsAkPf22xt1jnLyjJtH"
+                  clientKey:@"rgScQGNkfLAZDeBFhXyhRd9APOhYEgk9pRgMBZqh"];
+    
     return YES;
 }
 

@@ -42,6 +42,7 @@
 		7724C50C1C6117C100267097 /* SF-UI-Text-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7724C4F61C6117C100267097 /* SF-UI-Text-RegularItalic.otf */; };
 		7724C50D1C6117C100267097 /* SF-UI-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7724C4F71C6117C100267097 /* SF-UI-Text-Semibold.otf */; };
 		7724C50E1C6117C100267097 /* SF-UI-Text-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7724C4F81C6117C100267097 /* SF-UI-Text-SemiboldItalic.otf */; };
+		777D2CE61C62AB12000FF4C8 /* UIAlertView+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 777D2CE51C62AB12000FF4C8 /* UIAlertView+Extra.m */; };
 		77E5C9D11C575A4400E6CD4F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E5C9D01C575A4400E6CD4F /* LoginViewController.m */; };
 		77F2E8721C57552700DFA74E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F2E8711C57552700DFA74E /* main.m */; };
 		77F2E8751C57552700DFA74E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F2E8741C57552700DFA74E /* AppDelegate.m */; };
@@ -114,6 +115,8 @@
 		7724C4F61C6117C100267097 /* SF-UI-Text-RegularItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-RegularItalic.otf"; sourceTree = "<group>"; };
 		7724C4F71C6117C100267097 /* SF-UI-Text-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Semibold.otf"; sourceTree = "<group>"; };
 		7724C4F81C6117C100267097 /* SF-UI-Text-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-SemiboldItalic.otf"; sourceTree = "<group>"; };
+		777D2CE41C62AB12000FF4C8 /* UIAlertView+Extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Extra.h"; sourceTree = "<group>"; };
+		777D2CE51C62AB12000FF4C8 /* UIAlertView+Extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Extra.m"; sourceTree = "<group>"; };
 		77E5C9CF1C575A4400E6CD4F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		77E5C9D01C575A4400E6CD4F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		77E5C9D21C575CBE00E6CD4F /* flipper-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "flipper-Prefix.pch"; sourceTree = "<group>"; };
@@ -245,6 +248,8 @@
 				7724C4D21C5E498A00267097 /* NSString+Validations.m */,
 				7724C4D41C5E4E7700267097 /* UIPageControl+Extra.h */,
 				7724C4D51C5E4E7700267097 /* UIPageControl+Extra.m */,
+				777D2CE41C62AB12000FF4C8 /* UIAlertView+Extra.h */,
+				777D2CE51C62AB12000FF4C8 /* UIAlertView+Extra.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -567,6 +572,7 @@
 			files = (
 				77E5C9D11C575A4400E6CD4F /* LoginViewController.m in Sources */,
 				5425EA901C62866000F1B8E4 /* IntroButton.m in Sources */,
+				777D2CE61C62AB12000FF4C8 /* UIAlertView+Extra.m in Sources */,
 				77F2E8781C57552700DFA74E /* ViewController.m in Sources */,
 				7724C4D31C5E498A00267097 /* NSString+Validations.m in Sources */,
 				7724C4DC1C60FEB100267097 /* LNBRippleEffect.m in Sources */,
