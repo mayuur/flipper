@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		5460B5111C59439000D9E92E /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5460B5101C59439000D9E92E /* Intro.storyboard */; };
+		54D3C2C31C61426600367C98 /* IntroHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D3C2C21C61426600367C98 /* IntroHeaderView.m */; };
+		54D3C2C51C61427E00367C98 /* IntroHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54D3C2C41C61427E00367C98 /* IntroHeaderView.xib */; };
+		54D3C2C81C6144F100367C98 /* IntroTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D3C2C71C6144F100367C98 /* IntroTextView.m */; };
+		54D3C2CA1C6144FE00367C98 /* IntroTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54D3C2C91C6144FE00367C98 /* IntroTextView.xib */; };
 		7712707E1C5BE7D50013DDD1 /* WalkthroughViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7712707D1C5BE7D50013DDD1 /* WalkthroughViewController.m */; };
 		7724C4CB1C5CF7CA00267097 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7724C4CA1C5CF7CA00267097 /* SignUpViewController.m */; };
 		7724C4D01C5D001C00267097 /* PageWalkthrough.m in Sources */ = {isa = PBXBuildFile; fileRef = 7724C4CF1C5D001C00267097 /* PageWalkthrough.m */; };
@@ -66,6 +70,12 @@
 
 /* Begin PBXFileReference section */
 		5460B5101C59439000D9E92E /* Intro.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Intro.storyboard; sourceTree = "<group>"; };
+		54D3C2C11C61426600367C98 /* IntroHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroHeaderView.h; sourceTree = "<group>"; };
+		54D3C2C21C61426600367C98 /* IntroHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroHeaderView.m; sourceTree = "<group>"; };
+		54D3C2C41C61427E00367C98 /* IntroHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroHeaderView.xib; sourceTree = "<group>"; };
+		54D3C2C61C6144F100367C98 /* IntroTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroTextView.h; sourceTree = "<group>"; };
+		54D3C2C71C6144F100367C98 /* IntroTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroTextView.m; sourceTree = "<group>"; };
+		54D3C2C91C6144FE00367C98 /* IntroTextView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroTextView.xib; sourceTree = "<group>"; };
 		7712707C1C5BE7D50013DDD1 /* WalkthroughViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalkthroughViewController.h; sourceTree = "<group>"; };
 		7712707D1C5BE7D50013DDD1 /* WalkthroughViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalkthroughViewController.m; sourceTree = "<group>"; };
 		7724C4C91C5CF7CA00267097 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
@@ -154,6 +164,12 @@
 			children = (
 				7724C4CE1C5D001C00267097 /* PageWalkthrough.h */,
 				7724C4CF1C5D001C00267097 /* PageWalkthrough.m */,
+				54D3C2C11C61426600367C98 /* IntroHeaderView.h */,
+				54D3C2C21C61426600367C98 /* IntroHeaderView.m */,
+				54D3C2C41C61427E00367C98 /* IntroHeaderView.xib */,
+				54D3C2C61C6144F100367C98 /* IntroTextView.h */,
+				54D3C2C71C6144F100367C98 /* IntroTextView.m */,
+				54D3C2C91C6144FE00367C98 /* IntroTextView.xib */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -420,6 +436,7 @@
 			files = (
 				7724C5031C6117C100267097 /* SF-UI-Text-Bold.otf in Resources */,
 				7724C4FB1C6117C100267097 /* SF-UI-Display-Bold.otf in Resources */,
+				54D3C2C51C61427E00367C98 /* IntroHeaderView.xib in Resources */,
 				7724C5081C6117C100267097 /* SF-UI-Text-LightItalic.otf in Resources */,
 				7724C5051C6117C100267097 /* SF-UI-Text-Heavy.otf in Resources */,
 				7724C5061C6117C100267097 /* SF-UI-Text-HeavyItalic.otf in Resources */,
@@ -438,6 +455,7 @@
 				7724C5041C6117C100267097 /* SF-UI-Text-BoldItalic.otf in Resources */,
 				7724C5001C6117C100267097 /* SF-UI-Display-Semibold.otf in Resources */,
 				7724C4FF1C6117C100267097 /* SF-UI-Display-Regular.otf in Resources */,
+				54D3C2CA1C6144FE00367C98 /* IntroTextView.xib in Resources */,
 				7724C5021C6117C100267097 /* SF-UI-Display-Ultralight.otf in Resources */,
 				5460B5111C59439000D9E92E /* Intro.storyboard in Resources */,
 				7724C4FC1C6117C100267097 /* SF-UI-Display-Heavy.otf in Resources */,
@@ -473,9 +491,11 @@
 				7724C4DC1C60FEB100267097 /* LNBRippleEffect.m in Sources */,
 				7724C4CB1C5CF7CA00267097 /* SignUpViewController.m in Sources */,
 				7724C4D01C5D001C00267097 /* PageWalkthrough.m in Sources */,
+				54D3C2C81C6144F100367C98 /* IntroTextView.m in Sources */,
 				77F2E8751C57552700DFA74E /* AppDelegate.m in Sources */,
 				7712707E1C5BE7D50013DDD1 /* WalkthroughViewController.m in Sources */,
 				7724C4D61C5E4E7700267097 /* UIPageControl+Extra.m in Sources */,
+				54D3C2C31C61426600367C98 /* IntroHeaderView.m in Sources */,
 				77F2E8721C57552700DFA74E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
