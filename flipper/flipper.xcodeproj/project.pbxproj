@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19D707415F000116F035CBFF /* libPods-flipper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98D4573266DDB06E38DF6914 /* libPods-flipper.a */; };
 		5425EA901C62866000F1B8E4 /* IntroButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5425EA8F1C62866000F1B8E4 /* IntroButton.m */; };
 		5460B5111C59439000D9E92E /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5460B5101C59439000D9E92E /* Intro.storyboard */; };
 		54D3C2C31C61426600367C98 /* IntroHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D3C2C21C61426600367C98 /* IntroHeaderView.m */; };
@@ -134,6 +135,9 @@
 		77F2E8911C57552800DFA74E /* flipperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = flipperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		77F2E8951C57552900DFA74E /* flipperUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = flipperUITests.m; sourceTree = "<group>"; };
 		77F2E8971C57552900DFA74E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		98D4573266DDB06E38DF6914 /* libPods-flipper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-flipper.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C816DE91E178DAC3E664CFE2 /* Pods-flipper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flipper.release.xcconfig"; path = "Pods/Target Support Files/Pods-flipper/Pods-flipper.release.xcconfig"; sourceTree = "<group>"; };
+		D55246B61275EAACC1B7D8FB /* Pods-flipper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flipper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-flipper/Pods-flipper.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7724C4D81C5E931700267097 /* QuartzCore.framework in Frameworks */,
+				19D707415F000116F035CBFF /* libPods-flipper.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,6 +167,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		38E5BFA2350BE5D026A65569 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D55246B61275EAACC1B7D8FB /* Pods-flipper.debug.xcconfig */,
+				C816DE91E178DAC3E664CFE2 /* Pods-flipper.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		7724C4CD1C5CFFF400267097 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
@@ -271,6 +285,8 @@
 				77F2E8941C57552900DFA74E /* flipperUITests */,
 				7724C4D71C5E931700267097 /* QuartzCore.framework */,
 				77F2E86E1C57552700DFA74E /* Products */,
+				38E5BFA2350BE5D026A65569 /* Pods */,
+				E8E3665BF8BE16E68253F51D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -336,6 +352,14 @@
 			path = flipperUITests;
 			sourceTree = "<group>";
 		};
+		E8E3665BF8BE16E68253F51D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				98D4573266DDB06E38DF6914 /* libPods-flipper.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -343,9 +367,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 77F2E89A1C57552900DFA74E /* Build configuration list for PBXNativeTarget "flipper" */;
 			buildPhases = (
+				EB1F4053F8BEF578AB85A1AB /* Check Pods Manifest.lock */,
 				77F2E8691C57552700DFA74E /* Sources */,
 				77F2E86A1C57552700DFA74E /* Frameworks */,
 				77F2E86B1C57552700DFA74E /* Resources */,
+				596AC6DFD6175EED6785C27F /* Embed Pods Frameworks */,
+				6B35CAF0B2B7F202E8183960 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -484,6 +511,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		596AC6DFD6175EED6785C27F /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-flipper/Pods-flipper-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6B35CAF0B2B7F202E8183960 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-flipper/Pods-flipper-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EB1F4053F8BEF578AB85A1AB /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		77F2E8691C57552700DFA74E /* Sources */ = {
@@ -639,6 +714,7 @@
 		};
 		77F2E89B1C57552900DFA74E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D55246B61275EAACC1B7D8FB /* Pods-flipper.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -652,6 +728,7 @@
 		};
 		77F2E89C1C57552900DFA74E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C816DE91E178DAC3E664CFE2 /* Pods-flipper.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
