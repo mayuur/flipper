@@ -168,11 +168,11 @@
     
     
     [UIView animateWithDuration:1.1 animations:^{
-        buttonImage.alpha = 0.4;
+        //buttonImage.alpha = 0.4;
         self.layer.borderColor = rippleColor.CGColor;
     }completion:^(BOOL finished) {
         [UIView animateWithDuration:2.2 animations:^{           //Edit animateWithDuration value to change ripple animtion time
-            buttonImage.alpha = 1;
+            //buttonImage.alpha = 1;
             self.layer.borderColor = rippleColor.CGColor;
         }completion:^(BOOL finished) {
             if([senderid respondsToSelector:selectedMethod]){
