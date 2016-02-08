@@ -10,7 +10,9 @@
 #import "IntroHeaderView.h"
 #import "IntroTextView.h"
 #import "IntroButton.h"
-#import <Parse/Parse.h>
+#import "Parse.h"
+#include "PFFacebookUtils.h"
+#include "NSString+Validations.h"
 
 #define kOFFSET_FOR_KEYBOARD 180.0
 
@@ -34,6 +36,7 @@
     [_loginHeaderView.labelHeaderTitle setText:@"Login"];
     
     [_textViewEmail.textField setPlaceholder:@"Email"];
+    [_textViewEmail.textField setKeyboardType:UIKeyboardTypeEmailAddress];
     [_textViewEmail.imageView setImage:[UIImage imageNamed:@"iconEmail"]];
     
     [_textViewPassword.textField setPlaceholder:@"Password"];
@@ -97,7 +100,7 @@
 - (IBAction)forgotClicked:(UIButton *)sender {
 //    actionOk.enabled = NO;
     
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Forgot Password" message:@"Enter your email"
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Want to reset your password?" message:@"Enter your email address"
                                                                  preferredStyle:UIAlertControllerStyleAlert];
     
     [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
@@ -105,7 +108,7 @@
         textField.delegate = self;
     }];
     
-    UIAlertAction *actionOk = [UIAlertAction actionWithTitle:@"Submit"
+    UIAlertAction *actionOk = [UIAlertAction actionWithTitle:@"Reset"
                                                        style:UIAlertActionStyleDefault
                                                      handler:^(UIAlertAction * _Nonnull action) {
                                                          [PFUser requestPasswordResetForEmailInBackground:alertController.textFields[0].text block:^(BOOL succeeded, NSError * _Nullable error) {
@@ -129,7 +132,35 @@
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
-- (IBAction)loginClicked:(id)sender {    
+- (IBAction)loginClicked:(id)sender {
+    UIAlertController *alertController;
+    if(![_textViewEmail.textField.text validateEmail]) {
+        alertController = [UIAlertController alertControllerWithTitle:nil message:@"Invalid email" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *actionOk = [UIAlertAction actionWithTitle:@"OK"
+                                                           style:UIAlertActionStyleDefault
+                                                         handler:nil];
+        
+        
+        [alertController addAction:actionOk];
+        [self presentViewController:alertController animated:YES completion:nil];
+        return;
+    }
+    
+    NSArray  *validation = [_textViewPassword.textField.text checkPasswordValidations];
+    if([validation count] != 0) {
+        
+        alertController = [UIAlertController alertControllerWithTitle:nil message:[validation objectAtIndex:0] preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *actionOk = [UIAlertAction actionWithTitle:@"OK"
+                                                               style:UIAlertActionStyleDefault
+                                                             handler:nil];
+        
+   
+        [alertController addAction:actionOk];
+        [self presentViewController:alertController animated:YES completion:nil];
+        return ;
+
+    }
+    
     [PFUser logInWithUsernameInBackground:_textViewEmail.textField.text password:_textViewPassword.textField.text
                                     block:^(PFUser *user, NSError *error) {
                                       if (user) {
@@ -142,6 +173,18 @@
                                           [UIAlertView addDismissableAlertWithText:[NSString stringWithFormat:@"Login failed with error - %@", [error localizedDescription]] OnController:self];
                                       }
                                   }];
+}
+
+- (IBAction)facebookLoginClicked:(UIButton *)sender {
+    [PFFacebookUtils logInInBackgroundWithReadPermissions:@[@"public_profile",@"email"] block:^(PFUser * _Nullable user, NSError * _Nullable error) {
+        if (!user) {
+            NSLog(@"Uh oh. The user cancelled the Facebook login.");
+        } else if (user.isNew) {
+            NSLog(@"User signed up and logged in through Facebook!");
+        } else {
+            NSLog(@"User logged in through Facebook!");
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

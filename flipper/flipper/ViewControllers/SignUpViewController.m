@@ -37,6 +37,7 @@
     [_textViewName.imageView setImage:[UIImage imageNamed:@"iconName"]];
     
     [_textViewEmail.textField setPlaceholder:@"Email"];
+    [_textViewEmail.textField setKeyboardType:UIKeyboardTypeEmailAddress];
     [_textViewEmail.imageView setImage:[UIImage imageNamed:@"iconEmail"]];
     
     [_textViewPassword.textField setPlaceholder:@"Password"];
@@ -106,6 +107,35 @@
 }
 
 - (IBAction)signUpClicked:(id)sender {
+    UIAlertController *alertController;
+    if(![_textViewEmail.textField.text validateEmail]) {
+        alertController = [UIAlertController alertControllerWithTitle:nil message:@"Invalid email" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *actionOk = [UIAlertAction actionWithTitle:@"OK"
+                                                           style:UIAlertActionStyleDefault
+                                                         handler:nil];
+        
+        
+        [alertController addAction:actionOk];
+        [self presentViewController:alertController animated:YES completion:nil];
+        return;
+    }
+    
+    
+    NSArray  *validation = [_textViewPassword.textField.text checkPasswordValidations];
+    if([validation count] != 0) {
+        
+        alertController = [UIAlertController alertControllerWithTitle:nil message:[validation objectAtIndex:0] preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *actionOk = [UIAlertAction actionWithTitle:@"OK"
+                                                           style:UIAlertActionStyleDefault
+                                                         handler:nil];
+        
+        
+        [alertController addAction:actionOk];
+        [self presentViewController:alertController animated:YES completion:nil];
+        return ;
+        
+    }
+    
     PFUser *user = [PFUser user];
     user.username = _textViewEmail.textField.text;
     user.password = _textViewPassword.textField.text;

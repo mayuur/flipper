@@ -12,5 +12,6 @@
 
 - (BOOL) validString;
 - (NSMutableArray* ) checkPasswordValidations;
+- (BOOL) validateEmail;
 
 @end

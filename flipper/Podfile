@@ -5,6 +5,10 @@
 
 target 'flipper' do
 pod 'Parse', '~> 1.12'
+pod 'ParseFacebookUtilsV4', '~> 1.11'
+pod 'ParseTwitterUtils', '~> 1.10'
+pod 'FBSDKLoginKit', '~> 4.9'
+pod 'FBSDKCoreKit', '~> 4.9'
 end
 
 target 'flipperTests' do
