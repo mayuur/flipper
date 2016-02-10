@@ -9,6 +9,7 @@ pod 'ParseFacebookUtilsV4', '~> 1.11'
 pod 'ParseTwitterUtils', '~> 1.10'
 pod 'FBSDKLoginKit', '~> 4.9'
 pod 'FBSDKCoreKit', '~> 4.9'
+pod 'FHSTwitterEngine', '~> 2.0'
 end
 
 target 'flipperTests' do

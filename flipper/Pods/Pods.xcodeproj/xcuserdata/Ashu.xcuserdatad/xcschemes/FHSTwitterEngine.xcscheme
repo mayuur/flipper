@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '63E37EAEDFE1CB0C952FCC5E'
-               BlueprintName = 'Parse'
+               BlueprintIdentifier = '87765B24DD1049565102A44A'
+               BlueprintName = 'FHSTwitterEngine'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libParse.a'>
+               BuildableName = 'libFHSTwitterEngine.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
