@@ -10,8 +10,8 @@
 
 @interface PageWalkthrough : UIView
 
-- (instancetype) initWithFrame:(CGRect)frame text:(NSString* ) descriptionText backgroundImage: (NSString* ) imageName andPageID: (NSInteger) pageID;
+@property (nonatomic, assign, readwrite) CGPoint imageOffset;
 
-- (instancetype) initWithFrame:(CGRect)frame text:(NSString* ) descriptionText backgroundImage: (NSString* ) imageName logoImage:(NSString* ) logoImageName withLogoRadius: (int) logoRadius logoAbove: (BOOL) logoIsAbove;
+- (instancetype) initWithFrame:(CGRect)frame text:(NSString* ) descriptionText backgroundImage: (NSString* ) imageName andPageID: (NSInteger) pageID;
 
 @end

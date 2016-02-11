@@ -31,6 +31,10 @@
             logoIsAbove = NO;
         }
         
+        self.clipsToBounds = YES;
+        self.layer.borderColor = [UIColor blackColor].CGColor;
+        self.layer.borderWidth = 2;
+        
         //add BackgroundImageView
         self.imageViewBackground = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(frame), CGRectGetHeight(frame))];
         self.imageViewBackground.image = [UIImage imageNamed:imageName];
@@ -87,46 +91,19 @@
     return self;
 }
 
-- (instancetype) initWithFrame:(CGRect)frame text:(NSString* ) descriptionText backgroundImage: (NSString* ) imageName logoImage:(NSString* ) logoImageName withLogoRadius: (int) logoRadius logoAbove: (BOOL) logoIsAbove {
-    if(self == [super initWithFrame:frame]) {
-        
-        //add BackgroundImageView
-        self.imageViewBackground = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(frame), CGRectGetHeight(frame))];
-        self.imageViewBackground.image = [UIImage imageNamed:imageName];
-        self.imageViewBackground.backgroundColor = [UIColor clearColor];
-        [self addSubview:self.imageViewBackground];
-        
-        //add TextView
-        self.textViewDescription = [[UITextView alloc] initWithFrame:CGRectMake(10, 100, CGRectGetWidth(frame) - 20, 100)];
-        self.textViewDescription.textColor = [UIColor whiteColor];
-        self.textViewDescription.font = [UIFont fontWithName:@"SFUIText-Regular" size:21];
-        self.textViewDescription.editable = NO;
-        self.textViewDescription.textAlignment = NSTextAlignmentCenter;
-        self.textViewDescription.text = descriptionText;
-        self.textViewDescription.backgroundColor = [UIColor clearColor];
-        [self addSubview:self.textViewDescription];
-        
-        //add LogoImageView at centre... this also contains the ripple effect
-        self.imageViewLogo = [[LNBRippleEffect alloc] initWithImage:[UIImage imageNamed:logoImageName] Frame:CGRectMake(CGRectGetWidth(frame)/2 - logoRadius/2, 300, logoRadius, logoRadius) Color:[UIColor blackColor] Target:@selector(buttonTapped:) ID:self];
-        [self.imageViewLogo setRippleTrailColor:[UIColor colorWithWhite:0.9 alpha:1]];
-        [self.imageViewLogo setRippleColor:[UIColor whiteColor]];
-        [self addSubview:self.imageViewLogo];
-        
-        //set UI according to "logoIsAbove" flag
-        CGRect logoFrame = self.imageViewLogo.frame;
-        CGRect textViewFrame = self.textViewDescription.frame;
-        if(logoIsAbove) {
-            self.imageViewLogo.center = self.center;
-            textViewFrame.origin.y = CGRectGetMaxY(self.imageViewLogo.frame) + 100;
-            self.textViewDescription.frame = textViewFrame;
-        }
-    }
-    
-    return self;
-}
-
 - (void) buttonTapped : (id) sender {
     
+}
+
+- (void)setImageOffset:(CGPoint)imageOffset
+{
+    // Store padding value
+    _imageOffset = imageOffset;
+    
+    // Grow image view
+    CGRect frame = self.imageViewBackground.bounds;
+    CGRect offsetFrame = CGRectOffset(frame, _imageOffset.x, _imageOffset.y);
+    self.imageViewBackground.frame = offsetFrame;
 }
 
 @end
