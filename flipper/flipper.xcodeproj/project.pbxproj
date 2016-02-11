@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		19D707415F000116F035CBFF /* libPods-flipper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98D4573266DDB06E38DF6914 /* libPods-flipper.a */; };
 		5425EA901C62866000F1B8E4 /* IntroButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5425EA8F1C62866000F1B8E4 /* IntroButton.m */; };
+		5433C0011C6BD08700C24D0F /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5433C0001C6BD08700C24D0F /* Accounts.framework */; };
+		5433C0031C6BD0C900C24D0F /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5433C0021C6BD0C900C24D0F /* Twitter.framework */; };
+		5433C0051C6BD0D300C24D0F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5433C0041C6BD0D300C24D0F /* Social.framework */; };
+		5433C0071C6BD0F500C24D0F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5433C0061C6BD0F500C24D0F /* SystemConfiguration.framework */; };
 		5460B5111C59439000D9E92E /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5460B5101C59439000D9E92E /* Intro.storyboard */; };
 		54D3C2C31C61426600367C98 /* IntroHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D3C2C21C61426600367C98 /* IntroHeaderView.m */; };
 		54D3C2C51C61427E00367C98 /* IntroHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54D3C2C41C61427E00367C98 /* IntroHeaderView.xib */; };
@@ -74,6 +78,10 @@
 /* Begin PBXFileReference section */
 		5425EA8E1C62866000F1B8E4 /* IntroButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroButton.h; sourceTree = "<group>"; };
 		5425EA8F1C62866000F1B8E4 /* IntroButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroButton.m; sourceTree = "<group>"; };
+		5433C0001C6BD08700C24D0F /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		5433C0021C6BD0C900C24D0F /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		5433C0041C6BD0D300C24D0F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		5433C0061C6BD0F500C24D0F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		5460B5101C59439000D9E92E /* Intro.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Intro.storyboard; sourceTree = "<group>"; };
 		54D3C2C11C61426600367C98 /* IntroHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroHeaderView.h; sourceTree = "<group>"; };
 		54D3C2C21C61426600367C98 /* IntroHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroHeaderView.m; sourceTree = "<group>"; };
@@ -148,6 +156,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5433C0071C6BD0F500C24D0F /* SystemConfiguration.framework in Frameworks */,
+				5433C0051C6BD0D300C24D0F /* Social.framework in Frameworks */,
+				5433C0031C6BD0C900C24D0F /* Twitter.framework in Frameworks */,
+				5433C0011C6BD08700C24D0F /* Accounts.framework in Frameworks */,
 				7724C4D81C5E931700267097 /* QuartzCore.framework in Frameworks */,
 				19D707415F000116F035CBFF /* libPods-flipper.a in Frameworks */,
 			);
@@ -360,6 +372,10 @@
 		E8E3665BF8BE16E68253F51D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5433C0061C6BD0F500C24D0F /* SystemConfiguration.framework */,
+				5433C0041C6BD0D300C24D0F /* Social.framework */,
+				5433C0021C6BD0C900C24D0F /* Twitter.framework */,
+				5433C0001C6BD08700C24D0F /* Accounts.framework */,
 				98D4573266DDB06E38DF6914 /* libPods-flipper.a */,
 			);
 			name = Frameworks;

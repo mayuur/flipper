@@ -11,13 +11,19 @@
 #import "IntroTextView.h"
 #import "IntroButton.h"
 #import "Parse.h"
-#include "PFFacebookUtils.h"
-#include "NSString+Validations.h"
+#import "PFFacebookUtils.h"
+#import <PFTwitterUtils.h>
+#import "NSString+Validations.h"
+#import <FHSTwitterEngine/FHSTwitterEngine.h>
 
 #define kOFFSET_FOR_KEYBOARD 180.0
+NSString * const TWITTER_CONSUMER_KEY = @"TexzVYvmdlkcpRWBiVn2txexW";
+NSString * const TWITTER_CONSUMER_SECRET = @"0iQLTuMR9CewQn4fPZ0wl85iwnTWJ9l12ZzujhlZDzKc8S5CCi";
 
 @interface LoginViewController() <UITextFieldDelegate>
-
+{
+    NSArray *arrayTwitterAccounts;
+}
 @property (weak, nonatomic) IBOutlet IntroHeaderView *loginHeaderView;
 
 @property (weak, nonatomic) IBOutlet IntroTextView *textViewEmail;
@@ -96,6 +102,8 @@
     }
     [UIView commitAnimations];
 }
+
+#pragma mark - UIButtonActions
 
 - (IBAction)forgotClicked:(UIButton *)sender {
 //    actionOk.enabled = NO;
@@ -185,6 +193,69 @@
             NSLog(@"User logged in through Facebook!");
         }
     }];
+}
+
+
+- (IBAction)twitterLogin:(id)sender {
+    [PFTwitterUtils logInWithBlock:^(PFUser * _Nullable user, NSError * _Nullable error) {
+        if ([PFTwitterUtils isLinkedWithUser:[PFUser currentUser]]) {
+            NSURL *info = [NSURL URLWithString:@"https://api.twitter.com/1.1/account/settings.json"];
+            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:info];
+            [[PFTwitterUtils twitter] signRequest:request];
+            [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+                if (!!data) {
+                    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+                    NSString *userName = dict[@"screen_name"];
+                    userName = [userName stringByReplacingOccurrencesOfString:@"Twitter:" withString:@""];
+                    
+                    PFUser *user = [PFUser currentUser];
+                    user[@"Twitter"] = userName;
+                    [user saveEventually];
+                } else {
+                    // no response
+                }
+            }];
+        } else {
+            // login failed
+        }
+    }];
+}
+
+#pragma mark - Twitter Login Methods
+
+-(void)handleTwitterAccounts:(NSArray *)twitterAccounts {
+    switch ([twitterAccounts count]) {
+        case 0:
+        {
+            [[FHSTwitterEngine sharedEngine] permanentlySetConsumerKey:TWITTER_CONSUMER_KEY andSecret:TWITTER_CONSUMER_SECRET];
+            UIViewController *twitterLoginViewController = [[FHSTwitterEngine sharedEngine] loginControllerWithCompletionHandler:^(BOOL success) {
+                if(success) {
+                    
+                }
+            }];
+            [self presentViewController:twitterLoginViewController animated:YES completion:nil];
+        }
+            break;
+            
+        case 1:
+            [self onUserTwitterAccountSelection:twitterAccounts[0]];
+            break;
+        
+        default:
+            [self displayTwitterAccounts:twitterAccounts];
+            break;
+    }
+}
+
+-(void)displayTwitterAccounts:(NSArray *)twitterAccounts {
+    __block UIAlertController *alertAction = [UIAlertController alertControllerWithTitle:@"Select Twitter Account" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    [twitterAccounts enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [alertAction addAction:[UIAlertAction actionWithTitle:[obj username] style:UIAlertActionStyleDefault handler:nil]];
+    }];
+    [alertAction addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+}
+-(void)onUserTwitterAccountSelection:(ACAccount *)twitterAccount {
+    // Logint with twitter account
 }
 
 - (void)didReceiveMemoryWarning {

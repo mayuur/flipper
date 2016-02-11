@@ -205,6 +205,9 @@
                                         <state key="normal" title="Login with Twitter" image="iconTwitter">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="twitterLogin:" destination="MZs-GQ-LXf" eventType="touchUpInside" id="cep-5k-lLg"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or with email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4i1-9t-vhe">
                                         <rect key="frame" x="251" y="184" width="98" height="21"/>
