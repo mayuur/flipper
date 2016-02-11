@@ -115,7 +115,7 @@
 - (IBAction)signUpClicked:(id)sender {
     UIAlertController *alertController;
     if(![_textViewEmail.textField.text validateEmail]) {
-        alertController = [UIAlertController alertControllerWithTitle:nil message:@"Invalid email" preferredStyle:UIAlertControllerStyleAlert];
+        alertController = [UIAlertController alertControllerWithTitle:nil message:@"Please enter a proper email address" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *actionOk = [UIAlertAction actionWithTitle:@"OK"
                                                            style:UIAlertActionStyleDefault
                                                          handler:nil];

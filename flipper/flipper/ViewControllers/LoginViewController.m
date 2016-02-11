@@ -123,7 +123,7 @@
                                                          [PFUser requestPasswordResetForEmailInBackground:alertController.textFields[0].text block:^(BOOL succeeded, NSError * _Nullable error) {
                                                              if(succeeded) {
                                                                  NSLog(@"email address found! sending an email for password reset");
-                                                                 [UIAlertView addDismissableAlertWithText:@"Sent an email for password reset!" OnController:self];
+                                                                 [UIAlertView addDismissableAlertWithText:@"Ok! Check your email." OnController:self];
                                                              }
                                                              else {
                                                                  NSLog(@"Error >> %@", [error localizedDescription]);
@@ -144,7 +144,7 @@
 - (IBAction)loginClicked:(id)sender {
     UIAlertController *alertController;
     if(![_textViewEmail.textField.text validateEmail]) {
-        alertController = [UIAlertController alertControllerWithTitle:nil message:@"Invalid email" preferredStyle:UIAlertControllerStyleAlert];
+        alertController = [UIAlertController alertControllerWithTitle:nil message:@"Please enter a proper email address" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *actionOk = [UIAlertAction actionWithTitle:@"OK"
                                                            style:UIAlertActionStyleDefault
                                                          handler:nil];
