@@ -9,8 +9,11 @@
 #import "AppDelegate.h"
 #import "Parse.h"
 #import "PFFacebookUtils.h"
+#import "PFTwitterUtils.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 
+NSString * const TWITTER_CONSUMER_KEY = @"TexzVYvmdlkcpRWBiVn2txexW";
+NSString * const TWITTER_CONSUMER_SECRET = @"0iQLTuMR9CewQn4fPZ0wl85iwnTWJ9l12ZzujhlZDzKc8S5CCi";
 
 @interface AppDelegate ()
 
@@ -43,6 +46,8 @@
     [Parse setApplicationId:@"Su7pHG4D6hT0TJiVUcLyWcsAkPf22xt1jnLyjJtH"
                   clientKey:@"rgScQGNkfLAZDeBFhXyhRd9APOhYEgk9pRgMBZqh"];
     [PFFacebookUtils initializeFacebookWithApplicationLaunchOptions:launchOptions];
+    
+    [PFTwitterUtils initializeWithConsumerKey:TWITTER_CONSUMER_KEY consumerSecret:TWITTER_CONSUMER_SECRET];
     return YES;
 }
 

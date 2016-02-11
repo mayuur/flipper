@@ -353,6 +353,9 @@
                                         <state key="normal" title="Sign Up with Facebook" image="iconFacebook">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="facebookSignUp:" destination="pGD-ei-BPr" eventType="touchUpInside" id="Fbh-RV-AlV"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4dJ-B6-4Fw" customClass="IntroButton">
                                         <rect key="frame" x="0.0" y="100" width="600" height="60"/>
@@ -364,6 +367,9 @@
                                         <state key="normal" title="Sign Up with Twitter" image="iconTwitter">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="twitterSignUp:" destination="pGD-ei-BPr" eventType="touchUpInside" id="Yie-b2-Le8"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or with email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBd-i3-nHB">
                                         <rect key="frame" x="251" y="184" width="98" height="21"/>
