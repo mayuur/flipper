@@ -66,6 +66,11 @@
     tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(buttonTapped:)];
     [self addGestureRecognizer:tapGesture];
     [NSTimer scheduledTimerWithTimeInterval:1.2 target:self selector:@selector(continuoousripples) userInfo:nil repeats:YES];
+    [self performSelector:@selector(addSecondRipple) withObject:nil afterDelay:0.1];
+}
+
+- (void) addSecondRipple {
+    [NSTimer scheduledTimerWithTimeInterval:1.2 target:self selector:@selector(continuoousripples) userInfo:nil repeats:YES];
 }
 
 
@@ -124,7 +129,7 @@
     
     CABasicAnimation *scaleAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
     scaleAnimation.fromValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
-    scaleAnimation.toValue = [NSValue valueWithCATransform3D:CATransform3DMakeScale(2.5, 2.5, 1)];
+    scaleAnimation.toValue = [NSValue valueWithCATransform3D:CATransform3DMakeScale(4, 4, 1)];
     
     CABasicAnimation *alphaAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
     alphaAnimation.fromValue = @1;
@@ -162,7 +167,7 @@
         
         CAAnimationGroup *animation = [CAAnimationGroup animation];
         animation.animations = @[scaleAnimation, alphaAnimation];
-        animation.duration = 2.0f;
+        animation.duration = 2.5f;
         animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
         [circleShape addAnimation:animation forKey:nil];
     

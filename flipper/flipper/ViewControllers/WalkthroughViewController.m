@@ -9,6 +9,8 @@
 #import "WalkthroughViewController.h"
 #import "PageWalkthrough.h"
 
+#define IMAGE_OFFSET_SPEED 250
+
 @interface WalkthroughViewController () <UIScrollViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray* arrayPages;
@@ -33,18 +35,20 @@
 
 #pragma mark - General Methods
 - (void) createWalkthrough {
-    PageWalkthrough* page1 = [[PageWalkthrough alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)) text:@"follow once follow everywhere" backgroundImage:@"WalkthroughPage1" logoImage:@"logoFlipper" withLogoRadius:105 logoAbove:YES];
+    PageWalkthrough* page1 = [[PageWalkthrough alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)) text:@"follow once follow everywhere" backgroundImage:@"WalkthroughPage1" andPageID:0];
     [page1 setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.scrollView addSubview:page1];
     
-    PageWalkthrough* page2 = [[PageWalkthrough alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.view.frame), 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)) text:@"Instantly follow your favorite celebrities, influencers and interests" backgroundImage:@"WalkthroughPage2" logoImage:@"logoPlus" withLogoRadius:55 logoAbove:NO];
+    PageWalkthrough* page2 = [[PageWalkthrough alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.view.frame), 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)) text:@"Instantly follow your favorite celebrities, influencers and interests" backgroundImage:@"WalkthroughPage2" andPageID:1];
     [page2 setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.scrollView addSubview:page2];
+    [self.scrollView sendSubviewToBack:page2];
     
-    PageWalkthrough* page3 = [[PageWalkthrough alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.view.frame) * 2, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)) text:@"Follow multiple timelines from Facebook, Twitter, Vine, Instagram, Youtube and more" backgroundImage:@"WalkthroughPage3" logoImage:@"logoPlus" withLogoRadius:55 logoAbove:NO];
+    PageWalkthrough* page3 = [[PageWalkthrough alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.view.frame) * 2, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)) text:@"Follow multiple timelines from Facebook, Twitter, Vine, Instagram, Youtube and more" backgroundImage:@"WalkthroughPage3" andPageID:2];
     [page3 setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.scrollView addSubview:page3];
-
+    [self.scrollView sendSubviewToBack:page3];
+    
     self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.view.frame)*3, CGRectGetHeight(self.scrollView.frame));
     
     self.pageControl.numberOfPages = 3;
@@ -60,6 +64,17 @@
 #pragma mark - UIScrollViewDelegate functions
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     [self.pageControl setPageForScrollView:scrollView];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    for(UIView* subView in scrollView.subviews) {
+        
+        if([subView isKindOfClass:[PageWalkthrough class]]) {
+            PageWalkthrough* pageView = (PageWalkthrough* ) subView;
+            CGFloat xOffset = ((scrollView.contentOffset.x - pageView.frame.origin.x) / 320) * IMAGE_OFFSET_SPEED;
+            pageView.imageOffset = CGPointMake(xOffset, 0.0f);
+        }
+    }
 }
 
 @end

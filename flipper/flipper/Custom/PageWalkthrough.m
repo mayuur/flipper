@@ -19,8 +19,21 @@
 
 @implementation PageWalkthrough
 
-- (instancetype) initWithFrame:(CGRect)frame text:(NSString* ) descriptionText backgroundImage: (NSString* ) imageName logoImage:(NSString* ) logoImageName withLogoRadius: (int) logoRadius logoAbove: (BOOL) logoIsAbove {
+- (instancetype) initWithFrame:(CGRect)frame text:(NSString* ) descriptionText backgroundImage: (NSString* ) imageName andPageID: (NSInteger) pageID {
     if(self == [super initWithFrame:frame]) {
+
+        NSString* logoImageName = @"logoFlipper";
+        int logoRadius = 105;
+        BOOL logoIsAbove = YES;
+        if(pageID > 0) {
+            logoImageName = @"logoPlus";
+            logoRadius = 55;
+            logoIsAbove = NO;
+        }
+        
+        self.clipsToBounds = YES;
+        self.layer.borderColor = [UIColor blackColor].CGColor;
+        self.layer.borderWidth = 2;
         
         //add BackgroundImageView
         self.imageViewBackground = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(frame), CGRectGetHeight(frame))];
@@ -39,19 +52,40 @@
         [self addSubview:self.textViewDescription];
         
         //add LogoImageView at centre... this also contains the ripple effect
-        self.imageViewLogo = [[LNBRippleEffect alloc] initWithImage:[UIImage imageNamed:logoImageName] Frame:CGRectMake(CGRectGetWidth(frame)/2 - logoRadius/2, 300, logoRadius, logoRadius) Color:[UIColor blackColor] Target:@selector(buttonTapped:) ID:self];
-        [self.imageViewLogo setRippleTrailColor:[UIColor colorWithWhite:0.9 alpha:1]];
-        [self.imageViewLogo setRippleColor:[UIColor whiteColor]];
-        [self addSubview:self.imageViewLogo];
+        UIImageView* flipperImageView = nil;
+        if(pageID == 0) {
+            UIImageView* flipperBackgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetWidth(frame)/2 - logoRadius/2, 300, logoRadius+100, logoRadius+100)];
+            flipperBackgroundImageView.image = [UIImage imageNamed:@"logoFlipperBackground"];
+            flipperBackgroundImageView.center = self.center;
+            flipperBackgroundImageView.contentMode = UIViewContentModeScaleAspectFit;
+            [self addSubview:flipperBackgroundImageView];
+
+            flipperImageView = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetWidth(frame)/2 - logoRadius/2, 300, logoRadius, logoRadius)];
+            flipperImageView.center = self.center;
+            flipperImageView.image = [UIImage imageNamed:logoImageName];
+            flipperImageView.contentMode = UIViewContentModeScaleAspectFit;
+            [self addSubview:flipperImageView];
+            
+            
+            CGRect textViewFrame = self.textViewDescription.frame;
+            textViewFrame.origin.y = CGRectGetMaxY(flipperImageView.frame) + 100;
+            self.textViewDescription.frame = textViewFrame;
+        }
+        else {
+            self.imageViewLogo = [[LNBRippleEffect alloc] initWithImage:[UIImage imageNamed:logoImageName] Frame:CGRectMake(CGRectGetWidth(frame)/2 - logoRadius/2, 300, logoRadius, logoRadius) Color:[UIColor blackColor] Target:@selector(buttonTapped:) ID:self];
+            [self.imageViewLogo setRippleTrailColor:[UIColor colorWithWhite:0.9 alpha:1]];
+            [self.imageViewLogo setRippleColor:[UIColor whiteColor]];
+            [self addSubview:self.imageViewLogo];
+        }
         
         //set UI according to "logoIsAbove" flag
-        CGRect logoFrame = self.imageViewLogo.frame;
+        /*CGRect logoFrame = self.imageViewLogo.frame;
         CGRect textViewFrame = self.textViewDescription.frame;
         if(logoIsAbove) {
             self.imageViewLogo.center = self.center;
             textViewFrame.origin.y = CGRectGetMaxY(self.imageViewLogo.frame) + 100;
             self.textViewDescription.frame = textViewFrame;
-        }
+        }*/
     }
     
     return self;
@@ -59,6 +93,17 @@
 
 - (void) buttonTapped : (id) sender {
     
+}
+
+- (void)setImageOffset:(CGPoint)imageOffset
+{
+    // Store padding value
+    _imageOffset = imageOffset;
+    
+    // Grow image view
+    CGRect frame = self.imageViewBackground.bounds;
+    CGRect offsetFrame = CGRectOffset(frame, _imageOffset.x, _imageOffset.y);
+    self.imageViewBackground.frame = offsetFrame;
 }
 
 @end
