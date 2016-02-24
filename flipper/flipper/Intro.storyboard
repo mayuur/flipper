@@ -59,7 +59,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="startClicked:" destination="SCe-xj-ggS" eventType="touchUpInside" id="RAs-wP-PKc"/>
+                                    <segue destination="XYs-DI-9Qq" kind="show" id="t5E-mR-5Gr"/>
                                 </connections>
                             </button>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="aTx-ur-TF1">
@@ -431,6 +431,61 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lbs-pz-8xr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1894" y="537"/>
+        </scene>
+        <!--Categories View Controller-->
+        <scene sceneID="5IJ-XK-ZBp">
+            <objects>
+                <viewController storyboardIdentifier="CategoriesViewController" automaticallyAdjustsScrollViewInsets="NO" id="XYs-DI-9Qq" customClass="CategoriesViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="F8N-zp-N8F"/>
+                        <viewControllerLayoutGuide type="bottom" id="yPr-ei-jyf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wVg-uf-cl8">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BOI-PU-H8p">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dQG-kU-gcT">
+                                    <size key="itemSize" width="180" height="150"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="YbF-cl-19I" customClass="CategoriesCollectionViewCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="180" height="150"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="180" height="150"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" red="0.29803921570000003" green="0.6705882353" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="XYs-DI-9Qq" id="wwg-Nb-zK1"/>
+                                    <outlet property="delegate" destination="XYs-DI-9Qq" id="M48-aA-tkc"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yPr-ei-jyf" firstAttribute="top" secondItem="BOI-PU-H8p" secondAttribute="bottom" id="ImY-sr-Hg0"/>
+                            <constraint firstItem="BOI-PU-H8p" firstAttribute="top" secondItem="wVg-uf-cl8" secondAttribute="top" id="P5c-xs-28K"/>
+                            <constraint firstItem="BOI-PU-H8p" firstAttribute="leading" secondItem="wVg-uf-cl8" secondAttribute="leading" id="ZVS-V2-wkT"/>
+                            <constraint firstAttribute="trailing" secondItem="BOI-PU-H8p" secondAttribute="trailing" id="qOW-a7-hRJ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="categoriesCollectionView" destination="BOI-PU-H8p" id="sgf-L9-vqm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6b2-9h-cKP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1226" y="1332"/>
         </scene>
     </scenes>
     <resources>

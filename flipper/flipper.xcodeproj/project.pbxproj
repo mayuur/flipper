@@ -14,10 +14,13 @@
 		5433C0051C6BD0D300C24D0F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5433C0041C6BD0D300C24D0F /* Social.framework */; };
 		5433C0071C6BD0F500C24D0F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5433C0061C6BD0F500C24D0F /* SystemConfiguration.framework */; };
 		5460B5111C59439000D9E92E /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5460B5101C59439000D9E92E /* Intro.storyboard */; };
+		547FFF641C76CB1500254145 /* Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = 547FFF631C76CB1500254145 /* Categories.m */; };
 		54D3C2C31C61426600367C98 /* IntroHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D3C2C21C61426600367C98 /* IntroHeaderView.m */; };
 		54D3C2C51C61427E00367C98 /* IntroHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54D3C2C41C61427E00367C98 /* IntroHeaderView.xib */; };
 		54D3C2C81C6144F100367C98 /* IntroTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D3C2C71C6144F100367C98 /* IntroTextView.m */; };
 		54D3C2CA1C6144FE00367C98 /* IntroTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54D3C2C91C6144FE00367C98 /* IntroTextView.xib */; };
+		54F1B4661C7CCD6E003A35FE /* CategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54F1B4651C7CCD6E003A35FE /* CategoriesViewController.m */; };
+		54F1B4691C7CD05F003A35FE /* CategoriesCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 54F1B4681C7CD05F003A35FE /* CategoriesCollectionViewCell.m */; };
 		7712707E1C5BE7D50013DDD1 /* WalkthroughViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7712707D1C5BE7D50013DDD1 /* WalkthroughViewController.m */; };
 		7724C4CB1C5CF7CA00267097 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7724C4CA1C5CF7CA00267097 /* SignUpViewController.m */; };
 		7724C4D01C5D001C00267097 /* PageWalkthrough.m in Sources */ = {isa = PBXBuildFile; fileRef = 7724C4CF1C5D001C00267097 /* PageWalkthrough.m */; };
@@ -83,12 +86,18 @@
 		5433C0041C6BD0D300C24D0F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		5433C0061C6BD0F500C24D0F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		5460B5101C59439000D9E92E /* Intro.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Intro.storyboard; sourceTree = "<group>"; };
+		547FFF621C76CB1500254145 /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Categories.h; sourceTree = "<group>"; };
+		547FFF631C76CB1500254145 /* Categories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Categories.m; sourceTree = "<group>"; };
 		54D3C2C11C61426600367C98 /* IntroHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroHeaderView.h; sourceTree = "<group>"; };
 		54D3C2C21C61426600367C98 /* IntroHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroHeaderView.m; sourceTree = "<group>"; };
 		54D3C2C41C61427E00367C98 /* IntroHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroHeaderView.xib; sourceTree = "<group>"; };
 		54D3C2C61C6144F100367C98 /* IntroTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroTextView.h; sourceTree = "<group>"; };
 		54D3C2C71C6144F100367C98 /* IntroTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroTextView.m; sourceTree = "<group>"; };
 		54D3C2C91C6144FE00367C98 /* IntroTextView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroTextView.xib; sourceTree = "<group>"; };
+		54F1B4641C7CCD6E003A35FE /* CategoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoriesViewController.h; sourceTree = "<group>"; };
+		54F1B4651C7CCD6E003A35FE /* CategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoriesViewController.m; sourceTree = "<group>"; };
+		54F1B4671C7CD05F003A35FE /* CategoriesCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoriesCollectionViewCell.h; sourceTree = "<group>"; };
+		54F1B4681C7CD05F003A35FE /* CategoriesCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoriesCollectionViewCell.m; sourceTree = "<group>"; };
 		7712707C1C5BE7D50013DDD1 /* WalkthroughViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalkthroughViewController.h; sourceTree = "<group>"; };
 		7712707D1C5BE7D50013DDD1 /* WalkthroughViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalkthroughViewController.m; sourceTree = "<group>"; };
 		7724C4C91C5CF7CA00267097 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
@@ -204,6 +213,8 @@
 				54D3C2C91C6144FE00367C98 /* IntroTextView.xib */,
 				5425EA8E1C62866000F1B8E4 /* IntroButton.h */,
 				5425EA8F1C62866000F1B8E4 /* IntroButton.m */,
+				54F1B4671C7CD05F003A35FE /* CategoriesCollectionViewCell.h */,
+				54F1B4681C7CD05F003A35FE /* CategoriesCollectionViewCell.m */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -277,6 +288,8 @@
 		77E5C9CD1C57572A00E6CD4F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				547FFF621C76CB1500254145 /* Categories.h */,
+				547FFF631C76CB1500254145 /* Categories.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -290,6 +303,8 @@
 				77E5C9D01C575A4400E6CD4F /* LoginViewController.m */,
 				7724C4C91C5CF7CA00267097 /* SignUpViewController.h */,
 				7724C4CA1C5CF7CA00267097 /* SignUpViewController.m */,
+				54F1B4641C7CCD6E003A35FE /* CategoriesViewController.h */,
+				54F1B4651C7CCD6E003A35FE /* CategoriesViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -596,9 +611,12 @@
 				7724C4D01C5D001C00267097 /* PageWalkthrough.m in Sources */,
 				54D3C2C81C6144F100367C98 /* IntroTextView.m in Sources */,
 				77F2E8751C57552700DFA74E /* AppDelegate.m in Sources */,
+				54F1B4661C7CCD6E003A35FE /* CategoriesViewController.m in Sources */,
+				54F1B4691C7CD05F003A35FE /* CategoriesCollectionViewCell.m in Sources */,
 				7712707E1C5BE7D50013DDD1 /* WalkthroughViewController.m in Sources */,
 				7724C4D61C5E4E7700267097 /* UIPageControl+Extra.m in Sources */,
 				54D3C2C31C61426600367C98 /* IntroHeaderView.m in Sources */,
+				547FFF641C76CB1500254145 /* Categories.m in Sources */,
 				77F2E8721C57552700DFA74E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
