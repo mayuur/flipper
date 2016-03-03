@@ -52,7 +52,7 @@
                   moduleName = "flipper"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Ashu/Documents/Projects/flipper/flipper/flipper/ViewControllers/LoginViewController.m"
-                  timestampString = "477942108.068169"
+                  timestampString = "478117387.532671"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "189"
@@ -67,7 +67,7 @@
                   moduleName = "flipper"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Ashu/Documents/Projects/flipper/flipper/flipper/ViewControllers/LoginViewController.m"
-                  timestampString = "477942108.068284"
+                  timestampString = "478117387.53279"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "189"
@@ -196,7 +196,7 @@
                   moduleName = "flipper"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Ashu/Documents/Projects/flipper/flipper/flipper/ViewControllers/LoginViewController.m"
-                  timestampString = "477942108.07249"
+                  timestampString = "478117387.540753"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "299"
@@ -211,7 +211,7 @@
                   moduleName = "flipper"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Ashu/Documents/Projects/flipper/flipper/flipper/ViewControllers/LoginViewController.m"
-                  timestampString = "477942108.072592"
+                  timestampString = "478117387.541104"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "299"
@@ -276,11 +276,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "flipper/ViewControllers/CategoriesViewController.m"
-            timestampString = "477942094.74779"
+            timestampString = "478117264.299961"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
             landmarkName = "-numberOfSectionsInCollectionView:"
             landmarkType = "5">
          </BreakpointContent>
@@ -292,11 +292,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "flipper/ViewControllers/CategoriesViewController.m"
-            timestampString = "477942121.094467"
+            timestampString = "478117264.299961"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
             landmarkName = "-collectionView:numberOfItemsInSection:"
             landmarkType = "5">
          </BreakpointContent>
@@ -308,12 +308,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "flipper/ViewControllers/CategoriesViewController.m"
-            timestampString = "477942578.976408"
+            timestampString = "478117264.299961"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
             landmarkName = "-collectionView:cellForItemAtIndexPath:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "flipper/ViewControllers/CategoriesViewController.m"
+            timestampString = "478117367.101241"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "-getAllCategories"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
