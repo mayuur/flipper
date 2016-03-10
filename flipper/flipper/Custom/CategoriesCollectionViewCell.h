@@ -10,4 +10,7 @@
 
 @interface CategoriesCollectionViewCell : UICollectionViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *labelCategoryName;
+@property (weak, nonatomic) IBOutlet UIImageView *imageCategory;
+
 @end

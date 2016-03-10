@@ -11,7 +11,7 @@
 
 @interface Categories : PFObject<PFSubclassing>
 
-@property (nonatomic, strong) NSString *category_name;
-@property (nonatomic, strong) PFFile *catergory_image;
+@property (nonatomic, retain) NSString *category_name;
+@property (nonatomic, retain) PFFile *category_image;
 
 @end

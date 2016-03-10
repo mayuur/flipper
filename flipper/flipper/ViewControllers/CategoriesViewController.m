@@ -12,7 +12,7 @@
 
 @interface CategoriesViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 {
-    NSMutableArray *arrCategories;
+    NSMutableArray *arrCategories,*arrImages;
 }
 @property (weak, nonatomic) IBOutlet UICollectionView *categoriesCollectionView;
 
@@ -25,9 +25,10 @@
     // Do any additional setup after loading the view.
     
     arrCategories = [NSMutableArray array];
+    arrImages = [NSMutableArray array];
     
-    [_categoriesCollectionView registerClass:[CategoriesCollectionViewCell class] forCellWithReuseIdentifier:@"Cell"];
-    
+//    [_categoriesCollectionView registerClass:[CategoriesCollectionViewCell class] forCellWithReuseIdentifier:@"Cell"];
+ 
     [self getAllCategories];
 }
 
@@ -47,7 +48,13 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CategoriesCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor redColor];
+    
+    Categories *tempCategory = [arrCategories objectAtIndex:indexPath.row];
+    
+    [cell.labelCategoryName setText:tempCategory.category_name];
+    
+    [cell.imageCategory setImage:[UIImage imageWithData:[arrImages objectAtIndex:indexPath.row]]];
+
     return cell;
 }
 
@@ -58,7 +65,20 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         if(!error){
             [arrCategories addObjectsFromArray:objects];
-            [self.categoriesCollectionView reloadData];
+            
+            for (Categories *temp in objects) {
+                [temp.category_image getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+                    [arrImages addObject:data];
+                    if (arrImages.count == arrCategories.count) {
+                        [self.categoriesCollectionView reloadData];
+                    }
+                }];
+            }
+            
+//            [self.categoriesCollectionView reloadData];
+
+           
+            
         }else {
             NSLog(@"Error:%@",error.localizedDescription);
         }

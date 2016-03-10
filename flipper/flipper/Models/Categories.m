@@ -12,7 +12,11 @@
 @implementation Categories
 
 @dynamic category_name;
-@dynamic catergory_image;
+@dynamic category_image;
+
++ (void)load {
+    [self registerSubclass];
+}
 
 + (NSString *)parseClassName {
     return @"Categories";
