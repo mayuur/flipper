@@ -13,6 +13,8 @@
 		5433C0031C6BD0C900C24D0F /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5433C0021C6BD0C900C24D0F /* Twitter.framework */; };
 		5433C0051C6BD0D300C24D0F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5433C0041C6BD0D300C24D0F /* Social.framework */; };
 		5433C0071C6BD0F500C24D0F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5433C0061C6BD0F500C24D0F /* SystemConfiguration.framework */; };
+		54449AE21C9890D500805093 /* People.m in Sources */ = {isa = PBXBuildFile; fileRef = 54449AE11C9890D500805093 /* People.m */; };
+		54449AE51C989B1F00805093 /* PeopleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 54449AE41C989B1F00805093 /* PeopleTableViewCell.m */; };
 		5460B5111C59439000D9E92E /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5460B5101C59439000D9E92E /* Intro.storyboard */; };
 		547FFF641C76CB1500254145 /* Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = 547FFF631C76CB1500254145 /* Categories.m */; };
 		54D3C2C31C61426600367C98 /* IntroHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D3C2C21C61426600367C98 /* IntroHeaderView.m */; };
@@ -86,6 +88,10 @@
 		5433C0021C6BD0C900C24D0F /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		5433C0041C6BD0D300C24D0F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		5433C0061C6BD0F500C24D0F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		54449AE01C9890D500805093 /* People.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = People.h; sourceTree = "<group>"; };
+		54449AE11C9890D500805093 /* People.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = People.m; sourceTree = "<group>"; };
+		54449AE31C989B1F00805093 /* PeopleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeopleTableViewCell.h; sourceTree = "<group>"; };
+		54449AE41C989B1F00805093 /* PeopleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeopleTableViewCell.m; sourceTree = "<group>"; };
 		5460B5101C59439000D9E92E /* Intro.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Intro.storyboard; sourceTree = "<group>"; };
 		547FFF621C76CB1500254145 /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Categories.h; sourceTree = "<group>"; };
 		547FFF631C76CB1500254145 /* Categories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Categories.m; sourceTree = "<group>"; };
@@ -218,6 +224,8 @@
 				5425EA8F1C62866000F1B8E4 /* IntroButton.m */,
 				54F1B4671C7CD05F003A35FE /* CategoriesCollectionViewCell.h */,
 				54F1B4681C7CD05F003A35FE /* CategoriesCollectionViewCell.m */,
+				54449AE31C989B1F00805093 /* PeopleTableViewCell.h */,
+				54449AE41C989B1F00805093 /* PeopleTableViewCell.m */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -293,6 +301,8 @@
 			children = (
 				547FFF621C76CB1500254145 /* Categories.h */,
 				547FFF631C76CB1500254145 /* Categories.m */,
+				54449AE01C9890D500805093 /* People.h */,
+				54449AE11C9890D500805093 /* People.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -608,6 +618,7 @@
 			files = (
 				77E5C9D11C575A4400E6CD4F /* LoginViewController.m in Sources */,
 				5425EA901C62866000F1B8E4 /* IntroButton.m in Sources */,
+				54449AE21C9890D500805093 /* People.m in Sources */,
 				777D2CE61C62AB12000FF4C8 /* UIAlertView+Extra.m in Sources */,
 				77F2E8781C57552700DFA74E /* ViewController.m in Sources */,
 				7724C4D31C5E498A00267097 /* NSString+Validations.m in Sources */,
@@ -621,6 +632,7 @@
 				77F6B7611C97AEB00042057F /* FollowPeopleViewController.m in Sources */,
 				7712707E1C5BE7D50013DDD1 /* WalkthroughViewController.m in Sources */,
 				7724C4D61C5E4E7700267097 /* UIPageControl+Extra.m in Sources */,
+				54449AE51C989B1F00805093 /* PeopleTableViewCell.m in Sources */,
 				54D3C2C31C61426600367C98 /* IntroHeaderView.m in Sources */,
 				547FFF641C76CB1500254145 /* Categories.m in Sources */,
 				77F2E8721C57552700DFA74E /* main.m in Sources */,
