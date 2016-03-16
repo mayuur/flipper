@@ -62,7 +62,7 @@
 -(void)getPeopleDataFrom:(NSArray *)array {
     for (NSString *temp in array) {
         PFQuery *query = [PFQuery queryWithClassName:[People parseClassName]];
-        [query whereKey:@"fk_category_id" equalTo:temp];
+        [query whereKey:@"fk_category_id" equalTo:[PFObject objectWithoutDataWithClassName:@"Categories" objectId:temp]];
         [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
             if(!error){
                 [arrayPeople addObjectsFromArray:objects];

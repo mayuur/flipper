@@ -108,7 +108,7 @@
         NSMutableArray* selectedCategories = [NSMutableArray arrayWithCapacity:0];
         for (Categories* category in arrCategories) {
             if(category.isSelected)
-                [selectedCategories addObject:[NSString stringWithFormat:@"%@", category.objectId]];
+                [selectedCategories addObject:category.objectId];
         }
         
         FollowPeopleViewController* followViewController =(FollowPeopleViewController* ) [segue destinationViewController];
