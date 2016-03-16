@@ -10,4 +10,6 @@
 
 @interface FollowPeopleViewController : UIViewController
 
+@property (nonatomic, strong) NSMutableArray* arraySelectedCategories;
+
 @end

@@ -11,6 +11,7 @@
 
 @implementation Categories
 
+@dynamic isSelected;
 @dynamic category_name;
 @dynamic category_image;
 

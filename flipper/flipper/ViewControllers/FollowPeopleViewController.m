@@ -30,7 +30,8 @@
     
     arrayPeople = [NSMutableArray array];
     arrImages = [NSMutableArray array];
-    [self getPeopleDataFrom:@[@"ua70boG3jc",@"OTNCmSBXeL"]];
+    //[self getPeopleDataFrom:@[@"ua70boG3jc",@"OTNCmSBXeL"]];
+    [self getPeopleDataFrom:self.arraySelectedCategories];
 }
 
 - (void)didReceiveMemoryWarning {
