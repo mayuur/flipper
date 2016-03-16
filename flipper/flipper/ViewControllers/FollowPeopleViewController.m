@@ -50,12 +50,28 @@
     
     People *tempPeople = [arrayPeople objectAtIndex:indexPath.row];
     [cell.labelName setText:tempPeople.person_name];
-    [cell.imagePerson setImage:[UIImage imageWithData:[arrImages objectAtIndex:indexPath.row]]];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [tempPeople.person_image getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+            [cell.imagePerson setImage:[UIImage imageWithData:data]];
+        }];
+        
+    });
+    
     
     return cell;
 }
 
 #pragma mark - UITableView Delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath   *)indexPath
+{
+    [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
+}
+
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryNone;
+}
 
 #pragma mark - Custom Methods
 
@@ -66,15 +82,15 @@
         [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
             if(!error){
                 [arrayPeople addObjectsFromArray:objects];
-                
-                for (People *tempPeople in objects) {
-                    [tempPeople.person_image getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
-                        [arrImages addObject:data];
-                        if (arrImages.count == arrayPeople.count) {
-                            [tablePeople reloadData];
-                        }
-                    }];
-                }
+                [tablePeople reloadData];
+//                for (People *tempPeople in objects) {
+//                    [tempPeople.person_image getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+//                        [arrImages addObject:data];
+//                        if (arrImages.count == arrayPeople.count) {
+//                            [tablePeople reloadData];
+//                        }
+//                    }];
+//                }
             }else {
                 NSLog(@"Error:%@",error.localizedDescription);
             }
