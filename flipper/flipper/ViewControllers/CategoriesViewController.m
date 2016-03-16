@@ -48,14 +48,28 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CategoriesCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+    cell.imageViewSelected.hidden = YES;
+    cell.imageViewSelectedTick.hidden = YES;
     
     Categories *tempCategory = [arrCategories objectAtIndex:indexPath.row];
-    
+    if(tempCategory.isSelected) {
+        cell.imageViewSelected.hidden = NO;
+        cell.imageViewSelectedTick.hidden = NO;
+    }
     [cell.labelCategoryName setText:tempCategory.category_name];
-    
     [cell.imageCategory setImage:[UIImage imageWithData:[arrImages objectAtIndex:indexPath.row]]];
-
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    Categories *tempCategory = [arrCategories objectAtIndex:indexPath.row];
+    if(tempCategory.isSelected) {
+        tempCategory.isSelected = NO;
+    }
+    else {
+        tempCategory.isSelected = YES;
+    }
+    [self.categoriesCollectionView reloadData];
 }
 
 #pragma mark - Custom Methods

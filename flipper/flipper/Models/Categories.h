@@ -14,4 +14,5 @@
 @property (nonatomic, retain) NSString *category_name;
 @property (nonatomic, retain) PFFile *category_image;
 
+@property (nonatomic, readwrite) BOOL isSelected;
 @end

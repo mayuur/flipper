@@ -12,5 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *labelCategoryName;
 @property (weak, nonatomic) IBOutlet UIImageView *imageCategory;
+@property (strong, nonatomic) IBOutlet UIImageView *imageViewSelected;
+@property (strong, nonatomic) IBOutlet UIImageView *imageViewSelectedTick;
 
 @end
