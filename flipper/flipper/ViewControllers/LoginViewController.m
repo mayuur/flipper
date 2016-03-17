@@ -17,6 +17,7 @@
 #import "FBSDKCoreKit/FBSDKGraphRequest.h"
 #import "NSString+Validations.h"
 #import <FHSTwitterEngine/FHSTwitterEngine.h>
+#import "CategoriesViewController.h"
 
 #define kOFFSET_FOR_KEYBOARD 180.0
 
@@ -175,7 +176,8 @@
                                       if (user) {
                                           // Do stuff after successful login.
                                           NSLog(@"user logged in!");
-                                          [UIAlertView addDismissableAlertWithText:@"User did login!" OnController:self];
+                                          CategoriesViewController *categories = [self.storyboard instantiateViewControllerWithIdentifier:@"CategoriesViewController"];
+                                          [self.navigationController pushViewController:categories animated:YES];
                                       }
                                       else {
                                           NSLog(@"Error >> %@", [error localizedDescription]);

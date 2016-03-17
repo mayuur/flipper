@@ -444,19 +444,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jtB-pL-Osm">
-                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.24313725489999999" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jtB-pL-Osm">
+                                <rect key="frame" x="0.0" y="536" width="600" height="64"/>
+                                <color key="backgroundColor" red="0.29803921570000003" green="0.6705882353" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="gd4-gx-dnM"/>
+                                    <constraint firstAttribute="height" constant="64" id="gd4-gx-dnM"/>
                                 </constraints>
-                                <state key="normal" title="NEXT"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="275" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="275" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="NEXT" image="NextArrow"/>
                                 <connections>
                                     <segue destination="KLS-A0-e5l" kind="show" identifier="FollowPeople" id="uCE-QP-mzc"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T0w-BA-4NQ">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Pick categories" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="23D-ND-wfK">
+                                        <rect key="frame" x="0.0" y="15" width="600" height="33"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can add and change them later" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5x9-53-dRc">
+                                        <rect key="frame" x="0.0" y="46" width="600" height="16"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="5x9-53-dRc" secondAttribute="trailing" id="9Uo-5T-RU8"/>
+                                    <constraint firstItem="23D-ND-wfK" firstAttribute="top" secondItem="T0w-BA-4NQ" secondAttribute="top" constant="15" id="CBs-BX-bOM"/>
+                                    <constraint firstItem="5x9-53-dRc" firstAttribute="top" secondItem="23D-ND-wfK" secondAttribute="bottom" constant="-2" id="CEF-Nh-0u3"/>
+                                    <constraint firstAttribute="bottom" secondItem="5x9-53-dRc" secondAttribute="bottom" constant="2" id="Huz-WH-BVj"/>
+                                    <constraint firstAttribute="height" constant="64" id="PYr-wS-cz6"/>
+                                    <constraint firstItem="5x9-53-dRc" firstAttribute="leading" secondItem="T0w-BA-4NQ" secondAttribute="leading" id="Q22-9T-LBC"/>
+                                    <constraint firstItem="23D-ND-wfK" firstAttribute="leading" secondItem="T0w-BA-4NQ" secondAttribute="leading" id="UEW-n1-8aw"/>
+                                    <constraint firstAttribute="trailing" secondItem="23D-ND-wfK" secondAttribute="trailing" id="niV-eM-INL"/>
+                                </constraints>
+                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BOI-PU-H8p">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="10" id="dQG-kU-gcT">
                                     <size key="itemSize" width="600" height="200"/>
@@ -561,7 +591,10 @@
                             <constraint firstAttribute="trailing" secondItem="jtB-pL-Osm" secondAttribute="trailing" id="cIS-cj-Yx8"/>
                             <constraint firstItem="BOI-PU-H8p" firstAttribute="bottom" secondItem="yPr-ei-jyf" secondAttribute="top" id="drD-hR-JJc"/>
                             <constraint firstItem="jtB-pL-Osm" firstAttribute="top" secondItem="BOI-PU-H8p" secondAttribute="bottom" priority="750" id="eqJ-vN-eRr"/>
-                            <constraint firstItem="BOI-PU-H8p" firstAttribute="top" secondItem="wVg-uf-cl8" secondAttribute="top" id="ngM-9Y-eaj"/>
+                            <constraint firstAttribute="trailing" secondItem="T0w-BA-4NQ" secondAttribute="trailing" id="m0Z-ko-fD8"/>
+                            <constraint firstItem="BOI-PU-H8p" firstAttribute="top" secondItem="T0w-BA-4NQ" secondAttribute="bottom" id="nCu-a5-J6W"/>
+                            <constraint firstItem="T0w-BA-4NQ" firstAttribute="leading" secondItem="wVg-uf-cl8" secondAttribute="leading" id="oat-5q-8xl"/>
+                            <constraint firstItem="T0w-BA-4NQ" firstAttribute="top" secondItem="wVg-uf-cl8" secondAttribute="top" id="viY-fQ-Xbh"/>
                         </constraints>
                     </view>
                     <connections>
@@ -721,6 +754,7 @@
         <image name="CategorySelected" width="250" height="124"/>
         <image name="CategoryTick" width="66" height="48"/>
         <image name="FollowPeopleTick" width="36" height="28"/>
+        <image name="NextArrow" width="55" height="18"/>
         <image name="iconFacebook" width="38" height="38"/>
         <image name="iconTwitter" width="38" height="32"/>
     </resources>

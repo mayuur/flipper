@@ -78,11 +78,15 @@
     
     
     if(selectedArray.count > 0) {
-        collectionBottomLayoutConstraint.constant = -44;
+        collectionBottomLayoutConstraint.constant = -64;
     }else {
         collectionBottomLayoutConstraint.constant = 0;
     }
     [self.categoriesCollectionView reloadData];
+}
+
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(CGRectGetWidth(self.view.frame), 200.0);
 }
 
 #pragma mark - Custom Methods

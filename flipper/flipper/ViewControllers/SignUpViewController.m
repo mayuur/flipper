@@ -16,6 +16,7 @@
 #import "FBSDKCoreKit/FBSDKGraphRequest.h"
 #import "NSString+Validations.h"
 #import <FHSTwitterEngine/FHSTwitterEngine.h>
+#import "CategoriesViewController.h"
 
 #define kOFFSET_FOR_KEYBOARD 180.0
 
@@ -149,7 +150,9 @@
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if(succeeded) {
             NSLog(@"user did sign up!");
-            [UIAlertView addDismissableAlertWithText:@"User did sign up!" OnController:self];
+//            [UIAlertView addDismissableAlertWithText:@"User did sign up!" OnController:self];
+            CategoriesViewController *categories = [self.storyboard instantiateViewControllerWithIdentifier:@"CategoriesViewController"];
+            [self.navigationController pushViewController:categories animated:YES];
         }
         else {
             NSLog(@"Error >> %@", [error localizedDescription]);
