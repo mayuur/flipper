@@ -27,8 +27,6 @@
     
     arrCategories = [NSMutableArray array];
     arrImages = [NSMutableArray array];
-    
-//    [_categoriesCollectionView registerClass:[CategoriesCollectionViewCell class] forCellWithReuseIdentifier:@"Cell"];
  
     [self getAllCategories];
 }
@@ -39,9 +37,6 @@
 }
 
 #pragma mark - UICollectionView DataSource
--(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 1;
-}
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return arrCategories.count;
@@ -59,7 +54,12 @@
     }
     
     [cell.labelCategoryName setText:tempCategory.category_name];
-    [cell.imageCategory setImage:[UIImage imageWithData:[arrImages objectAtIndex:indexPath.row]]];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [tempCategory.category_image getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+            [cell.imageCategory setImage:[UIImage imageWithData:data]];
+        }];
+    });
+    
     return cell;
 }
 
@@ -82,15 +82,7 @@
         if(!error){
             [arrCategories addObjectsFromArray:objects];
             
-            for (Categories *temp in objects) {
-                [temp.category_image getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
-                    [arrImages addObject:data];
-                    if (arrImages.count == arrCategories.count) {
-                        [self.categoriesCollectionView reloadData];
-                    }
-                }];
-            }
-//            [self.categoriesCollectionView reloadData];
+            [self.categoriesCollectionView reloadData];
         }else {
             NSLog(@"Error:%@",error.localizedDescription);
         }
