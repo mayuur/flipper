@@ -32,7 +32,7 @@
     
     arrayPeople = [NSMutableArray array];
     //[self getPeopleDataFrom:@[@"ua70boG3jc",@"OTNCmSBXeL"]];
-    [self getPeopleDataFrom:self.arraySelectedCategories];
+    [self getPeopleDataFrom:self.arraySelectedCategories];    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,7 +47,31 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PeopleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PeopleCell"];
+    cell.backgroundColor = [UIColor clearColor];
+    cell.clipsToBounds = NO;
+
+    if(indexPath.row == 0) {
+        cell.layer.shadowOpacity = 0.25;
+        cell.layer.shadowRadius = 20;
+        cell.layer.shadowOffset = CGSizeMake(0, 0);
+        cell.layer.shadowColor = [UIColor blackColor].CGColor;
+        
+        CGRect shadowFrame = CGRectMake(0, 0, CGRectGetWidth(cell.layer.bounds), 15);
+        CGPathRef shadowPath = [UIBezierPath bezierPathWithRect:shadowFrame].CGPath;
+        cell.layer.shadowPath = shadowPath;
+    }
+    else {
+        /*cell.layer.shadowOpacity = 0.25;
+        cell.layer.shadowRadius = 20;
+        cell.layer.shadowOffset = CGSizeMake(0, 20);
+        cell.layer.shadowColor = [UIColor blackColor].CGColor;*/
+    }
     
+    cell.imagePerson.layer.shadowOpacity = 0.25;
+    cell.imagePerson.layer.shadowRadius = 10;
+    cell.imagePerson.layer.shadowOffset = CGSizeMake(0, 20);
+    cell.imagePerson.layer.shadowColor = [UIColor blackColor].CGColor;
+
     People *tempPeople = [arrayPeople objectAtIndex:indexPath.row];
     [cell.labelName setText:tempPeople.person_name];
     cell.imageViewSelected.hidden = YES;
@@ -59,7 +83,6 @@
         [tempPeople.person_image getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
             [cell.imagePerson setImage:[UIImage imageWithData:data]];
         }];
-        
     });
     
     return cell;
