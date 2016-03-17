@@ -62,6 +62,7 @@
 		77F2E88B1C57552800DFA74E /* flipperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F2E88A1C57552800DFA74E /* flipperTests.m */; };
 		77F2E8961C57552900DFA74E /* flipperUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F2E8951C57552900DFA74E /* flipperUITests.m */; };
 		77F6B7611C97AEB00042057F /* FollowPeopleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F6B7601C97AEB00042057F /* FollowPeopleViewController.m */; };
+		77F6B7641C9A459C0042057F /* UIColor+AppColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F6B7631C9A459C0042057F /* UIColor+AppColors.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -164,6 +165,8 @@
 		77F2E8971C57552900DFA74E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77F6B75F1C97AEAF0042057F /* FollowPeopleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowPeopleViewController.h; sourceTree = "<group>"; };
 		77F6B7601C97AEB00042057F /* FollowPeopleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowPeopleViewController.m; sourceTree = "<group>"; };
+		77F6B7621C9A459C0042057F /* UIColor+AppColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+AppColors.h"; sourceTree = "<group>"; };
+		77F6B7631C9A459C0042057F /* UIColor+AppColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+AppColors.m"; sourceTree = "<group>"; };
 		98D4573266DDB06E38DF6914 /* libPods-flipper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-flipper.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C816DE91E178DAC3E664CFE2 /* Pods-flipper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flipper.release.xcconfig"; path = "Pods/Target Support Files/Pods-flipper/Pods-flipper.release.xcconfig"; sourceTree = "<group>"; };
 		D55246B61275EAACC1B7D8FB /* Pods-flipper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flipper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-flipper/Pods-flipper.debug.xcconfig"; sourceTree = "<group>"; };
@@ -284,6 +287,8 @@
 				7724C4D51C5E4E7700267097 /* UIPageControl+Extra.m */,
 				777D2CE41C62AB12000FF4C8 /* UIAlertView+Extra.h */,
 				777D2CE51C62AB12000FF4C8 /* UIAlertView+Extra.m */,
+				77F6B7621C9A459C0042057F /* UIColor+AppColors.h */,
+				77F6B7631C9A459C0042057F /* UIColor+AppColors.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -626,6 +631,7 @@
 				7724C4CB1C5CF7CA00267097 /* SignUpViewController.m in Sources */,
 				7724C4D01C5D001C00267097 /* PageWalkthrough.m in Sources */,
 				54D3C2C81C6144F100367C98 /* IntroTextView.m in Sources */,
+				77F6B7641C9A459C0042057F /* UIColor+AppColors.m in Sources */,
 				77F2E8751C57552700DFA74E /* AppDelegate.m in Sources */,
 				54F1B4661C7CCD6E003A35FE /* CategoriesViewController.m in Sources */,
 				54F1B4691C7CD05F003A35FE /* CategoriesCollectionViewCell.m in Sources */,

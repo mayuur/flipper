@@ -29,6 +29,7 @@
 #import "NSString+Validations.h"
 #import "UIPageControl+Extra.h"
 #import "UIAlertView+Extra.h"
+#import "UIColor+AppColors.h"
 
 #endif
 
