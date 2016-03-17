@@ -17,6 +17,8 @@
     NSMutableArray *arrayPeople;
 }
 
+@property (nonatomic, readwrite) BOOL followAll;
+
 @end
 
 @implementation FollowPeopleViewController
@@ -25,6 +27,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [peopleHeader.labelHeaderTitle setText:@"Follow"];
+    [peopleHeader.buttonHeader addTarget:self action:@selector(backClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [peopleHeader.buttonHeader setImage:[UIImage imageNamed:@"FollowPeopleBack"] forState:UIControlStateNormal];
     
     arrayPeople = [NSMutableArray array];
     //[self getPeopleDataFrom:@[@"ua70boG3jc",@"OTNCmSBXeL"]];
@@ -59,6 +63,25 @@
     });
     
     return cell;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    PeopleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PeopleHeaderCell"];
+    [cell.buttonFollow addTarget:self action:@selector(followAll:) forControlEvents:UIControlEventTouchUpInside];
+    return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 98;
+}
+
+-(void)followAll:(UIButton *)sender {
+    
+    self.followAll = !self.followAll;
+    for (People *tempPeople in arrayPeople) {
+        tempPeople.isSelected = self.followAll;
+    }
+    [tablePeople reloadData];
 }
 
 #pragma mark - UITableViewDelegate methods

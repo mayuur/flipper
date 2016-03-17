@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="UhR-f3-wn1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="UhR-f3-wn1">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -444,6 +444,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jtB-pL-Osm">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.24313725489999999" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="gd4-gx-dnM"/>
+                                </constraints>
+                                <state key="normal" title="NEXT"/>
+                                <connections>
+                                    <segue destination="KLS-A0-e5l" kind="show" identifier="FollowPeople" id="uCE-QP-mzc"/>
+                                </connections>
+                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BOI-PU-H8p">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -540,25 +551,22 @@
                                     <outlet property="delegate" destination="XYs-DI-9Qq" id="M48-aA-tkc"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jtB-pL-Osm">
-                                <rect key="frame" x="245" y="562" width="111" height="30"/>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.24313725489999999" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="NEXT"/>
-                                <connections>
-                                    <segue destination="KLS-A0-e5l" kind="show" identifier="FollowPeople" id="uCE-QP-mzc"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="BOI-PU-H8p" firstAttribute="leading" secondItem="wVg-uf-cl8" secondAttribute="leading" id="7O3-aZ-ulz"/>
+                            <constraint firstAttribute="bottom" secondItem="jtB-pL-Osm" secondAttribute="bottom" id="97t-ux-777"/>
+                            <constraint firstItem="jtB-pL-Osm" firstAttribute="leading" secondItem="wVg-uf-cl8" secondAttribute="leading" id="RXV-1X-SdT"/>
                             <constraint firstAttribute="trailing" secondItem="BOI-PU-H8p" secondAttribute="trailing" id="aiB-z4-Xbs"/>
+                            <constraint firstAttribute="trailing" secondItem="jtB-pL-Osm" secondAttribute="trailing" id="cIS-cj-Yx8"/>
                             <constraint firstItem="BOI-PU-H8p" firstAttribute="bottom" secondItem="yPr-ei-jyf" secondAttribute="top" id="drD-hR-JJc"/>
+                            <constraint firstItem="jtB-pL-Osm" firstAttribute="top" secondItem="BOI-PU-H8p" secondAttribute="bottom" priority="750" id="eqJ-vN-eRr"/>
                             <constraint firstItem="BOI-PU-H8p" firstAttribute="top" secondItem="wVg-uf-cl8" secondAttribute="top" id="ngM-9Y-eaj"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="categoriesCollectionView" destination="BOI-PU-H8p" id="sgf-L9-vqm"/>
+                        <outlet property="collectionBottomLayoutConstraint" destination="drD-hR-JJc" id="5f3-B6-M75"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6b2-9h-cKP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -579,33 +587,54 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rgP-4w-5VM" customClass="IntroHeaderView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FdN-3z-xU7">
-                                        <rect key="frame" x="15" y="21" width="22" height="22"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="22" id="bSr-MF-RfU"/>
-                                            <constraint firstAttribute="height" constant="22" id="oJH-cv-GeW"/>
-                                        </constraints>
-                                        <state key="normal" image="FollowPeopleBack"/>
-                                        <connections>
-                                            <action selector="backClicked:" destination="KLS-A0-e5l" eventType="touchUpInside" id="MsD-g2-Cfi"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="Obg-2T-VgF"/>
-                                    <constraint firstItem="FdN-3z-xU7" firstAttribute="centerY" secondItem="rgP-4w-5VM" secondAttribute="centerY" id="t2l-d9-3qG"/>
-                                    <constraint firstItem="FdN-3z-xU7" firstAttribute="leading" secondItem="rgP-4w-5VM" secondAttribute="leading" constant="15" id="uOB-tV-5Vi"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsMultipleSelection="YES" rowHeight="98" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4dt-Vb-nwK">
                                 <rect key="frame" x="20" y="84" width="560" height="476"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PeopleCell" rowHeight="98" id="uE9-Ul-mFi" customClass="PeopleTableViewCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PeopleHeaderCell" rowHeight="98" id="HTP-Ky-7Qx" customClass="PeopleTableViewCell">
                                         <rect key="frame" x="0.0" y="28" width="560" height="98"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HTP-Ky-7Qx" id="TIV-xq-hUN">
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="98"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Follow all" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EwB-g1-RFf">
+                                                    <rect key="frame" x="36" y="38" width="87" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="Q5L-nM-RWV"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FT5-Ue-3Oa">
+                                                    <rect key="frame" x="490" y="23" width="70" height="52"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="70" id="Ybo-pT-1Ce"/>
+                                                        <constraint firstAttribute="height" constant="52" id="zD9-yJ-xwS"/>
+                                                    </constraints>
+                                                    <state key="normal" image="FollowPeopleTick"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="FT5-Ue-3Oa" secondAttribute="trailing" id="Oyj-f3-bja"/>
+                                                <constraint firstItem="EwB-g1-RFf" firstAttribute="leading" secondItem="TIV-xq-hUN" secondAttribute="leading" constant="36" id="hKR-g1-vn7"/>
+                                                <constraint firstItem="FT5-Ue-3Oa" firstAttribute="centerY" secondItem="TIV-xq-hUN" secondAttribute="centerY" id="uFt-GC-z59"/>
+                                                <constraint firstItem="EwB-g1-RFf" firstAttribute="centerY" secondItem="TIV-xq-hUN" secondAttribute="centerY" id="zE3-Y6-01B"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="buttonFollow" destination="FT5-Ue-3Oa" id="fCm-S1-eQx"/>
+                                            <outlet property="labelName" destination="EwB-g1-RFf" id="H5t-gt-45o"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PeopleCell" rowHeight="98" id="uE9-Ul-mFi" customClass="PeopleTableViewCell">
+                                        <rect key="frame" x="0.0" y="126" width="560" height="98"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uE9-Ul-mFi" id="oQq-8y-QEF">
                                             <rect key="frame" x="0.0" y="0.0" width="560" height="98"/>
@@ -691,7 +720,6 @@
     <resources>
         <image name="CategorySelected" width="250" height="124"/>
         <image name="CategoryTick" width="66" height="48"/>
-        <image name="FollowPeopleBack" width="44" height="43"/>
         <image name="FollowPeopleTick" width="36" height="28"/>
         <image name="iconFacebook" width="38" height="38"/>
         <image name="iconTwitter" width="38" height="32"/>

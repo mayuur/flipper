@@ -14,6 +14,7 @@
 @interface CategoriesViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 {
     NSMutableArray *arrCategories,*arrImages;
+    __weak IBOutlet NSLayoutConstraint *collectionBottomLayoutConstraint;
 }
 @property (weak, nonatomic) IBOutlet UICollectionView *categoriesCollectionView;
 
@@ -70,6 +71,16 @@
     }
     else {
         tempCategory.isSelected = YES;
+        
+    }
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isSelected=1"];
+    NSArray* selectedArray = [arrCategories filteredArrayUsingPredicate:predicate];
+    
+    
+    if(selectedArray.count > 0) {
+        collectionBottomLayoutConstraint.constant = -44;
+    }else {
+        collectionBottomLayoutConstraint.constant = 0;
     }
     [self.categoriesCollectionView reloadData];
 }

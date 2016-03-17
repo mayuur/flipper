@@ -13,5 +13,5 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imagePerson;
 @property (strong, nonatomic) IBOutlet UIImageView *imageViewSelected;
 
-
+@property (strong, nonatomic) IBOutlet UIButton *buttonFollow;
 @end
