@@ -11,9 +11,7 @@
 #import "IntroHeaderView.h"
 #import "People.h"
 
-@interface FollowPeopleViewController ()<UITableViewDataSource,UITableViewDelegate>
-{
-    
+@interface FollowPeopleViewController ()<UITableViewDataSource,UITableViewDelegate> {
     __weak IBOutlet IntroHeaderView *peopleHeader;
     __weak IBOutlet UITableView *tablePeople;
     NSMutableArray *arrayPeople;
@@ -38,8 +36,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - UITableView DataSource
-
+#pragma mark - UITableViewDataSource methods
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return arrayPeople.count;
 }
@@ -49,6 +46,11 @@
     
     People *tempPeople = [arrayPeople objectAtIndex:indexPath.row];
     [cell.labelName setText:tempPeople.person_name];
+    cell.imageViewSelected.hidden = YES;
+    if(tempPeople.isSelected) {
+        cell.imageViewSelected.hidden = NO;
+    }
+    
     dispatch_async(dispatch_get_main_queue(), ^{
         [tempPeople.person_image getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
             [cell.imagePerson setImage:[UIImage imageWithData:data]];
@@ -56,20 +58,19 @@
         
     });
     
-    
     return cell;
 }
 
-#pragma mark - UITableView Delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath   *)indexPath
-{
-    [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
-}
-
--(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryNone;
+#pragma mark - UITableViewDelegate methods
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    People *tempPeople = [arrayPeople objectAtIndex:indexPath.row];
+    if(tempPeople.isSelected) {
+        tempPeople.isSelected = NO;
+    }
+    else {
+        tempPeople.isSelected = YES;
+    }
+    [tableView reloadData];
 }
 
 #pragma mark - Custom Methods
@@ -86,7 +87,6 @@
                 NSLog(@"Error:%@",error.localizedDescription);
             }
         }];
-
     }
 }
 

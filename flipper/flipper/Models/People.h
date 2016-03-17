@@ -16,4 +16,5 @@
 @property (nonatomic, retain) PFFile *person_image;
 @property (nonatomic, retain) Categories *fk_category_id;
 
+@property (nonatomic, readwrite) BOOL isSelected;
 @end

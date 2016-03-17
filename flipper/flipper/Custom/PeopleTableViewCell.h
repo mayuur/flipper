@@ -11,5 +11,7 @@
 @interface PeopleTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *labelName;
 @property (weak, nonatomic) IBOutlet UIImageView *imagePerson;
+@property (strong, nonatomic) IBOutlet UIImageView *imageViewSelected;
+
 
 @end
