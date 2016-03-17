@@ -16,7 +16,7 @@
     
     __weak IBOutlet IntroHeaderView *peopleHeader;
     __weak IBOutlet UITableView *tablePeople;
-    NSMutableArray *arrayPeople,*arrImages;
+    NSMutableArray *arrayPeople;
 }
 
 @end
@@ -29,7 +29,6 @@
     [peopleHeader.labelHeaderTitle setText:@"Follow"];
     
     arrayPeople = [NSMutableArray array];
-    arrImages = [NSMutableArray array];
     //[self getPeopleDataFrom:@[@"ua70boG3jc",@"OTNCmSBXeL"]];
     [self getPeopleDataFrom:self.arraySelectedCategories];
 }
@@ -83,14 +82,6 @@
             if(!error){
                 [arrayPeople addObjectsFromArray:objects];
                 [tablePeople reloadData];
-//                for (People *tempPeople in objects) {
-//                    [tempPeople.person_image getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
-//                        [arrImages addObject:data];
-//                        if (arrImages.count == arrayPeople.count) {
-//                            [tablePeople reloadData];
-//                        }
-//                    }];
-//                }
             }else {
                 NSLog(@"Error:%@",error.localizedDescription);
             }
