@@ -9,6 +9,7 @@
 #import "FollowPeopleViewController.h"
 #import "PeopleTableViewCell.h"
 #import "IntroHeaderView.h"
+#import "HomeViewController.h"
 #import "People.h"
 
 @interface FollowPeopleViewController ()<UITableViewDataSource,UITableViewDelegate> {
@@ -152,5 +153,24 @@
 - (IBAction)backClicked:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+- (IBAction)doneClicked:(id)sender {
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isSelected=1"];
+    NSArray* selectedArray = [arrayPeople filteredArrayUsingPredicate:predicate];
+    
+    if(selectedArray.count == 0) {
+        [UIAlertView addDismissableAlertWithText:@"Please follow some people first!" OnController:self];
+        return;
+    }
+
+    PFUser* currentUser = [PFUser currentUser];
+    [currentUser setObject:[NSNumber numberWithBool:YES] forKey:@"follows_celebrities"];
+    [currentUser saveInBackground];
+    
+    UINavigationController* homeNavigationViewController = [MAIN_STORYBOARD instantiateViewControllerWithIdentifier:@"HomeNavigationController"];
+    [APP_DELEGATE.window setRootViewController:homeNavigationViewController];
+}
+
 
 @end

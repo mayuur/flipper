@@ -728,9 +728,18 @@
                                     <outlet property="delegate" destination="KLS-A0-e5l" id="lU7-6j-fVW"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tof-9Q-gys">
+                                <rect key="frame" x="545" y="28" width="42" height="30"/>
+                                <state key="normal" title="DONE"/>
+                                <connections>
+                                    <action selector="doneClicked:" destination="KLS-A0-e5l" eventType="touchUpInside" id="g2O-aF-GgN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.29803921570000003" green="0.6705882353" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="Tof-9Q-gys" firstAttribute="top" secondItem="wom-rD-iFP" secondAttribute="bottom" constant="8" id="Gtz-pw-deT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Tof-9Q-gys" secondAttribute="trailing" constant="-7" id="Lrx-Y5-ncR"/>
                             <constraint firstItem="rgP-4w-5VM" firstAttribute="leading" secondItem="oaJ-pY-kpH" secondAttribute="leading" id="Xwr-67-rjy"/>
                             <constraint firstItem="hIW-Xh-7IM" firstAttribute="top" secondItem="4dt-Vb-nwK" secondAttribute="bottom" constant="40" id="eyp-8f-5Yf"/>
                             <constraint firstAttribute="trailing" secondItem="4dt-Vb-nwK" secondAttribute="trailing" constant="20" id="hwN-rd-vfC"/>
