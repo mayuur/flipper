@@ -52,14 +52,25 @@ NSString * const TWITTER_CONSUMER_SECRET = @"0iQLTuMR9CewQn4fPZ0wl85iwnTWJ9l12Zz
     
     if([PFUser currentUser]) {
         //skip to categories
-        NSLog(@"user is already logged in");
-        UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Intro" bundle:nil];
-        CategoriesViewController *categories = [storyboard instantiateViewControllerWithIdentifier:@"CategoriesViewController"];
+        NSLog(@"user is already logged in.. check if he has followed people too.. if yes, go to home page.. otherwise go to Categories");
         
-        if([self.window.rootViewController isKindOfClass:[UINavigationController class]]) {
-            UINavigationController* mainNavigationController = (UINavigationController* ) self.window.rootViewController;
-            [mainNavigationController pushViewController:categories animated:YES];
+        BOOL followsCelebrities = [[[PFUser currentUser] objectForKey:@"follows_celebrities"] boolValue];
+        if(followsCelebrities) {
+            NSLog(@"go to home page");
+            UINavigationController* homeNavigationViewController = [MAIN_STORYBOARD instantiateViewControllerWithIdentifier:@"HomeNavigationController"];
+            [APP_DELEGATE.window setRootViewController:homeNavigationViewController];
         }
+        else {
+            NSLog(@"go to categories");
+            UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Intro" bundle:nil];
+            CategoriesViewController *categories = [storyboard instantiateViewControllerWithIdentifier:@"CategoriesViewController"];
+            
+            if([self.window.rootViewController isKindOfClass:[UINavigationController class]]) {
+                UINavigationController* mainNavigationController = (UINavigationController* ) self.window.rootViewController;
+                [mainNavigationController pushViewController:categories animated:YES];
+            }
+        }
+        
     }
     else {
         //do nothing... walkthrough should appear
