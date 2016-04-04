@@ -74,9 +74,11 @@
 
     People *tempPeople = [arrayPeople objectAtIndex:indexPath.row];
     [cell.labelName setText:tempPeople.person_name];
-    cell.imageViewSelected.hidden = YES;
     if(tempPeople.isSelected) {
-        cell.imageViewSelected.hidden = NO;
+        [cell.imageViewSelected setImage:[UIImage imageNamed:@"FollowPeopleSelectedTick"]];
+    }
+    else {
+        [cell.imageViewSelected setImage:[UIImage imageNamed:@"FollowPeopleTick"]];
     }
     
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -91,6 +93,15 @@
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     PeopleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PeopleHeaderCell"];
     [cell.buttonFollow addTarget:self action:@selector(followAll:) forControlEvents:UIControlEventTouchUpInside];
+    
+    //if followAll is selected or all cells are selected, show the selected cell value
+    if(self.followAll) {
+        [cell.buttonFollow setImage:[UIImage imageNamed:@"FollowPeopleSelectedTick"] forState:UIControlStateNormal];
+    }
+    else {
+        [cell.buttonFollow setImage:[UIImage imageNamed:@"FollowPeopleTick"] forState:UIControlStateNormal];
+    }
+    
     return cell;
 }
 
@@ -101,6 +112,7 @@
 -(void)followAll:(UIButton *)sender {
     
     self.followAll = !self.followAll;
+    
     for (People *tempPeople in arrayPeople) {
         tempPeople.isSelected = self.followAll;
     }

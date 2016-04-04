@@ -55,7 +55,6 @@
 		77E5C9D11C575A4400E6CD4F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E5C9D01C575A4400E6CD4F /* LoginViewController.m */; };
 		77F2E8721C57552700DFA74E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F2E8711C57552700DFA74E /* main.m */; };
 		77F2E8751C57552700DFA74E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F2E8741C57552700DFA74E /* AppDelegate.m */; };
-		77F2E8781C57552700DFA74E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F2E8771C57552700DFA74E /* ViewController.m */; };
 		77F2E87B1C57552700DFA74E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77F2E8791C57552700DFA74E /* Main.storyboard */; };
 		77F2E87D1C57552800DFA74E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77F2E87C1C57552800DFA74E /* Assets.xcassets */; };
 		77F2E8801C57552800DFA74E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77F2E87E1C57552800DFA74E /* LaunchScreen.storyboard */; };
@@ -151,8 +150,6 @@
 		77F2E8711C57552700DFA74E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		77F2E8731C57552700DFA74E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		77F2E8741C57552700DFA74E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		77F2E8761C57552700DFA74E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		77F2E8771C57552700DFA74E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		77F2E87A1C57552700DFA74E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		77F2E87C1C57552800DFA74E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		77F2E87F1C57552800DFA74E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -367,8 +364,6 @@
 				77E5C9CB1C57572A00E6CD4F /* Categories */,
 				77E5C9CC1C57572A00E6CD4F /* Vendors */,
 				77E5C9CD1C57572A00E6CD4F /* Models */,
-				77F2E8761C57552700DFA74E /* ViewController.h */,
-				77F2E8771C57552700DFA74E /* ViewController.m */,
 				77F2E87C1C57552800DFA74E /* Assets.xcassets */,
 				77F2E87E1C57552800DFA74E /* LaunchScreen.storyboard */,
 				77F2E8811C57552800DFA74E /* Info.plist */,
@@ -625,7 +620,6 @@
 				5425EA901C62866000F1B8E4 /* IntroButton.m in Sources */,
 				54449AE21C9890D500805093 /* People.m in Sources */,
 				777D2CE61C62AB12000FF4C8 /* UIAlertView+Extra.m in Sources */,
-				77F2E8781C57552700DFA74E /* ViewController.m in Sources */,
 				7724C4D31C5E498A00267097 /* NSString+Validations.m in Sources */,
 				7724C4DC1C60FEB100267097 /* LNBRippleEffect.m in Sources */,
 				7724C4CB1C5CF7CA00267097 /* SignUpViewController.m in Sources */,
