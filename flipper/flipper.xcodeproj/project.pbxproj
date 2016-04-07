@@ -52,6 +52,10 @@
 		7724C50D1C6117C100267097 /* SF-UI-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7724C4F71C6117C100267097 /* SF-UI-Text-Semibold.otf */; };
 		7724C50E1C6117C100267097 /* SF-UI-Text-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7724C4F81C6117C100267097 /* SF-UI-Text-SemiboldItalic.otf */; };
 		777D2CE61C62AB12000FF4C8 /* UIAlertView+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 777D2CE51C62AB12000FF4C8 /* UIAlertView+Extra.m */; };
+		779B9BA91CB44129008918C4 /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 779B9BA21CB44128008918C4 /* FeedViewController.m */; };
+		779B9BAA1CB44129008918C4 /* PeopleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 779B9BA41CB44128008918C4 /* PeopleViewController.m */; };
+		779B9BAB1CB44129008918C4 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 779B9BA61CB44128008918C4 /* ProfileViewController.m */; };
+		779B9BAC1CB44129008918C4 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 779B9BA81CB44128008918C4 /* SearchViewController.m */; };
 		77E5C9D11C575A4400E6CD4F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E5C9D01C575A4400E6CD4F /* LoginViewController.m */; };
 		77F2E8721C57552700DFA74E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F2E8711C57552700DFA74E /* main.m */; };
 		77F2E8751C57552700DFA74E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F2E8741C57552700DFA74E /* AppDelegate.m */; };
@@ -63,6 +67,10 @@
 		77F6B7611C97AEB00042057F /* FollowPeopleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F6B7601C97AEB00042057F /* FollowPeopleViewController.m */; };
 		77F6B7641C9A459C0042057F /* UIColor+AppColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F6B7631C9A459C0042057F /* UIColor+AppColors.m */; };
 		77FAEFA81CB2D98400DAA0FD /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FAEFA71CB2D98400DAA0FD /* HomeViewController.m */; };
+		77FAEFB31CB3045500DAA0FD /* CarbonSwipeRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FAEFAC1CB3045500DAA0FD /* CarbonSwipeRefresh.m */; };
+		77FAEFB41CB3045500DAA0FD /* CarbonTabSwipeNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FAEFAE1CB3045500DAA0FD /* CarbonTabSwipeNavigation.m */; };
+		77FAEFB51CB3045500DAA0FD /* CarbonTabSwipeScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FAEFB01CB3045500DAA0FD /* CarbonTabSwipeScrollView.m */; };
+		77FAEFB61CB3045500DAA0FD /* CarbonTabSwipeSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FAEFB21CB3045500DAA0FD /* CarbonTabSwipeSegmentedControl.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +150,14 @@
 		7724C4F81C6117C100267097 /* SF-UI-Text-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-SemiboldItalic.otf"; sourceTree = "<group>"; };
 		777D2CE41C62AB12000FF4C8 /* UIAlertView+Extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Extra.h"; sourceTree = "<group>"; };
 		777D2CE51C62AB12000FF4C8 /* UIAlertView+Extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Extra.m"; sourceTree = "<group>"; };
+		779B9BA11CB44128008918C4 /* FeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedViewController.h; sourceTree = "<group>"; };
+		779B9BA21CB44128008918C4 /* FeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedViewController.m; sourceTree = "<group>"; };
+		779B9BA31CB44128008918C4 /* PeopleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeopleViewController.h; sourceTree = "<group>"; };
+		779B9BA41CB44128008918C4 /* PeopleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeopleViewController.m; sourceTree = "<group>"; };
+		779B9BA51CB44128008918C4 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		779B9BA61CB44128008918C4 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		779B9BA71CB44128008918C4 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		779B9BA81CB44128008918C4 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		77E5C9CF1C575A4400E6CD4F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		77E5C9D01C575A4400E6CD4F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		77E5C9D21C575CBE00E6CD4F /* flipper-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "flipper-Prefix.pch"; sourceTree = "<group>"; };
@@ -167,6 +183,15 @@
 		77F6B7631C9A459C0042057F /* UIColor+AppColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+AppColors.m"; sourceTree = "<group>"; };
 		77FAEFA61CB2D98400DAA0FD /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		77FAEFA71CB2D98400DAA0FD /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		77FAEFAA1CB3045500DAA0FD /* CarbonKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarbonKit.h; sourceTree = "<group>"; };
+		77FAEFAB1CB3045500DAA0FD /* CarbonSwipeRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarbonSwipeRefresh.h; sourceTree = "<group>"; };
+		77FAEFAC1CB3045500DAA0FD /* CarbonSwipeRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarbonSwipeRefresh.m; sourceTree = "<group>"; };
+		77FAEFAD1CB3045500DAA0FD /* CarbonTabSwipeNavigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarbonTabSwipeNavigation.h; sourceTree = "<group>"; };
+		77FAEFAE1CB3045500DAA0FD /* CarbonTabSwipeNavigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarbonTabSwipeNavigation.m; sourceTree = "<group>"; };
+		77FAEFAF1CB3045500DAA0FD /* CarbonTabSwipeScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarbonTabSwipeScrollView.h; sourceTree = "<group>"; };
+		77FAEFB01CB3045500DAA0FD /* CarbonTabSwipeScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarbonTabSwipeScrollView.m; sourceTree = "<group>"; };
+		77FAEFB11CB3045500DAA0FD /* CarbonTabSwipeSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarbonTabSwipeSegmentedControl.h; sourceTree = "<group>"; };
+		77FAEFB21CB3045500DAA0FD /* CarbonTabSwipeSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarbonTabSwipeSegmentedControl.m; sourceTree = "<group>"; };
 		98D4573266DDB06E38DF6914 /* libPods-flipper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-flipper.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C816DE91E178DAC3E664CFE2 /* Pods-flipper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flipper.release.xcconfig"; path = "Pods/Target Support Files/Pods-flipper/Pods-flipper.release.xcconfig"; sourceTree = "<group>"; };
 		D55246B61275EAACC1B7D8FB /* Pods-flipper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flipper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-flipper/Pods-flipper.debug.xcconfig"; sourceTree = "<group>"; };
@@ -296,6 +321,7 @@
 		77E5C9CC1C57572A00E6CD4F /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				77FAEFA91CB3045500DAA0FD /* CarbonKit */,
 				7724C4D91C60FEB100267097 /* LNBRippleEffect */,
 			);
 			path = Vendors;
@@ -327,6 +353,14 @@
 				77F6B7601C97AEB00042057F /* FollowPeopleViewController.m */,
 				77FAEFA61CB2D98400DAA0FD /* HomeViewController.h */,
 				77FAEFA71CB2D98400DAA0FD /* HomeViewController.m */,
+				779B9BA11CB44128008918C4 /* FeedViewController.h */,
+				779B9BA21CB44128008918C4 /* FeedViewController.m */,
+				779B9BA31CB44128008918C4 /* PeopleViewController.h */,
+				779B9BA41CB44128008918C4 /* PeopleViewController.m */,
+				779B9BA51CB44128008918C4 /* ProfileViewController.h */,
+				779B9BA61CB44128008918C4 /* ProfileViewController.m */,
+				779B9BA71CB44128008918C4 /* SearchViewController.h */,
+				779B9BA81CB44128008918C4 /* SearchViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -402,6 +436,22 @@
 				77F2E8971C57552900DFA74E /* Info.plist */,
 			);
 			path = flipperUITests;
+			sourceTree = "<group>";
+		};
+		77FAEFA91CB3045500DAA0FD /* CarbonKit */ = {
+			isa = PBXGroup;
+			children = (
+				77FAEFAA1CB3045500DAA0FD /* CarbonKit.h */,
+				77FAEFAB1CB3045500DAA0FD /* CarbonSwipeRefresh.h */,
+				77FAEFAC1CB3045500DAA0FD /* CarbonSwipeRefresh.m */,
+				77FAEFAD1CB3045500DAA0FD /* CarbonTabSwipeNavigation.h */,
+				77FAEFAE1CB3045500DAA0FD /* CarbonTabSwipeNavigation.m */,
+				77FAEFAF1CB3045500DAA0FD /* CarbonTabSwipeScrollView.h */,
+				77FAEFB01CB3045500DAA0FD /* CarbonTabSwipeScrollView.m */,
+				77FAEFB11CB3045500DAA0FD /* CarbonTabSwipeSegmentedControl.h */,
+				77FAEFB21CB3045500DAA0FD /* CarbonTabSwipeSegmentedControl.m */,
+			);
+			path = CarbonKit;
 			sourceTree = "<group>";
 		};
 		E8E3665BF8BE16E68253F51D /* Frameworks */ = {
@@ -623,7 +673,10 @@
 			files = (
 				77E5C9D11C575A4400E6CD4F /* LoginViewController.m in Sources */,
 				5425EA901C62866000F1B8E4 /* IntroButton.m in Sources */,
+				779B9BA91CB44129008918C4 /* FeedViewController.m in Sources */,
 				54449AE21C9890D500805093 /* People.m in Sources */,
+				779B9BAC1CB44129008918C4 /* SearchViewController.m in Sources */,
+				77FAEFB31CB3045500DAA0FD /* CarbonSwipeRefresh.m in Sources */,
 				777D2CE61C62AB12000FF4C8 /* UIAlertView+Extra.m in Sources */,
 				7724C4D31C5E498A00267097 /* NSString+Validations.m in Sources */,
 				77FAEFA81CB2D98400DAA0FD /* HomeViewController.m in Sources */,
@@ -632,16 +685,21 @@
 				7724C4D01C5D001C00267097 /* PageWalkthrough.m in Sources */,
 				54D3C2C81C6144F100367C98 /* IntroTextView.m in Sources */,
 				77F6B7641C9A459C0042057F /* UIColor+AppColors.m in Sources */,
+				77FAEFB41CB3045500DAA0FD /* CarbonTabSwipeNavigation.m in Sources */,
 				77F2E8751C57552700DFA74E /* AppDelegate.m in Sources */,
 				54F1B4661C7CCD6E003A35FE /* CategoriesViewController.m in Sources */,
 				54F1B4691C7CD05F003A35FE /* CategoriesCollectionViewCell.m in Sources */,
 				77F6B7611C97AEB00042057F /* FollowPeopleViewController.m in Sources */,
+				779B9BAB1CB44129008918C4 /* ProfileViewController.m in Sources */,
 				7712707E1C5BE7D50013DDD1 /* WalkthroughViewController.m in Sources */,
 				7724C4D61C5E4E7700267097 /* UIPageControl+Extra.m in Sources */,
+				77FAEFB51CB3045500DAA0FD /* CarbonTabSwipeScrollView.m in Sources */,
+				779B9BAA1CB44129008918C4 /* PeopleViewController.m in Sources */,
 				54449AE51C989B1F00805093 /* PeopleTableViewCell.m in Sources */,
 				54D3C2C31C61426600367C98 /* IntroHeaderView.m in Sources */,
 				547FFF641C76CB1500254145 /* Categories.m in Sources */,
 				77F2E8721C57552700DFA74E /* main.m in Sources */,
+				77FAEFB61CB3045500DAA0FD /* CarbonTabSwipeSegmentedControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -51,17 +51,13 @@ NSString * const TWITTER_CONSUMER_SECRET = @"0iQLTuMR9CewQn4fPZ0wl85iwnTWJ9l12Zz
     [PFTwitterUtils initializeWithConsumerKey:TWITTER_CONSUMER_KEY consumerSecret:TWITTER_CONSUMER_SECRET];
     
     if([PFUser currentUser]) {
-        //skip to categories
-        NSLog(@"user is already logged in.. check if he has followed people too.. if yes, go to home page.. otherwise go to Categories");
-        
+        //skip to categories or homepage
         BOOL followsCelebrities = [[[PFUser currentUser] objectForKey:@"follows_celebrities"] boolValue];
         if(followsCelebrities) {
-            NSLog(@"go to home page");
             UINavigationController* homeNavigationViewController = [MAIN_STORYBOARD instantiateViewControllerWithIdentifier:@"HomeNavigationController"];
             [APP_DELEGATE.window setRootViewController:homeNavigationViewController];
         }
         else {
-            NSLog(@"go to categories");
             UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Intro" bundle:nil];
             CategoriesViewController *categories = [storyboard instantiateViewControllerWithIdentifier:@"CategoriesViewController"];
             
@@ -74,8 +70,6 @@ NSString * const TWITTER_CONSUMER_SECRET = @"0iQLTuMR9CewQn4fPZ0wl85iwnTWJ9l12Zz
     }
     else {
         //do nothing... walkthrough should appear
-        
-        NSLog(@"show up login window");
     }
     
     return YES;

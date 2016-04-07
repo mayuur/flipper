@@ -164,6 +164,13 @@
         return;
     }
 
+    //add categories for this user
+    for(NSString* objectID in self.arraySelectedCategories) {
+        //PFObject* userCategories = [];
+    }
+    
+    //add people to follow for this user
+    
     PFUser* currentUser = [PFUser currentUser];
     [currentUser setObject:[NSNumber numberWithBool:YES] forKey:@"follows_celebrities"];
     [currentUser saveInBackground];
