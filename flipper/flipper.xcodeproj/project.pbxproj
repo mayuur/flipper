@@ -56,6 +56,7 @@
 		779B9BAA1CB44129008918C4 /* PeopleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 779B9BA41CB44128008918C4 /* PeopleViewController.m */; };
 		779B9BAB1CB44129008918C4 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 779B9BA61CB44128008918C4 /* ProfileViewController.m */; };
 		779B9BAC1CB44129008918C4 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 779B9BA81CB44128008918C4 /* SearchViewController.m */; };
+		779B9BAF1CB69FF8008918C4 /* CelebrityFollowedCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 779B9BAE1CB69FF8008918C4 /* CelebrityFollowedCollectionViewCell.m */; };
 		77E5C9D11C575A4400E6CD4F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E5C9D01C575A4400E6CD4F /* LoginViewController.m */; };
 		77F2E8721C57552700DFA74E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F2E8711C57552700DFA74E /* main.m */; };
 		77F2E8751C57552700DFA74E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F2E8741C57552700DFA74E /* AppDelegate.m */; };
@@ -158,6 +159,8 @@
 		779B9BA61CB44128008918C4 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		779B9BA71CB44128008918C4 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		779B9BA81CB44128008918C4 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		779B9BAD1CB69FF8008918C4 /* CelebrityFollowedCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CelebrityFollowedCollectionViewCell.h; sourceTree = "<group>"; };
+		779B9BAE1CB69FF8008918C4 /* CelebrityFollowedCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CelebrityFollowedCollectionViewCell.m; sourceTree = "<group>"; };
 		77E5C9CF1C575A4400E6CD4F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		77E5C9D01C575A4400E6CD4F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		77E5C9D21C575CBE00E6CD4F /* flipper-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "flipper-Prefix.pch"; sourceTree = "<group>"; };
@@ -252,6 +255,8 @@
 				5425EA8F1C62866000F1B8E4 /* IntroButton.m */,
 				54F1B4671C7CD05F003A35FE /* CategoriesCollectionViewCell.h */,
 				54F1B4681C7CD05F003A35FE /* CategoriesCollectionViewCell.m */,
+				779B9BAD1CB69FF8008918C4 /* CelebrityFollowedCollectionViewCell.h */,
+				779B9BAE1CB69FF8008918C4 /* CelebrityFollowedCollectionViewCell.m */,
 				54449AE31C989B1F00805093 /* PeopleTableViewCell.h */,
 				54449AE41C989B1F00805093 /* PeopleTableViewCell.m */,
 			);
@@ -673,6 +678,7 @@
 			files = (
 				77E5C9D11C575A4400E6CD4F /* LoginViewController.m in Sources */,
 				5425EA901C62866000F1B8E4 /* IntroButton.m in Sources */,
+				779B9BAF1CB69FF8008918C4 /* CelebrityFollowedCollectionViewCell.m in Sources */,
 				779B9BA91CB44129008918C4 /* FeedViewController.m in Sources */,
 				54449AE21C9890D500805093 /* People.m in Sources */,
 				779B9BAC1CB44129008918C4 /* SearchViewController.m in Sources */,

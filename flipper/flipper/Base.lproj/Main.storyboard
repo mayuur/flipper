@@ -36,12 +36,12 @@
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JBy-5b-zWy">
                                 <rect key="frame" x="0.0" y="536" width="600" height="64"/>
-                                <color key="backgroundColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="WmB-II-CTh"/>
                                 </constraints>
                                 <items/>
-                                <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -115,7 +115,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YWz-Et-vnm">
-                                <rect key="frame" x="0.0" y="220" width="600" height="380"/>
+                                <rect key="frame" x="0.0" y="270" width="600" height="330"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryCell" id="Z0Z-4W-kEm">
@@ -132,16 +132,73 @@
                                     <outlet property="delegate" destination="9Ro-Bo-eHP" id="EKe-C3-fEF"/>
                                 </connections>
                             </tableView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GLC-M9-eQl">
+                                <rect key="frame" x="0.0" y="64" width="600" height="190"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="20" minimumInteritemSpacing="20" id="WWG-Jv-8t4">
+                                    <size key="itemSize" width="100" height="130"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PeopleCell" id="cvZ-RR-G47" customClass="CelebrityFollowedCollectionViewCell">
+                                        <rect key="frame" x="20" y="30" width="100" height="130"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="130"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SO4-xN-QOe">
+                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="95"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KLL-he-ca5">
+                                                    <rect key="frame" x="0.0" y="94" width="100" height="36"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="36" id="1Wt-tE-PeO"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="KLL-he-ca5" secondAttribute="bottom" id="DgU-NY-f28"/>
+                                            <constraint firstItem="KLL-he-ca5" firstAttribute="leading" secondItem="SO4-xN-QOe" secondAttribute="leading" id="ER4-U6-I0C"/>
+                                            <constraint firstItem="SO4-xN-QOe" firstAttribute="leading" secondItem="cvZ-RR-G47" secondAttribute="leading" id="IiZ-Ek-Mdy"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="SO4-xN-QOe" secondAttribute="bottom" constant="27" id="P9X-u4-rbE"/>
+                                            <constraint firstItem="SO4-xN-QOe" firstAttribute="top" secondItem="cvZ-RR-G47" secondAttribute="top" id="RCc-g7-0Zx"/>
+                                            <constraint firstAttribute="trailing" secondItem="SO4-xN-QOe" secondAttribute="trailing" id="plH-9p-90l"/>
+                                            <constraint firstItem="KLL-he-ca5" firstAttribute="trailing" secondItem="SO4-xN-QOe" secondAttribute="trailing" id="sbJ-gZ-loz"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="imageCelebrity" destination="SO4-xN-QOe" id="vG5-OE-L0B"/>
+                                            <outlet property="labelCelebrityName" destination="KLL-he-ca5" id="rqn-ep-5ze"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="9Ro-Bo-eHP" id="ry4-b6-qDc"/>
+                                    <outlet property="delegate" destination="9Ro-Bo-eHP" id="wSq-8Q-OXB"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="YWz-Et-vnm" firstAttribute="top" secondItem="GLC-M9-eQl" secondAttribute="bottom" constant="16" id="4h0-rg-Ibj"/>
                             <constraint firstItem="YWz-Et-vnm" firstAttribute="bottom" secondItem="xkl-xv-0gR" secondAttribute="top" id="Aq2-u1-3Sm"/>
+                            <constraint firstItem="GLC-M9-eQl" firstAttribute="top" secondItem="fEd-Sj-MUM" secondAttribute="bottom" constant="44" id="PF1-wc-S9H"/>
                             <constraint firstAttribute="trailing" secondItem="YWz-Et-vnm" secondAttribute="trailing" id="Xhf-M4-l53"/>
                             <constraint firstItem="YWz-Et-vnm" firstAttribute="leading" secondItem="v45-Hb-lIY" secondAttribute="leading" id="hgK-DF-h5o"/>
-                            <constraint firstItem="YWz-Et-vnm" firstAttribute="top" secondItem="fEd-Sj-MUM" secondAttribute="bottom" constant="200" id="j1e-Fv-6dE"/>
+                            <constraint firstItem="YWz-Et-vnm" firstAttribute="top" secondItem="fEd-Sj-MUM" secondAttribute="bottom" constant="250" id="j1e-Fv-6dE"/>
+                            <constraint firstItem="GLC-M9-eQl" firstAttribute="trailing" secondItem="YWz-Et-vnm" secondAttribute="trailing" id="n4n-e2-3lI"/>
+                            <constraint firstItem="GLC-M9-eQl" firstAttribute="leading" secondItem="YWz-Et-vnm" secondAttribute="leading" id="yft-bu-eQS"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="collectionViewCelebrities" destination="GLC-M9-eQl" id="lBT-Oj-dfV"/>
                         <outlet property="tableViewCategories" destination="YWz-Et-vnm" id="kyM-qF-VdK"/>
                     </connections>
                 </viewController>

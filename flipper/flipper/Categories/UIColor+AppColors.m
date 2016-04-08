@@ -11,7 +11,7 @@
 @implementation UIColor (AppColors)
 
 + (UIColor* ) followPeopleBlueBackground {
-    return UIColorFromRGB(0xff0000);
+    return UIColorFromRGB(0x4CAAF2);
 }
 
 @end

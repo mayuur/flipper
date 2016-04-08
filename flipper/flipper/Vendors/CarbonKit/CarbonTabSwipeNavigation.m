@@ -436,6 +436,9 @@
     // delegate scrollview
     for (id subView in self.pageViewController.view.subviews) {
         if ([subView isKindOfClass:[UIScrollView class]]) {
+            UIScrollView* scrollView = (UIScrollView* ) subView;
+            scrollView.scrollEnabled = NO;
+            
             self.pagesScrollView = subView;
             self.pagesScrollView.delegate = self;
             self.pagesScrollView.panGestureRecognizer.maximumNumberOfTouches = 1;
