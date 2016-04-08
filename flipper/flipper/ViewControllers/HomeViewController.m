@@ -77,7 +77,7 @@
             return [MAIN_STORYBOARD instantiateViewControllerWithIdentifier:@"FeedViewController"];
             
         case 1:
-            return [MAIN_STORYBOARD instantiateViewControllerWithIdentifier:@"PeopleViewController"];
+            return [MAIN_STORYBOARD instantiateViewControllerWithIdentifier:@"NavigationPeopleViewController"];
             
         case 2:
             return [MAIN_STORYBOARD instantiateViewControllerWithIdentifier:@"SearchViewController"];

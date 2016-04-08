@@ -19,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionViewCelebrities;
 @property (strong, nonatomic) NSMutableArray* arrayPeople;
 
+@property (nonatomic, readwrite) BOOL editModeCelebrities;
+
 @end
 
 /*
@@ -34,6 +36,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.title = @"Following";
     
     self.arrayCategories = [NSMutableArray new];
     self.arrayPeople = [NSMutableArray new];
@@ -95,9 +99,14 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CelebrityFollowedCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PeopleCell" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor blackColor];
-    
+
     People* person = self.arrayPeople[indexPath.row];
     cell.labelCelebrityName.text = person.person_name;
+    
+    cell.buttonUnfollow.hidden = YES;
+    if(self.editModeCelebrities) {
+        cell.buttonUnfollow.hidden = NO;
+    }
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [person.person_image getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
@@ -133,6 +142,7 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
     UIView* headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(tableView.frame), 44)];
+    headerView.backgroundColor = [UIColor whiteColor];
     
     UILabel* labelHeader = [[UILabel alloc] initWithFrame:[headerView bounds]];
     labelHeader.backgroundColor = [UIColor clearColor];
@@ -150,5 +160,12 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 44;
 }
+
+#pragma mark - Button actions
+- (IBAction)editClicked:(id)sender {
+    self.editModeCelebrities = !self.editModeCelebrities;
+    [self.collectionViewCelebrities reloadData];
+}
+
 
 @end

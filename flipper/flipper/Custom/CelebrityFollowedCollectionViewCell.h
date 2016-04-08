@@ -12,6 +12,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *labelCelebrityName;
 @property (weak, nonatomic) IBOutlet UIImageView *imageCelebrity;
-@property (strong, nonatomic) IBOutlet UIImageView *imageViewSelectedTick;
+@property (strong, nonatomic) IBOutlet UIButton *buttonUnfollow;
+
+
 
 @end
