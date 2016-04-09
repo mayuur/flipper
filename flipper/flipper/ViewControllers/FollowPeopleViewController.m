@@ -165,8 +165,16 @@
     }
 
     //add categories for this user
-    for(NSString* objectID in self.arraySelectedCategories) {
+    for(People *tempPeople in arrayPeople) {
         //PFObject* userCategories = [];
+        if(tempPeople.isSelected) {
+            PFObject *objUserPeople = [PFObject objectWithClassName:@"User_People"];
+            [objUserPeople setValue:tempPeople.objectId forKey:@"fk_people_id"];
+            [objUserPeople setValue:[PFUser currentUser].objectId forKey:@"fk_user_id"];
+            [objUserPeople saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                NSLog(@"Object saved error:%@",error.localizedDescription);
+            }];
+        }
     }
     
     //add people to follow for this user

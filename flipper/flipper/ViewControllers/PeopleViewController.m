@@ -10,6 +10,7 @@
 #import "Categories.h"
 #import "People.h"
 #import "CelebrityFollowedCollectionViewCell.h"
+#import "FollowPeopleViewController.h"
 
 @interface PeopleViewController() <UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -42,11 +43,12 @@
     self.arrayCategories = [NSMutableArray new];
     self.arrayPeople = [NSMutableArray new];
     [self getAllCategories];
-    [self getCelebritiesFollowedByUser];
+//    [self getCelebritiesFollowedByUser];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self getCelebritiesFollowedByUser];
     
 
 }
@@ -136,7 +138,13 @@
 
 #pragma mark - UITableViewDelegate methods
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    NSMutableArray *arrayCategory = [NSMutableArray array];
+    FollowPeopleViewController *followPeopleViewController = [INTRO_STORYBOARD instantiateViewControllerWithIdentifier:@"FollowPeopleViewController"];
+    [arrayCategory addObject:[[self.arrayCategories objectAtIndex:indexPath.row] objectId]];
+    followPeopleViewController.arraySelectedCategories = arrayCategory;
+    [self.navigationController pushViewController:followPeopleViewController animated:YES];
+//    UINavigationController* homeNavigationViewController = followPeopleViewController;
+//    [APP_DELEGATE.window setRootViewController:homeNavigationViewController];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
