@@ -47,14 +47,8 @@
 
 - (void)style {
     
-    UIColor *color = [UIColor colorWithRed:243.0/255 green:243/255 blue:243/255 alpha:1];
-    self.navigationController.navigationBar.translucent = NO;
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    self.navigationController.navigationBar.barTintColor = color;
-    self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
-    
     carbonTabSwipeNavigation.toolbar.translucent = NO;
-    [carbonTabSwipeNavigation setIndicatorColor:color];
+    [carbonTabSwipeNavigation setIndicatorColor:[UIColor followPeopleBlueBackground]];
     [carbonTabSwipeNavigation setTabExtraWidth:30];
     [carbonTabSwipeNavigation.carbonSegmentedControl setWidth:CGRectGetWidth(self.view.frame)/4 forSegmentAtIndex:0];
     [carbonTabSwipeNavigation.carbonSegmentedControl setWidth:CGRectGetWidth(self.view.frame)/4 forSegmentAtIndex:1];
