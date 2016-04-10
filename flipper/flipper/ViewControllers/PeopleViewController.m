@@ -11,9 +11,12 @@
 #import "People.h"
 #import "CelebrityFollowedCollectionViewCell.h"
 #import "FollowPeopleViewController.h"
+#import "Utility.h"
 
 @interface PeopleViewController() <UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
-
+{
+    UIActivityIndicatorView *tableActivityView, *colActivityView;
+}
 @property (weak, nonatomic) IBOutlet UITableView *tableViewCategories;
 @property (strong, nonatomic) NSMutableArray* arrayCategories;
 
@@ -38,17 +41,42 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    tableActivityView = [[UIActivityIndicatorView alloc]
+                    initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    
+    tableActivityView.center=self.tableViewCategories.center;
+    tableActivityView.hidesWhenStopped = YES;
+    [tableActivityView startAnimating];
+    [self.tableViewCategories addSubview:tableActivityView];
+    
+    colActivityView = [[UIActivityIndicatorView alloc]
+                    initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    
+    colActivityView.center=self.collectionViewCelebrities.center;
+    colActivityView.hidesWhenStopped = YES;
+    [colActivityView startAnimating];
+    [self.collectionViewCelebrities addSubview:colActivityView];
+    
     self.title = @"Following";
     
     self.arrayCategories = [NSMutableArray new];
     self.arrayPeople = [NSMutableArray new];
-    [self getAllCategories];
+    if ([Utility isNetAvailable]) {
+        [self getAllCategories];
+    }else {
+        [UIAlertView addDismissableAlertWithText:@"No Internet Connection" OnController:self];
+    }
 //    [self getCelebritiesFollowedByUser];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self getCelebritiesFollowedByUser];
+    if ([Utility isNetAvailable]) {
+        [self getCelebritiesFollowedByUser];
+    }else {
+        [UIAlertView addDismissableAlertWithText:@"No Internet Connection" OnController:self];
+    }
+    
     
 
 }
@@ -62,6 +90,7 @@
 -(void)getAllCategories {
     PFQuery *query = [PFQuery queryWithClassName:[Categories parseClassName]];
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        [tableActivityView stopAnimating];
         if(!error){
             [self.arrayCategories addObjectsFromArray:objects];
             [self.tableViewCategories reloadData];
@@ -77,6 +106,7 @@
     NSPredicate* userPredicate = [NSPredicate predicateWithFormat:@"fk_user_id = %@", [PFUser currentUser].objectId];
     PFQuery *fetchCelebrityQuery = [PFQuery queryWithClassName:@"User_People" predicate:userPredicate];
     [fetchCelebrityQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        [colActivityView stopAnimating];
         NSArray* arrayCelebrities = [objects valueForKey:@"fk_people_id"];
 
         PFQuery* fetchCelebDetailsQuery = [PFQuery queryWithClassName:@"People"];

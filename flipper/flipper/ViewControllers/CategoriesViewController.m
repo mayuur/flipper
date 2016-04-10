@@ -10,11 +10,14 @@
 #import "CategoriesCollectionViewCell.h"
 #import "Categories.h"
 #import "FollowPeopleViewController.h"
+#import "Utility.h"
+//#import "UIAlertView+Extra.h"
 
 @interface CategoriesViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 {
     NSMutableArray *arrCategories,*arrImages;
     __weak IBOutlet NSLayoutConstraint *collectionBottomLayoutConstraint;
+    UIActivityIndicatorView *activityView;
 }
 @property (weak, nonatomic) IBOutlet UICollectionView *categoriesCollectionView;
 
@@ -25,11 +28,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    [self.navigationController setNavigationBarHidden:NO];
+    [self.navigationController.navigationItem setHidesBackButton:YES];
+    self.navigationItem.hidesBackButton = YES;
     arrCategories = [NSMutableArray array];
     arrImages = [NSMutableArray array];
- 
-    [self getAllCategories];
+    activityView = [[UIActivityIndicatorView alloc]
+                                             initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    
+    activityView.center=self.view.center;
+    activityView.hidesWhenStopped = YES;
+    [activityView startAnimating];
+    [self.view addSubview:activityView];
+    if([Utility isNetAvailable]) {
+        [self getAllCategories];
+    }else {
+        [UIAlertView addDismissableAlertWithText:@"No Internet Connection" OnController:self];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -94,6 +109,7 @@
 -(void)getAllCategories {
     PFQuery *query = [PFQuery queryWithClassName:[Categories parseClassName]];
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        [activityView stopAnimating];
         if(!error){
             [arrCategories addObjectsFromArray:objects];
             

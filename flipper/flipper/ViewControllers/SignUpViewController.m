@@ -17,10 +17,14 @@
 #import "NSString+Validations.h"
 #import <FHSTwitterEngine/FHSTwitterEngine.h>
 #import "CategoriesViewController.h"
+#import "Utility.h"
 
 #define kOFFSET_FOR_KEYBOARD 180.0
 
 @interface SignUpViewController ()
+{
+    UIActivityIndicatorView *activityView;
+}
 
 @property (weak, nonatomic) IBOutlet IntroHeaderView *signUpHeaderView;
 
@@ -51,7 +55,13 @@
     [_textViewPassword.textField setSecureTextEntry:YES];
     [_textViewPassword.imageView setImage:[UIImage imageNamed:@"iconPassword"]];
     
+    activityView = [[UIActivityIndicatorView alloc]
+                    initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     
+    activityView.center=self.view.center;
+    activityView.hidesWhenStopped = YES;
+    
+    [self.view addSubview:activityView];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -162,58 +172,65 @@
 }
 
 - (IBAction)facebookSignUp:(UIButton *)sender {
-    [PFUser logOut];
-    [PFFacebookUtils logInInBackgroundWithReadPermissions:@[@"public_profile",@"email"] block:^(PFUser * _Nullable user, NSError * _Nullable error) {
-        if (!user) {
-            NSLog(@"Uh oh. The user cancelled the Facebook login.");
-        } else if (user.isNew) {
-            
-            NSLog(@"User signed up and logged in through Facebook!");
-            FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields": @"name,email"}];
-            [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error)
-             {
-                 if (error)
+    if([Utility isNetAvailable]) {
+        [activityView startAnimating];
+        [PFUser logOut];
+        [PFFacebookUtils logInInBackgroundWithReadPermissions:@[@"public_profile",@"email"] block:^(PFUser * _Nullable user, NSError * _Nullable error) {
+            if (!user) {
+                NSLog(@"Uh oh. The user cancelled the Facebook login.");
+            } else if (user.isNew) {
+                
+                NSLog(@"User signed up and logged in through Facebook!");
+                FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields": @"name,email"}];
+                [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error)
                  {
-                     UIAlertView *alertVeiw = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-                     
-                     [alertVeiw show];
-                     
-                 } else if ([[error userInfo][@"error"][@"type"] isEqualToString: @"OAuthException"]) { // Since the request failed, we can check if it was due to an invalid session
-                     //   NSLog(@"The facebook session was invalidated");
-                     [PFFacebookUtils unlinkUserInBackground:[PFUser currentUser]];
-                 }
-                 else {
-                     
-                     NSDictionary *userData = (NSDictionary *)result;
-                     //   [self requestFacebookUser:user];
-                     
-                     NSString *name = userData[@"name"];
-                     NSString *email = userData[@"email"];
-                     
-                     user.username = name;
-                     user.email = email;
-                     [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
-                      {
-                          if (error)
+                     [activityView stopAnimating];
+                     if (error)
+                     {
+                         UIAlertView *alertVeiw = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                         
+                         [alertVeiw show];
+                         
+                     } else if ([[error userInfo][@"error"][@"type"] isEqualToString: @"OAuthException"]) { // Since the request failed, we can check if it was due to an invalid session
+                         //   NSLog(@"The facebook session was invalidated");
+                         [PFFacebookUtils unlinkUserInBackground:[PFUser currentUser]];
+                     }
+                     else {
+                         
+                         NSDictionary *userData = (NSDictionary *)result;
+                         //   [self requestFacebookUser:user];
+                         
+                         NSString *name = userData[@"name"];
+                         NSString *email = userData[@"email"];
+                         
+                         user.username = name;
+                         user.email = email;
+                         [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
                           {
-                              UIAlertView *alertVeiw = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-                              
-                              [alertVeiw show];
-                              
-                          }
-                          else {
-                              // [self dismissViewControllerAnimated:NO completion:nil];
-                              //[self.navigationController popToRootViewControllerAnimated:NO];
-                              [self performSegueWithIdentifier:@"inbox" sender:self];
-                          }
-                      }];
-                 }
-             }];
-            
-        } else {
-            NSLog(@"User logged in through Facebook!");
-        }
-    }];
+                              if (error)
+                              {
+                                  UIAlertView *alertVeiw = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                                  
+                                  [alertVeiw show];
+                                  
+                              }
+                              else {
+                                  // [self dismissViewControllerAnimated:NO completion:nil];
+                                  //[self.navigationController popToRootViewControllerAnimated:NO];
+                                  [self performSegueWithIdentifier:@"inbox" sender:self];
+                              }
+                          }];
+                     }
+                 }];
+                
+            } else {
+                NSLog(@"User logged in through Facebook!");
+                [self performSegueWithIdentifier:@"inbox" sender:self];
+            }
+        }];
+    }else {
+        [UIAlertView addDismissableAlertWithText:@"No Internet Connection" OnController:self];
+    }
 }
 
 

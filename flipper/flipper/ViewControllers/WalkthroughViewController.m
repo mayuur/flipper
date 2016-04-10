@@ -28,6 +28,11 @@
     [self createWalkthrough];
 }
 
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:YES];
+    [self.navigationController setNavigationBarHidden:YES];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

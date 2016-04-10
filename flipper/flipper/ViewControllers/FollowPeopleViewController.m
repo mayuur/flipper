@@ -11,11 +11,13 @@
 #import "IntroHeaderView.h"
 #import "HomeViewController.h"
 #import "People.h"
+#import "Utility.h"
 
 @interface FollowPeopleViewController ()<UITableViewDataSource,UITableViewDelegate> {
     __weak IBOutlet IntroHeaderView *peopleHeader;
     __weak IBOutlet UITableView *tablePeople;
     NSMutableArray *arrayPeople;
+    UIActivityIndicatorView *activityView;
 }
 
 @property (nonatomic, readwrite) BOOL followAll;
@@ -33,7 +35,14 @@
     
     arrayPeople = [NSMutableArray array];
     //[self getPeopleDataFrom:@[@"ua70boG3jc",@"OTNCmSBXeL"]];
-    [self getPeopleDataFrom:self.arraySelectedCategories];    
+    activityView = [[UIActivityIndicatorView alloc]
+                    initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    
+    activityView.center=self.view.center;
+    activityView.hidesWhenStopped = YES;
+    [activityView startAnimating];
+    [self.view addSubview:activityView];
+    [self getPeopleDataFrom:self.arraySelectedCategories];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -135,17 +144,22 @@
 #pragma mark - Custom Methods
 
 -(void)getPeopleDataFrom:(NSArray *)array {
-    for (NSString *temp in array) {
-        PFQuery *query = [PFQuery queryWithClassName:[People parseClassName]];
-        [query whereKey:@"fk_category_id" equalTo:[PFObject objectWithoutDataWithClassName:@"Categories" objectId:temp]];
-        [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-            if(!error){
-                [arrayPeople addObjectsFromArray:objects];
-                [tablePeople reloadData];
-            }else {
-                NSLog(@"Error:%@",error.localizedDescription);
-            }
-        }];
+    if([Utility isNetAvailable]) {
+        for (NSString *temp in array) {
+            PFQuery *query = [PFQuery queryWithClassName:[People parseClassName]];
+            [query whereKey:@"fk_category_id" equalTo:[PFObject objectWithoutDataWithClassName:@"Categories" objectId:temp]];
+            [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+                [activityView stopAnimating];
+                if(!error){
+                    [arrayPeople addObjectsFromArray:objects];
+                    [tablePeople reloadData];
+                }else {
+                    NSLog(@"Error:%@",error.localizedDescription);
+                }
+            }];
+        }
+    }else {
+        [UIAlertView addDismissableAlertWithText:@"No Internet Connection" OnController:self];
     }
 }
 
