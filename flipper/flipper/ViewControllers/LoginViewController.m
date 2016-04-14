@@ -190,8 +190,15 @@
                                       if (user) {
                                           // Do stuff after successful login.
                                           NSLog(@"user logged in!");
-                                          CategoriesViewController *categories = [self.storyboard instantiateViewControllerWithIdentifier:@"CategoriesViewController"];
-                                          [self.navigationController pushViewController:categories animated:YES];
+                                          BOOL followsCelebrities = [[user objectForKey:@"follows_celebrities"] boolValue];
+                                          if(followsCelebrities) {
+                                              UINavigationController* homeNavigationViewController = [MAIN_STORYBOARD instantiateViewControllerWithIdentifier:@"HomeNavigationController"];
+                                              [APP_DELEGATE.window setRootViewController:homeNavigationViewController];
+                                          }
+                                          else {
+                                              CategoriesViewController *categories = [self.storyboard instantiateViewControllerWithIdentifier:@"CategoriesViewController"];
+                                              [self.navigationController pushViewController:categories animated:YES];
+                                          }
                                       }
                                       else {
                                           NSLog(@"Error >> %@", [error localizedDescription]);
@@ -254,8 +261,15 @@
 
             } else {
                 NSLog(@"User logged in through Facebook!");
-                CategoriesViewController *categories = [self.storyboard instantiateViewControllerWithIdentifier:@"CategoriesViewController"];
-                [self.navigationController pushViewController:categories animated:YES];
+                BOOL followsCelebrities = [[user objectForKey:@"follows_celebrities"] boolValue];
+                if(followsCelebrities) {
+                    UINavigationController* homeNavigationViewController = [MAIN_STORYBOARD instantiateViewControllerWithIdentifier:@"HomeNavigationController"];
+                    [APP_DELEGATE.window setRootViewController:homeNavigationViewController];
+                }
+                else {
+                    CategoriesViewController *categories = [self.storyboard instantiateViewControllerWithIdentifier:@"CategoriesViewController"];
+                    [self.navigationController pushViewController:categories animated:YES];
+                }
             }
         }];
     }else {
