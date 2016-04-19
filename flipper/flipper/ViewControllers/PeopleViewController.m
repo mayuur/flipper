@@ -15,13 +15,16 @@
 
 @interface PeopleViewController() <UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 {
-    UIActivityIndicatorView *tableActivityView, *colActivityView;
+    UIActivityIndicatorView *tableActivityView;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableViewCategories;
 @property (strong, nonatomic) NSMutableArray* arrayCategories;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionViewCelebrities;
 @property (strong, nonatomic) NSMutableArray* arrayPeople;
+
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicatorCollectionView;
+
 
 @property (nonatomic, readwrite) BOOL editModeCelebrities;
 
@@ -48,37 +51,25 @@
     tableActivityView.hidesWhenStopped = YES;
     [tableActivityView startAnimating];
     [self.tableViewCategories addSubview:tableActivityView];
-    
-    colActivityView = [[UIActivityIndicatorView alloc]
-                    initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    
-    colActivityView.center=self.collectionViewCelebrities.center;
-    colActivityView.hidesWhenStopped = YES;
-    [colActivityView startAnimating];
-    [self.collectionViewCelebrities addSubview:colActivityView];
-    
+        
     self.title = @"Following";
     
     self.arrayCategories = [NSMutableArray new];
     self.arrayPeople = [NSMutableArray new];
     if ([Utility isNetAvailable]) {
         [self getAllCategories];
-    }else {
-        [UIAlertView addDismissableAlertWithText:@"No Internet Connection" OnController:self];
     }
-//    [self getCelebritiesFollowedByUser];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     if ([Utility isNetAvailable]) {
+        [self.activityIndicatorCollectionView startAnimating];
+        [self.arrayPeople removeAllObjects];
         [self getCelebritiesFollowedByUser];
     }else {
         [UIAlertView addDismissableAlertWithText:@"No Internet Connection" OnController:self];
     }
-    
-    
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -106,7 +97,7 @@
     NSPredicate* userPredicate = [NSPredicate predicateWithFormat:@"fk_user_id = %@", [PFUser currentUser].objectId];
     PFQuery *fetchCelebrityQuery = [PFQuery queryWithClassName:@"User_People" predicate:userPredicate];
     [fetchCelebrityQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-        [colActivityView stopAnimating];
+        [self.activityIndicatorCollectionView stopAnimating];
         NSArray* arrayCelebrities = [objects valueForKey:@"fk_people_id"];
 
         PFQuery* fetchCelebDetailsQuery = [PFQuery queryWithClassName:@"People"];
@@ -131,13 +122,16 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CelebrityFollowedCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PeopleCell" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor blackColor];
-
+    cell.buttonUnfollow.tag = indexPath.item;
+    
     People* person = self.arrayPeople[indexPath.row];
     cell.labelCelebrityName.text = person.person_name;
     
     cell.buttonUnfollow.hidden = YES;
+    [cell.buttonUnfollow removeTarget:self action:@selector(unfollowButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     if(self.editModeCelebrities) {
         cell.buttonUnfollow.hidden = NO;
+        [cell.buttonUnfollow addTarget:self action:@selector(unfollowButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     }
     
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -147,6 +141,40 @@
     });
 
     return cell;
+}
+
+#pragma mark - CollectionView button methods
+- (void) unfollowButtonPressed :(id) sender {
+    NSLog(@"sender tag is %d", (int) [sender tag]);
+
+    //get the Object ID of User_People table
+    People* person = self.arrayPeople[[sender tag]];
+
+    //get the User_People and delete it
+    if(![Utility isNetAvailable]) {
+        [UIAlertView addDismissableAlertWithText:@"No Internet Connection" OnController:self];
+        return;
+    }
+    
+    [self.activityIndicatorCollectionView startAnimating];
+
+    NSPredicate* userPredicate = [NSPredicate predicateWithFormat:@"fk_user_id = %@ && fk_people_id = %@", [PFUser currentUser].objectId, person.objectId];
+    PFQuery *fetchCelebrityQuery = [PFQuery queryWithClassName:@"User_People" predicate:userPredicate];
+    [fetchCelebrityQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        __block NSInteger objectsCount = 0;
+        for (PFObject* object in objects) {
+            [object deleteInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                objectsCount++;
+                if(objectsCount == objects.count) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self.arrayPeople removeAllObjects];
+                        [self getCelebritiesFollowedByUser];
+                    });
+
+                }
+            }];
+        }
+    }];
 }
 
 #pragma mark - UICollectionViewDelegate methods
@@ -172,9 +200,9 @@
     FollowPeopleViewController *followPeopleViewController = [INTRO_STORYBOARD instantiateViewControllerWithIdentifier:@"FollowPeopleViewController"];
     [arrayCategory addObject:[[self.arrayCategories objectAtIndex:indexPath.row] objectId]];
     followPeopleViewController.arraySelectedCategories = arrayCategory;
+    followPeopleViewController.fromPeopleViewController = YES;
+    followPeopleViewController.arrayFromPeopleViewController = [self.arrayPeople valueForKey:@"objectId"];
     [self.navigationController pushViewController:followPeopleViewController animated:YES];
-//    UINavigationController* homeNavigationViewController = followPeopleViewController;
-//    [APP_DELEGATE.window setRootViewController:homeNavigationViewController];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {

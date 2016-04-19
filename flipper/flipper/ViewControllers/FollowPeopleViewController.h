@@ -12,4 +12,6 @@
 
 @property (nonatomic, strong) NSMutableArray* arraySelectedCategories;
 
+@property (nonatomic, readwrite) BOOL fromPeopleViewController;
+@property (nonatomic, strong) NSMutableArray* arrayFromPeopleViewController;
 @end

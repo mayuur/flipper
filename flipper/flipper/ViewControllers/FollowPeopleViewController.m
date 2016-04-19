@@ -17,11 +17,13 @@
     __weak IBOutlet IntroHeaderView *peopleHeader;
     __weak IBOutlet UITableView *tablePeople;
     NSMutableArray *arrayPeople;
+    NSMutableArray* selectedPeople;
     UIActivityIndicatorView *activityView;
 }
 
 @property (nonatomic, readwrite) BOOL followAll;
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 @end
 
 @implementation FollowPeopleViewController
@@ -34,6 +36,7 @@
     [peopleHeader.buttonHeader setImage:[UIImage imageNamed:@"FollowPeopleBack"] forState:UIControlStateNormal];
     
     arrayPeople = [NSMutableArray array];
+    selectedPeople = [NSMutableArray arrayWithCapacity:0];
     //[self getPeopleDataFrom:@[@"ua70boG3jc",@"OTNCmSBXeL"]];
     activityView = [[UIActivityIndicatorView alloc]
                     initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
@@ -43,6 +46,10 @@
     [activityView startAnimating];
     [self.view addSubview:activityView];
     [self getPeopleDataFrom:self.arraySelectedCategories];
+    
+    if(self.fromPeopleViewController) {
+        [self.doneButton setTitle:@"Update"];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -84,12 +91,20 @@
 
     People *tempPeople = [arrayPeople objectAtIndex:indexPath.row];
     [cell.labelName setText:tempPeople.person_name];
-    if(tempPeople.isSelected) {
+    
+    if([selectedPeople containsObject:tempPeople] || [self.arrayFromPeopleViewController containsObject:tempPeople.objectId]) {
         [cell.imageViewSelected setImage:[UIImage imageNamed:@"FollowPeopleSelectedTick"]];
     }
     else {
         [cell.imageViewSelected setImage:[UIImage imageNamed:@"FollowPeopleTick"]];
     }
+    
+    /*if(tempPeople.isSelected) {
+        [cell.imageViewSelected setImage:[UIImage imageNamed:@"FollowPeopleSelectedTick"]];
+    }
+    else {
+        [cell.imageViewSelected setImage:[UIImage imageNamed:@"FollowPeopleTick"]];
+    }*/
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [tempPeople.person_image getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
@@ -123,21 +138,38 @@
     
     self.followAll = !self.followAll;
     
-    for (People *tempPeople in arrayPeople) {
-        tempPeople.isSelected = self.followAll;
+    [selectedPeople removeAllObjects];
+    if(self.followAll) {
+        [selectedPeople addObjectsFromArray:arrayPeople];
     }
+    
+    /*for (People *tempPeople in arrayPeople) {
+        tempPeople.isSelected = self.followAll;
+    }*/
     [tablePeople reloadData];
 }
 
 #pragma mark - UITableViewDelegate methods
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     People *tempPeople = [arrayPeople objectAtIndex:indexPath.row];
-    if(tempPeople.isSelected) {
+    
+    if([self.arrayFromPeopleViewController containsObject:tempPeople.objectId]) {
+        return;
+    }
+    
+    if([selectedPeople containsObject:tempPeople]) {
+        [selectedPeople removeObject:tempPeople];
+    }
+    else {
+        [selectedPeople addObject:tempPeople];
+    }
+    
+    /*if(tempPeople.isSelected) {
         tempPeople.isSelected = NO;
     }
     else {
         tempPeople.isSelected = YES;
-    }
+    }*/
     [tableView reloadData];
 }
 
@@ -173,22 +205,36 @@
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isSelected=1"];
     NSArray* selectedArray = [arrayPeople filteredArrayUsingPredicate:predicate];
     
-    if(selectedArray.count == 0) {
+    if(selectedPeople.count == 0) {
+        
+        if(self.fromPeopleViewController) {
+            [self.navigationController popViewControllerAnimated:YES];
+            return;
+        }
+        
         [UIAlertView addDismissableAlertWithText:@"Please follow some people first!" OnController:self];
         return;
     }
 
     //add categories for this user
-    for(People *tempPeople in arrayPeople) {
+    for(People *tempPeople in selectedPeople) {
+        PFObject *objUserPeople = [PFObject objectWithClassName:@"User_People"];
+        [objUserPeople setValue:tempPeople.objectId forKey:@"fk_people_id"];
+        [objUserPeople setValue:[PFUser currentUser].objectId forKey:@"fk_user_id"];
+        [objUserPeople saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+            NSLog(@"Object saved error:%@",error.localizedDescription);
+        }];
+
         //PFObject* userCategories = [];
-        if(tempPeople.isSelected) {
+/*        if(tempPeople.isSelected) {
+            tempPeople.isSelected = false;
             PFObject *objUserPeople = [PFObject objectWithClassName:@"User_People"];
             [objUserPeople setValue:tempPeople.objectId forKey:@"fk_people_id"];
             [objUserPeople setValue:[PFUser currentUser].objectId forKey:@"fk_user_id"];
             [objUserPeople saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
                 NSLog(@"Object saved error:%@",error.localizedDescription);
             }];
-        }
+        }*/
     }
     
     //add people to follow for this user
@@ -197,8 +243,13 @@
     [currentUser setObject:[NSNumber numberWithBool:YES] forKey:@"follows_celebrities"];
     [currentUser saveInBackground];
     
-    UINavigationController* homeNavigationViewController = [MAIN_STORYBOARD instantiateViewControllerWithIdentifier:@"HomeNavigationController"];
-    [APP_DELEGATE.window setRootViewController:homeNavigationViewController];
+    if(self.fromPeopleViewController) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    else {
+        UINavigationController* homeNavigationViewController = [MAIN_STORYBOARD instantiateViewControllerWithIdentifier:@"HomeNavigationController"];
+        [APP_DELEGATE.window setRootViewController:homeNavigationViewController];
+    }
 }
 
 

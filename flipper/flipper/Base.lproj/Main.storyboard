@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -215,16 +215,22 @@
                                     <outlet property="delegate" destination="9Ro-Bo-eHP" id="wSq-8Q-OXB"/>
                                 </connections>
                             </collectionView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="6o2-vG-TCi">
+                                <rect key="frame" x="282" y="141" width="37" height="37"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="YWz-Et-vnm" firstAttribute="top" secondItem="GLC-M9-eQl" secondAttribute="bottom" constant="16" id="4h0-rg-Ibj"/>
                             <constraint firstItem="YWz-Et-vnm" firstAttribute="bottom" secondItem="xkl-xv-0gR" secondAttribute="top" id="Aq2-u1-3Sm"/>
+                            <constraint firstItem="6o2-vG-TCi" firstAttribute="centerY" secondItem="GLC-M9-eQl" secondAttribute="centerY" id="JSL-IV-gHi"/>
                             <constraint firstItem="GLC-M9-eQl" firstAttribute="top" secondItem="fEd-Sj-MUM" secondAttribute="bottom" id="PF1-wc-S9H"/>
                             <constraint firstAttribute="trailing" secondItem="YWz-Et-vnm" secondAttribute="trailing" id="Xhf-M4-l53"/>
                             <constraint firstItem="YWz-Et-vnm" firstAttribute="leading" secondItem="v45-Hb-lIY" secondAttribute="leading" id="hgK-DF-h5o"/>
                             <constraint firstItem="YWz-Et-vnm" firstAttribute="top" secondItem="fEd-Sj-MUM" secondAttribute="bottom" constant="206" id="j1e-Fv-6dE"/>
                             <constraint firstItem="GLC-M9-eQl" firstAttribute="trailing" secondItem="YWz-Et-vnm" secondAttribute="trailing" id="n4n-e2-3lI"/>
+                            <constraint firstItem="6o2-vG-TCi" firstAttribute="centerX" secondItem="GLC-M9-eQl" secondAttribute="centerX" id="xod-TA-Aa2"/>
                             <constraint firstItem="GLC-M9-eQl" firstAttribute="leading" secondItem="YWz-Et-vnm" secondAttribute="leading" id="yft-bu-eQS"/>
                         </constraints>
                     </view>
@@ -236,6 +242,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicatorCollectionView" destination="6o2-vG-TCi" id="em8-JF-mVe"/>
                         <outlet property="collectionViewCelebrities" destination="GLC-M9-eQl" id="lBT-Oj-dfV"/>
                         <outlet property="tableViewCategories" destination="YWz-Et-vnm" id="kyM-qF-VdK"/>
                     </connections>
