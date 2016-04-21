@@ -16,6 +16,7 @@
 @interface PeopleViewController() <UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 {
     UIActivityIndicatorView *tableActivityView;
+    UIRefreshControl *refreshControl;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableViewCategories;
 @property (strong, nonatomic) NSMutableArray* arrayCategories;
@@ -54,6 +55,8 @@
         
     self.title = @"Following";
     
+   
+    
     self.arrayCategories = [NSMutableArray new];
     self.arrayPeople = [NSMutableArray new];
     if ([Utility isNetAvailable]) {
@@ -63,6 +66,10 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    refreshControl = [[UIRefreshControl alloc]init];
+    refreshControl.tintColor = [UIColor grayColor];
+    [refreshControl addTarget:self action:@selector(refreshCollectionView) forControlEvents:UIControlEventValueChanged];
+    [self.collectionViewCelebrities addSubview:refreshControl];
     if ([Utility isNetAvailable]) {
         [self.activityIndicatorCollectionView startAnimating];
         [self.arrayPeople removeAllObjects];
@@ -78,6 +85,11 @@
 }
 
 #pragma mark - General Methods
+
+-(void)refreshCollectionView {
+    
+}
+
 -(void)getAllCategories {
     PFQuery *query = [PFQuery queryWithClassName:[Categories parseClassName]];
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
@@ -103,6 +115,7 @@
         PFQuery* fetchCelebDetailsQuery = [PFQuery queryWithClassName:@"People"];
         [fetchCelebDetailsQuery whereKey:@"objectId" containedIn:arrayCelebrities];
         [fetchCelebDetailsQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+            [_activityIndicatorCollectionView stopAnimating];
             if(!error){
                 NSLog(@"Success:%@",objects);
                 [self.arrayPeople addObjectsFromArray:objects];
