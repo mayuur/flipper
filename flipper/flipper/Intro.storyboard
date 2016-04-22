@@ -168,13 +168,13 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l4t-Fa-B3s">
-                                        <rect key="frame" x="211" y="552" width="179" height="21"/>
+                                        <rect key="frame" x="181" y="552" width="179" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="03X-4K-tQL">
-                                        <rect key="frame" x="398" y="548" width="55" height="30"/>
+                                        <rect key="frame" x="368" y="548" width="55" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <state key="normal" title="Sign Up">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -224,7 +224,7 @@
                                     <constraint firstAttribute="trailing" secondItem="umP-d5-dWI" secondAttribute="trailing" id="4zM-t2-3sB"/>
                                     <constraint firstItem="4i1-9t-vhe" firstAttribute="centerX" secondItem="AX9-to-hbf" secondAttribute="centerX" id="9fd-fd-zyn"/>
                                     <constraint firstItem="GGF-GP-ZGb" firstAttribute="leading" secondItem="jKv-IP-DwY" secondAttribute="leading" id="BpV-Yt-hiS"/>
-                                    <constraint firstItem="l4t-Fa-B3s" firstAttribute="centerX" secondItem="4Rd-cq-eNc" secondAttribute="centerX" id="CLz-Ck-wDr"/>
+                                    <constraint firstItem="l4t-Fa-B3s" firstAttribute="centerX" secondItem="4Rd-cq-eNc" secondAttribute="centerX" constant="-30" id="CLz-Ck-wDr"/>
                                     <constraint firstItem="2bX-EF-OXh" firstAttribute="top" secondItem="umP-d5-dWI" secondAttribute="bottom" constant="10" id="IjE-VO-MtW"/>
                                     <constraint firstItem="4Rd-cq-eNc" firstAttribute="top" secondItem="jKv-IP-DwY" secondAttribute="top" constant="20" id="Jwh-mB-NLG"/>
                                     <constraint firstItem="umP-d5-dWI" firstAttribute="leading" secondItem="jKv-IP-DwY" secondAttribute="leading" id="VcW-xv-nv0"/>
@@ -255,6 +255,9 @@
                                         <exclude reference="GGF-GP-ZGb"/>
                                         <exclude reference="AX9-to-hbf"/>
                                         <exclude reference="4i1-9t-vhe"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <exclude reference="YuY-Od-DKn"/>
                                     </mask>
                                 </variation>
                             </scrollView>

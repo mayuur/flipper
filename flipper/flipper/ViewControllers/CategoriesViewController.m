@@ -31,6 +31,7 @@
     [self.navigationController setNavigationBarHidden:NO];
     [self.navigationController.navigationItem setHidesBackButton:YES];
     self.navigationItem.hidesBackButton = YES;
+    self.navigationItem.leftBarButtonItem = nil;
     arrCategories = [NSMutableArray array];
     arrImages = [NSMutableArray array];
     activityView = [[UIActivityIndicatorView alloc]

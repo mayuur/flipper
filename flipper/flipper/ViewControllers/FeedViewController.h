@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, SocialMediaType) {
+    SocialMediaTypeFacebook = 0,
+    SocialMediaTypeTwitter,
+    SocialMediaTypeVine,
+    SocialMediaTypeInstagram,
+    SocialMediaTypeYoutube,
+    SocialMediaTypeUnknown
+};
+
 @interface FeedViewController : UIViewController
 
 @end
