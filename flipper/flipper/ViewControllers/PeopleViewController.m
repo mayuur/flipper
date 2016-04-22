@@ -16,7 +16,7 @@
 @interface PeopleViewController() <UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 {
     UIActivityIndicatorView *tableActivityView;
-    UIRefreshControl *refreshControl;
+    UIRefreshControl *refreshControl,*refreshControlTable;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableViewCategories;
 @property (strong, nonatomic) NSMutableArray* arrayCategories;
@@ -70,6 +70,11 @@
     refreshControl.tintColor = [UIColor grayColor];
     [refreshControl addTarget:self action:@selector(refreshCollectionView) forControlEvents:UIControlEventValueChanged];
     [self.collectionViewCelebrities addSubview:refreshControl];
+    
+    refreshControlTable = [[UIRefreshControl alloc]init];
+    [refreshControlTable addTarget:self action:@selector(getAllCategories) forControlEvents:UIControlEventValueChanged];
+    [self.tableViewCategories addSubview:refreshControlTable];
+    
     if ([Utility isNetAvailable]) {
         [self.activityIndicatorCollectionView startAnimating];
         [self.arrayPeople removeAllObjects];
@@ -94,7 +99,9 @@
     PFQuery *query = [PFQuery queryWithClassName:[Categories parseClassName]];
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         [tableActivityView stopAnimating];
+        [refreshControlTable endRefreshing];
         if(!error){
+            _arrayCategories = [NSMutableArray new];
             [self.arrayCategories addObjectsFromArray:objects];
             [self.tableViewCategories reloadData];
         }else {
