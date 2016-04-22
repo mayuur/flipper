@@ -253,7 +253,9 @@
                               else {
                                   // [self dismissViewControllerAnimated:NO completion:nil];
                                   //[self.navigationController popToRootViewControllerAnimated:NO];
-                                  [self performSegueWithIdentifier:@"inbox" sender:self];
+                                  UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Intro" bundle:nil];
+                                  CategoriesViewController *categories = [storyboard instantiateViewControllerWithIdentifier:@"CategoriesViewController"];
+                                  [self.navigationController pushViewController:categories animated:YES];
                               }
                           }];
                      }

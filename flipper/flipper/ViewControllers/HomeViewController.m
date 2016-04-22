@@ -68,7 +68,7 @@
                                  viewControllerAtIndex:(NSUInteger)index {
     switch (index) {
         case 0:
-            return [MAIN_STORYBOARD instantiateViewControllerWithIdentifier:@"FeedViewController"];
+            return [MAIN_STORYBOARD instantiateViewControllerWithIdentifier:@"NavigationFeedViewController"];
             
         case 1:
             return [MAIN_STORYBOARD instantiateViewControllerWithIdentifier:@"NavigationPeopleViewController"];

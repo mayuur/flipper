@@ -59,6 +59,29 @@
 		779B9BAB1CB44129008918C4 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 779B9BA61CB44128008918C4 /* ProfileViewController.m */; };
 		779B9BAC1CB44129008918C4 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 779B9BA81CB44128008918C4 /* SearchViewController.m */; };
 		779B9BAF1CB69FF8008918C4 /* CelebrityFollowedCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 779B9BAE1CB69FF8008918C4 /* CelebrityFollowedCollectionViewCell.m */; };
+		77B4C0D61CC943CA00632EE8 /* YouTubeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B4C0D51CC943CA00632EE8 /* YouTubeModel.m */; };
+		77B4C0D91CC943D200632EE8 /* VineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B4C0D81CC943D200632EE8 /* VineModel.m */; };
+		77B4C0DC1CC943D800632EE8 /* FacebookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B4C0DB1CC943D800632EE8 /* FacebookModel.m */; };
+		77B4C0DF1CC943DD00632EE8 /* TwitterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B4C0DE1CC943DD00632EE8 /* TwitterModel.m */; };
+		77B4C0E21CC943E500632EE8 /* InstagramModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B4C0E11CC943E500632EE8 /* InstagramModel.m */; };
+		77B4C0F61CC9B9E900632EE8 /* TwitterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B4C0E51CC9B9E900632EE8 /* TwitterCell.m */; };
+		77B4C0F71CC9B9E900632EE8 /* TwitterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77B4C0E61CC9B9E900632EE8 /* TwitterCell.xib */; };
+		77B4C0F81CC9B9E900632EE8 /* ViewHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B4C0E81CC9B9E900632EE8 /* ViewHeaderCell.m */; };
+		77B4C0F91CC9B9E900632EE8 /* ViewHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77B4C0E91CC9B9E900632EE8 /* ViewHeaderCell.xib */; };
+		77B4C0FA1CC9B9E900632EE8 /* VineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B4C0EB1CC9B9E900632EE8 /* VineCell.m */; };
+		77B4C0FB1CC9B9E900632EE8 /* VineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77B4C0EC1CC9B9E900632EE8 /* VineCell.xib */; };
+		77B4C0FC1CC9B9E900632EE8 /* YouTubeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B4C0EE1CC9B9E900632EE8 /* YouTubeCell.m */; };
+		77B4C0FD1CC9B9E900632EE8 /* YouTubeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77B4C0EF1CC9B9E900632EE8 /* YouTubeCell.xib */; };
+		77B4C0FE1CC9B9E900632EE8 /* FacebookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B4C0F11CC9B9E900632EE8 /* FacebookCell.m */; };
+		77B4C0FF1CC9B9E900632EE8 /* FacebookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77B4C0F21CC9B9E900632EE8 /* FacebookCell.xib */; };
+		77B4C1001CC9B9E900632EE8 /* InstagramCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B4C0F41CC9B9E900632EE8 /* InstagramCell.m */; };
+		77B4C1011CC9B9E900632EE8 /* InstagramCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77B4C0F51CC9B9E900632EE8 /* InstagramCell.xib */; };
+		77B4C1081CC9BB8100632EE8 /* IGRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B4C1051CC9BB8100632EE8 /* IGRequest.m */; };
+		77B4C1091CC9BB8100632EE8 /* Instagram.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B4C1071CC9BB8100632EE8 /* Instagram.m */; };
+		77B4C1131CC9BBEB00632EE8 /* SessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B4C10C1CC9BBEB00632EE8 /* SessionManager.m */; };
+		77B4C1141CC9BBEB00632EE8 /* TwitterFeedSharedManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B4C10E1CC9BBEB00632EE8 /* TwitterFeedSharedManager.m */; };
+		77B4C1151CC9BBEB00632EE8 /* VineFeedSharedManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B4C1101CC9BBEB00632EE8 /* VineFeedSharedManager.m */; };
+		77B4C1161CC9BBEB00632EE8 /* YoutubeSharedManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B4C1121CC9BBEB00632EE8 /* YoutubeSharedManager.m */; };
 		77E5C9D11C575A4400E6CD4F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E5C9D01C575A4400E6CD4F /* LoginViewController.m */; };
 		77F2E8721C57552700DFA74E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F2E8711C57552700DFA74E /* main.m */; };
 		77F2E8751C57552700DFA74E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F2E8741C57552700DFA74E /* AppDelegate.m */; };
@@ -167,6 +190,47 @@
 		779B9BA81CB44128008918C4 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		779B9BAD1CB69FF8008918C4 /* CelebrityFollowedCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CelebrityFollowedCollectionViewCell.h; sourceTree = "<group>"; };
 		779B9BAE1CB69FF8008918C4 /* CelebrityFollowedCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CelebrityFollowedCollectionViewCell.m; sourceTree = "<group>"; };
+		77B4C0D41CC943CA00632EE8 /* YouTubeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouTubeModel.h; sourceTree = "<group>"; };
+		77B4C0D51CC943CA00632EE8 /* YouTubeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YouTubeModel.m; sourceTree = "<group>"; };
+		77B4C0D71CC943D200632EE8 /* VineModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VineModel.h; sourceTree = "<group>"; };
+		77B4C0D81CC943D200632EE8 /* VineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VineModel.m; sourceTree = "<group>"; };
+		77B4C0DA1CC943D800632EE8 /* FacebookModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookModel.h; sourceTree = "<group>"; };
+		77B4C0DB1CC943D800632EE8 /* FacebookModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookModel.m; sourceTree = "<group>"; };
+		77B4C0DD1CC943DD00632EE8 /* TwitterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterModel.h; sourceTree = "<group>"; };
+		77B4C0DE1CC943DD00632EE8 /* TwitterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterModel.m; sourceTree = "<group>"; };
+		77B4C0E01CC943E500632EE8 /* InstagramModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramModel.h; sourceTree = "<group>"; };
+		77B4C0E11CC943E500632EE8 /* InstagramModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramModel.m; sourceTree = "<group>"; };
+		77B4C0E41CC9B9E900632EE8 /* TwitterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterCell.h; sourceTree = "<group>"; };
+		77B4C0E51CC9B9E900632EE8 /* TwitterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterCell.m; sourceTree = "<group>"; };
+		77B4C0E61CC9B9E900632EE8 /* TwitterCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwitterCell.xib; sourceTree = "<group>"; };
+		77B4C0E71CC9B9E900632EE8 /* ViewHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewHeaderCell.h; sourceTree = "<group>"; };
+		77B4C0E81CC9B9E900632EE8 /* ViewHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewHeaderCell.m; sourceTree = "<group>"; };
+		77B4C0E91CC9B9E900632EE8 /* ViewHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewHeaderCell.xib; sourceTree = "<group>"; };
+		77B4C0EA1CC9B9E900632EE8 /* VineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VineCell.h; sourceTree = "<group>"; };
+		77B4C0EB1CC9B9E900632EE8 /* VineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VineCell.m; sourceTree = "<group>"; };
+		77B4C0EC1CC9B9E900632EE8 /* VineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VineCell.xib; sourceTree = "<group>"; };
+		77B4C0ED1CC9B9E900632EE8 /* YouTubeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouTubeCell.h; sourceTree = "<group>"; };
+		77B4C0EE1CC9B9E900632EE8 /* YouTubeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YouTubeCell.m; sourceTree = "<group>"; };
+		77B4C0EF1CC9B9E900632EE8 /* YouTubeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YouTubeCell.xib; sourceTree = "<group>"; };
+		77B4C0F01CC9B9E900632EE8 /* FacebookCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookCell.h; sourceTree = "<group>"; };
+		77B4C0F11CC9B9E900632EE8 /* FacebookCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookCell.m; sourceTree = "<group>"; };
+		77B4C0F21CC9B9E900632EE8 /* FacebookCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FacebookCell.xib; sourceTree = "<group>"; };
+		77B4C0F31CC9B9E900632EE8 /* InstagramCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramCell.h; sourceTree = "<group>"; };
+		77B4C0F41CC9B9E900632EE8 /* InstagramCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramCell.m; sourceTree = "<group>"; };
+		77B4C0F51CC9B9E900632EE8 /* InstagramCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InstagramCell.xib; sourceTree = "<group>"; };
+		77B4C1031CC9BB8100632EE8 /* IGConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGConnect.h; sourceTree = "<group>"; };
+		77B4C1041CC9BB8100632EE8 /* IGRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGRequest.h; sourceTree = "<group>"; };
+		77B4C1051CC9BB8100632EE8 /* IGRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGRequest.m; sourceTree = "<group>"; };
+		77B4C1061CC9BB8100632EE8 /* Instagram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Instagram.h; sourceTree = "<group>"; };
+		77B4C1071CC9BB8100632EE8 /* Instagram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Instagram.m; sourceTree = "<group>"; };
+		77B4C10B1CC9BBEB00632EE8 /* SessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionManager.h; sourceTree = "<group>"; };
+		77B4C10C1CC9BBEB00632EE8 /* SessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionManager.m; sourceTree = "<group>"; };
+		77B4C10D1CC9BBEB00632EE8 /* TwitterFeedSharedManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterFeedSharedManager.h; sourceTree = "<group>"; };
+		77B4C10E1CC9BBEB00632EE8 /* TwitterFeedSharedManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterFeedSharedManager.m; sourceTree = "<group>"; };
+		77B4C10F1CC9BBEB00632EE8 /* VineFeedSharedManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VineFeedSharedManager.h; sourceTree = "<group>"; };
+		77B4C1101CC9BBEB00632EE8 /* VineFeedSharedManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VineFeedSharedManager.m; sourceTree = "<group>"; };
+		77B4C1111CC9BBEB00632EE8 /* YoutubeSharedManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YoutubeSharedManager.h; sourceTree = "<group>"; };
+		77B4C1121CC9BBEB00632EE8 /* YoutubeSharedManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YoutubeSharedManager.m; sourceTree = "<group>"; };
 		77E5C9CF1C575A4400E6CD4F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		77E5C9D01C575A4400E6CD4F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		77E5C9D21C575CBE00E6CD4F /* flipper-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "flipper-Prefix.pch"; sourceTree = "<group>"; };
@@ -258,6 +322,7 @@
 		7724C4CD1C5CFFF400267097 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				77B4C0E31CC9B9C300632EE8 /* Social Cells */,
 				7724C4CE1C5D001C00267097 /* PageWalkthrough.h */,
 				7724C4CF1C5D001C00267097 /* PageWalkthrough.m */,
 				54D3C2C11C61426600367C98 /* IntroHeaderView.h */,
@@ -323,6 +388,75 @@
 			path = "SF-UI";
 			sourceTree = "<group>";
 		};
+		77B4C0D31CC943C400632EE8 /* SocialModels */ = {
+			isa = PBXGroup;
+			children = (
+				77B4C0E01CC943E500632EE8 /* InstagramModel.h */,
+				77B4C0E11CC943E500632EE8 /* InstagramModel.m */,
+				77B4C0DD1CC943DD00632EE8 /* TwitterModel.h */,
+				77B4C0DE1CC943DD00632EE8 /* TwitterModel.m */,
+				77B4C0DA1CC943D800632EE8 /* FacebookModel.h */,
+				77B4C0DB1CC943D800632EE8 /* FacebookModel.m */,
+				77B4C0D71CC943D200632EE8 /* VineModel.h */,
+				77B4C0D81CC943D200632EE8 /* VineModel.m */,
+				77B4C0D41CC943CA00632EE8 /* YouTubeModel.h */,
+				77B4C0D51CC943CA00632EE8 /* YouTubeModel.m */,
+			);
+			path = SocialModels;
+			sourceTree = "<group>";
+		};
+		77B4C0E31CC9B9C300632EE8 /* Social Cells */ = {
+			isa = PBXGroup;
+			children = (
+				77B4C0E41CC9B9E900632EE8 /* TwitterCell.h */,
+				77B4C0E51CC9B9E900632EE8 /* TwitterCell.m */,
+				77B4C0E61CC9B9E900632EE8 /* TwitterCell.xib */,
+				77B4C0E71CC9B9E900632EE8 /* ViewHeaderCell.h */,
+				77B4C0E81CC9B9E900632EE8 /* ViewHeaderCell.m */,
+				77B4C0E91CC9B9E900632EE8 /* ViewHeaderCell.xib */,
+				77B4C0EA1CC9B9E900632EE8 /* VineCell.h */,
+				77B4C0EB1CC9B9E900632EE8 /* VineCell.m */,
+				77B4C0EC1CC9B9E900632EE8 /* VineCell.xib */,
+				77B4C0ED1CC9B9E900632EE8 /* YouTubeCell.h */,
+				77B4C0EE1CC9B9E900632EE8 /* YouTubeCell.m */,
+				77B4C0EF1CC9B9E900632EE8 /* YouTubeCell.xib */,
+				77B4C0F01CC9B9E900632EE8 /* FacebookCell.h */,
+				77B4C0F11CC9B9E900632EE8 /* FacebookCell.m */,
+				77B4C0F21CC9B9E900632EE8 /* FacebookCell.xib */,
+				77B4C0F31CC9B9E900632EE8 /* InstagramCell.h */,
+				77B4C0F41CC9B9E900632EE8 /* InstagramCell.m */,
+				77B4C0F51CC9B9E900632EE8 /* InstagramCell.xib */,
+			);
+			path = "Social Cells";
+			sourceTree = "<group>";
+		};
+		77B4C1021CC9BB8100632EE8 /* instagram-ios-sdk */ = {
+			isa = PBXGroup;
+			children = (
+				77B4C1031CC9BB8100632EE8 /* IGConnect.h */,
+				77B4C1041CC9BB8100632EE8 /* IGRequest.h */,
+				77B4C1051CC9BB8100632EE8 /* IGRequest.m */,
+				77B4C1061CC9BB8100632EE8 /* Instagram.h */,
+				77B4C1071CC9BB8100632EE8 /* Instagram.m */,
+			);
+			path = "instagram-ios-sdk";
+			sourceTree = "<group>";
+		};
+		77B4C10A1CC9BBE200632EE8 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				77B4C10B1CC9BBEB00632EE8 /* SessionManager.h */,
+				77B4C10C1CC9BBEB00632EE8 /* SessionManager.m */,
+				77B4C10D1CC9BBEB00632EE8 /* TwitterFeedSharedManager.h */,
+				77B4C10E1CC9BBEB00632EE8 /* TwitterFeedSharedManager.m */,
+				77B4C10F1CC9BBEB00632EE8 /* VineFeedSharedManager.h */,
+				77B4C1101CC9BBEB00632EE8 /* VineFeedSharedManager.m */,
+				77B4C1111CC9BBEB00632EE8 /* YoutubeSharedManager.h */,
+				77B4C1121CC9BBEB00632EE8 /* YoutubeSharedManager.m */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		77E5C9CB1C57572A00E6CD4F /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -341,6 +475,7 @@
 		77E5C9CC1C57572A00E6CD4F /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				77B4C1021CC9BB8100632EE8 /* instagram-ios-sdk */,
 				5485AFA31CB99CF80077B885 /* Rechability */,
 				77FAEFA91CB3045500DAA0FD /* CarbonKit */,
 				7724C4D91C60FEB100267097 /* LNBRippleEffect */,
@@ -351,6 +486,7 @@
 		77E5C9CD1C57572A00E6CD4F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				77B4C0D31CC943C400632EE8 /* SocialModels */,
 				547FFF621C76CB1500254145 /* Categories.h */,
 				547FFF631C76CB1500254145 /* Categories.m */,
 				54449AE01C9890D500805093 /* People.h */,
@@ -423,6 +559,7 @@
 				7724C4CD1C5CFFF400267097 /* Custom */,
 				77E5C9CB1C57572A00E6CD4F /* Categories */,
 				77E5C9CC1C57572A00E6CD4F /* Vendors */,
+				77B4C10A1CC9BBE200632EE8 /* Helpers */,
 				77E5C9CD1C57572A00E6CD4F /* Models */,
 				77F2E87C1C57552800DFA74E /* Assets.xcassets */,
 				77F2E87E1C57552800DFA74E /* LaunchScreen.storyboard */,
@@ -596,6 +733,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7724C5031C6117C100267097 /* SF-UI-Text-Bold.otf in Resources */,
+				77B4C0FB1CC9B9E900632EE8 /* VineCell.xib in Resources */,
+				77B4C0F91CC9B9E900632EE8 /* ViewHeaderCell.xib in Resources */,
 				7724C4FB1C6117C100267097 /* SF-UI-Display-Bold.otf in Resources */,
 				54D3C2C51C61427E00367C98 /* IntroHeaderView.xib in Resources */,
 				7724C5081C6117C100267097 /* SF-UI-Text-LightItalic.otf in Resources */,
@@ -607,9 +746,11 @@
 				77F2E87D1C57552800DFA74E /* Assets.xcassets in Resources */,
 				7724C4FA1C6117C100267097 /* SF-UI-Display-Black.otf in Resources */,
 				7724C50A1C6117C100267097 /* SF-UI-Text-MediumItalic.otf in Resources */,
+				77B4C1011CC9B9E900632EE8 /* InstagramCell.xib in Resources */,
 				7724C50E1C6117C100267097 /* SF-UI-Text-SemiboldItalic.otf in Resources */,
 				7724C50B1C6117C100267097 /* SF-UI-Text-Regular.otf in Resources */,
 				7724C4FD1C6117C100267097 /* SF-UI-Display-Light.otf in Resources */,
+				77B4C0FD1CC9B9E900632EE8 /* YouTubeCell.xib in Resources */,
 				77F2E87B1C57552700DFA74E /* Main.storyboard in Resources */,
 				7724C5091C6117C100267097 /* SF-UI-Text-Medium.otf in Resources */,
 				7724C5011C6117C100267097 /* SF-UI-Display-Thin.otf in Resources */,
@@ -619,9 +760,11 @@
 				54D3C2CA1C6144FE00367C98 /* IntroTextView.xib in Resources */,
 				7724C5021C6117C100267097 /* SF-UI-Display-Ultralight.otf in Resources */,
 				5460B5111C59439000D9E92E /* Intro.storyboard in Resources */,
+				77B4C0FF1CC9B9E900632EE8 /* FacebookCell.xib in Resources */,
 				7724C4FC1C6117C100267097 /* SF-UI-Display-Heavy.otf in Resources */,
 				7724C5071C6117C100267097 /* SF-UI-Text-Light.otf in Resources */,
 				7724C50D1C6117C100267097 /* SF-UI-Text-Semibold.otf in Resources */,
+				77B4C0F71CC9B9E900632EE8 /* TwitterCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -694,37 +837,54 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77B4C1161CC9BBEB00632EE8 /* YoutubeSharedManager.m in Sources */,
 				77E5C9D11C575A4400E6CD4F /* LoginViewController.m in Sources */,
+				77B4C0DF1CC943DD00632EE8 /* TwitterModel.m in Sources */,
 				5425EA901C62866000F1B8E4 /* IntroButton.m in Sources */,
 				779B9BAF1CB69FF8008918C4 /* CelebrityFollowedCollectionViewCell.m in Sources */,
 				779B9BA91CB44129008918C4 /* FeedViewController.m in Sources */,
 				54449AE21C9890D500805093 /* People.m in Sources */,
+				77B4C0D91CC943D200632EE8 /* VineModel.m in Sources */,
 				779B9BAC1CB44129008918C4 /* SearchViewController.m in Sources */,
 				77FAEFB31CB3045500DAA0FD /* CarbonSwipeRefresh.m in Sources */,
 				777D2CE61C62AB12000FF4C8 /* UIAlertView+Extra.m in Sources */,
+				77B4C1151CC9BBEB00632EE8 /* VineFeedSharedManager.m in Sources */,
 				7724C4D31C5E498A00267097 /* NSString+Validations.m in Sources */,
 				77FAEFA81CB2D98400DAA0FD /* HomeViewController.m in Sources */,
 				7724C4DC1C60FEB100267097 /* LNBRippleEffect.m in Sources */,
+				77B4C0FC1CC9B9E900632EE8 /* YouTubeCell.m in Sources */,
 				5485AFA21CB99CF40077B885 /* Reachability.m in Sources */,
 				7724C4CB1C5CF7CA00267097 /* SignUpViewController.m in Sources */,
+				77B4C0DC1CC943D800632EE8 /* FacebookModel.m in Sources */,
 				7724C4D01C5D001C00267097 /* PageWalkthrough.m in Sources */,
 				54D3C2C81C6144F100367C98 /* IntroTextView.m in Sources */,
 				77F6B7641C9A459C0042057F /* UIColor+AppColors.m in Sources */,
 				77FAEFB41CB3045500DAA0FD /* CarbonTabSwipeNavigation.m in Sources */,
+				77B4C0E21CC943E500632EE8 /* InstagramModel.m in Sources */,
 				77F2E8751C57552700DFA74E /* AppDelegate.m in Sources */,
 				54F1B4661C7CCD6E003A35FE /* CategoriesViewController.m in Sources */,
+				77B4C1001CC9B9E900632EE8 /* InstagramCell.m in Sources */,
 				54F1B4691C7CD05F003A35FE /* CategoriesCollectionViewCell.m in Sources */,
+				77B4C1131CC9BBEB00632EE8 /* SessionManager.m in Sources */,
 				77F6B7611C97AEB00042057F /* FollowPeopleViewController.m in Sources */,
 				779B9BAB1CB44129008918C4 /* ProfileViewController.m in Sources */,
+				77B4C0FE1CC9B9E900632EE8 /* FacebookCell.m in Sources */,
 				7712707E1C5BE7D50013DDD1 /* WalkthroughViewController.m in Sources */,
 				7724C4D61C5E4E7700267097 /* UIPageControl+Extra.m in Sources */,
 				5485AFA61CB99DA00077B885 /* Utility.m in Sources */,
+				77B4C0F61CC9B9E900632EE8 /* TwitterCell.m in Sources */,
 				77FAEFB51CB3045500DAA0FD /* CarbonTabSwipeScrollView.m in Sources */,
+				77B4C0FA1CC9B9E900632EE8 /* VineCell.m in Sources */,
+				77B4C1091CC9BB8100632EE8 /* Instagram.m in Sources */,
 				779B9BAA1CB44129008918C4 /* PeopleViewController.m in Sources */,
 				54449AE51C989B1F00805093 /* PeopleTableViewCell.m in Sources */,
 				54D3C2C31C61426600367C98 /* IntroHeaderView.m in Sources */,
+				77B4C0F81CC9B9E900632EE8 /* ViewHeaderCell.m in Sources */,
+				77B4C1141CC9BBEB00632EE8 /* TwitterFeedSharedManager.m in Sources */,
+				77B4C1081CC9BB8100632EE8 /* IGRequest.m in Sources */,
 				547FFF641C76CB1500254145 /* Categories.m in Sources */,
 				77F2E8721C57552700DFA74E /* main.m in Sources */,
+				77B4C0D61CC943CA00632EE8 /* YouTubeModel.m in Sources */,
 				77FAEFB61CB3045500DAA0FD /* CarbonTabSwipeSegmentedControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

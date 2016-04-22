@@ -13,6 +13,8 @@
 #import "CategoriesViewController.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 
+#define APP_ID @"4e478f69b3d94672b9f4dcf8264fe9ab"
+
 NSString * const TWITTER_CONSUMER_KEY = @"TexzVYvmdlkcpRWBiVn2txexW";
 NSString * const TWITTER_CONSUMER_SECRET = @"0iQLTuMR9CewQn4fPZ0wl85iwnTWJ9l12ZzujhlZDzKc8S5CCi";
 
@@ -71,6 +73,9 @@ NSString * const TWITTER_CONSUMER_SECRET = @"0iQLTuMR9CewQn4fPZ0wl85iwnTWJ9l12Zz
     else {
         //do nothing... walkthrough should appear
     }
+    
+    self.instagram = [[Instagram alloc] initWithClientId:APP_ID
+                                                delegate:nil];
     
     return YES;
 }

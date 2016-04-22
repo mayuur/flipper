@@ -7,7 +7,611 @@
 //
 
 #import "FeedViewController.h"
+#import "AppDelegate.h"
+#import "UIImageView+AFNetworking.h"
+
+#import "FacebookModel.h"
+#import "FBSDKCoreKit/FBSDKGraphRequest.h"
+#import "FBSDKLoginKit/FBSDKLoginKit.h"
+#import "FBSDKCoreKit/FBSDKAccessToken.h"
+#import "FacebookCell.h"
+
+#import "InstagramModel.h"
+#import "InstagramCell.h"
+
+#import "TwitterModel.h"
+#import "TwitterFeedSharedManager.h"
+#import "TwitterCell.h"
+
+#import "VineModel.h"
+#import "VineFeedSharedManager.h"
+#import "VineCell.h"
+
+#import "YouTubeModel.h"
+#import "YoutubeSharedManager.h"
+#import "YouTubeCell.h"
+
+#import "ViewHeaderCell.h"
+
+#define GLOBAL_KEY_SOCIAL_TYPE @"type"
+#define GLOBAL_KEY_MODEL @"socialModel"
+#define GLOBAL_KEY_POST_DATE @"postDate"
+
+#define IDENTIFIER_TWITTER_CELL @"TwitterCell"
+#define IDENTIFIER_FACEBOOK_CELL @"FacebookCell"
+#define IDENTIFIER_INSTAGRAM_CELL @"InstagramCell"
+#define IDENTIFIER_VINE_CELL @"VineCell"
+#define IDENTIFIER_YOUTUBE_CELL @"YouTubeCell"
+
+@interface FeedViewController() <UITableViewDataSource,UITableViewDelegate,IGSessionDelegate,IGRequestDelegate>
+@property (strong, nonatomic) IBOutlet UITableView *tableViewSocialFeed;
+@property (nonatomic, strong) NSMutableArray* arrayAllSocial;
+
+@end
 
 @implementation FeedViewController
+
+#pragma mark - General methods
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.navigationController.navigationBarHidden = YES;
+    self.arrayAllSocial = [NSMutableArray arrayWithCapacity:0];
+    
+    _tableViewSocialFeed.estimatedRowHeight = 60.0;
+    _tableViewSocialFeed.rowHeight = UITableViewAutomaticDimension;
+    
+    [_tableViewSocialFeed registerNib:[UINib nibWithNibName:@"TwitterCell" bundle:nil] forCellReuseIdentifier:IDENTIFIER_TWITTER_CELL];
+    [_tableViewSocialFeed registerNib:[UINib nibWithNibName:@"VineCell" bundle:nil] forCellReuseIdentifier:IDENTIFIER_VINE_CELL];
+    [_tableViewSocialFeed registerNib:[UINib nibWithNibName:@"YouTubeCell" bundle:nil] forCellReuseIdentifier:IDENTIFIER_YOUTUBE_CELL];
+    [_tableViewSocialFeed registerNib:[UINib nibWithNibName:@"InstagramCell" bundle:nil] forCellReuseIdentifier:IDENTIFIER_INSTAGRAM_CELL];
+    [_tableViewSocialFeed registerNib:[UINib nibWithNibName:@"FacebookCell" bundle:nil] forCellReuseIdentifier:IDENTIFIER_FACEBOOK_CELL];
+
+    [self fetchDataForFacebook];
+    //[self fetchDataFromInstagram];
+    [self fetchDataForTwitter];
+    [self fetchDataForYoutube];
+    [self fetchDataForVine];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void) refreshTableView {
+    NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:GLOBAL_KEY_POST_DATE ascending:NO];
+    self.arrayAllSocial = [NSMutableArray arrayWithArray:[self.arrayAllSocial sortedArrayUsingDescriptors:[NSArray arrayWithObjects:descriptor,nil]]];
+    [_tableViewSocialFeed reloadData];
+}
+
+#pragma mark - Data Fetch Functions
+- (void) fetchDataForYoutube {
+    [[YoutubeSharedManager manager] getTimeLineByScreenName:@"PLVfy6I8a8OSzj_qjmCse38ycjKDvfPhrR" pageSize:5 Success:^(id responseObject) {
+        NSLog(@"ResponseObject >> %@", responseObject);
+        
+        NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+        
+        for (NSDictionary *tempDict in [(NSDictionary *)responseObject objectForKey:@"items"]) {
+            YouTubeModel *objYouTubeModel = [[YouTubeModel alloc]initWithDictionary:tempDict];
+            
+            NSMutableDictionary* socialDict = [NSMutableDictionary dictionaryWithCapacity:0];
+            [socialDict setObject:[NSString stringWithFormat:@"%ld", (long) SocialMediaTypeYoutube] forKey:GLOBAL_KEY_SOCIAL_TYPE];
+            [socialDict setObject:objYouTubeModel forKey:GLOBAL_KEY_MODEL];
+            
+            [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"];
+            NSDate* date = [dateFormatter dateFromString:objYouTubeModel.publishedAt];
+            [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+            NSString* dateString = [dateFormatter stringFromDate:date];
+            
+            [socialDict setObject:dateString forKey:GLOBAL_KEY_POST_DATE];
+            [self.arrayAllSocial addObject:socialDict];
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self refreshTableView];
+        });
+    } error:^(NSError *error) {
+        NSLog(@"Error >> %@", error);
+    }];
+}
+
+- (void) fetchDataForVine {
+    [[VineFeedSharedManager manager] getTimeLineByScreenName:@"979549363833876480" pageSize:5 Success:^(id responseObject) {
+        NSLog(@"ResponseObject >> %@", responseObject);
+        if([(NSDictionary *)responseObject objectForKey:@"success"]) {
+            
+            NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+            
+            for (NSDictionary *tempDict in [[(NSDictionary *)responseObject objectForKey:@"data"] objectForKey:@"records"]) {
+                VineModel *objVineModel = [[VineModel alloc]initWithDictionary:tempDict];
+                
+                NSMutableDictionary* socialDict = [NSMutableDictionary dictionaryWithCapacity:0];
+                [socialDict setObject:[NSString stringWithFormat:@"%ld", (long) SocialMediaTypeVine] forKey:GLOBAL_KEY_SOCIAL_TYPE];
+                [socialDict setObject:objVineModel forKey:GLOBAL_KEY_MODEL];
+                
+                [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSSSS"];
+                NSDate* date = [dateFormatter dateFromString:objVineModel.createdAt];
+                [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+                NSString* dateString = [dateFormatter stringFromDate:date];
+                [socialDict setObject:dateString forKey:GLOBAL_KEY_POST_DATE];
+                
+                [self.arrayAllSocial addObject:socialDict];
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self refreshTableView];
+            });
+        }
+    } error:^(NSError *error) {
+        NSLog(@"Error >> %@", error);
+    }];
+}
+
+- (void) fetchDataForTwitter {
+    [[TwitterFeedSharedManager manager] getTimeLineByScreenName:@"mayuur" pageSize:15 Success:^(id responseObject) {
+        NSLog(@"ResponseObject >> %@", responseObject);
+        NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+        
+        for (NSDictionary *dict in responseObject) {
+            
+            TwitterModel *objTwitterModel = [[TwitterModel alloc]initWithDictionary:dict];
+            
+            NSMutableDictionary* socialDict = [NSMutableDictionary dictionaryWithCapacity:0];
+            [socialDict setObject:[NSString stringWithFormat:@"%ld", (long) SocialMediaTypeTwitter] forKey:GLOBAL_KEY_SOCIAL_TYPE];
+            [socialDict setObject:objTwitterModel forKey:GLOBAL_KEY_MODEL];
+            
+            dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+            [dateFormatter setDateFormat:@"EEE MMM dd HH:mm:ss Z yyyy"];
+            NSDate* date = [dateFormatter dateFromString:objTwitterModel.createdAt];
+            [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+            NSString* dateString = [dateFormatter stringFromDate:date];
+            [socialDict setObject:dateString forKey:GLOBAL_KEY_POST_DATE];
+            [self.arrayAllSocial addObject:socialDict];
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self refreshTableView];
+        });
+        
+    } error:^(NSError *error) {
+        NSLog(@"Error >> %@", error);
+    }];
+}
+
+-(void)fetchDataFromInstagram {
+    
+    AppDelegate* appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    
+    // here i can set accessToken received on previous login
+    appDelegate.instagram.accessToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"IGAccessToken"];
+    appDelegate.instagram.sessionDelegate = self;
+    if ([appDelegate.instagram isSessionValid]) {
+        NSMutableDictionary* params = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"users/1736994204/media/recent", @"method", nil];
+        [appDelegate.instagram requestWithParams:params
+                                        delegate:self];
+        
+    } else {
+        [appDelegate.instagram authorize:[NSArray arrayWithObjects:@"comments", @"likes", nil]];
+    }
+}
+
+- (void) fetchDataForFacebook {
+    
+    if(![FBSDKAccessToken currentAccessToken]) {
+        FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
+        [login
+         logInWithReadPermissions: @[@"public_profile"]
+         fromViewController:self
+         handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+             
+             NSMutableDictionary* parameters = [NSMutableDictionary dictionary];
+             [parameters setValue:@"id, name, email" forKey:@"fields"];
+             
+             if (error) {
+                 NSLog(@"Process error");
+             } else if (result.isCancelled) {
+                 NSLog(@"Cancelled");
+             } else {
+                 NSLog(@"Logged in");
+                 
+                 [self fetchDataForFacebook];
+             }
+         }];
+    }
+    else {
+        FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]
+                                      initWithGraphPath:@"/193742123995472/feed"
+                                      parameters:@{@"fields": @"id, message,full_picture,link,name,caption,description,icon,created_time,from,likes.summary(true),comments.summary(true)"}
+                                      HTTPMethod:@"GET"];
+        [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
+                                              id result,
+                                              NSError *error) {
+            // Handle the result
+            NSDictionary *dictionaryResult = (NSDictionary *)result;
+            NSArray *tempArray = [dictionaryResult objectForKey:@"data"];
+            
+            NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+            
+            for (NSDictionary *tempDictionary in tempArray) {
+                FacebookModel *objFacebookModel = [[FacebookModel alloc]initWithDictionary:tempDictionary];
+                
+                NSMutableDictionary* socialDict = [NSMutableDictionary dictionaryWithCapacity:0];
+                [socialDict setObject:[NSString stringWithFormat:@"%ld", (long) SocialMediaTypeFacebook] forKey:GLOBAL_KEY_SOCIAL_TYPE];
+                [socialDict setObject:objFacebookModel forKey:GLOBAL_KEY_MODEL];
+                
+                [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
+                NSDate *date = [dateFormatter dateFromString:objFacebookModel.createdTime];
+                [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+                NSString* dateString = [dateFormatter stringFromDate:date];
+                [socialDict setObject:dateString forKey:GLOBAL_KEY_POST_DATE];
+                [self.arrayAllSocial addObject:socialDict];
+            }
+            
+            [self refreshTableView];
+        }];
+    }
+}
+
+#pragma mark - Instagram
+#pragma mark - IGRequestDelegate
+
+- (void)request:(IGRequest *)request didFailWithError:(NSError *)error {
+    NSLog(@"Instagram did fail: %@", error);
+    UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                        message:[error localizedDescription]
+                                                       delegate:nil
+                                              cancelButtonTitle:@"Ok"
+                                              otherButtonTitles:nil];
+    [alertView show];
+}
+
+- (void)request:(IGRequest *)request didLoad:(id)result {
+    NSLog(@"Instagram did load: %@", result);
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    
+    for (NSArray *tempArray in (NSArray*)[result objectForKey:@"data"]) {
+        InstagramModel *objInstagramModel = [[InstagramModel alloc]initWithDictionary:(NSDictionary *)tempArray];
+        
+        NSMutableDictionary* socialDict = [NSMutableDictionary dictionaryWithCapacity:0];
+        [socialDict setObject:[NSString stringWithFormat:@"%ld", (long) SocialMediaTypeInstagram] forKey:GLOBAL_KEY_SOCIAL_TYPE];
+        [socialDict setObject:objInstagramModel forKey:GLOBAL_KEY_MODEL];
+        
+        NSTimeInterval timeInterval = (NSTimeInterval)  [objInstagramModel.createdAt longLongValue];
+        NSDate *date = [NSDate dateWithTimeIntervalSince1970:timeInterval];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+        NSString* dateString = [dateFormatter stringFromDate:date];
+        [socialDict setObject:dateString forKey:GLOBAL_KEY_POST_DATE];
+        [self.arrayAllSocial addObject:socialDict];
+    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self refreshTableView];
+    });
+}
+
+#pragma mark - IGSessionDelegate functions
+
+-(void)igDidLogin {
+    NSLog(@"Instagram did login");
+    // here i can store accessToken
+    AppDelegate* appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    [[NSUserDefaults standardUserDefaults] setObject:appDelegate.instagram.accessToken forKey:@"IGAccessToken"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+-(void)igDidNotLogin:(BOOL)cancelled {
+    NSLog(@"Instagram did not login");
+    NSString* message = nil;
+    if (cancelled) {
+        message = @"Access cancelled!";
+    } else {
+        message = @"Access denied!";
+    }
+    UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                        message:message
+                                                       delegate:nil
+                                              cancelButtonTitle:@"Ok"
+                                              otherButtonTitles:nil];
+    [alertView show];
+}
+
+-(void)igDidLogout {
+    NSLog(@"Instagram did logout");
+    // remove the accessToken
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"accessToken"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+-(void)igSessionInvalidated {
+    NSLog(@"Instagram session was invalidated");
+}
+
+#pragma mark - Facebook
+#pragma mark -
+
+-(void)loginWithFacebook {
+    
+    if(![FBSDKAccessToken currentAccessToken]) {
+        FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
+        [login
+         logInWithReadPermissions: @[@"public_profile"]
+         fromViewController:self
+         handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+             
+             NSMutableDictionary* parameters = [NSMutableDictionary dictionary];
+             [parameters setValue:@"id, name, email" forKey:@"fields"];
+             
+             if (error) {
+                 NSLog(@"Process error");
+             } else if (result.isCancelled) {
+                 NSLog(@"Cancelled");
+             } else {
+                 NSLog(@"Logged in");
+                 
+                 [self fetchDataForFacebook];
+             }
+         }];
+    }
+}
+
+#pragma mark - UITableView DataSource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return self.arrayAllSocial.count;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSMutableDictionary* socialDict = self.arrayAllSocial[indexPath.section];
+    NSInteger socialType = [socialDict[GLOBAL_KEY_SOCIAL_TYPE] integerValue];
+    switch (socialType) {
+        case SocialMediaTypeFacebook: {
+            FacebookCell *cell = [tableView dequeueReusableCellWithIdentifier:IDENTIFIER_FACEBOOK_CELL];
+            
+            FacebookModel *tempModel = (FacebookModel* ) socialDict[GLOBAL_KEY_MODEL];
+            cell.labelName.text = tempModel.pageName;
+            cell.labelTitle.text = tempModel.message;
+            [cell.imageMain setImageWithURL:[NSURL URLWithString:tempModel.picture]];
+            [cell.buttonComment setTitle:tempModel.totalComments forState:UIControlStateNormal];
+            [cell.buttonLike setTitle:tempModel.totalLikes forState:UIControlStateNormal];
+            NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
+            NSDate* date = [dateFormatter dateFromString:tempModel.createdTime];
+            [dateFormatter setDateFormat:@"dd MMMM' at 'hhmm a"];
+            NSString *mydate=[dateFormatter stringFromDate:date];
+            [cell.labelCreatedAt setText:mydate];
+            
+            return cell;
+        }
+            break;
+            
+        case SocialMediaTypeTwitter: {
+            TwitterCell *cell = [tableView dequeueReusableCellWithIdentifier:IDENTIFIER_TWITTER_CELL];
+            
+            TwitterModel *tempModel = (TwitterModel* ) socialDict[GLOBAL_KEY_MODEL];
+            cell.labelName.text = [NSString stringWithFormat:@"%@", tempModel.name];
+            cell.labelTweet.text = [NSString stringWithFormat:@"%@", tempModel.twitterText];
+            NSString *dateString = [NSString stringWithFormat:@"%@", tempModel.createdAt];
+            NSDateFormatter *dateFormatter= [NSDateFormatter new];
+            dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+            [dateFormatter setDateFormat:@"EEE MMM dd HH:mm:ss Z yyyy"];
+            NSDate *date = [dateFormatter dateFromString:dateString];
+            dateFormatter =[[NSDateFormatter alloc]init];
+            [dateFormatter setDateFormat:@"dd MMMM' at 'hh:mm a"];
+            NSString *mydate=[dateFormatter stringFromDate:date];
+            cell.labelCreatedAt.text = [NSString stringWithFormat:@"%@", mydate];
+            [cell.buttonFavorite setTitle:[NSString stringWithFormat:@"%@", tempModel.favoriteCount] forState:UIControlStateNormal];
+            [cell.buttonRetweet setTitle:[NSString stringWithFormat:@"%@", tempModel.retweetCount] forState:UIControlStateNormal];
+            return cell;
+        }
+            break;
+            
+        case SocialMediaTypeVine: {
+            VineCell *cell = [tableView dequeueReusableCellWithIdentifier:IDENTIFIER_VINE_CELL];
+            
+            VineModel *tempModel = (VineModel* ) socialDict[GLOBAL_KEY_MODEL];
+            [cell.labelUserName setText:tempModel.username];
+            [cell.labelDescription setText:tempModel.vineDescription];
+            [cell.buttonComment setTitle:tempModel.commentCount forState:UIControlStateNormal];
+            [cell.buttonLike setTitle:tempModel.likes forState:UIControlStateNormal];
+            [cell.imageAvatar setImageWithURL:[NSURL URLWithString:tempModel.urlAvatar]];
+            [cell.imageThumb setImageWithURL:[NSURL URLWithString:tempModel.urlThumb]];
+            NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSSSS"];
+            NSDate* date = [dateFormatter dateFromString:tempModel.createdAt];
+            [dateFormatter setDateFormat:@"dd MMMM' at 'hh:mm a"];
+            NSString *mydate=[dateFormatter stringFromDate:date];
+            [cell.labelCreatedAt setText:mydate];
+            
+            return cell;
+        }
+            break;
+            
+        case SocialMediaTypeInstagram: {
+            InstagramCell *cell = [tableView dequeueReusableCellWithIdentifier:IDENTIFIER_INSTAGRAM_CELL];
+            
+            InstagramModel *tempModel = (InstagramModel* ) socialDict[GLOBAL_KEY_MODEL];
+            [cell.labelCaption setText:tempModel.captionText];
+            [cell.labelUserName setText:tempModel.username];
+            [cell.imageMain setImageWithURL:[NSURL URLWithString:tempModel.mainImage]];
+            [cell.imageProfile setImageWithURL:[NSURL URLWithString:tempModel.profile_picture]];
+            [cell.buttonComment setTitle:tempModel.commentCount forState:UIControlStateNormal];
+            [cell.buttonFavorite setTitle:tempModel.likesCount forState:UIControlStateNormal];
+            
+            NSTimeInterval timeInterval = (NSTimeInterval)  [tempModel.createdAt longLongValue];
+            NSDate *date = [NSDate dateWithTimeIntervalSince1970:timeInterval];
+            NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"dd MMMM' at 'hh:mm a"];
+            NSString* dateString = [dateFormatter stringFromDate:date];
+            [cell.labelCreatedAt setText:dateString];
+            
+            return cell;
+        }
+            break;
+            
+        case SocialMediaTypeYoutube: {
+            YouTubeCell *cell = [tableView dequeueReusableCellWithIdentifier:IDENTIFIER_YOUTUBE_CELL];
+            
+            YouTubeModel *tempModel = (YouTubeModel* ) socialDict[GLOBAL_KEY_MODEL];
+            [cell.labelName setText:tempModel.channelTitle];
+            [cell.labelDescription setText:tempModel.postTitle];
+            NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"];
+            NSDate* date = [dateFormatter dateFromString:tempModel.publishedAt];
+            [dateFormatter setDateFormat:@"dd MMMM' at 'hh:mm a"];
+            NSString *mydate=[dateFormatter stringFromDate:date];
+            [cell.labelCreatedAt setText:mydate];
+            [cell.imageMain setImageWithURL:[NSURL URLWithString:tempModel.urlThumb]];
+            return cell;
+        }
+            break;
+            
+        default:
+            return nil;
+            break;
+    }
+    
+    return nil;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    
+    ViewHeaderCell* headerView = [[[NSBundle mainBundle] loadNibNamed:@"ViewHeaderCell" owner:self options:nil] objectAtIndex:0];
+    
+    NSMutableDictionary* socialDict = self.arrayAllSocial[section];
+    NSInteger socialType = [socialDict[GLOBAL_KEY_SOCIAL_TYPE] integerValue];
+    switch (socialType) {
+        case SocialMediaTypeFacebook: {
+            FacebookModel *tempModel = (FacebookModel* ) socialDict[GLOBAL_KEY_MODEL];
+            headerView.labelHeader.text = tempModel.pageName;
+            NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
+            NSDate* date = [dateFormatter dateFromString:tempModel.createdTime];
+            [dateFormatter setDateFormat:@"dd MMMM' at 'hhmm a"];
+            NSString *mydate=[dateFormatter stringFromDate:date];
+            headerView.labelDate.text = [NSString stringWithFormat:@"%@", mydate];
+            
+            [headerView.buttonSocialIcon setImage:[UIImage imageNamed:@"Facebook"] forState:UIControlStateNormal];
+        }
+            break;
+            
+        case SocialMediaTypeTwitter: {
+            TwitterModel *tempModel = (TwitterModel* ) socialDict[GLOBAL_KEY_MODEL];
+            headerView.labelHeader.text = [NSString stringWithFormat:@"%@", tempModel.name];
+            
+            NSString *dateString = [NSString stringWithFormat:@"%@", tempModel.createdAt];
+            NSDateFormatter *dateFormatter= [NSDateFormatter new];
+            dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+            [dateFormatter setDateFormat:@"EEE MMM dd HH:mm:ss Z yyyy"];
+            NSDate *date = [dateFormatter dateFromString:dateString];
+            dateFormatter =[[NSDateFormatter alloc]init];
+            [dateFormatter setDateFormat:@"dd MMMM' at 'hh:mm a"];
+            NSString *mydate=[dateFormatter stringFromDate:date];
+            headerView.labelDate.text = [NSString stringWithFormat:@"%@", mydate];
+            
+            [headerView.buttonSocialIcon setImage:[UIImage imageNamed:@"Twitter"] forState:UIControlStateNormal];
+        }
+            break;
+            
+        case SocialMediaTypeVine: {
+            VineModel *tempModel = (VineModel* ) socialDict[GLOBAL_KEY_MODEL];
+            
+            headerView.labelHeader.text = [NSString stringWithFormat:@"%@", tempModel.username];
+            NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSSSS"];
+            NSDate* date = [dateFormatter dateFromString:tempModel.createdAt];
+            [dateFormatter setDateFormat:@"dd MMMM' at 'hh:mm a"];
+            NSString *mydate=[dateFormatter stringFromDate:date];
+            headerView.labelDate.text = mydate;
+            
+            [headerView.buttonSocialIcon setImage:[UIImage imageNamed:@"Vine"] forState:UIControlStateNormal];
+        }
+            break;
+            
+        case SocialMediaTypeInstagram: {
+            InstagramModel *tempModel = (InstagramModel* ) socialDict[GLOBAL_KEY_MODEL];
+            headerView.labelHeader.text = [NSString stringWithFormat:@"%@", tempModel.username];
+            
+            NSTimeInterval timeInterval = (NSTimeInterval)  [tempModel.createdAt longLongValue];
+            NSDate *date = [NSDate dateWithTimeIntervalSince1970:timeInterval];
+            NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"dd MMMM' at 'hh:mm a"];
+            NSString* dateString = [dateFormatter stringFromDate:date];
+            headerView.labelDate.text = dateString;
+            
+            [headerView.buttonSocialIcon setImage:[UIImage imageNamed:@"Instagram"] forState:UIControlStateNormal];
+        }
+            break;
+            
+        case SocialMediaTypeYoutube: {
+            YouTubeModel *tempModel = (YouTubeModel* ) socialDict[GLOBAL_KEY_MODEL];
+            headerView.labelHeader.text = [NSString stringWithFormat:@"%@", tempModel.channelTitle];
+            
+            NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"];
+            NSDate* date = [dateFormatter dateFromString:tempModel.publishedAt];
+            [dateFormatter setDateFormat:@"dd MMMM' at 'hh:mm a"];
+            NSString *mydate=[dateFormatter stringFromDate:date];
+            headerView.labelDate.text = mydate;
+            
+            [headerView.buttonSocialIcon setImage:[UIImage imageNamed:@"Youtube"] forState:UIControlStateNormal];
+        }
+            break;
+            
+    }
+    
+    return headerView;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 60;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSMutableDictionary* socialDict = self.arrayAllSocial[indexPath.section];
+    NSInteger socialType = [socialDict[GLOBAL_KEY_SOCIAL_TYPE] integerValue];
+    switch (socialType) {
+        case SocialMediaTypeFacebook: {
+            FacebookModel *tempModel = (FacebookModel* ) socialDict[GLOBAL_KEY_MODEL];
+            if(tempModel.picture.length > 0) {
+                return 210;
+            }
+        }
+            break;
+            
+        case SocialMediaTypeTwitter: {
+        }
+            break;
+            
+        case SocialMediaTypeVine: {
+            VineModel *tempModel = (VineModel* ) socialDict[GLOBAL_KEY_MODEL];
+            if([tempModel urlThumb].length > 0) {
+                return 210;
+            }
+        }
+            break;
+            
+        case SocialMediaTypeInstagram: {
+            InstagramModel *tempModel = (InstagramModel* ) socialDict[GLOBAL_KEY_MODEL];
+            if([tempModel mainImage].length > 0) {
+                return 210;
+            }
+        }
+            break;
+            
+        case SocialMediaTypeYoutube: {
+            YouTubeModel *tempModel = (YouTubeModel* ) socialDict[GLOBAL_KEY_MODEL];
+            if([tempModel urlThumb].length > 0) {
+                return 210;
+            }
+        }
+            break;
+    }
+    
+    return 140;
+}
+
 
 @end
