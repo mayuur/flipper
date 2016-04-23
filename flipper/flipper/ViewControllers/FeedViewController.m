@@ -9,6 +9,8 @@
 #import "FeedViewController.h"
 #import "AppDelegate.h"
 #import "UIImageView+AFNetworking.h"
+#import "Categories.h"
+#import "People.h"
 
 #import "FacebookModel.h"
 #import "FBSDKCoreKit/FBSDKGraphRequest.h"
@@ -67,11 +69,7 @@
     [_tableViewSocialFeed registerNib:[UINib nibWithNibName:@"InstagramCell" bundle:nil] forCellReuseIdentifier:IDENTIFIER_INSTAGRAM_CELL];
     [_tableViewSocialFeed registerNib:[UINib nibWithNibName:@"FacebookCell" bundle:nil] forCellReuseIdentifier:IDENTIFIER_FACEBOOK_CELL];
 
-    [self fetchDataForFacebook];
-    [self fetchDataFromInstagram];
-    [self fetchDataForTwitter];
-    [self fetchDataForYoutube];
-    [self fetchDataForVine];
+    [self getCelebritiesFollowedByUser];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -85,9 +83,37 @@
     [_tableViewSocialFeed reloadData];
 }
 
+- (void) getCelebritiesFollowedByUser {
+    //get all the celebrities followed by this user
+    NSPredicate* userPredicate = [NSPredicate predicateWithFormat:@"fk_user_id = %@", [PFUser currentUser].objectId];
+    PFQuery *fetchCelebrityQuery = [PFQuery queryWithClassName:@"User_People" predicate:userPredicate];
+    [fetchCelebrityQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        NSArray* arrayCelebrities = [objects valueForKey:@"fk_people_id"];
+        
+        PFQuery* fetchCelebDetailsQuery = [PFQuery queryWithClassName:@"People"];
+        [fetchCelebDetailsQuery whereKey:@"objectId" containedIn:arrayCelebrities];
+        [fetchCelebDetailsQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+            if(!error){
+                for (People* people in objects) {
+                    NSLog(@"FacebookID - %@\nTwitterHandle - %@\nYoutubePlaylistID - %@\nInstagramID - %@\nVineID - %@\n",people.facebook_page_id, people.twitter_handle_name, people.youtube_playlist_id, people.instagram_user_id, people.vine_page_id);
+
+                    [self fetchDataForFacebook:people.facebook_page_id];
+                    [self fetchDataForTwitter:people.twitter_handle_name];
+                    [self fetchDataForYoutube:people.youtube_playlist_id];
+                    [self fetchDataForVine:people.vine_page_id];
+                    [self fetchDataFromInstagram:people.instagram_user_id];
+                }
+            }
+            else {
+                NSLog(@"Error:%@",error.localizedDescription);
+            }
+        }];
+    }];
+}
+
 #pragma mark - Data Fetch Functions
-- (void) fetchDataForYoutube {
-    [[YoutubeSharedManager manager] getTimeLineByScreenName:@"PLVfy6I8a8OSzj_qjmCse38ycjKDvfPhrR" pageSize:5 Success:^(id responseObject) {
+- (void) fetchDataForYoutube : (NSString* ) playlistID{
+    [[YoutubeSharedManager manager] getTimeLineByScreenName:playlistID pageSize:5 Success:^(id responseObject) {
         NSLog(@"ResponseObject >> %@", responseObject);
         
         NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
@@ -115,8 +141,8 @@
     }];
 }
 
-- (void) fetchDataForVine {
-    [[VineFeedSharedManager manager] getTimeLineByScreenName:@"979549363833876480" pageSize:5 Success:^(id responseObject) {
+- (void) fetchDataForVine: (NSString* ) vineID {
+    [[VineFeedSharedManager manager] getTimeLineByScreenName:vineID pageSize:5 Success:^(id responseObject) {
         NSLog(@"ResponseObject >> %@", responseObject);
         if([(NSDictionary *)responseObject objectForKey:@"success"]) {
             
@@ -146,8 +172,8 @@
     }];
 }
 
-- (void) fetchDataForTwitter {
-    [[TwitterFeedSharedManager manager] getTimeLineByScreenName:@"mayuur" pageSize:15 Success:^(id responseObject) {
+- (void) fetchDataForTwitter : (NSString* ) handleName {
+    [[TwitterFeedSharedManager manager] getTimeLineByScreenName:handleName pageSize:15 Success:^(id responseObject) {
         NSLog(@"ResponseObject >> %@", responseObject);
         NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
         
@@ -176,24 +202,23 @@
     }];
 }
 
--(void)fetchDataFromInstagram {
+-(void)fetchDataFromInstagram: (NSString* ) userID {
     
     AppDelegate* appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    appDelegate.instagram.sessionDelegate = self;
+    appDelegate.instagram.accessToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"IGAccessToken"];
     
     // here i can set accessToken received on previous login
-    appDelegate.instagram.accessToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"IGAccessToken"];
-    appDelegate.instagram.sessionDelegate = self;
     if ([appDelegate.instagram isSessionValid]) {
-        NSMutableDictionary* params = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"users/1736994204/media/recent", @"method", nil];
+        NSMutableDictionary* params = [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"users/%@/media/recent", userID], @"method", nil];
         [appDelegate.instagram requestWithParams:params
                                         delegate:self];
-        
     } else {
-        [appDelegate.instagram authorize:[NSArray arrayWithObjects:@"comments", @"likes", nil]];
+        //[appDelegate.instagram authorize:[NSArray arrayWithObjects:@"public_content", @"comments", @"likes", nil]];
     }
 }
 
-- (void) fetchDataForFacebook {
+- (void) fetchDataForFacebook : (NSString* ) pageID {
     
     if(![FBSDKAccessToken currentAccessToken]) {
         FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
@@ -212,13 +237,13 @@
              } else {
                  NSLog(@"Logged in");
                  
-                 [self fetchDataForFacebook];
+                 [self fetchDataForFacebook:pageID];
              }
          }];
     }
     else {
         FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]
-                                      initWithGraphPath:@"/193742123995472/feed"
+                                      initWithGraphPath:[NSString stringWithFormat:@"/%@/feed", pageID]
                                       parameters:@{@"fields": @"id, message,full_picture,link,name,caption,description,icon,created_time,from,likes.summary(true),comments.summary(true)"}
                                       HTTPMethod:@"GET"];
         [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
@@ -345,7 +370,7 @@
              } else {
                  NSLog(@"Logged in");
                  
-                 [self fetchDataForFacebook];
+                 //[self fetchDataForFacebook];
              }
          }];
     }

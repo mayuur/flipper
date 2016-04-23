@@ -10,13 +10,12 @@
 #import "Parse.h"
 #import "UIImageView+AFNetworking.h"
 
-@interface ProfileTableViewController ()
+@interface ProfileTableViewController () <IGSessionDelegate>
 {
     
     __weak IBOutlet UIImageView *imageViewProfile;
     __weak IBOutlet UILabel *labelUserName;
     __weak IBOutlet UILabel *labelInstagramAccount;
-    AppDelegate* appDelegate;
 }
 @end
 
@@ -32,8 +31,8 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [labelUserName setText:[PFUser currentUser].username];
     
-    appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-    appDelegate.instagram.accessToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"IGAccessToken"];
+    APP_DELEGATE.instagram.accessToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"IGAccessToken"];
+    APP_DELEGATE.instagram.sessionDelegate = self;
     
     if ([[PFUser currentUser] valueForKey:@"instagramToken"]) {
         [labelInstagramAccount setText:@"Instagram Account Connected"];
@@ -59,10 +58,49 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.section == 0 && indexPath.row ==1) {
-        if (appDelegate.instagram.accessToken.length == 0){
-            [appDelegate.instagram authorize:[NSArray arrayWithObjects:@"comments", @"likes", nil]];
+        if (APP_DELEGATE.instagram.accessToken.length == 0){
+            [APP_DELEGATE.instagram authorize:[NSArray arrayWithObjects:@"comments", @"likes", nil]];
+        }
+        else {
+            //[APP_DELEGATE.instagram logout];
         }
     }
+}
+
+#pragma mark - IGSessionDelegate functions
+
+-(void)igDidLogin {
+    NSLog(@"Instagram did login");
+    // here i can store accessToken
+    [[NSUserDefaults standardUserDefaults] setObject:APP_DELEGATE.instagram.accessToken forKey:@"IGAccessToken"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+-(void)igDidNotLogin:(BOOL)cancelled {
+    NSLog(@"Instagram did not login");
+    NSString* message = nil;
+    if (cancelled) {
+        message = @"Access cancelled!";
+    } else {
+        message = @"Access denied!";
+    }
+    UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                        message:message
+                                                       delegate:nil
+                                              cancelButtonTitle:@"Ok"
+                                              otherButtonTitles:nil];
+    [alertView show];
+}
+
+-(void)igDidLogout {
+    NSLog(@"Instagram did logout");
+    // remove the accessToken
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"accessToken"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+-(void)igSessionInvalidated {
+    NSLog(@"Instagram session was invalidated");
 }
 
 /*
