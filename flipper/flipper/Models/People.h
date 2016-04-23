@@ -15,6 +15,11 @@
 @property (nonatomic, retain) NSString *person_name;
 @property (nonatomic, retain) PFFile *person_image;
 @property (nonatomic, retain) Categories *fk_category_id;
+@property (nonatomic, retain) NSString *facebook_page_id;
+@property (nonatomic, retain) NSString *instagram_user_id;
+@property (nonatomic, retain) NSString *twitter_handle_name;
+@property (nonatomic, retain) NSString *vine_page_id;
+@property (nonatomic, retain) NSString *youtube_playlist_id;
 
 @property (nonatomic, readwrite) BOOL isSelected;
 @end

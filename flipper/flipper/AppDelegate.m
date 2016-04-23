@@ -52,6 +52,9 @@ NSString * const TWITTER_CONSUMER_SECRET = @"0iQLTuMR9CewQn4fPZ0wl85iwnTWJ9l12Zz
     
     [PFTwitterUtils initializeWithConsumerKey:TWITTER_CONSUMER_KEY consumerSecret:TWITTER_CONSUMER_SECRET];
     
+    self.instagram = [[Instagram alloc] initWithClientId:APP_ID
+                                                delegate:nil];
+
     if([PFUser currentUser]) {
         //skip to categories or homepage
         BOOL followsCelebrities = [[[PFUser currentUser] objectForKey:@"follows_celebrities"] boolValue];
@@ -73,9 +76,6 @@ NSString * const TWITTER_CONSUMER_SECRET = @"0iQLTuMR9CewQn4fPZ0wl85iwnTWJ9l12Zz
     else {
         //do nothing... walkthrough should appear
     }
-    
-    self.instagram = [[Instagram alloc] initWithClientId:APP_ID
-                                                delegate:nil];
     
     return YES;
 }
