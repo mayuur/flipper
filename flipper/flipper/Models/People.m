@@ -14,6 +14,13 @@
 @dynamic person_name;
 @dynamic person_image;
 @dynamic fk_category_id;
+@dynamic facebook_page_id;
+@dynamic instagram_user_id;
+@dynamic twitter_handle_name;
+@dynamic vine_page_id;
+@dynamic youtube_playlist_id;
+
+@dynamic isSelected;
 
 + (void)load {
     [self registerSubclass];
