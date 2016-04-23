@@ -68,7 +68,7 @@
     [_tableViewSocialFeed registerNib:[UINib nibWithNibName:@"FacebookCell" bundle:nil] forCellReuseIdentifier:IDENTIFIER_FACEBOOK_CELL];
 
     [self fetchDataForFacebook];
-    //[self fetchDataFromInstagram];
+    [self fetchDataFromInstagram];
     [self fetchDataForTwitter];
     [self fetchDataForYoutube];
     [self fetchDataForVine];
