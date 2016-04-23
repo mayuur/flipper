@@ -77,6 +77,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleDefault;
+}
+
 - (void) refreshTableView {
     NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:GLOBAL_KEY_POST_DATE ascending:NO];
     self.arrayAllSocial = [NSMutableArray arrayWithArray:[self.arrayAllSocial sortedArrayUsingDescriptors:[NSArray arrayWithObjects:descriptor,nil]]];

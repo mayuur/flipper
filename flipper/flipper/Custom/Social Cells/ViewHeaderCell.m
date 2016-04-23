@@ -23,4 +23,9 @@
 }
 */
 
+- (void)layoutSubviews {
+    self.labelHeader.textColor = [UIColor followPeopleBlueBackground];
+    self.labelDate.textColor = [UIColor feedCellButtonColor];
+}
+
 @end

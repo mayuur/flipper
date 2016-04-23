@@ -14,4 +14,8 @@
     return UIColorFromRGB(0x4CAAF2);
 }
 
++ (UIColor* ) feedCellButtonColor {
+    return UIColorFromRGB(0xCCCCCC);
+}
+
 @end

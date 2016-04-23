@@ -11,4 +11,5 @@
 @interface UIColor (AppColors)
 
 + (UIColor* ) followPeopleBlueBackground;
++ (UIColor* ) feedCellButtonColor;
 @end
