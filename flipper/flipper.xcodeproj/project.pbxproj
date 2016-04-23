@@ -15,6 +15,8 @@
 		5433C0071C6BD0F500C24D0F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5433C0061C6BD0F500C24D0F /* SystemConfiguration.framework */; };
 		54378AA51CCB6C6D00B94D66 /* ProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54378AA41CCB6C6D00B94D66 /* ProfileTableViewController.m */; };
 		54378AA81CCB71F500B94D66 /* EditProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54378AA71CCB71F500B94D66 /* EditProfileTableViewController.m */; };
+		54378AAC1CCBC8C300B94D66 /* SearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 54378AAA1CCBC8C300B94D66 /* SearchCell.m */; };
+		54378AB11CCBCF6800B94D66 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54378AB01CCBCF6800B94D66 /* SearchViewController.m */; };
 		54449AE21C9890D500805093 /* People.m in Sources */ = {isa = PBXBuildFile; fileRef = 54449AE11C9890D500805093 /* People.m */; };
 		54449AE51C989B1F00805093 /* PeopleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 54449AE41C989B1F00805093 /* PeopleTableViewCell.m */; };
 		5460B5111C59439000D9E92E /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5460B5101C59439000D9E92E /* Intro.storyboard */; };
@@ -59,7 +61,6 @@
 		779B9BA91CB44129008918C4 /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 779B9BA21CB44128008918C4 /* FeedViewController.m */; };
 		779B9BAA1CB44129008918C4 /* PeopleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 779B9BA41CB44128008918C4 /* PeopleViewController.m */; };
 		779B9BAB1CB44129008918C4 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 779B9BA61CB44128008918C4 /* ProfileViewController.m */; };
-		779B9BAC1CB44129008918C4 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 779B9BA81CB44128008918C4 /* SearchViewController.m */; };
 		779B9BAF1CB69FF8008918C4 /* CelebrityFollowedCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 779B9BAE1CB69FF8008918C4 /* CelebrityFollowedCollectionViewCell.m */; };
 		77B4C0D61CC943CA00632EE8 /* YouTubeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B4C0D51CC943CA00632EE8 /* YouTubeModel.m */; };
 		77B4C0D91CC943D200632EE8 /* VineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B4C0D81CC943D200632EE8 /* VineModel.m */; };
@@ -129,6 +130,10 @@
 		54378AA41CCB6C6D00B94D66 /* ProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileTableViewController.m; sourceTree = "<group>"; };
 		54378AA61CCB71F500B94D66 /* EditProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProfileTableViewController.h; sourceTree = "<group>"; };
 		54378AA71CCB71F500B94D66 /* EditProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileTableViewController.m; sourceTree = "<group>"; };
+		54378AA91CCBC8C300B94D66 /* SearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchCell.h; path = "Search Cell/SearchCell.h"; sourceTree = "<group>"; };
+		54378AAA1CCBC8C300B94D66 /* SearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchCell.m; path = "Search Cell/SearchCell.m"; sourceTree = "<group>"; };
+		54378AAF1CCBCF6800B94D66 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		54378AB01CCBCF6800B94D66 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		54449AE01C9890D500805093 /* People.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = People.h; sourceTree = "<group>"; };
 		54449AE11C9890D500805093 /* People.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = People.m; sourceTree = "<group>"; };
 		54449AE31C989B1F00805093 /* PeopleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeopleTableViewCell.h; sourceTree = "<group>"; };
@@ -192,8 +197,6 @@
 		779B9BA41CB44128008918C4 /* PeopleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeopleViewController.m; sourceTree = "<group>"; };
 		779B9BA51CB44128008918C4 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		779B9BA61CB44128008918C4 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
-		779B9BA71CB44128008918C4 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
-		779B9BA81CB44128008918C4 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		779B9BAD1CB69FF8008918C4 /* CelebrityFollowedCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CelebrityFollowedCollectionViewCell.h; sourceTree = "<group>"; };
 		779B9BAE1CB69FF8008918C4 /* CelebrityFollowedCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CelebrityFollowedCollectionViewCell.m; sourceTree = "<group>"; };
 		77B4C0D41CC943CA00632EE8 /* YouTubeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouTubeModel.h; sourceTree = "<group>"; };
@@ -316,6 +319,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		54378AAE1CCBC8C700B94D66 /* Search Cell */ = {
+			isa = PBXGroup;
+			children = (
+				54378AA91CCBC8C300B94D66 /* SearchCell.h */,
+				54378AAA1CCBC8C300B94D66 /* SearchCell.m */,
+			);
+			name = "Search Cell";
+			sourceTree = "<group>";
+		};
 		5485AFA31CB99CF80077B885 /* Rechability */ = {
 			isa = PBXGroup;
 			children = (
@@ -345,6 +357,7 @@
 				779B9BAE1CB69FF8008918C4 /* CelebrityFollowedCollectionViewCell.m */,
 				54449AE31C989B1F00805093 /* PeopleTableViewCell.h */,
 				54449AE41C989B1F00805093 /* PeopleTableViewCell.m */,
+				54378AAE1CCBC8C700B94D66 /* Search Cell */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -521,9 +534,9 @@
 				779B9BA31CB44128008918C4 /* PeopleViewController.h */,
 				779B9BA41CB44128008918C4 /* PeopleViewController.m */,
 				779B9BA51CB44128008918C4 /* ProfileViewController.h */,
+				54378AAF1CCBCF6800B94D66 /* SearchViewController.h */,
+				54378AB01CCBCF6800B94D66 /* SearchViewController.m */,
 				779B9BA61CB44128008918C4 /* ProfileViewController.m */,
-				779B9BA71CB44128008918C4 /* SearchViewController.h */,
-				779B9BA81CB44128008918C4 /* SearchViewController.m */,
 				54378AA31CCB6C6D00B94D66 /* ProfileTableViewController.h */,
 				54378AA41CCB6C6D00B94D66 /* ProfileTableViewController.m */,
 				54378AA61CCB71F500B94D66 /* EditProfileTableViewController.h */,
@@ -855,12 +868,13 @@
 				779B9BA91CB44129008918C4 /* FeedViewController.m in Sources */,
 				54449AE21C9890D500805093 /* People.m in Sources */,
 				77B4C0D91CC943D200632EE8 /* VineModel.m in Sources */,
-				779B9BAC1CB44129008918C4 /* SearchViewController.m in Sources */,
+				54378AAC1CCBC8C300B94D66 /* SearchCell.m in Sources */,
 				77FAEFB31CB3045500DAA0FD /* CarbonSwipeRefresh.m in Sources */,
 				777D2CE61C62AB12000FF4C8 /* UIAlertView+Extra.m in Sources */,
 				77B4C1151CC9BBEB00632EE8 /* VineFeedSharedManager.m in Sources */,
 				7724C4D31C5E498A00267097 /* NSString+Validations.m in Sources */,
 				54378AA51CCB6C6D00B94D66 /* ProfileTableViewController.m in Sources */,
+				54378AB11CCBCF6800B94D66 /* SearchViewController.m in Sources */,
 				77FAEFA81CB2D98400DAA0FD /* HomeViewController.m in Sources */,
 				7724C4DC1C60FEB100267097 /* LNBRippleEffect.m in Sources */,
 				77B4C0FC1CC9B9E900632EE8 /* YouTubeCell.m in Sources */,

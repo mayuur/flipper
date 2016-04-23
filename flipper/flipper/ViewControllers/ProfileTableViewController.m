@@ -34,11 +34,14 @@
     APP_DELEGATE.instagram.accessToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"IGAccessToken"];
     APP_DELEGATE.instagram.sessionDelegate = self;
     
-    if (APP_DELEGATE.instagram.accessToken.length > 0) {
-        [labelInstagramAccount setText:@"Instagram Account Connected"];
-    }
+    
     
     [imageViewProfile setImageWithURL:[NSURL URLWithString:[[PFUser currentUser] valueForKey:@"profile_image"]]];
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
+    [self setInstagramButton];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,13 +61,28 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.section == 0 && indexPath.row ==1) {
-        if (APP_DELEGATE.instagram.accessToken.length == 0){
+        if ([[[PFUser currentUser] valueForKey:@"instagramToken"] length] == 0) {
             [APP_DELEGATE.instagram authorize:[NSArray arrayWithObjects:@"comments", @"likes", nil]];
         }
         else {
-            //[APP_DELEGATE.instagram logout];
+            [APP_DELEGATE.instagram logout];
+            [[PFUser currentUser]setValue:@"" forKey:@"instagramToken"];
+            [[PFUser currentUser]saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                if(succeeded) {
+                    [self setInstagramButton];
+                }
+            }];
         }
     }
+}
+
+-(void)setInstagramButton {
+    if ([[[PFUser currentUser] valueForKey:@"instagramToken"] length] > 0) {
+        [labelInstagramAccount setText:@"Instagram Account Connected"];
+    }else{
+        [labelInstagramAccount setText:@"Connect My Instagram Account"];
+    }
+    [self.tableView reloadData];
 }
 
 #pragma mark - IGSessionDelegate functions
@@ -72,6 +90,14 @@
 -(void)igDidLogin {
     NSLog(@"Instagram did login");
     // here i can store accessToken
+    [[PFUser currentUser] setValue:APP_DELEGATE.instagram.accessToken forKey:@"instagramToken"];
+    [[PFUser currentUser] saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if(!succeeded) {
+            NSLog(@"Error:%@",error.localizedDescription);
+        }
+        [self setInstagramButton];
+        [self.tableView reloadData];
+    }];
     [[NSUserDefaults standardUserDefaults] setObject:APP_DELEGATE.instagram.accessToken forKey:@"IGAccessToken"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
@@ -101,6 +127,7 @@
 
 -(void)igSessionInvalidated {
     NSLog(@"Instagram session was invalidated");
+    [self setInstagramButton];
 }
 
 /*
