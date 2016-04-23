@@ -24,7 +24,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
     arrayResult = [NSMutableArray array];
+    arrayPeople = [NSMutableArray array];
+    [self getCelebritiesFollowedByUser];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,8 +49,10 @@
     SearchCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SearchCell"];
     
     People *objPeople = [arrayResult objectAtIndex:indexPath.row];
-    if ([arrayPeople containsObject:objPeople]) {
+    if ([arrayPeople containsObject:objPeople.objectId]) {
         [cell.imageViewSelected setImage:[UIImage imageNamed:@"FollowPeopleSelectedTick"]];
+    }else {
+        [cell.imageViewSelected setImage:[UIImage imageNamed:@"FollowPeopleTick"]];
     }
     [cell.labelName setText:objPeople.person_name];
     
@@ -53,6 +62,41 @@
         }];
     });
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    //add categories for this user
+    People *tempPeople = [arrayResult objectAtIndex:indexPath.row];
+    
+    if([arrayPeople containsObject:tempPeople.objectId]) {
+        NSPredicate* userPredicate = [NSPredicate predicateWithFormat:@"fk_user_id = %@ && fk_people_id = %@", [PFUser currentUser].objectId, tempPeople.objectId];
+        PFQuery *fetchCelebrityQuery = [PFQuery queryWithClassName:@"User_People" predicate:userPredicate];
+        [fetchCelebrityQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+            __block NSInteger objectsCount = 0;
+            for (PFObject* object in objects) {
+                [object deleteInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                    objectsCount++;
+                    if(objectsCount == objects.count) {
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            [arrayPeople removeAllObjects];
+                            [self getCelebritiesFollowedByUser];
+                            
+                        });
+                        
+                    }
+                }];
+            }
+        }];
+    }else {
+        PFObject *objUserPeople = [PFObject objectWithClassName:@"User_People"];
+        [objUserPeople setValue:tempPeople.objectId forKey:@"fk_people_id"];
+        [objUserPeople setValue:[PFUser currentUser].objectId forKey:@"fk_user_id"];
+        [objUserPeople saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+            NSLog(@"Object saved error:%@",error.localizedDescription);
+            [self getCelebritiesFollowedByUser];
+            [tableSearch reloadData];
+        }];
+    }
 }
 
 #pragma mark - UISearchBar Delegate
@@ -74,6 +118,7 @@
 
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     if(searchText.length == 0) {
+        [searchBar resignFirstResponder];
         arrayResult = [NSMutableArray new];
         [tableSearch reloadData];
     }
@@ -92,7 +137,10 @@
         [fetchCelebDetailsQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
             if(!error){
                 NSLog(@"Success:%@",objects);
-                [arrayPeople addObjectsFromArray:objects];
+                for (People *tempPeople in objects) {
+                    [arrayPeople addObject:tempPeople.objectId];
+                }
+                [tableSearch reloadData];
             }else {
                 NSLog(@"Error:%@",error.localizedDescription);
             }

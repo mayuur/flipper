@@ -35,7 +35,7 @@
     appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     appDelegate.instagram.accessToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"IGAccessToken"];
     
-    if (appDelegate.instagram.accessToken.length > 0) {
+    if ([[PFUser currentUser] valueForKey:@"instagramToken"]) {
         [labelInstagramAccount setText:@"Instagram Account Connected"];
     }
     
