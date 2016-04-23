@@ -13,7 +13,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FqW-DA-xoF">
-                    <rect key="frame" x="60" y="13" width="484" height="21"/>
+                    <rect key="frame" x="65" y="13" width="479" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="ySy-l0-K1r"/>
                     </constraints>
@@ -30,15 +30,16 @@
                     <state key="normal" image="Instagram"/>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TzP-L9-Axc">
-                    <rect key="frame" x="60" y="36" width="484" height="16"/>
+                    <rect key="frame" x="65" y="36" width="479" height="16"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AlH-6Y-LOG">
-                    <rect key="frame" x="8" y="8" width="44" height="44"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AlH-6Y-LOG">
+                    <rect key="frame" x="13" y="8" width="44" height="44"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="44" id="CcV-P8-m7C"/>
+                        <constraint firstAttribute="height" constant="44" id="GC1-EG-acT"/>
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cTM-cp-Dhs">
@@ -64,7 +65,7 @@
                 <constraint firstItem="ZT9-X6-zc4" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailingMargin" constant="-5" id="hqL-jR-bBe"/>
                 <constraint firstItem="TzP-L9-Axc" firstAttribute="width" secondItem="FqW-DA-xoF" secondAttribute="width" id="pqj-eD-Wzd"/>
                 <constraint firstItem="cTM-cp-Dhs" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="rdW-lx-dMb"/>
-                <constraint firstItem="AlH-6Y-LOG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="vxs-yx-3o6"/>
+                <constraint firstItem="AlH-6Y-LOG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" constant="5" id="vxs-yx-3o6"/>
                 <constraint firstItem="ZT9-X6-zc4" firstAttribute="centerY" secondItem="AlH-6Y-LOG" secondAttribute="centerY" id="w1g-Z8-chl"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>

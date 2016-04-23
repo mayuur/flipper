@@ -24,6 +24,9 @@
 */
 
 - (void)layoutSubviews {
+    
+    self.imageViewProfile.layer.cornerRadius = CGRectGetWidth(self.imageViewProfile.frame)/2;
+    
     self.labelHeader.textColor = [UIColor followPeopleBlueBackground];
     self.labelDate.textColor = [UIColor feedCellButtonColor];
 }

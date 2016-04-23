@@ -38,6 +38,7 @@
 #define GLOBAL_KEY_SOCIAL_TYPE @"type"
 #define GLOBAL_KEY_MODEL @"socialModel"
 #define GLOBAL_KEY_POST_DATE @"postDate"
+#define GLOBAL_KEY_DISPLAY_PIC @"displayPic"
 
 #define IDENTIFIER_TWITTER_CELL @"TwitterCell"
 #define IDENTIFIER_FACEBOOK_CELL @"FacebookCell"
@@ -101,11 +102,11 @@
                 for (People* people in objects) {
                     NSLog(@"FacebookID - %@\nTwitterHandle - %@\nYoutubePlaylistID - %@\nInstagramID - %@\nVineID - %@\n",people.facebook_page_id, people.twitter_handle_name, people.youtube_playlist_id, people.instagram_user_id, people.vine_page_id);
 
-                    [self fetchDataForFacebook:people.facebook_page_id];
-                    [self fetchDataForTwitter:people.twitter_handle_name];
-                    [self fetchDataForYoutube:people.youtube_playlist_id];
-                    [self fetchDataForVine:people.vine_page_id];
-                    [self fetchDataFromInstagram:people.instagram_user_id];
+                    [self fetchDataForFacebook:people.facebook_page_id withImageFile:people.person_image];
+                    [self fetchDataForTwitter:people.twitter_handle_name withImageFile:people.person_image];
+                    [self fetchDataForYoutube:people.youtube_playlist_id withImageFile:people.person_image];
+                    [self fetchDataForVine:people.vine_page_id withImageFile:people.person_image];
+                    [self fetchDataFromInstagram:people.instagram_user_id withImageFile:people.person_image];
                 }
             }
             else {
@@ -116,7 +117,7 @@
 }
 
 #pragma mark - Data Fetch Functions
-- (void) fetchDataForYoutube : (NSString* ) playlistID{
+- (void) fetchDataForYoutube : (NSString* ) playlistID withImageFile:(PFFile* ) imageFile {
     [[YoutubeSharedManager manager] getTimeLineByScreenName:playlistID pageSize:5 Success:^(id responseObject) {
         NSLog(@"ResponseObject >> %@", responseObject);
         
@@ -135,6 +136,8 @@
             NSString* dateString = [dateFormatter stringFromDate:date];
             
             [socialDict setObject:dateString forKey:GLOBAL_KEY_POST_DATE];
+            [socialDict setObject:imageFile forKey:GLOBAL_KEY_DISPLAY_PIC];
+
             [self.arrayAllSocial addObject:socialDict];
         }
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -145,7 +148,7 @@
     }];
 }
 
-- (void) fetchDataForVine: (NSString* ) vineID {
+- (void) fetchDataForVine: (NSString* ) vineID withImageFile:(PFFile* ) imageFile {
     [[VineFeedSharedManager manager] getTimeLineByScreenName:vineID pageSize:5 Success:^(id responseObject) {
         NSLog(@"ResponseObject >> %@", responseObject);
         if([(NSDictionary *)responseObject objectForKey:@"success"]) {
@@ -164,7 +167,8 @@
                 [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
                 NSString* dateString = [dateFormatter stringFromDate:date];
                 [socialDict setObject:dateString forKey:GLOBAL_KEY_POST_DATE];
-                
+                [socialDict setObject:imageFile forKey:GLOBAL_KEY_DISPLAY_PIC];
+
                 [self.arrayAllSocial addObject:socialDict];
             }
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -176,7 +180,7 @@
     }];
 }
 
-- (void) fetchDataForTwitter : (NSString* ) handleName {
+- (void) fetchDataForTwitter : (NSString* ) handleName withImageFile:(PFFile* ) imageFile {
     [[TwitterFeedSharedManager manager] getTimeLineByScreenName:handleName pageSize:15 Success:^(id responseObject) {
         NSLog(@"ResponseObject >> %@", responseObject);
         NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
@@ -195,6 +199,7 @@
             [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
             NSString* dateString = [dateFormatter stringFromDate:date];
             [socialDict setObject:dateString forKey:GLOBAL_KEY_POST_DATE];
+            [socialDict setObject:imageFile forKey:GLOBAL_KEY_DISPLAY_PIC];
             [self.arrayAllSocial addObject:socialDict];
         }
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -206,7 +211,7 @@
     }];
 }
 
--(void)fetchDataFromInstagram: (NSString* ) userID {
+-(void)fetchDataFromInstagram: (NSString* ) userID withImageFile:(PFFile* ) imageFile {
     
     AppDelegate* appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     appDelegate.instagram.sessionDelegate = self;
@@ -222,7 +227,7 @@
     }
 }
 
-- (void) fetchDataForFacebook : (NSString* ) pageID {
+- (void) fetchDataForFacebook : (NSString* ) pageID withImageFile:(PFFile* ) imageFile {
     
     if(![FBSDKAccessToken currentAccessToken]) {
         FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
@@ -241,7 +246,7 @@
              } else {
                  NSLog(@"Logged in");
                  
-                 [self fetchDataForFacebook:pageID];
+                 [self fetchDataForFacebook:pageID withImageFile:imageFile];
              }
          }];
     }
@@ -271,6 +276,7 @@
                 [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
                 NSString* dateString = [dateFormatter stringFromDate:date];
                 [socialDict setObject:dateString forKey:GLOBAL_KEY_POST_DATE];
+                [socialDict setObject:imageFile forKey:GLOBAL_KEY_DISPLAY_PIC];
                 [self.arrayAllSocial addObject:socialDict];
             }
             
@@ -308,6 +314,7 @@
         [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
         NSString* dateString = [dateFormatter stringFromDate:date];
         [socialDict setObject:dateString forKey:GLOBAL_KEY_POST_DATE];
+        [socialDict setObject:@"" forKey:GLOBAL_KEY_DISPLAY_PIC];
         [self.arrayAllSocial addObject:socialDict];
     }
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -517,11 +524,16 @@
             NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
             [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
             NSDate* date = [dateFormatter dateFromString:tempModel.createdTime];
-            [dateFormatter setDateFormat:@"dd MMMM' at 'hhmm a"];
+            [dateFormatter setDateFormat:@"dd MMMM' at 'hh:mm a"];
             NSString *mydate=[dateFormatter stringFromDate:date];
             headerView.labelDate.text = [NSString stringWithFormat:@"%@", mydate];
             
             [headerView.buttonSocialIcon setImage:[UIImage imageNamed:@"Facebook"] forState:UIControlStateNormal];
+            
+            PFFile* imageFile = (PFFile* ) socialDict[GLOBAL_KEY_DISPLAY_PIC];
+            [imageFile getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+                headerView.imageViewProfile.image = [UIImage imageWithData:data];
+            }];
         }
             break;
             
@@ -540,6 +552,11 @@
             headerView.labelDate.text = [NSString stringWithFormat:@"%@", mydate];
             
             [headerView.buttonSocialIcon setImage:[UIImage imageNamed:@"Twitter"] forState:UIControlStateNormal];
+            
+            PFFile* imageFile = (PFFile* ) socialDict[GLOBAL_KEY_DISPLAY_PIC];
+            [imageFile getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+                headerView.imageViewProfile.image = [UIImage imageWithData:data];
+            }];
         }
             break;
             
@@ -555,6 +572,11 @@
             headerView.labelDate.text = mydate;
             
             [headerView.buttonSocialIcon setImage:[UIImage imageNamed:@"Vine"] forState:UIControlStateNormal];
+            
+            PFFile* imageFile = (PFFile* ) socialDict[GLOBAL_KEY_DISPLAY_PIC];
+            [imageFile getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+                headerView.imageViewProfile.image = [UIImage imageWithData:data];
+            }];
         }
             break;
             
@@ -570,6 +592,11 @@
             headerView.labelDate.text = dateString;
             
             [headerView.buttonSocialIcon setImage:[UIImage imageNamed:@"Instagram"] forState:UIControlStateNormal];
+            
+            /*PFFile* imageFile = (PFFile* ) socialDict[GLOBAL_KEY_DISPLAY_PIC];
+            [imageFile getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+                headerView.imageViewProfile.image = [UIImage imageWithData:data];
+            }];*/
         }
             break;
             
@@ -585,9 +612,13 @@
             headerView.labelDate.text = mydate;
             
             [headerView.buttonSocialIcon setImage:[UIImage imageNamed:@"Youtube"] forState:UIControlStateNormal];
+            
+            PFFile* imageFile = (PFFile* ) socialDict[GLOBAL_KEY_DISPLAY_PIC];
+            [imageFile getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+                headerView.imageViewProfile.image = [UIImage imageWithData:data];
+            }];
         }
             break;
-            
     }
     
     return headerView;
