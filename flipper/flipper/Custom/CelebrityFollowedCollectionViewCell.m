@@ -11,6 +11,8 @@
 @implementation CelebrityFollowedCollectionViewCell
 
 - (void)layoutSubviews {
+    self.imageCelebrity.contentMode = UIViewContentModeScaleAspectFill;
+    
     self.buttonUnfollow.layer.cornerRadius = CGRectGetWidth(self.buttonUnfollow.frame)/2;
     [self.buttonUnfollow setBackgroundColor:[UIColor followPeopleBlueBackground]];
 }
