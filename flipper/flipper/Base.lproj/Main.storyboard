@@ -578,7 +578,7 @@
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="imageVeiwProfile" destination="CMk-eC-KYX" id="l3t-qs-Bae"/>
+                        <outlet property="imageViewProfile" destination="CMk-eC-KYX" id="APR-St-eE8"/>
                         <outlet property="labelUserName" destination="Ndo-jV-SOD" id="bt0-As-8G2"/>
                         <outlet property="textFieldEmail" destination="BHX-aF-qod" id="X0M-K2-y0G"/>
                         <outlet property="textFieldPassword" destination="bzP-7c-hu1" id="RUs-mZ-1Nd"/>

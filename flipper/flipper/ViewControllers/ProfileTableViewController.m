@@ -8,6 +8,8 @@
 
 #import "ProfileTableViewController.h"
 #import "Parse.h"
+#import "UIImageView+AFNetworking.h"
+
 @interface ProfileTableViewController ()
 {
     
@@ -37,6 +39,7 @@
         [labelInstagramAccount setText:@"Instagram Account Connected"];
     }
     
+    [imageViewProfile setImageWithURL:[NSURL URLWithString:[[PFUser currentUser] valueForKey:@"profile_image"]]];
 }
 
 - (void)didReceiveMemoryWarning {

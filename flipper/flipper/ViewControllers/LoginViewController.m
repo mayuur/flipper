@@ -218,7 +218,7 @@
             } else if (user.isNew) {
                 
                 NSLog(@"User signed up and logged in through Facebook!");
-                FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields": @"name,email"}];
+                FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields": @"name,email,picture"}];
                 [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error)
                  {
                      if (error)
@@ -238,9 +238,10 @@
                          
                          NSString *name = userData[@"name"];
                          NSString *email = userData[@"email"];
-                         
+                         NSString *profileImage = userData[@"picture"][@"data"][@"url"];
                          user.username = name;
                          user.email = email;
+                         user[@"profile_image"] = [NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?type=large",userData[@"id"]];
                          [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
                           {
                               if (error)

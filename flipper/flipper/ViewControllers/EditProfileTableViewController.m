@@ -9,11 +9,12 @@
 #import "EditProfileTableViewController.h"
 #import "Parse.h"
 #import "LoginViewController.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface EditProfileTableViewController ()
 {
     
-    __weak IBOutlet UIImageView *imageVeiwProfile;
+    __weak IBOutlet UIImageView *imageViewProfile;
     __weak IBOutlet UILabel *labelUserName;
     __weak IBOutlet UITextField *textFieldEmail;
     __weak IBOutlet UITextField *textFieldPassword;
@@ -33,6 +34,8 @@
     
     [labelUserName setText:[[PFUser currentUser] username]];
     [textFieldEmail setText:[[PFUser currentUser] email]];
+    [imageViewProfile setImageWithURL:[NSURL URLWithString:[[PFUser currentUser] valueForKey:@"profile_image"]]];
+
 }
 
 - (void)didReceiveMemoryWarning {

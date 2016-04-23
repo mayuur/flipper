@@ -110,7 +110,7 @@
         <!--Login-->
         <scene sceneID="YBq-5X-Xo0">
             <objects>
-                <viewController storyboardIdentifier="LoginViewController" title="Login" automaticallyAdjustsScrollViewInsets="NO" id="MZs-GQ-LXf" customClass="LoginVicewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" title="Login" automaticallyAdjustsScrollViewInsets="NO" id="MZs-GQ-LXf" customClass="LoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qxw-yy-H9H"/>
                         <viewControllerLayoutGuide type="bottom" id="c3l-Fe-1ST"/>
