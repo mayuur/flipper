@@ -13,6 +13,8 @@
 		5433C0031C6BD0C900C24D0F /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5433C0021C6BD0C900C24D0F /* Twitter.framework */; };
 		5433C0051C6BD0D300C24D0F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5433C0041C6BD0D300C24D0F /* Social.framework */; };
 		5433C0071C6BD0F500C24D0F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5433C0061C6BD0F500C24D0F /* SystemConfiguration.framework */; };
+		54378AA51CCB6C6D00B94D66 /* ProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54378AA41CCB6C6D00B94D66 /* ProfileTableViewController.m */; };
+		54378AA81CCB71F500B94D66 /* EditProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54378AA71CCB71F500B94D66 /* EditProfileTableViewController.m */; };
 		54449AE21C9890D500805093 /* People.m in Sources */ = {isa = PBXBuildFile; fileRef = 54449AE11C9890D500805093 /* People.m */; };
 		54449AE51C989B1F00805093 /* PeopleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 54449AE41C989B1F00805093 /* PeopleTableViewCell.m */; };
 		5460B5111C59439000D9E92E /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5460B5101C59439000D9E92E /* Intro.storyboard */; };
@@ -123,6 +125,10 @@
 		5433C0021C6BD0C900C24D0F /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		5433C0041C6BD0D300C24D0F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		5433C0061C6BD0F500C24D0F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		54378AA31CCB6C6D00B94D66 /* ProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileTableViewController.h; sourceTree = "<group>"; };
+		54378AA41CCB6C6D00B94D66 /* ProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileTableViewController.m; sourceTree = "<group>"; };
+		54378AA61CCB71F500B94D66 /* EditProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProfileTableViewController.h; sourceTree = "<group>"; };
+		54378AA71CCB71F500B94D66 /* EditProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileTableViewController.m; sourceTree = "<group>"; };
 		54449AE01C9890D500805093 /* People.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = People.h; sourceTree = "<group>"; };
 		54449AE11C9890D500805093 /* People.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = People.m; sourceTree = "<group>"; };
 		54449AE31C989B1F00805093 /* PeopleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeopleTableViewCell.h; sourceTree = "<group>"; };
@@ -518,6 +524,10 @@
 				779B9BA61CB44128008918C4 /* ProfileViewController.m */,
 				779B9BA71CB44128008918C4 /* SearchViewController.h */,
 				779B9BA81CB44128008918C4 /* SearchViewController.m */,
+				54378AA31CCB6C6D00B94D66 /* ProfileTableViewController.h */,
+				54378AA41CCB6C6D00B94D66 /* ProfileTableViewController.m */,
+				54378AA61CCB71F500B94D66 /* EditProfileTableViewController.h */,
+				54378AA71CCB71F500B94D66 /* EditProfileTableViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -850,6 +860,7 @@
 				777D2CE61C62AB12000FF4C8 /* UIAlertView+Extra.m in Sources */,
 				77B4C1151CC9BBEB00632EE8 /* VineFeedSharedManager.m in Sources */,
 				7724C4D31C5E498A00267097 /* NSString+Validations.m in Sources */,
+				54378AA51CCB6C6D00B94D66 /* ProfileTableViewController.m in Sources */,
 				77FAEFA81CB2D98400DAA0FD /* HomeViewController.m in Sources */,
 				7724C4DC1C60FEB100267097 /* LNBRippleEffect.m in Sources */,
 				77B4C0FC1CC9B9E900632EE8 /* YouTubeCell.m in Sources */,
@@ -872,6 +883,7 @@
 				7712707E1C5BE7D50013DDD1 /* WalkthroughViewController.m in Sources */,
 				7724C4D61C5E4E7700267097 /* UIPageControl+Extra.m in Sources */,
 				5485AFA61CB99DA00077B885 /* Utility.m in Sources */,
+				54378AA81CCB71F500B94D66 /* EditProfileTableViewController.m in Sources */,
 				77B4C0F61CC9B9E900632EE8 /* TwitterCell.m in Sources */,
 				77FAEFB51CB3045500DAA0FD /* CarbonTabSwipeScrollView.m in Sources */,
 				77B4C0FA1CC9B9E900632EE8 /* VineCell.m in Sources */,

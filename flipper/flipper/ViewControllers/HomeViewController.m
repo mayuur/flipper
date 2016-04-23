@@ -77,10 +77,10 @@
             return [MAIN_STORYBOARD instantiateViewControllerWithIdentifier:@"SearchViewController"];
             
         case 3:
-            return [MAIN_STORYBOARD instantiateViewControllerWithIdentifier:@"ProfileViewController"];
+            return [MAIN_STORYBOARD instantiateViewControllerWithIdentifier:@"NavigationProfileViewController"];
             
         default:
-            return [MAIN_STORYBOARD instantiateViewControllerWithIdentifier:@"ProfileViewController"];
+            return [MAIN_STORYBOARD instantiateViewControllerWithIdentifier:@"NavigationProfileViewController"];
     }
 }
 
