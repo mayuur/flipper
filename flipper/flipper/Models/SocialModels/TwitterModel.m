@@ -40,9 +40,6 @@ NSString *const kTwitterName = @"name";
     if(self && [dict isKindOfClass:[NSDictionary class]]) {
         self.tweetId = [self objectOrNilForKey:kTwitterId fromDictionary:dict];
         
-        NSString* nameString = [self objectOrNilForKey:kTwitterName fromDictionary:dict];
-        NSLog(@"name String >%@ ", nameString);
-        
         self.name = [self objectOrNilForKey:kTwitterName fromDictionary:[dict objectForKey:@"user"]];
         self.userName = [self objectOrNilForKey:kTwitterScreenUserName fromDictionary:[dict objectForKey:@"user"]];
         self.profileImageUrl = [self objectOrNilForKey:kTwitterProfileImage fromDictionary:dict];

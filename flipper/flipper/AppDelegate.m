@@ -104,11 +104,19 @@ NSString * const TWITTER_CONSUMER_SECRET = @"0iQLTuMR9CewQn4fPZ0wl85iwnTWJ9l12Zz
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    return [[FBSDKApplicationDelegate sharedInstance] application:application
-                                                          openURL:url
-                                                sourceApplication:sourceApplication
-                                                       annotation:annotation
-            ];
+    
+    NSLog(@"url prefix > %@", [url absoluteString]);
+    
+    if([[url absoluteString] hasPrefix:@"ig"]) {
+        return [self.instagram handleOpenURL:url];
+    }
+    else {
+        return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                              openURL:url
+                                                    sourceApplication:sourceApplication
+                                                           annotation:annotation
+                ];
+    }
 }
 
 @end
