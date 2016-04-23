@@ -74,7 +74,7 @@
             return [MAIN_STORYBOARD instantiateViewControllerWithIdentifier:@"NavigationPeopleViewController"];
             
         case 2:
-            return [MAIN_STORYBOARD instantiateViewControllerWithIdentifier:@"SearchViewController"];
+            return [MAIN_STORYBOARD instantiateViewControllerWithIdentifier:@"NavigationSearchViewController"];
             
         case 3:
             return [MAIN_STORYBOARD instantiateViewControllerWithIdentifier:@"NavigationProfileViewController"];

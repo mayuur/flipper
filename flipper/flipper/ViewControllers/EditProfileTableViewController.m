@@ -55,13 +55,17 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 3) {
+        [PFUser logOut];
         UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Intro" bundle:nil];
         LoginViewController *login = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
         
-        if([APP_DELEGATE.window.rootViewController isKindOfClass:[UINavigationController class]]) {
-            UINavigationController* mainNavigationController = (UINavigationController* ) APP_DELEGATE.window.rootViewController;
-            [mainNavigationController pushViewController:login animated:YES];
-        }
+        UINavigationController *navigationController = [[UINavigationController alloc]initWithRootViewController:login];
+        navigationController.navigationBar.barTintColor = [UIColor blackColor];
+        navigationController.navigationBar.translucent = NO;
+        
+        [navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, nil]];
+        [[UIApplication sharedApplication].keyWindow setRootViewController:navigationController];
+
 
     }
 }

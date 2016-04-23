@@ -2,7 +2,7 @@
 //  SearchViewController.h
 //  flipper
 //
-//  Created by Mayur Joshi on 4/5/16.
+//  Created by Ashutosh Dave on 23/04/16.
 //  Copyright © 2016 Mayur Joshi. All rights reserved.
 //
 
