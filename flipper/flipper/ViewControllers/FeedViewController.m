@@ -8,6 +8,7 @@
 
 #import "FeedViewController.h"
 #import "AppDelegate.h"
+#import "Utility.h"
 #import "UIImageView+AFNetworking.h"
 #import "Categories.h"
 #import "People.h"
@@ -70,7 +71,11 @@
     [_tableViewSocialFeed registerNib:[UINib nibWithNibName:@"InstagramCell" bundle:nil] forCellReuseIdentifier:IDENTIFIER_INSTAGRAM_CELL];
     [_tableViewSocialFeed registerNib:[UINib nibWithNibName:@"FacebookCell" bundle:nil] forCellReuseIdentifier:IDENTIFIER_FACEBOOK_CELL];
 
-    [self getCelebritiesFollowedByUser];
+    if([Utility isNetAvailable]) {
+        [self getCelebritiesFollowedByUser];
+    }else {
+        [UIAlertView addDismissableAlertWithText:@"No Internet Connection" OnController:self];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

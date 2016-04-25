@@ -15,7 +15,6 @@
 
 @interface PeopleViewController() <UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 {
-    UIActivityIndicatorView *tableActivityView;
     UIRefreshControl *refreshControl,*refreshControlTable;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableViewCategories;
@@ -25,7 +24,7 @@
 @property (strong, nonatomic) NSMutableArray* arrayPeople;
 
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicatorCollectionView;
-
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicatorTableView;
 
 @property (nonatomic, readwrite) BOOL editModeCelebrities;
 
@@ -44,15 +43,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    tableActivityView = [[UIActivityIndicatorView alloc]
-                    initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    
-    tableActivityView.center=self.tableViewCategories.center;
-    tableActivityView.hidesWhenStopped = YES;
-    [tableActivityView startAnimating];
-    [self.tableViewCategories addSubview:tableActivityView];
-        
     self.title = @"Following";
     
    
@@ -98,7 +88,7 @@
 -(void)getAllCategories {
     PFQuery *query = [PFQuery queryWithClassName:[Categories parseClassName]];
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-        [tableActivityView stopAnimating];
+        [self.activityIndicatorTableView stopAnimating];
         [refreshControlTable endRefreshing];
         if(!error){
             _arrayCategories = [NSMutableArray new];

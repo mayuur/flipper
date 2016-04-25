@@ -169,7 +169,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "317"
             endingLineNumber = "317"
-            landmarkName = "-igDidLogin"
+            landmarkName = "-request:didLoad:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -185,7 +185,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "326"
             endingLineNumber = "326"
-            landmarkName = "-igDidNotLogin:"
+            landmarkName = "-request:didLoad:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
