@@ -12,6 +12,7 @@
 #import "UIImageView+AFNetworking.h"
 #import "Categories.h"
 #import "People.h"
+#import "FeedDetailViewController.h"
 
 #import "FacebookModel.h"
 #import "FBSDKCoreKit/FBSDKGraphRequest.h"
@@ -725,5 +726,12 @@
     return 140;
 }
 
+#pragma mark - UITableView Delegates
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSMutableDictionary* socialDict = self.arrayAllSocial[indexPath.row];
+    FeedDetailViewController *feedDetail = [MAIN_STORYBOARD instantiateViewControllerWithIdentifier:@"FeedDetailViewController"];
+    feedDetail.socialDict = socialDict;
+    [self.navigationController pushViewController:feedDetail animated:YES];
+}
 
 @end

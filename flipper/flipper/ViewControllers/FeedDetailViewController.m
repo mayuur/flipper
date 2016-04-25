@@ -8,6 +8,18 @@
 
 #import "FeedDetailViewController.h"
 
+#import "FacebookModel.h"
+#import "TwitterModel.h"
+#import "VineModel.h"
+#import "YouTubeModel.h"
+#import "InstagramModel.h"
+
+#define GLOBAL_KEY_SOCIAL_TYPE @"type"
+#define GLOBAL_KEY_MODEL @"socialModel"
+#define GLOBAL_KEY_POST_DATE @"postDate"
+#define GLOBAL_KEY_DISPLAY_PIC @"displayPic"
+
+
 @interface FeedDetailViewController ()
 
 @end
@@ -17,6 +29,37 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    NSInteger socialType = [_socialDict[GLOBAL_KEY_SOCIAL_TYPE] integerValue];
+    
+    switch (socialType) {
+        case SocialMediaTypeFacebook: {
+            FacebookModel *tempModel = (FacebookModel* ) _socialDict[GLOBAL_KEY_MODEL];
+        }
+            break;
+            
+        case SocialMediaTypeTwitter: {
+            TwitterModel *tempModel = (TwitterModel* ) _socialDict[GLOBAL_KEY_MODEL];
+        }
+            break;
+            
+        case SocialMediaTypeInstagram: {
+            InstagramModel *tempModel = (InstagramModel* ) _socialDict[GLOBAL_KEY_MODEL];
+        }
+            break;
+            
+        case SocialMediaTypeYoutube: {
+            YouTubeModel *tempModel = (YouTubeModel* ) _socialDict[GLOBAL_KEY_MODEL];
+        }
+            break;
+            
+        case SocialMediaTypeVine: {
+            VineModel *tempModel = (VineModel *) _socialDict[GLOBAL_KEY_MODEL];
+        }
+            break;
+            
+    }
+
 }
 
 - (void)didReceiveMemoryWarning {

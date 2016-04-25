@@ -147,6 +147,24 @@
             </objects>
             <point key="canvasLocation" x="-158" y="-1735"/>
         </scene>
+        <!--Feed Detail View Controller-->
+        <scene sceneID="ISh-Ho-OuT">
+            <objects>
+                <viewController storyboardIdentifier="FeedDetailViewController" id="X2h-9G-Tp1" customClass="FeedDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Gat-tV-vQb"/>
+                        <viewControllerLayoutGuide type="bottom" id="cpp-hN-EUJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3gk-Cb-19z">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JBm-2c-XGt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="720" y="-1712"/>
+        </scene>
         <!--People View Controller-->
         <scene sceneID="5Rh-ez-Kh8">
             <objects>
