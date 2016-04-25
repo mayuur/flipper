@@ -19,6 +19,7 @@
 		54378AB11CCBCF6800B94D66 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54378AB01CCBCF6800B94D66 /* SearchViewController.m */; };
 		54449AE21C9890D500805093 /* People.m in Sources */ = {isa = PBXBuildFile; fileRef = 54449AE11C9890D500805093 /* People.m */; };
 		54449AE51C989B1F00805093 /* PeopleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 54449AE41C989B1F00805093 /* PeopleTableViewCell.m */; };
+		544EE5081CCECD4400FA5072 /* FeedDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 544EE5071CCECD4400FA5072 /* FeedDetailViewController.m */; };
 		5460B5111C59439000D9E92E /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5460B5101C59439000D9E92E /* Intro.storyboard */; };
 		547FFF641C76CB1500254145 /* Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = 547FFF631C76CB1500254145 /* Categories.m */; };
 		5485AFA21CB99CF40077B885 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 5485AFA11CB99CF40077B885 /* Reachability.m */; };
@@ -138,6 +139,8 @@
 		54449AE11C9890D500805093 /* People.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = People.m; sourceTree = "<group>"; };
 		54449AE31C989B1F00805093 /* PeopleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeopleTableViewCell.h; sourceTree = "<group>"; };
 		54449AE41C989B1F00805093 /* PeopleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeopleTableViewCell.m; sourceTree = "<group>"; };
+		544EE5061CCECD4400FA5072 /* FeedDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedDetailViewController.h; sourceTree = "<group>"; };
+		544EE5071CCECD4400FA5072 /* FeedDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedDetailViewController.m; sourceTree = "<group>"; };
 		5460B5101C59439000D9E92E /* Intro.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Intro.storyboard; sourceTree = "<group>"; };
 		547FFF621C76CB1500254145 /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Categories.h; sourceTree = "<group>"; };
 		547FFF631C76CB1500254145 /* Categories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Categories.m; sourceTree = "<group>"; };
@@ -541,6 +544,8 @@
 				54378AA41CCB6C6D00B94D66 /* ProfileTableViewController.m */,
 				54378AA61CCB71F500B94D66 /* EditProfileTableViewController.h */,
 				54378AA71CCB71F500B94D66 /* EditProfileTableViewController.m */,
+				544EE5061CCECD4400FA5072 /* FeedDetailViewController.h */,
+				544EE5071CCECD4400FA5072 /* FeedDetailViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -883,6 +888,7 @@
 				77B4C0DC1CC943D800632EE8 /* FacebookModel.m in Sources */,
 				7724C4D01C5D001C00267097 /* PageWalkthrough.m in Sources */,
 				54D3C2C81C6144F100367C98 /* IntroTextView.m in Sources */,
+				544EE5081CCECD4400FA5072 /* FeedDetailViewController.m in Sources */,
 				77F6B7641C9A459C0042057F /* UIColor+AppColors.m in Sources */,
 				77FAEFB41CB3045500DAA0FD /* CarbonTabSwipeNavigation.m in Sources */,
 				77B4C0E21CC943E500632EE8 /* InstagramModel.m in Sources */,

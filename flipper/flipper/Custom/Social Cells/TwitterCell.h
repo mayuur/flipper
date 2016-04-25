@@ -17,4 +17,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *buttonFavorite;
 @property (weak, nonatomic) IBOutlet UIButton *buttonRetweet;
 
+@property (weak, nonatomic) IBOutlet UIButton *buttonShare;
+
 @end

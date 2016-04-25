@@ -121,6 +121,50 @@
     }];
 }
 
+-(void)openLink:(UIButton *)button {
+    NSMutableDictionary* socialDict = self.arrayAllSocial[button.tag];
+    NSInteger socialType = [socialDict[GLOBAL_KEY_SOCIAL_TYPE] integerValue];
+    NSURL *feedLink;
+    switch (socialType) {
+        case SocialMediaTypeFacebook: {
+            
+            FacebookModel *tempModel = (FacebookModel* ) socialDict[GLOBAL_KEY_MODEL];
+            feedLink = [NSURL URLWithString:tempModel.link];
+        }
+        break;
+            
+        case SocialMediaTypeTwitter: {
+            TwitterModel *tempModel = (TwitterModel* ) socialDict[GLOBAL_KEY_MODEL];
+            feedLink = [NSURL URLWithString:[NSString stringWithFormat:@"https://twitter.com/%@/status/%@",tempModel.name,tempModel.tweetId]];
+        }
+        break;
+            
+        case SocialMediaTypeInstagram: {
+            InstagramModel *tempModel = (InstagramModel* ) socialDict[GLOBAL_KEY_MODEL];
+            feedLink = [NSURL URLWithString:tempModel.link];
+        }
+        break;
+            
+        case SocialMediaTypeYoutube: {
+            YouTubeModel *tempModel = (YouTubeModel* ) socialDict[GLOBAL_KEY_MODEL];
+            NSString *urlString = [NSString stringWithFormat:@"https://www.youtube.com/watch?v=%@&list=%@",tempModel.videoId,tempModel.playlistId];
+            feedLink = [NSURL URLWithString:urlString];
+        }
+        break;
+            
+        case SocialMediaTypeVine: {
+            VineModel *tempModel = (VineModel *) socialDict[GLOBAL_KEY_MODEL];
+            feedLink = [NSURL URLWithString:tempModel.vineLink];
+        }
+            break;
+            
+    }
+    
+    if ([[UIApplication sharedApplication] canOpenURL:feedLink]) {
+        [[UIApplication sharedApplication] openURL:feedLink];
+    }
+}
+
 #pragma mark - Data Fetch Functions
 - (void) fetchDataForYoutube : (NSString* ) playlistID withImageFile:(PFFile* ) imageFile {
     [[YoutubeSharedManager manager] getTimeLineByScreenName:playlistID pageSize:5 Success:^(id responseObject) {
@@ -423,6 +467,9 @@
             NSString *mydate=[dateFormatter stringFromDate:date];
             [cell.labelCreatedAt setText:mydate];
             
+            [cell.buttonShare addTarget:self action:@selector(openLink:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.buttonShare setTag:indexPath.section];
+           
             return cell;
         }
             break;

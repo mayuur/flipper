@@ -13,6 +13,8 @@ NSString *const kYouTubeTitle = @"title";
 NSString *const kYouTubeThumbnail = @"thumbnails";
 NSString *const kYouTubeChannelTitle = @"channelTitle";
 NSString *const kYouTubePublishedAt = @"publishedAt";
+NSString *const kYouTubePlaylistId = @"playlistId";
+NSString *const kYouTubeVideoId = @"videoId";
 
 @implementation YouTubeModel
 
@@ -33,6 +35,8 @@ NSString *const kYouTubePublishedAt = @"publishedAt";
         self.urlThumb = [NSString stringWithFormat:@"%@",[self objectOrNil:dict[@"snippet"][kYouTubeThumbnail][@"standard"][@"url"]]];
         self.channelTitle = [NSString stringWithFormat:@"%@",[self objectOrNil:dict[@"snippet"][kYouTubeChannelTitle]]];
         self.publishedAt = [self objectOrNil:dict[@"snippet"][kYouTubePublishedAt]];
+        self.playlistId = [self objectOrNil:dict[@"snippet"][kYouTubePlaylistId]];
+        self.videoId = [self objectOrNil:dict[@"snippet"][@"resourceId"][kYouTubeVideoId]];
         }
     
     return self;

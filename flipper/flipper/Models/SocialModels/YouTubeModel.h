@@ -15,6 +15,8 @@
 @property (nonatomic, strong) NSString *urlThumb;
 @property (nonatomic, strong) NSString *channelTitle;
 @property (nonatomic, strong) NSString *publishedAt;
+@property (nonatomic, strong) NSString *videoId;
+@property (nonatomic, strong) NSString *playlistId;
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;
 - (instancetype)initWithDictionary:(NSDictionary *)dict;

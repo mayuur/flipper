@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -12,7 +12,7 @@
             <rect key="frame" x="0.0" y="0.0" width="520" height="297"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gpV-mB-agG" id="Abo-KT-Gro">
-                <rect key="frame" x="0.0" y="0.0" width="520" height="296.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="520" height="296"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JwF-jH-Ic9">
@@ -26,13 +26,13 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQv-US-QX0">
-                                <rect key="frame" x="62" y="30.5" width="42" height="20.5"/>
+                                <rect key="frame" x="62" y="31" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T7Q-c1-Xw9">
-                                <rect key="frame" x="62" y="8" width="42" height="20.5"/>
+                                <rect key="frame" x="62" y="8" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -56,7 +56,7 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J13-bN-7mF">
-                        <rect key="frame" x="10" y="10" width="500" height="20.5"/>
+                        <rect key="frame" x="10" y="10" width="500" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -65,7 +65,7 @@
                         <rect key="frame" x="0.0" y="236" width="520" height="60"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dit-Pw-Kni">
-                                <rect key="frame" x="15" y="12" width="95" height="35"/>
+                                <rect key="frame" x="15" y="15" width="95" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="95" id="Nyy-c3-CKh"/>
                                 </constraints>
@@ -74,15 +74,15 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJ4-u7-qXJ">
-                                <rect key="frame" x="135" y="12" width="95" height="36"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJ4-u7-qXJ">
+                                <rect key="frame" x="135" y="16" width="95" height="29"/>
                                 <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="-15" maxY="0.0"/>
                                 <state key="normal" title="140" image="comment">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HaF-PN-WdQ">
-                                <rect key="frame" x="470" y="15" width="40" height="29"/>
+                                <rect key="frame" x="477" y="18" width="33" height="24"/>
                                 <state key="normal" image="share"/>
                             </button>
                         </subviews>
@@ -99,7 +99,7 @@
                         </constraints>
                     </view>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ScR-26-b0p">
-                        <rect key="frame" x="0.0" y="40.5" width="520" height="195.5"/>
+                        <rect key="frame" x="0.0" y="41" width="520" height="195"/>
                     </imageView>
                 </subviews>
                 <constraints>
@@ -121,6 +121,7 @@
             <connections>
                 <outlet property="buttonComment" destination="hJ4-u7-qXJ" id="rPt-SL-eKG"/>
                 <outlet property="buttonLike" destination="Dit-Pw-Kni" id="LdS-Ob-vgX"/>
+                <outlet property="buttonShare" destination="HaF-PN-WdQ" id="GSK-E2-GwQ"/>
                 <outlet property="imageAvatar" destination="3PM-cA-FMe" id="DOF-jA-SNu"/>
                 <outlet property="imageThumb" destination="ScR-26-b0p" id="VUB-wq-Cdx"/>
                 <outlet property="labelCreatedAt" destination="sQv-US-QX0" id="veP-iY-1vL"/>
@@ -132,8 +133,8 @@
     </objects>
     <resources>
         <image name="Vine" width="36" height="42"/>
-        <image name="comment" width="40" height="36"/>
-        <image name="like" width="40" height="35"/>
-        <image name="share" width="40" height="29"/>
+        <image name="comment" width="33" height="29"/>
+        <image name="like" width="33" height="29"/>
+        <image name="share" width="33" height="24"/>
     </resources>
 </document>

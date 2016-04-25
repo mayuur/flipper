@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -12,7 +12,7 @@
             <rect key="frame" x="0.0" y="0.0" width="520" height="355"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wb3-WS-QxH" id="lCX-ww-Rtd">
-                <rect key="frame" x="0.0" y="0.0" width="520" height="354.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="520" height="354"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SMA-cl-wEu">
@@ -26,13 +26,13 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pIo-en-I1F">
-                                <rect key="frame" x="62" y="30.5" width="42" height="20.5"/>
+                                <rect key="frame" x="62" y="31" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bdp-QA-dM4">
-                                <rect key="frame" x="62" y="8" width="42" height="20.5"/>
+                                <rect key="frame" x="62" y="8" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -65,7 +65,7 @@
                         <rect key="frame" x="0.0" y="294" width="520" height="60"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JxG-o3-v3P">
-                                <rect key="frame" x="15" y="12" width="95" height="35"/>
+                                <rect key="frame" x="15" y="15" width="95" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="95" id="z94-JV-hYo"/>
                                 </constraints>
@@ -75,14 +75,14 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k3H-jc-N8T">
-                                <rect key="frame" x="135" y="12" width="95" height="36"/>
+                                <rect key="frame" x="135" y="15" width="95" height="29"/>
                                 <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="-15" maxY="0.0"/>
                                 <state key="normal" title="140" image="comment">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JCf-7V-aiY">
-                                <rect key="frame" x="470" y="15" width="40" height="29"/>
+                                <rect key="frame" x="477" y="18" width="33" height="24"/>
                                 <state key="normal" image="share"/>
                             </button>
                         </subviews>
@@ -124,6 +124,7 @@
             <connections>
                 <outlet property="buttonComment" destination="k3H-jc-N8T" id="QyP-kM-UWn"/>
                 <outlet property="buttonLike" destination="JxG-o3-v3P" id="vyL-zk-5Vl"/>
+                <outlet property="buttonShare" destination="JCf-7V-aiY" id="xkd-EA-VPR"/>
                 <outlet property="imageMain" destination="Gxc-gV-k2d" id="hSt-zB-Bcm"/>
                 <outlet property="labelCreatedAt" destination="pIo-en-I1F" id="cGw-G7-1fI"/>
                 <outlet property="labelName" destination="Bdp-QA-dM4" id="b3Y-4A-dJb"/>
@@ -134,8 +135,8 @@
     </objects>
     <resources>
         <image name="Facebook" width="36" height="36"/>
-        <image name="comment" width="40" height="36"/>
-        <image name="like" width="40" height="35"/>
-        <image name="share" width="40" height="29"/>
+        <image name="comment" width="33" height="29"/>
+        <image name="like" width="33" height="29"/>
+        <image name="share" width="33" height="24"/>
     </resources>
 </document>

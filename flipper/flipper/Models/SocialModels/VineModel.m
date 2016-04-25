@@ -16,6 +16,7 @@ NSString *const kVineLikes = @"likes";
 NSString *const kVineUrlThumb = @"thumbnailUrl";
 NSString *const kVineUrlAvatar = @"avatarUrl";
 NSString *const kVineCreateAt = @"created";
+NSString *const kVineLink = @"permalinkUrl";
 
 @implementation VineModel
 
@@ -39,6 +40,7 @@ NSString *const kVineCreateAt = @"created";
         self.urlAvatar = [self objectOrNil:dict[kVineUrlAvatar]];
         self.urlThumb = [self objectOrNil:dict[kVineUrlThumb]];
         self.createdAt = [self objectOrNil:dict[kVineCreateAt]];
+        self.vineLink = [self objectOrNil:dict[kVineLink]];
     }
     
     return self;

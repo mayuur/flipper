@@ -18,6 +18,7 @@
 @property (nonatomic, strong) NSString *urlThumb;
 @property (nonatomic, strong) NSString *urlAvatar;
 @property (nonatomic, strong) NSString *createdAt;
+@property (nonatomic, strong) NSString *vineLink;
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;
 - (instancetype)initWithDictionary:(NSDictionary *)dict;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -12,7 +12,7 @@
             <rect key="frame" x="0.0" y="0.0" width="520" height="297"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iMW-Wi-lId" id="nx0-7D-LUt">
-                <rect key="frame" x="0.0" y="0.0" width="520" height="296.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="520" height="296"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V68-KD-j72">
@@ -61,18 +61,15 @@
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gEE-Cp-Icu">
                         <rect key="frame" x="10" y="10" width="500" height="21"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="21" id="hie-AU-0bI"/>
-                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zUu-c3-evN">
-                        <rect key="frame" x="0.0" y="236" width="520" height="60"/>
+                        <rect key="frame" x="0.0" y="243" width="520" height="53"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fk-L8-qPZ">
-                                <rect key="frame" x="15" y="12" width="95" height="35"/>
+                                <rect key="frame" x="15" y="12" width="95" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="95" id="xV2-KR-Yvh"/>
                                 </constraints>
@@ -82,7 +79,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fpC-mR-2q3">
-                                <rect key="frame" x="135" y="12" width="95" height="36"/>
+                                <rect key="frame" x="135" y="12" width="95" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="95" id="dCC-rS-8o4"/>
                                 </constraints>
@@ -92,7 +89,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cfb-Wr-Uhw">
-                                <rect key="frame" x="470" y="15" width="40" height="29"/>
+                                <rect key="frame" x="477" y="14" width="33" height="24"/>
                                 <state key="normal" image="share"/>
                             </button>
                         </subviews>
@@ -108,7 +105,7 @@
                         </constraints>
                     </view>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wGU-O7-1f3">
-                        <rect key="frame" x="0.0" y="41" width="520" height="195"/>
+                        <rect key="frame" x="0.0" y="41" width="520" height="202"/>
                     </imageView>
                 </subviews>
                 <constraints>
@@ -128,6 +125,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="buttonShare" destination="cfb-Wr-Uhw" id="Psn-8C-Y54"/>
                 <outlet property="imageMain" destination="wGU-O7-1f3" id="0yY-8M-2M3"/>
                 <outlet property="labelCreatedAt" destination="sZy-s3-OUg" id="Gw3-Qy-yhc"/>
                 <outlet property="labelDescription" destination="gEE-Cp-Icu" id="yte-pI-WTp"/>
@@ -138,8 +136,8 @@
     </objects>
     <resources>
         <image name="Youtube" width="48" height="34"/>
-        <image name="comment" width="40" height="36"/>
-        <image name="like" width="40" height="35"/>
-        <image name="share" width="40" height="29"/>
+        <image name="comment" width="33" height="29"/>
+        <image name="like" width="33" height="29"/>
+        <image name="share" width="33" height="24"/>
     </resources>
 </document>

@@ -74,10 +74,10 @@
                         </variation>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="adi-zt-2Tx">
-                        <rect key="frame" x="0.0" y="201" width="520" height="60"/>
+                        <rect key="frame" x="0.0" y="207" width="520" height="54"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dxT-Bh-2HS">
-                                <rect key="frame" x="15" y="12" width="95" height="35"/>
+                                <rect key="frame" x="15" y="12" width="95" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="95" id="rBW-Gx-G9O"/>
                                 </constraints>
@@ -87,7 +87,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="15p-wP-XgG">
-                                <rect key="frame" x="135" y="10" width="95" height="39"/>
+                                <rect key="frame" x="135" y="10" width="95" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="95" id="Y35-Sl-2Ck"/>
                                 </constraints>
@@ -96,8 +96,8 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BvL-VH-4E4">
-                                <rect key="frame" x="470" y="15" width="40" height="29"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BvL-VH-4E4">
+                                <rect key="frame" x="479" y="15" width="33" height="24"/>
                                 <state key="normal" image="share"/>
                             </button>
                         </subviews>
@@ -113,7 +113,7 @@
                         </constraints>
                     </view>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="5yy-Lu-K6c">
-                        <rect key="frame" x="0.0" y="41" width="520" height="160"/>
+                        <rect key="frame" x="0.0" y="41" width="520" height="166"/>
                     </imageView>
                 </subviews>
                 <constraints>
@@ -136,6 +136,7 @@
             <connections>
                 <outlet property="buttonFavorite" destination="dxT-Bh-2HS" id="yx7-26-SKs"/>
                 <outlet property="buttonRetweet" destination="15p-wP-XgG" id="Acs-Be-0aS"/>
+                <outlet property="buttonShare" destination="BvL-VH-4E4" id="9j9-jK-zXm"/>
                 <outlet property="imageMain" destination="5yy-Lu-K6c" id="mbv-Cv-a2L"/>
                 <outlet property="imageProfile" destination="7iP-Ur-Pt7" id="WpB-8Y-7Md"/>
                 <outlet property="labelCreatedAt" destination="BHK-Hf-f3N" id="257-rQ-rfj"/>
@@ -147,8 +148,8 @@
     </objects>
     <resources>
         <image name="Twitter" width="36" height="31"/>
-        <image name="like" width="40" height="35"/>
-        <image name="retweet" width="39" height="39"/>
-        <image name="share" width="40" height="29"/>
+        <image name="like" width="33" height="29"/>
+        <image name="retweet" width="33" height="33"/>
+        <image name="share" width="33" height="24"/>
     </resources>
 </document>
