@@ -60,7 +60,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationController.navigationBarHidden = YES;
+    self.navigationController.navigationBarHidden = NO;
     self.arrayAllSocial = [NSMutableArray arrayWithCapacity:0];
     
     _tableViewSocialFeed.estimatedRowHeight = 60.0;
@@ -728,7 +728,7 @@
 
 #pragma mark - UITableView Delegates
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSMutableDictionary* socialDict = self.arrayAllSocial[indexPath.row];
+    NSMutableDictionary* socialDict = self.arrayAllSocial[indexPath.section];
     FeedDetailViewController *feedDetail = [MAIN_STORYBOARD instantiateViewControllerWithIdentifier:@"FeedDetailViewController"];
     feedDetail.socialDict = socialDict;
     [self.navigationController pushViewController:feedDetail animated:YES];
