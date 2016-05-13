@@ -56,7 +56,7 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ef-dK-wYs">
-                        <rect key="frame" x="10" y="10" width="500" height="124"/>
+                        <rect key="frame" x="10" y="10" width="500" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -104,10 +104,15 @@
                             <constraint firstAttribute="height" constant="150" id="FOw-DJ-LBZ"/>
                         </constraints>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KMQ-jr-MoU">
+                        <rect key="frame" x="0.0" y="41" width="520" height="253"/>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="SMA-cl-wEu" firstAttribute="leading" secondItem="lCX-ww-Rtd" secondAttribute="leading" id="6iM-mF-CIN"/>
                     <constraint firstItem="2Ef-dK-wYs" firstAttribute="top" secondItem="SMA-cl-wEu" secondAttribute="bottom" constant="10" id="7O0-mo-6dY"/>
+                    <constraint firstItem="KMQ-jr-MoU" firstAttribute="top" secondItem="2Ef-dK-wYs" secondAttribute="bottom" constant="10" id="Aam-WC-nBd"/>
+                    <constraint firstItem="KMQ-jr-MoU" firstAttribute="leading" secondItem="lCX-ww-Rtd" secondAttribute="leading" id="DDl-d2-5BY"/>
                     <constraint firstAttribute="trailing" secondItem="SMA-cl-wEu" secondAttribute="trailing" id="P37-p1-FHb"/>
                     <constraint firstItem="SMA-cl-wEu" firstAttribute="top" secondItem="lCX-ww-Rtd" secondAttribute="top" constant="-60" id="QTj-OR-h0H"/>
                     <constraint firstAttribute="trailing" secondItem="Gxc-gV-k2d" secondAttribute="trailing" id="Wgk-r3-WMd"/>
@@ -115,15 +120,23 @@
                     <constraint firstAttribute="trailing" secondItem="2Ef-dK-wYs" secondAttribute="trailing" constant="10" id="ceW-t1-iq7"/>
                     <constraint firstItem="cpZ-ff-ct5" firstAttribute="leading" secondItem="lCX-ww-Rtd" secondAttribute="leading" id="gfb-bO-xtq"/>
                     <constraint firstAttribute="bottom" secondItem="cpZ-ff-ct5" secondAttribute="bottom" id="hR1-DC-UoK"/>
+                    <constraint firstItem="cpZ-ff-ct5" firstAttribute="top" secondItem="KMQ-jr-MoU" secondAttribute="bottom" id="kLO-j0-8nR"/>
                     <constraint firstItem="Gxc-gV-k2d" firstAttribute="leading" secondItem="lCX-ww-Rtd" secondAttribute="leading" id="nbB-YF-OVO"/>
                     <constraint firstItem="cpZ-ff-ct5" firstAttribute="top" secondItem="Gxc-gV-k2d" secondAttribute="bottom" id="q2g-Z5-eeD"/>
                     <constraint firstItem="2Ef-dK-wYs" firstAttribute="leading" secondItem="lCX-ww-Rtd" secondAttribute="leading" constant="10" id="skv-oP-0Cl"/>
                     <constraint firstItem="Gxc-gV-k2d" firstAttribute="top" secondItem="2Ef-dK-wYs" secondAttribute="bottom" constant="10" id="sup-As-w1T"/>
+                    <constraint firstAttribute="trailing" secondItem="KMQ-jr-MoU" secondAttribute="trailing" id="vOO-YH-QCI"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="subviews">
+                        <exclude reference="Gxc-gV-k2d"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="buttonComment" destination="k3H-jc-N8T" id="QyP-kM-UWn"/>
                 <outlet property="buttonLike" destination="JxG-o3-v3P" id="vyL-zk-5Vl"/>
+                <outlet property="buttonMainImage" destination="KMQ-jr-MoU" id="QMO-bT-slO"/>
                 <outlet property="buttonShare" destination="JCf-7V-aiY" id="xkd-EA-VPR"/>
                 <outlet property="imageMain" destination="Gxc-gV-k2d" id="hSt-zB-Bcm"/>
                 <outlet property="labelCreatedAt" destination="pIo-en-I1F" id="cGw-G7-1fI"/>

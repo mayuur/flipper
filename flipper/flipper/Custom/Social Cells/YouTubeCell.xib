@@ -16,7 +16,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V68-KD-j72">
-                        <rect key="frame" x="0.0" y="-60" width="520" height="60"/>
+                        <rect key="frame" x="0.0" y="-60" width="62" height="60"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pqN-Xn-YZd">
                                 <rect key="frame" x="10" y="8" width="44" height="44"/>
@@ -40,7 +40,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WGV-3L-S40">
-                                <rect key="frame" x="464" y="13" width="48" height="34"/>
+                                <rect key="frame" x="6" y="13" width="48" height="34"/>
                                 <state key="normal" image="Youtube"/>
                             </button>
                         </subviews>
@@ -60,7 +60,7 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gEE-Cp-Icu">
-                        <rect key="frame" x="10" y="10" width="500" height="21"/>
+                        <rect key="frame" x="10" y="10" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -102,11 +102,15 @@
                             <constraint firstItem="6fk-L8-qPZ" firstAttribute="top" secondItem="fpC-mR-2q3" secondAttribute="top" id="gUX-cs-J7X"/>
                             <constraint firstItem="fpC-mR-2q3" firstAttribute="centerY" secondItem="cfb-Wr-Uhw" secondAttribute="centerY" id="isd-Vv-DeZ"/>
                             <constraint firstItem="6fk-L8-qPZ" firstAttribute="top" secondItem="zUu-c3-evN" secondAttribute="top" constant="12" id="pVI-xR-C2q"/>
+                            <constraint firstAttribute="height" constant="53" id="rxG-bN-4LN"/>
                         </constraints>
                     </view>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wGU-O7-1f3">
                         <rect key="frame" x="0.0" y="41" width="520" height="202"/>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EA2-33-qB7">
+                        <rect key="frame" x="0.0" y="31" width="520" height="212"/>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="V68-KD-j72" firstAttribute="top" secondItem="nx0-7D-LUt" secondAttribute="top" constant="-60" id="06l-TI-fiM"/>
@@ -114,17 +118,30 @@
                     <constraint firstItem="zUu-c3-evN" firstAttribute="top" secondItem="wGU-O7-1f3" secondAttribute="bottom" id="3yp-Le-o7S"/>
                     <constraint firstItem="V68-KD-j72" firstAttribute="centerX" secondItem="gEE-Cp-Icu" secondAttribute="centerX" id="Hul-uu-vvQ"/>
                     <constraint firstItem="gEE-Cp-Icu" firstAttribute="top" secondItem="V68-KD-j72" secondAttribute="bottom" constant="10" id="Lkw-Dm-WRJ"/>
+                    <constraint firstItem="zUu-c3-evN" firstAttribute="top" secondItem="EA2-33-qB7" secondAttribute="bottom" id="MRG-RX-ey0"/>
                     <constraint firstItem="gEE-Cp-Icu" firstAttribute="leading" secondItem="nx0-7D-LUt" secondAttribute="leadingMargin" constant="2" id="NLd-rq-ydb"/>
                     <constraint firstItem="wGU-O7-1f3" firstAttribute="trailing" secondItem="V68-KD-j72" secondAttribute="trailing" id="P6T-pW-FZi"/>
                     <constraint firstItem="wGU-O7-1f3" firstAttribute="trailing" secondItem="zUu-c3-evN" secondAttribute="trailing" id="RHr-KI-fNu"/>
                     <constraint firstItem="wGU-O7-1f3" firstAttribute="leading" secondItem="zUu-c3-evN" secondAttribute="leading" id="TXB-nU-cva"/>
                     <constraint firstAttribute="bottomMargin" secondItem="zUu-c3-evN" secondAttribute="bottom" constant="-7.5" id="VER-7K-EuW"/>
                     <constraint firstItem="wGU-O7-1f3" firstAttribute="top" secondItem="gEE-Cp-Icu" secondAttribute="bottom" constant="10" id="YBQ-4I-OWN"/>
+                    <constraint firstItem="EA2-33-qB7" firstAttribute="top" secondItem="gEE-Cp-Icu" secondAttribute="bottom" id="huI-MR-SxV"/>
                     <constraint firstAttribute="trailing" secondItem="zUu-c3-evN" secondAttribute="trailing" id="iUk-ig-aqP"/>
+                    <constraint firstItem="EA2-33-qB7" firstAttribute="leading" secondItem="nx0-7D-LUt" secondAttribute="leading" id="kHm-aZ-zPD"/>
                     <constraint firstItem="V68-KD-j72" firstAttribute="leading" secondItem="nx0-7D-LUt" secondAttribute="leading" id="lN0-eN-USs"/>
+                    <constraint firstAttribute="trailing" secondItem="EA2-33-qB7" secondAttribute="trailing" id="nHq-Qj-grO"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="subviews">
+                        <exclude reference="wGU-O7-1f3"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
+            <constraints>
+                <constraint firstItem="zUu-c3-evN" firstAttribute="width" secondItem="iMW-Wi-lId" secondAttribute="width" id="n5D-4U-Vyh"/>
+            </constraints>
             <connections>
+                <outlet property="buttonMainImage" destination="EA2-33-qB7" id="UIV-Bk-YK2"/>
                 <outlet property="buttonShare" destination="cfb-Wr-Uhw" id="Psn-8C-Y54"/>
                 <outlet property="imageMain" destination="wGU-O7-1f3" id="0yY-8M-2M3"/>
                 <outlet property="labelCreatedAt" destination="sZy-s3-OUg" id="Gw3-Qy-yhc"/>

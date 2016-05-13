@@ -16,7 +16,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cCe-as-YzS">
-                        <rect key="frame" x="0.0" y="-60" width="520" height="60"/>
+                        <rect key="frame" x="0.0" y="-60" width="62" height="60"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7iP-Ur-Pt7">
                                 <rect key="frame" x="10" y="8" width="44" height="44"/>
@@ -40,7 +40,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Hw-2t-Kmn">
-                                <rect key="frame" x="476" y="14" width="36" height="31"/>
+                                <rect key="frame" x="18" y="14" width="36" height="31"/>
                                 <state key="normal" image="Twitter"/>
                             </button>
                         </subviews>
@@ -60,7 +60,7 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NBP-Eb-pwS">
-                        <rect key="frame" x="10" y="10" width="500" height="21"/>
+                        <rect key="frame" x="10" y="10" width="42" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="2pX-N6-MCq"/>
                         </constraints>
@@ -74,10 +74,10 @@
                         </variation>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="adi-zt-2Tx">
-                        <rect key="frame" x="0.0" y="207" width="520" height="54"/>
+                        <rect key="frame" x="0.0" y="222" width="520" height="39"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dxT-Bh-2HS">
-                                <rect key="frame" x="15" y="12" width="95" height="29"/>
+                                <rect key="frame" x="15" y="5" width="95" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="95" id="rBW-Gx-G9O"/>
                                 </constraints>
@@ -87,7 +87,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="15p-wP-XgG">
-                                <rect key="frame" x="135" y="10" width="95" height="33"/>
+                                <rect key="frame" x="135" y="3" width="95" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="95" id="Y35-Sl-2Ck"/>
                                 </constraints>
@@ -96,8 +96,8 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BvL-VH-4E4">
-                                <rect key="frame" x="479" y="15" width="33" height="24"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BvL-VH-4E4">
+                                <rect key="frame" x="477" y="8" width="33" height="24"/>
                                 <state key="normal" image="share"/>
                             </button>
                         </subviews>
@@ -107,23 +107,30 @@
                             <constraint firstItem="BvL-VH-4E4" firstAttribute="centerY" secondItem="15p-wP-XgG" secondAttribute="centerY" id="SYB-FQ-QYN"/>
                             <constraint firstItem="dxT-Bh-2HS" firstAttribute="baseline" secondItem="15p-wP-XgG" secondAttribute="baseline" id="Tke-Zv-RYF"/>
                             <constraint firstAttribute="trailing" secondItem="BvL-VH-4E4" secondAttribute="trailing" constant="10" id="Ugl-IF-gVU"/>
-                            <constraint firstItem="15p-wP-XgG" firstAttribute="top" secondItem="adi-zt-2Tx" secondAttribute="top" constant="10" id="a4l-PL-uhp"/>
                             <constraint firstItem="dxT-Bh-2HS" firstAttribute="leading" secondItem="adi-zt-2Tx" secondAttribute="leading" constant="15" id="x7L-XY-hSg"/>
                             <constraint firstItem="dxT-Bh-2HS" firstAttribute="centerY" secondItem="adi-zt-2Tx" secondAttribute="centerY" id="yaf-gF-Ens"/>
                         </constraints>
                     </view>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="5yy-Lu-K6c">
-                        <rect key="frame" x="0.0" y="41" width="520" height="166"/>
+                        <rect key="frame" x="0.0" y="41" width="520" height="181"/>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ebh-2f-u2P">
+                        <rect key="frame" x="0.0" y="39" width="520" height="183"/>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="cCe-as-YzS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="-60" id="3Or-Ey-acG"/>
                     <constraint firstItem="adi-zt-2Tx" firstAttribute="trailing" secondItem="5yy-Lu-K6c" secondAttribute="trailing" id="C1c-05-KVT"/>
                     <constraint firstItem="NBP-Eb-pwS" firstAttribute="top" secondItem="cCe-as-YzS" secondAttribute="bottom" constant="10" id="C9a-KN-8Th"/>
+                    <constraint firstItem="ebh-2f-u2P" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="E6O-cz-7EX"/>
                     <constraint firstItem="cCe-as-YzS" firstAttribute="leading" secondItem="5yy-Lu-K6c" secondAttribute="leading" id="H0F-TM-oBx"/>
+                    <constraint firstItem="ebh-2f-u2P" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="M4V-bD-dp9"/>
+                    <constraint firstAttribute="trailing" secondItem="ebh-2f-u2P" secondAttribute="trailing" id="Rje-2O-bgy"/>
+                    <constraint firstItem="adi-zt-2Tx" firstAttribute="top" secondItem="ebh-2f-u2P" secondAttribute="bottom" id="XpW-NL-EP5"/>
                     <constraint firstItem="5yy-Lu-K6c" firstAttribute="top" secondItem="NBP-Eb-pwS" secondAttribute="bottom" constant="10" id="Yog-FK-odB"/>
                     <constraint firstAttribute="trailing" secondItem="adi-zt-2Tx" secondAttribute="trailing" id="aw4-Kh-spE"/>
                     <constraint firstItem="NBP-Eb-pwS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="bji-S6-Gku"/>
+                    <constraint firstItem="ebh-2f-u2P" firstAttribute="top" secondItem="NBP-Eb-pwS" secondAttribute="bottom" constant="8" id="c2m-mS-tLe"/>
                     <constraint firstItem="5yy-Lu-K6c" firstAttribute="leading" secondItem="adi-zt-2Tx" secondAttribute="leading" id="dnL-mB-bH6"/>
                     <constraint firstItem="adi-zt-2Tx" firstAttribute="top" secondItem="5yy-Lu-K6c" secondAttribute="bottom" id="kwD-fF-RQx"/>
                     <constraint firstAttribute="bottomMargin" secondItem="adi-zt-2Tx" secondAttribute="bottom" constant="-7.5" id="lGY-cc-WX4"/>
@@ -131,10 +138,19 @@
                     <constraint firstItem="cCe-as-YzS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="tWt-pc-4vK"/>
                     <constraint firstItem="NBP-Eb-pwS" firstAttribute="centerX" secondItem="cCe-as-YzS" secondAttribute="centerX" id="vqm-cS-abr"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="subviews">
+                        <exclude reference="5yy-Lu-K6c"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
+            <constraints>
+                <constraint firstItem="adi-zt-2Tx" firstAttribute="width" secondItem="KGk-i7-Jjw" secondAttribute="width" id="ZmJ-zE-vg2"/>
+            </constraints>
             <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
                 <outlet property="buttonFavorite" destination="dxT-Bh-2HS" id="yx7-26-SKs"/>
+                <outlet property="buttonMainImage" destination="ebh-2f-u2P" id="d9Q-o0-MA6"/>
                 <outlet property="buttonRetweet" destination="15p-wP-XgG" id="Acs-Be-0aS"/>
                 <outlet property="buttonShare" destination="BvL-VH-4E4" id="9j9-jK-zXm"/>
                 <outlet property="imageMain" destination="5yy-Lu-K6c" id="mbv-Cv-a2L"/>
@@ -143,7 +159,7 @@
                 <outlet property="labelName" destination="elK-pP-Tlx" id="25z-sy-Wzt"/>
                 <outlet property="labelTweet" destination="NBP-Eb-pwS" id="hEd-4R-TwJ"/>
             </connections>
-            <point key="canvasLocation" x="650" y="399"/>
+            <point key="canvasLocation" x="617" y="210"/>
         </tableViewCell>
     </objects>
     <resources>

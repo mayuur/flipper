@@ -15,4 +15,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelDescription;
 @property (weak, nonatomic) IBOutlet UILabel *labelCreatedAt;
 @property (weak, nonatomic) IBOutlet UIButton *buttonShare;
+@property (weak, nonatomic) IBOutlet UIButton *buttonMainImage;
 @end

@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "Utility.h"
 #import "UIImageView+AFNetworking.h"
+#import "UIButton+AFNetworking.h"
 #import "Categories.h"
 #import "People.h"
 #import "FeedDetailViewController.h"
@@ -458,7 +459,10 @@
             FacebookModel *tempModel = (FacebookModel* ) socialDict[GLOBAL_KEY_MODEL];
             cell.labelName.text = tempModel.pageName;
             cell.labelTitle.text = tempModel.message;
-            [cell.imageMain setImageWithURL:[NSURL URLWithString:tempModel.picture]];
+            
+//            [cell.imageMain setImageWithURL:[NSURL URLWithString:tempModel.picture]];
+            [cell.buttonMainImage setBackgroundImageForState:UIControlStateNormal withURL:[NSURL URLWithString:tempModel.picture]];
+            
             [cell.buttonComment setTitle:tempModel.totalComments forState:UIControlStateNormal];
             [cell.buttonLike setTitle:tempModel.totalLikes forState:UIControlStateNormal];
             NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
@@ -492,6 +496,7 @@
             cell.labelCreatedAt.text = [NSString stringWithFormat:@"%@", mydate];
             [cell.buttonFavorite setTitle:[NSString stringWithFormat:@"%@", tempModel.favoriteCount] forState:UIControlStateNormal];
             [cell.buttonRetweet setTitle:[NSString stringWithFormat:@"%@", tempModel.retweetCount] forState:UIControlStateNormal];
+//            cell.buttonMainImage setBackgroundImageForState:UIControlStateNormal withURL:[NSURL URLWithString:tempModel.]
             return cell;
         }
             break;
@@ -513,6 +518,8 @@
             NSString *mydate=[dateFormatter stringFromDate:date];
             [cell.labelCreatedAt setText:mydate];
             
+//            cell.buttonMainImage setBackgroundImageForState:UIControlStateNormal withURL:[NSURL URLWithString:tempModel.]
+            
             return cell;
         }
             break;
@@ -523,7 +530,10 @@
             InstagramModel *tempModel = (InstagramModel* ) socialDict[GLOBAL_KEY_MODEL];
             [cell.labelCaption setText:tempModel.captionText];
             [cell.labelUserName setText:tempModel.username];
-            [cell.imageMain setImageWithURL:[NSURL URLWithString:tempModel.mainImage]];
+            
+//            [cell.imageMain setImageWithURL:[NSURL URLWithString:tempModel.mainImage]];
+            [cell.buttonMainImage setBackgroundImageForState:UIControlStateNormal withURL:[NSURL URLWithString:tempModel.mainImage]];
+            
             [cell.imageProfile setImageWithURL:[NSURL URLWithString:tempModel.profile_picture]];
             [cell.buttonComment setTitle:tempModel.commentCount forState:UIControlStateNormal];
             [cell.buttonFavorite setTitle:tempModel.likesCount forState:UIControlStateNormal];
@@ -551,7 +561,8 @@
             [dateFormatter setDateFormat:@"dd MMMM' at 'hh:mm a"];
             NSString *mydate=[dateFormatter stringFromDate:date];
             [cell.labelCreatedAt setText:mydate];
-            [cell.imageMain setImageWithURL:[NSURL URLWithString:tempModel.urlThumb]];
+//            [cell.imageMain setImageWithURL:[NSURL URLWithString:tempModel.urlThumb]];
+            [cell.buttonMainImage setBackgroundImageForState:UIControlStateNormal withURL:[NSURL URLWithString:tempModel.urlThumb]];
             return cell;
         }
             break;

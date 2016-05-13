@@ -74,8 +74,8 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VE3-1J-Leb">
-                                <rect key="frame" x="135" y="16" width="95" height="29"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VE3-1J-Leb">
+                                <rect key="frame" x="135" y="15" width="95" height="29"/>
                                 <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="-10" maxY="0.0"/>
                                 <state key="normal" title="140" image="comment">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -101,27 +101,40 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="ch9-DZ-K0Q">
                         <rect key="frame" x="0.0" y="41" width="520" height="160"/>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZKD-a3-oEQ">
+                        <rect key="frame" x="0.0" y="41" width="520" height="160"/>
+                    </button>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="ZKD-a3-oEQ" secondAttribute="trailing" id="1GP-XV-M08"/>
                     <constraint firstAttribute="trailing" secondItem="NwH-Ew-CIj" secondAttribute="trailing" id="5jg-hT-1Um"/>
                     <constraint firstItem="NwH-Ew-CIj" firstAttribute="top" secondItem="ch9-DZ-K0Q" secondAttribute="bottom" id="AF9-IR-Ygc"/>
                     <constraint firstItem="URK-2i-rIw" firstAttribute="top" secondItem="0MV-wV-fcy" secondAttribute="bottom" constant="10" id="EU1-rt-6YL"/>
                     <constraint firstItem="ch9-DZ-K0Q" firstAttribute="leading" secondItem="1xU-kT-JSO" secondAttribute="leading" id="HXJ-s6-hqL"/>
+                    <constraint firstItem="ZKD-a3-oEQ" firstAttribute="leading" secondItem="1xU-kT-JSO" secondAttribute="leading" id="LT6-q1-6q8"/>
                     <constraint firstItem="0MV-wV-fcy" firstAttribute="top" secondItem="1xU-kT-JSO" secondAttribute="top" constant="-60" id="Npp-yM-oKc"/>
                     <constraint firstItem="ch9-DZ-K0Q" firstAttribute="top" secondItem="URK-2i-rIw" secondAttribute="bottom" constant="10" id="PCj-eD-A0r"/>
                     <constraint firstAttribute="trailing" secondItem="ch9-DZ-K0Q" secondAttribute="trailing" id="Uyp-Z5-rI0"/>
                     <constraint firstItem="0MV-wV-fcy" firstAttribute="leading" secondItem="1xU-kT-JSO" secondAttribute="leading" id="b4K-rd-1Zi"/>
                     <constraint firstAttribute="trailing" secondItem="URK-2i-rIw" secondAttribute="trailing" constant="10" id="cpv-s7-5Em"/>
+                    <constraint firstItem="ZKD-a3-oEQ" firstAttribute="top" secondItem="URK-2i-rIw" secondAttribute="bottom" constant="10" id="dMA-rA-SxK"/>
                     <constraint firstItem="NwH-Ew-CIj" firstAttribute="leading" secondItem="1xU-kT-JSO" secondAttribute="leading" id="eRY-71-lhe"/>
+                    <constraint firstItem="NwH-Ew-CIj" firstAttribute="top" secondItem="ZKD-a3-oEQ" secondAttribute="bottom" id="esM-Cc-Rwi"/>
                     <constraint firstAttribute="bottom" secondItem="NwH-Ew-CIj" secondAttribute="bottom" id="kwB-MW-GUp"/>
                     <constraint firstAttribute="trailing" secondItem="0MV-wV-fcy" secondAttribute="trailing" id="m9r-cf-AwD"/>
                     <constraint firstItem="URK-2i-rIw" firstAttribute="leading" secondItem="1xU-kT-JSO" secondAttribute="leading" constant="10" id="qDs-94-3GB"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="subviews">
+                        <exclude reference="ch9-DZ-K0Q"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
                 <outlet property="buttonComment" destination="VE3-1J-Leb" id="K40-Rb-Ej6"/>
                 <outlet property="buttonFavorite" destination="el6-hs-bo1" id="Mnl-LW-Mqm"/>
+                <outlet property="buttonMainImage" destination="ZKD-a3-oEQ" id="hW8-oH-Ucg"/>
                 <outlet property="buttonShare" destination="DBa-OY-YLD" id="i14-Md-9sF"/>
                 <outlet property="imageMain" destination="ch9-DZ-K0Q" id="Xwa-qr-9Kk"/>
                 <outlet property="imageProfile" destination="TWx-Aa-ewa" id="wJG-qd-pkL"/>

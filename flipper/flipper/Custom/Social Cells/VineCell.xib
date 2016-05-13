@@ -74,8 +74,8 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJ4-u7-qXJ">
-                                <rect key="frame" x="135" y="16" width="95" height="29"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJ4-u7-qXJ">
+                                <rect key="frame" x="135" y="15" width="95" height="29"/>
                                 <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="-15" maxY="0.0"/>
                                 <state key="normal" title="140" image="comment">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -101,12 +101,19 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ScR-26-b0p">
                         <rect key="frame" x="0.0" y="41" width="520" height="195"/>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e2F-bw-92g">
+                        <rect key="frame" x="0.0" y="41" width="520" height="195"/>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="J13-bN-7mF" secondAttribute="trailing" constant="10" id="1yf-5c-TOT"/>
                     <constraint firstItem="ScR-26-b0p" firstAttribute="top" secondItem="J13-bN-7mF" secondAttribute="bottom" constant="10" id="28U-fm-cax"/>
                     <constraint firstAttribute="bottom" secondItem="t8l-nQ-n5I" secondAttribute="bottom" id="2vU-he-Wim"/>
+                    <constraint firstAttribute="trailing" secondItem="e2F-bw-92g" secondAttribute="trailing" id="4pU-1T-zRb"/>
                     <constraint firstItem="JwF-jH-Ic9" firstAttribute="leading" secondItem="Abo-KT-Gro" secondAttribute="leading" id="BNt-bf-oeC"/>
+                    <constraint firstItem="e2F-bw-92g" firstAttribute="leading" secondItem="Abo-KT-Gro" secondAttribute="leading" id="Cpu-N5-TSa"/>
+                    <constraint firstItem="t8l-nQ-n5I" firstAttribute="top" secondItem="e2F-bw-92g" secondAttribute="bottom" id="EYS-Ry-KBh"/>
+                    <constraint firstItem="e2F-bw-92g" firstAttribute="top" secondItem="J13-bN-7mF" secondAttribute="bottom" constant="10" id="Eac-3m-CAi"/>
                     <constraint firstItem="t8l-nQ-n5I" firstAttribute="leading" secondItem="Abo-KT-Gro" secondAttribute="leading" id="UeB-0E-B6j"/>
                     <constraint firstAttribute="trailing" secondItem="t8l-nQ-n5I" secondAttribute="trailing" id="WLz-gp-7oM"/>
                     <constraint firstItem="J13-bN-7mF" firstAttribute="leading" secondItem="Abo-KT-Gro" secondAttribute="leading" constant="10" id="Z0s-VQ-zbM"/>
@@ -117,10 +124,16 @@
                     <constraint firstAttribute="trailing" secondItem="JwF-jH-Ic9" secondAttribute="trailing" id="loI-zz-fln"/>
                     <constraint firstItem="J13-bN-7mF" firstAttribute="top" secondItem="JwF-jH-Ic9" secondAttribute="bottom" constant="10" id="m6q-ah-y4a"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="subviews">
+                        <exclude reference="ScR-26-b0p"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="buttonComment" destination="hJ4-u7-qXJ" id="rPt-SL-eKG"/>
                 <outlet property="buttonLike" destination="Dit-Pw-Kni" id="LdS-Ob-vgX"/>
+                <outlet property="buttonMainImage" destination="e2F-bw-92g" id="cW2-6o-Yud"/>
                 <outlet property="buttonShare" destination="HaF-PN-WdQ" id="GSK-E2-GwQ"/>
                 <outlet property="imageAvatar" destination="3PM-cA-FMe" id="DOF-jA-SNu"/>
                 <outlet property="imageThumb" destination="ScR-26-b0p" id="VUB-wq-Cdx"/>

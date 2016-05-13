@@ -19,4 +19,5 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *buttonShare;
 
+@property (weak, nonatomic) IBOutlet UIButton *buttonMainImage;
 @end
