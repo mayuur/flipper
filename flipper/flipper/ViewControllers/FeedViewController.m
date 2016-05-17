@@ -462,6 +462,8 @@
             
 //            [cell.imageMain setImageWithURL:[NSURL URLWithString:tempModel.picture]];
             [cell.buttonMainImage setBackgroundImageForState:UIControlStateNormal withURL:[NSURL URLWithString:tempModel.picture]];
+            cell.buttonMainImage.tag = indexPath.row;
+            [cell.buttonMainImage addTarget:self action:@selector(buttonMainImageClicked:) forControlEvents:UIControlEventTouchUpInside];
             
             [cell.buttonComment setTitle:tempModel.totalComments forState:UIControlStateNormal];
             [cell.buttonLike setTitle:tempModel.totalLikes forState:UIControlStateNormal];
@@ -496,7 +498,9 @@
             cell.labelCreatedAt.text = [NSString stringWithFormat:@"%@", mydate];
             [cell.buttonFavorite setTitle:[NSString stringWithFormat:@"%@", tempModel.favoriteCount] forState:UIControlStateNormal];
             [cell.buttonRetweet setTitle:[NSString stringWithFormat:@"%@", tempModel.retweetCount] forState:UIControlStateNormal];
-//            cell.buttonMainImage setBackgroundImageForState:UIControlStateNormal withURL:[NSURL URLWithString:tempModel.]
+            [cell.buttonMainImage setBackgroundImageForState:UIControlStateNormal withURL:[NSURL URLWithString:tempModel.tweetImage]];
+            cell.buttonMainImage.tag = indexPath.row;
+            [cell.buttonMainImage addTarget:self action:@selector(buttonMainImageClicked:) forControlEvents:UIControlEventTouchUpInside];
             return cell;
         }
             break;
@@ -518,7 +522,9 @@
             NSString *mydate=[dateFormatter stringFromDate:date];
             [cell.labelCreatedAt setText:mydate];
             
-//            cell.buttonMainImage setBackgroundImageForState:UIControlStateNormal withURL:[NSURL URLWithString:tempModel.]
+            [cell.buttonMainImage setBackgroundImageForState:UIControlStateNormal withURL:[NSURL URLWithString:tempModel.urlAvatar]];
+            cell.buttonMainImage.tag = indexPath.row;
+            [cell.buttonMainImage addTarget:self action:@selector(buttonMainImageClicked:) forControlEvents:UIControlEventTouchUpInside];
             
             return cell;
         }
@@ -533,6 +539,8 @@
             
 //            [cell.imageMain setImageWithURL:[NSURL URLWithString:tempModel.mainImage]];
             [cell.buttonMainImage setBackgroundImageForState:UIControlStateNormal withURL:[NSURL URLWithString:tempModel.mainImage]];
+            cell.buttonMainImage.tag = indexPath.row;
+            [cell.buttonMainImage addTarget:self action:@selector(buttonMainImageClicked:) forControlEvents:UIControlEventTouchUpInside];
             
             [cell.imageProfile setImageWithURL:[NSURL URLWithString:tempModel.profile_picture]];
             [cell.buttonComment setTitle:tempModel.commentCount forState:UIControlStateNormal];
@@ -563,6 +571,8 @@
             [cell.labelCreatedAt setText:mydate];
 //            [cell.imageMain setImageWithURL:[NSURL URLWithString:tempModel.urlThumb]];
             [cell.buttonMainImage setBackgroundImageForState:UIControlStateNormal withURL:[NSURL URLWithString:tempModel.urlThumb]];
+            cell.buttonMainImage.tag = indexPath.row;
+            [cell.buttonMainImage addTarget:self action:@selector(buttonMainImageClicked:) forControlEvents:UIControlEventTouchUpInside];
             return cell;
         }
             break;
@@ -692,49 +702,58 @@
     return 60;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewAutomaticDimension;
+}
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSMutableDictionary* socialDict = self.arrayAllSocial[indexPath.section];
-    NSInteger socialType = [socialDict[GLOBAL_KEY_SOCIAL_TYPE] integerValue];
-    switch (socialType) {
-        case SocialMediaTypeFacebook: {
-            FacebookModel *tempModel = (FacebookModel* ) socialDict[GLOBAL_KEY_MODEL];
-            if(tempModel.picture.length > 0) {
-                return 210;
-            }
-        }
-            break;
-            
-        case SocialMediaTypeTwitter: {
-        }
-            break;
-            
-        case SocialMediaTypeVine: {
-            VineModel *tempModel = (VineModel* ) socialDict[GLOBAL_KEY_MODEL];
-            if([tempModel urlThumb].length > 0) {
-                return 210;
-            }
-        }
-            break;
-            
-        case SocialMediaTypeInstagram: {
-            InstagramModel *tempModel = (InstagramModel* ) socialDict[GLOBAL_KEY_MODEL];
-            if([tempModel mainImage].length > 0) {
-                return 210;
-            }
-        }
-            break;
-            
-        case SocialMediaTypeYoutube: {
-            YouTubeModel *tempModel = (YouTubeModel* ) socialDict[GLOBAL_KEY_MODEL];
-            if([tempModel urlThumb].length > 0) {
-                return 210;
-            }
-        }
-            break;
-    }
+//    NSMutableDictionary* socialDict = self.arrayAllSocial[indexPath.section];
+//    NSInteger socialType = [socialDict[GLOBAL_KEY_SOCIAL_TYPE] integerValue];
+//    switch (socialType) {
+//        case SocialMediaTypeFacebook: {
+//            FacebookModel *tempModel = (FacebookModel* ) socialDict[GLOBAL_KEY_MODEL];
+//            if(tempModel.picture.length > 0) {
+//                return 210;
+//            }
+//        }
+//            break;
+//            
+//        case SocialMediaTypeTwitter: {
+//            TwitterModel *tempModel = (TwitterModel* ) socialDict[GLOBAL_KEY_MODEL];
+//            if(tempModel.tweetImage.length > 0) {
+//                return UITableViewAutomaticDimension;
+//            }
+//        }
+//            break;
+//            
+//        case SocialMediaTypeVine: {
+//            VineModel *tempModel = (VineModel* ) socialDict[GLOBAL_KEY_MODEL];
+//            if([tempModel urlThumb].length > 0) {
+//                return 210;
+//            }
+//        }
+//            break;
+//            
+//        case SocialMediaTypeInstagram: {
+//            InstagramModel *tempModel = (InstagramModel* ) socialDict[GLOBAL_KEY_MODEL];
+//            if([tempModel mainImage].length > 0) {
+//                return 210;
+//            }
+//        }
+//            break;
+//            
+//        case SocialMediaTypeYoutube: {
+//            YouTubeModel *tempModel = (YouTubeModel* ) socialDict[GLOBAL_KEY_MODEL];
+//            if([tempModel urlThumb].length > 0) {
+//                return 210;
+//            }
+//        }
+//            break;
+//    }
     
-    return 140;
+    return UITableViewAutomaticDimension;
 }
 
 #pragma mark - UITableView Delegates
@@ -745,4 +764,75 @@
     [self.navigationController pushViewController:feedDetail animated:YES];
 }
 
+#pragma mark - UIButton Events
+
+-(void)buttonMainImageClicked:(UIButton *)sender {
+    NSMutableDictionary* socialDict = self.arrayAllSocial[sender.tag];
+    NSInteger socialType = [socialDict[GLOBAL_KEY_SOCIAL_TYPE] integerValue];
+    switch (socialType) {
+        case SocialMediaTypeFacebook: {
+            FacebookModel *tempModel = (FacebookModel* ) socialDict[GLOBAL_KEY_MODEL];
+            if(tempModel.link.length > 0) {
+                NSURL *url = [NSURL URLWithString:tempModel.link];
+                if([[UIApplication sharedApplication]canOpenURL:url]) {
+                    [[UIApplication sharedApplication] openURL:url];
+                }
+            }else {
+                FeedDetailViewController *feedDetail = [MAIN_STORYBOARD instantiateViewControllerWithIdentifier:@"FeedDetailViewController"];
+                feedDetail.socialDict = socialDict;
+                [self.navigationController pushViewController:feedDetail animated:YES];
+            }
+        }
+            break;
+            
+        case SocialMediaTypeTwitter: {
+            TwitterModel *tempModel = (TwitterModel* ) socialDict[GLOBAL_KEY_MODEL];
+            if(tempModel.tweetImage.length > 0) {
+
+            }
+        }
+            break;
+            
+        case SocialMediaTypeVine: {
+            VineModel *tempModel = (VineModel* ) socialDict[GLOBAL_KEY_MODEL];
+            if([tempModel vineLink].length > 0) {
+                NSURL *url = [NSURL URLWithString:tempModel.vineLink];
+                if([[UIApplication sharedApplication]canOpenURL:url]) {
+                    [[UIApplication sharedApplication] openURL:url];
+                }
+            }else {
+                FeedDetailViewController *feedDetail = [MAIN_STORYBOARD instantiateViewControllerWithIdentifier:@"FeedDetailViewController"];
+                feedDetail.socialDict = socialDict;
+                [self.navigationController pushViewController:feedDetail animated:YES];
+
+            }
+        }
+            break;
+            
+        case SocialMediaTypeInstagram: {
+            InstagramModel *tempModel = (InstagramModel* ) socialDict[GLOBAL_KEY_MODEL];
+            if([tempModel link].length > 0) {
+                NSURL *url = [NSURL URLWithString:tempModel.link];
+                if([[UIApplication sharedApplication]canOpenURL:url]) {
+                    [[UIApplication sharedApplication] openURL:url];
+                }
+            }else {
+                FeedDetailViewController *feedDetail = [MAIN_STORYBOARD instantiateViewControllerWithIdentifier:@"FeedDetailViewController"];
+                feedDetail.socialDict = socialDict;
+                [self.navigationController pushViewController:feedDetail animated:YES];
+            }
+        }
+            break;
+            
+        case SocialMediaTypeYoutube: {
+            YouTubeModel *tempModel = (YouTubeModel* ) socialDict[GLOBAL_KEY_MODEL];
+            if([tempModel urlThumb].length > 0) {
+
+            }
+        }
+            break;
+    }
+    
+
+}
 @end

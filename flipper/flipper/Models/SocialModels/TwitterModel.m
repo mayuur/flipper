@@ -17,6 +17,7 @@ NSString *const kTwitterRetweetCont = @"retweet_count";
 NSString *const kTwitterFavoriteCount = @"favorite_count";
 NSString *const kTwitterScreenUserName = @"screen_name";
 NSString *const kTwitterName = @"name";
+NSString *const kTwitterMedia = @"media_url_https";
 
 @interface TwitterModel ()
 
@@ -47,6 +48,7 @@ NSString *const kTwitterName = @"name";
         self.twitterText = [self objectOrNilForKey:kTwitterText fromDictionary:dict];
         self.favoriteCount = [self objectOrNilForKey:kTwitterFavoriteCount fromDictionary:dict];
         self.retweetCount = [self objectOrNilForKey:kTwitterRetweetCont fromDictionary:dict];
+        self.tweetImage = [self objectOrNilForKey:kTwitterMedia fromDictionary:[[[dict objectForKey:@"entities"] objectForKey:@"media"] firstObject]];
     }
     
     return self;

@@ -19,6 +19,8 @@
 @property (nonatomic,strong) NSString *retweetCount;
 @property (nonatomic,strong) NSString *favoriteCount;
 
+@property (nonatomic, strong) NSString *tweetImage;
+
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;
 - (instancetype)initWithDictionary:(NSDictionary *)dict;
 

@@ -196,11 +196,11 @@
                   moduleName = "flipper"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Ashu/Documents/Projects/flipper/flipper/flipper/ViewControllers/FeedViewController.m"
-                  timestampString = "483567538.916388"
+                  timestampString = "485202528.418848"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "370"
-                  endingLineNumber = "370"
+                  startingLineNumber = "371"
+                  endingLineNumber = "371"
                   offsetFromSymbolStart = "1349">
                </Location>
                <Location
@@ -211,11 +211,11 @@
                   moduleName = "flipper"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Ashu/Documents/Projects/flipper/flipper/flipper/ViewControllers/FeedViewController.m"
-                  timestampString = "483567538.9165"
+                  timestampString = "485202528.418962"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "370"
-                  endingLineNumber = "370"
+                  startingLineNumber = "371"
+                  endingLineNumber = "371"
                   offsetFromSymbolStart = "12">
                </Location>
             </Locations>
