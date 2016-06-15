@@ -61,7 +61,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationController.navigationBarHidden = NO;
+    self.navigationController.navigationBarHidden = YES;
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+
     self.arrayAllSocial = [NSMutableArray arrayWithCapacity:0];
     
     _tableViewSocialFeed.estimatedRowHeight = 60.0;
@@ -83,6 +85,15 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
@@ -762,6 +773,8 @@
     FeedDetailViewController *feedDetail = [MAIN_STORYBOARD instantiateViewControllerWithIdentifier:@"FeedDetailViewController"];
     feedDetail.socialDict = socialDict;
     [self.navigationController pushViewController:feedDetail animated:YES];
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - UIButton Events

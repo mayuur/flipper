@@ -47,6 +47,7 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SearchCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SearchCell"];
+    cell.imageProfile.contentMode = UIViewContentModeScaleAspectFit;
     
     People *objPeople = [arrayResult objectAtIndex:indexPath.row];
     if ([arrayPeople containsObject:objPeople.objectId]) {

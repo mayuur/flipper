@@ -133,6 +133,7 @@
     CelebrityFollowedCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PeopleCell" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor blackColor];
     cell.buttonUnfollow.tag = indexPath.item;
+    cell.imageCelebrity.clipsToBounds = YES;
     
     People* person = self.arrayPeople[indexPath.row];
     cell.labelCelebrityName.text = person.person_name;
@@ -213,6 +214,8 @@
     followPeopleViewController.fromPeopleViewController = YES;
     followPeopleViewController.arrayFromPeopleViewController = [self.arrayPeople valueForKey:@"objectId"];
     [self.navigationController pushViewController:followPeopleViewController animated:YES];
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {

@@ -43,6 +43,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
     
     NSInteger socialType = [_socialDict[GLOBAL_KEY_SOCIAL_TYPE] integerValue];
     

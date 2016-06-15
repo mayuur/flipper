@@ -49,6 +49,8 @@
     
     if(self.fromPeopleViewController) {
         [self.doneButton setTitle:@"Update"];
+        self.navigationController.navigationBar.translucent = NO;
+        self.navigationController.navigationBar.opaque = YES;
     }
 }
 
@@ -88,6 +90,7 @@
     cell.imagePerson.layer.shadowRadius = 10;
     cell.imagePerson.layer.shadowOffset = CGSizeMake(0, 20);
     cell.imagePerson.layer.shadowColor = [UIColor blackColor].CGColor;
+    cell.imagePerson.contentMode = UIViewContentModeScaleAspectFit;
 
     People *tempPeople = [arrayPeople objectAtIndex:indexPath.row];
     [cell.labelName setText:tempPeople.person_name];
