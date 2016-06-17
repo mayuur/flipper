@@ -58,6 +58,8 @@
 		7724C50C1C6117C100267097 /* SF-UI-Text-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7724C4F61C6117C100267097 /* SF-UI-Text-RegularItalic.otf */; };
 		7724C50D1C6117C100267097 /* SF-UI-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7724C4F71C6117C100267097 /* SF-UI-Text-Semibold.otf */; };
 		7724C50E1C6117C100267097 /* SF-UI-Text-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7724C4F81C6117C100267097 /* SF-UI-Text-SemiboldItalic.otf */; };
+		7774A5B71D14523D0066EFC3 /* EditFeedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7774A5B61D14523D0066EFC3 /* EditFeedCell.m */; };
+		7774A5BA1D1452470066EFC3 /* EditFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7774A5B91D1452470066EFC3 /* EditFeedViewController.m */; };
 		777D2CE61C62AB12000FF4C8 /* UIAlertView+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 777D2CE51C62AB12000FF4C8 /* UIAlertView+Extra.m */; };
 		779B9BA91CB44129008918C4 /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 779B9BA21CB44128008918C4 /* FeedViewController.m */; };
 		779B9BAA1CB44129008918C4 /* PeopleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 779B9BA41CB44128008918C4 /* PeopleViewController.m */; };
@@ -192,6 +194,10 @@
 		7724C4F61C6117C100267097 /* SF-UI-Text-RegularItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-RegularItalic.otf"; sourceTree = "<group>"; };
 		7724C4F71C6117C100267097 /* SF-UI-Text-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Semibold.otf"; sourceTree = "<group>"; };
 		7724C4F81C6117C100267097 /* SF-UI-Text-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-SemiboldItalic.otf"; sourceTree = "<group>"; };
+		7774A5B51D14523D0066EFC3 /* EditFeedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditFeedCell.h; sourceTree = "<group>"; };
+		7774A5B61D14523D0066EFC3 /* EditFeedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditFeedCell.m; sourceTree = "<group>"; };
+		7774A5B81D1452470066EFC3 /* EditFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditFeedViewController.h; sourceTree = "<group>"; };
+		7774A5B91D1452470066EFC3 /* EditFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditFeedViewController.m; sourceTree = "<group>"; };
 		777D2CE41C62AB12000FF4C8 /* UIAlertView+Extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Extra.h"; sourceTree = "<group>"; };
 		777D2CE51C62AB12000FF4C8 /* UIAlertView+Extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Extra.m"; sourceTree = "<group>"; };
 		779B9BA11CB44128008918C4 /* FeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedViewController.h; sourceTree = "<group>"; };
@@ -360,6 +366,8 @@
 				779B9BAE1CB69FF8008918C4 /* CelebrityFollowedCollectionViewCell.m */,
 				54449AE31C989B1F00805093 /* PeopleTableViewCell.h */,
 				54449AE41C989B1F00805093 /* PeopleTableViewCell.m */,
+				7774A5B51D14523D0066EFC3 /* EditFeedCell.h */,
+				7774A5B61D14523D0066EFC3 /* EditFeedCell.m */,
 				54378AAE1CCBC8C700B94D66 /* Search Cell */,
 			);
 			path = Custom;
@@ -546,6 +554,8 @@
 				54378AA71CCB71F500B94D66 /* EditProfileTableViewController.m */,
 				544EE5061CCECD4400FA5072 /* FeedDetailViewController.h */,
 				544EE5071CCECD4400FA5072 /* FeedDetailViewController.m */,
+				7774A5B81D1452470066EFC3 /* EditFeedViewController.h */,
+				7774A5B91D1452470066EFC3 /* EditFeedViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -870,6 +880,7 @@
 				77B4C0DF1CC943DD00632EE8 /* TwitterModel.m in Sources */,
 				5425EA901C62866000F1B8E4 /* IntroButton.m in Sources */,
 				779B9BAF1CB69FF8008918C4 /* CelebrityFollowedCollectionViewCell.m in Sources */,
+				7774A5BA1D1452470066EFC3 /* EditFeedViewController.m in Sources */,
 				779B9BA91CB44129008918C4 /* FeedViewController.m in Sources */,
 				54449AE21C9890D500805093 /* People.m in Sources */,
 				77B4C0D91CC943D200632EE8 /* VineModel.m in Sources */,
@@ -896,6 +907,7 @@
 				54F1B4661C7CCD6E003A35FE /* CategoriesViewController.m in Sources */,
 				77B4C1001CC9B9E900632EE8 /* InstagramCell.m in Sources */,
 				54F1B4691C7CD05F003A35FE /* CategoriesCollectionViewCell.m in Sources */,
+				7774A5B71D14523D0066EFC3 /* EditFeedCell.m in Sources */,
 				77B4C1131CC9BBEB00632EE8 /* SessionManager.m in Sources */,
 				77F6B7611C97AEB00042057F /* FollowPeopleViewController.m in Sources */,
 				779B9BAB1CB44129008918C4 /* ProfileViewController.m in Sources */,

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class People;
+
 typedef NS_ENUM(NSInteger, SocialMediaType) {
     SocialMediaTypeFacebook = 0,
     SocialMediaTypeTwitter,
@@ -18,5 +20,8 @@ typedef NS_ENUM(NSInteger, SocialMediaType) {
 };
 
 @interface FeedViewController : UIViewController
+
+@property (nonatomic, readwrite) BOOL isForFeedDetail;
+@property (nonatomic, strong) People* celebrity;
 
 @end

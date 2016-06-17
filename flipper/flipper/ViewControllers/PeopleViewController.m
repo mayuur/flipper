@@ -12,6 +12,7 @@
 #import "CelebrityFollowedCollectionViewCell.h"
 #import "FollowPeopleViewController.h"
 #import "Utility.h"
+#import "FeedViewController.h"
 
 @interface PeopleViewController() <UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 {
@@ -45,10 +46,9 @@
     // Do any additional setup after loading the view.
     self.title = @"Following";
     
-   
-    
     self.arrayCategories = [NSMutableArray new];
     self.arrayPeople = [NSMutableArray new];
+    self.updateFollowList = YES;
     if ([Utility isNetAvailable]) {
         [self getAllCategories];
     }
@@ -66,9 +66,12 @@
     [self.tableViewCategories addSubview:refreshControlTable];
     
     if ([Utility isNetAvailable]) {
-        [self.activityIndicatorCollectionView startAnimating];
-        [self.arrayPeople removeAllObjects];
-        [self getCelebritiesFollowedByUser];
+        if(self.updateFollowList) {
+            self.updateFollowList = NO;
+            [self.activityIndicatorCollectionView startAnimating];
+            [self.arrayPeople removeAllObjects];
+            [self getCelebritiesFollowedByUser];
+        }
     }else {
         [UIAlertView addDismissableAlertWithText:@"No Internet Connection" OnController:self];
     }
@@ -189,7 +192,15 @@
 }
 
 #pragma mark - UICollectionViewDelegate methods
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    People* person = self.arrayPeople[indexPath.row];
 
+    FeedViewController *feedViewController = [MAIN_STORYBOARD instantiateViewControllerWithIdentifier:@"FeedViewController"];
+    feedViewController.isForFeedDetail = YES;
+    feedViewController.celebrity = person;
+    [self.navigationController pushViewController:feedViewController animated:YES];
+}
 
 #pragma mark - UITableViewDataSource methods
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -215,6 +226,7 @@
     followPeopleViewController.arrayFromPeopleViewController = [self.arrayPeople valueForKey:@"objectId"];
     [self.navigationController pushViewController:followPeopleViewController animated:YES];
     
+    self.updateFollowList = YES;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

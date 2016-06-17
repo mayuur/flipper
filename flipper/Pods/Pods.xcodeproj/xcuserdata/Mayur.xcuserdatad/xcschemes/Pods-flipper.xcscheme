@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'BA1635E8D354B28883BC1821'
+               BlueprintIdentifier = 'BBBBA65EC240684208F98009'
                BlueprintName = 'Pods-flipper'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libPods-flipper.a'>

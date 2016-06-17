@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '3F51BC4E1FFD42F329E2FD87'
+               BlueprintIdentifier = 'B8968F8CC0C17DA58BB02BB8'
                BlueprintName = 'FHSTwitterEngine'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libFHSTwitterEngine.a'>

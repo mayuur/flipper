@@ -10,4 +10,6 @@
 
 @interface PeopleViewController : UIViewController
 
+@property (nonatomic, readwrite) BOOL updateFollowList;
+
 @end

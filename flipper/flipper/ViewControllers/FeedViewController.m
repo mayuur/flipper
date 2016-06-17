@@ -14,6 +14,7 @@
 #import "Categories.h"
 #import "People.h"
 #import "FeedDetailViewController.h"
+#import "EditFeedViewController.h"
 
 #import "FacebookModel.h"
 #import "FBSDKCoreKit/FBSDKGraphRequest.h"
@@ -61,7 +62,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationController.navigationBarHidden = YES;
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
 
     self.arrayAllSocial = [NSMutableArray arrayWithCapacity:0];
@@ -76,7 +76,16 @@
     [_tableViewSocialFeed registerNib:[UINib nibWithNibName:@"FacebookCell" bundle:nil] forCellReuseIdentifier:IDENTIFIER_FACEBOOK_CELL];
 
     if([Utility isNetAvailable]) {
-        [self getCelebritiesFollowedByUser];
+        if(self.isForFeedDetail) {
+            UIBarButtonItem *editFeedButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit"
+                                                                               style:UIBarButtonItemStyleDone target:self action:@selector(editFeedButtonClicked:)];
+            self.navigationItem.rightBarButtonItem = editFeedButton;
+            [self getDataForCelebrity];
+        }
+        else {
+            [self getCelebritiesFollowedByUser];
+        }
+        
     }else {
         [UIAlertView addDismissableAlertWithText:@"No Internet Connection" OnController:self];
     }
@@ -89,7 +98,10 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    
+    if(!self.isForFeedDetail) {
+        [self.navigationController setNavigationBarHidden:YES animated:YES];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -131,6 +143,32 @@
                 NSLog(@"Error:%@",error.localizedDescription);
             }
         }];
+    }];
+}
+
+- (void) getDataForCelebrity {
+    NSMutableArray* arrayCelebrities = [NSMutableArray arrayWithCapacity:0];
+    [arrayCelebrities addObject:self.celebrity.objectId];
+    
+    self.title = self.celebrity.person_name;
+    
+    PFQuery* fetchCelebDetailsQuery = [PFQuery queryWithClassName:@"People"];
+    [fetchCelebDetailsQuery whereKey:@"objectId" containedIn:arrayCelebrities];
+    [fetchCelebDetailsQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        if(!error){
+            for (People* people in objects) {
+                NSLog(@"FacebookID - %@\nTwitterHandle - %@\nYoutubePlaylistID - %@\nInstagramID - %@\nVineID - %@\n",people.facebook_page_id, people.twitter_handle_name, people.youtube_playlist_id, people.instagram_user_id, people.vine_page_id);
+                
+                [self fetchDataForFacebook:people.facebook_page_id withImageFile:people.person_image];
+                [self fetchDataForTwitter:people.twitter_handle_name withImageFile:people.person_image];
+                [self fetchDataForYoutube:people.youtube_playlist_id withImageFile:people.person_image];
+                [self fetchDataForVine:people.vine_page_id withImageFile:people.person_image];
+                [self fetchDataFromInstagram:people.instagram_user_id withImageFile:people.person_image];
+            }
+        }
+        else {
+            NSLog(@"Error:%@",error.localizedDescription);
+        }
     }];
 }
 
@@ -710,7 +748,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 60;
+    return 70;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -848,4 +886,10 @@
     
 
 }
+
+- (void) editFeedButtonClicked : (id) sender {
+    EditFeedViewController* editFeedController = [MAIN_STORYBOARD instantiateViewControllerWithIdentifier:@"EditFeedViewController"];
+    [self.navigationController pushViewController:editFeedController animated:YES];
+}
+
 @end
