@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @class People;
+@class FeedViewController;
 
 @interface EditFeedViewController : UIViewController
 
 @property (nonatomic, strong) People* celebrity;
+@property (nonatomic, assign) FeedViewController* parentFeedViewController;
 
 @end

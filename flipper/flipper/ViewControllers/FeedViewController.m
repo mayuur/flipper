@@ -102,6 +102,13 @@
     if(!self.isForFeedDetail) {
         [self.navigationController setNavigationBarHidden:YES animated:YES];
     }
+    
+    if(self.isForFeedDetail && self.needsUpdate) {
+        self.needsUpdate = NO;
+        [self.arrayAllSocial removeAllObjects];
+        [self.tableViewSocialFeed reloadData];
+        [self getDataForCelebrity];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -132,11 +139,34 @@
                 for (People* people in objects) {
                     NSLog(@"FacebookID - %@\nTwitterHandle - %@\nYoutubePlaylistID - %@\nInstagramID - %@\nVineID - %@\n",people.facebook_page_id, people.twitter_handle_name, people.youtube_playlist_id, people.instagram_user_id, people.vine_page_id);
 
-                    [self fetchDataForFacebook:people.facebook_page_id withImageFile:people.person_image];
-                    [self fetchDataForTwitter:people.twitter_handle_name withImageFile:people.person_image];
-                    [self fetchDataForYoutube:people.youtube_playlist_id withImageFile:people.person_image];
-                    [self fetchDataForVine:people.vine_page_id withImageFile:people.person_image];
-                    [self fetchDataFromInstagram:people.instagram_user_id withImageFile:people.person_image];
+                    PFQuery* fetchFeedSettings = [PFQuery queryWithClassName:@"User_People"];
+                    [fetchFeedSettings whereKey:@"fk_user_id" equalTo:[PFUser currentUser].objectId];
+                    [fetchFeedSettings whereKey:@"fk_people_id" equalTo:people.objectId];
+                    
+                    [fetchFeedSettings findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+                        if(!error && objects.count > 0) {
+                            PFObject* user_settings = objects[0];
+                            if([[user_settings objectForKey:@"followsFacebook"] boolValue]) {
+                                [self fetchDataForFacebook:people.facebook_page_id withImageFile:people.person_image];
+                            }
+                            
+                            if([[user_settings objectForKey:@"followsTwitter"] boolValue]) {
+                                [self fetchDataForTwitter:people.twitter_handle_name withImageFile:people.person_image];
+                            }
+                            
+                            if([[user_settings objectForKey:@"followsInstagram"] boolValue]) {
+                                [self fetchDataFromInstagram:people.instagram_user_id withImageFile:people.person_image];
+                            }
+                            
+                            if([[user_settings objectForKey:@"followsVine"] boolValue]) {
+                                [self fetchDataForVine:people.vine_page_id withImageFile:people.person_image];
+                            }
+                            
+                            if([[user_settings objectForKey:@"followsYoutube"] boolValue]) {
+                                [self fetchDataForYoutube:people.youtube_playlist_id withImageFile:people.person_image];
+                            }
+                        }
+                    }];
                 }
             }
             else {
@@ -159,11 +189,35 @@
             for (People* people in objects) {
                 NSLog(@"FacebookID - %@\nTwitterHandle - %@\nYoutubePlaylistID - %@\nInstagramID - %@\nVineID - %@\n",people.facebook_page_id, people.twitter_handle_name, people.youtube_playlist_id, people.instagram_user_id, people.vine_page_id);
                 
-                [self fetchDataForFacebook:people.facebook_page_id withImageFile:people.person_image];
-                [self fetchDataForTwitter:people.twitter_handle_name withImageFile:people.person_image];
-                [self fetchDataForYoutube:people.youtube_playlist_id withImageFile:people.person_image];
-                [self fetchDataForVine:people.vine_page_id withImageFile:people.person_image];
-                [self fetchDataFromInstagram:people.instagram_user_id withImageFile:people.person_image];
+                PFQuery* fetchFeedSettings = [PFQuery queryWithClassName:@"User_People"];
+                [fetchFeedSettings whereKey:@"fk_user_id" equalTo:[PFUser currentUser].objectId];
+                [fetchFeedSettings whereKey:@"fk_people_id" equalTo:people.objectId];
+                
+                [fetchFeedSettings findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+                    if(!error && objects.count > 0) {
+                        PFObject* user_settings = objects[0];
+                        if([[user_settings objectForKey:@"followsFacebook"] boolValue]) {
+                            [self fetchDataForFacebook:people.facebook_page_id withImageFile:people.person_image];
+                        }
+                        
+                        if([[user_settings objectForKey:@"followsTwitter"] boolValue]) {
+                            [self fetchDataForTwitter:people.twitter_handle_name withImageFile:people.person_image];
+                        }
+                        
+                        if([[user_settings objectForKey:@"followsInstagram"] boolValue]) {
+                            [self fetchDataFromInstagram:people.instagram_user_id withImageFile:people.person_image];
+                        }
+                        
+                        if([[user_settings objectForKey:@"followsVine"] boolValue]) {
+                            [self fetchDataForVine:people.vine_page_id withImageFile:people.person_image];
+                        }
+                        
+                        if([[user_settings objectForKey:@"followsYoutube"] boolValue]) {
+                            [self fetchDataForYoutube:people.youtube_playlist_id withImageFile:people.person_image];
+                        }
+                    }
+                }];
+                
             }
         }
         else {
@@ -890,6 +944,7 @@
 - (void) editFeedButtonClicked : (id) sender {
     EditFeedViewController* editFeedController = [MAIN_STORYBOARD instantiateViewControllerWithIdentifier:@"EditFeedViewController"];
     editFeedController.celebrity = self.celebrity;
+    editFeedController.parentFeedViewController = self;
     [self.navigationController pushViewController:editFeedController animated:YES];
 }
 

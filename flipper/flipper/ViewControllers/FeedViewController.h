@@ -24,4 +24,5 @@ typedef NS_ENUM(NSInteger, SocialMediaType) {
 @property (nonatomic, readwrite) BOOL isForFeedDetail;
 @property (nonatomic, strong) People* celebrity;
 
+@property (nonatomic, readwrite) BOOL needsUpdate;
 @end

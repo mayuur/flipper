@@ -7,6 +7,7 @@
 //
 
 #import "EditFeedViewController.h"
+#import "FeedViewController.h"
 #import "EditFeedCell.h"
 #import "People.h"
 #import "Parse.h"
@@ -116,7 +117,7 @@
 #pragma mark - Button/Switch Actions
 - (void) feedSwitchValueChanged : (id) sender {
     NSLog(@"switch value changed");
-    
+    self.parentFeedViewController.needsUpdate = YES;
     switch ([sender tag]) {
         case ROW_FACEBOOK: {
             [self.celebDataDictionary setObject:[NSNumber numberWithBool:[sender isOn]] forKey:@"followsFacebook"];
