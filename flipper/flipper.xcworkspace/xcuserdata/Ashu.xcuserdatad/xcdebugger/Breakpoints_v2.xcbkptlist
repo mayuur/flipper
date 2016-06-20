@@ -107,6 +107,38 @@
             endingLineNumber = "138"
             landmarkName = "-getCelebritiesFollowedByUser"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__52-[SearchViewController getCelebritiesFollowedByUser]_block_invoke"
+                  moduleName = "flipper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Ashu/Documents/Projects/flipper/flipper/flipper/ViewControllers/SearchViewController.m"
+                  timestampString = "488139881.7252"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "138"
+                  endingLineNumber = "138"
+                  offsetFromSymbolStart = "231">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__52-[SearchViewController getCelebritiesFollowedByUser]_block_invoke_2"
+                  moduleName = "flipper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Ashu/Documents/Projects/flipper/flipper/flipper/ViewControllers/SearchViewController.m"
+                  timestampString = "488139881.725313"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "138"
+                  endingLineNumber = "138"
+                  offsetFromSymbolStart = "108">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -160,7 +192,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "flipper/ViewControllers/FeedViewController.m"
@@ -169,14 +201,76 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "362"
             endingLineNumber = "362"
-            landmarkName = "-request:didLoad:"
+            landmarkName = "-fetchDataForTwitter:withImageFile:"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__56-[FeedViewController fetchDataForTwitter:withImageFile:]_block_invoke"
+                  moduleName = "flipper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Ashu/Documents/Projects/flipper/flipper/flipper/ViewControllers/FeedViewController.m"
+                  timestampString = "488139799.479165"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "363"
+                  endingLineNumber = "363"
+                  offsetFromSymbolStart = "1592">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__copy_helper_block_312"
+                  moduleName = "flipper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Ashu/Documents/Projects/flipper/flipper/flipper/ViewControllers/FeedViewController.m"
+                  timestampString = "488139799.479331"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_313"
+                  moduleName = "flipper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Ashu/Documents/Projects/flipper/flipper/flipper/ViewControllers/FeedViewController.m"
+                  timestampString = "488139799.479483"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__56-[FeedViewController fetchDataForTwitter:withImageFile:]_block_invoke315"
+                  moduleName = "flipper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Ashu/Documents/Projects/flipper/flipper/flipper/ViewControllers/FeedViewController.m"
+                  timestampString = "488139799.479759"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "363"
+                  endingLineNumber = "363"
+                  offsetFromSymbolStart = "43">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "flipper/ViewControllers/FeedViewController.m"
@@ -185,40 +279,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "371"
             endingLineNumber = "371"
-            landmarkName = "-request:didLoad:"
+            landmarkName = "-fetchDataFromInstagram:withImageFile:"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[FeedViewController request:didLoad:]"
-                  moduleName = "flipper"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Ashu/Documents/Projects/flipper/flipper/flipper/ViewControllers/FeedViewController.m"
-                  timestampString = "485202528.418848"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "371"
-                  endingLineNumber = "371"
-                  offsetFromSymbolStart = "1349">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__38-[FeedViewController request:didLoad:]_block_invoke"
-                  moduleName = "flipper"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Ashu/Documents/Projects/flipper/flipper/flipper/ViewControllers/FeedViewController.m"
-                  timestampString = "485202528.418962"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "371"
-                  endingLineNumber = "371"
-                  offsetFromSymbolStart = "12">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -288,23 +350,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "flipper/ViewControllers/FeedViewController.m"
-            timestampString = "484805954.858746"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
-            landmarkName = "-openLink:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "flipper/ViewControllers/FeedViewController.m"
@@ -313,7 +359,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "129"
             endingLineNumber = "129"
-            landmarkName = "-openLink:"
+            landmarkName = "-getCelebritiesFollowedByUser"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -330,6 +376,22 @@
             startingLineNumber = "49"
             endingLineNumber = "49"
             landmarkName = "-viewDidLoad"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "flipper/ViewControllers/FeedViewController.m"
+            timestampString = "488139786.82504"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
+            landmarkName = "-refreshTableView"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
