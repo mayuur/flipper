@@ -160,33 +160,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PeS-hT-rAx">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PeS-hT-rAx">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EditFeedCell" id="myU-dC-TcO" customClass="EditFeedCell">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="600" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="myU-dC-TcO" id="ao3-X8-BDQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hXe-77-szB">
-                                                    <rect key="frame" x="534" y="6" width="51" height="31"/>
-                                                </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bqa-IO-fEL">
-                                                    <rect key="frame" x="14" y="11" width="507" height="21"/>
+                                                    <rect key="frame" x="14" y="19" width="507" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ThU-O4-PSJ">
+                                                    <rect key="frame" x="0.0" y="59" width="600" height="1"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                </imageView>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hXe-77-szB">
+                                                    <rect key="frame" x="534" y="14" width="51" height="31"/>
+                                                </switch>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="bqa-IO-fEL" firstAttribute="centerY" secondItem="hXe-77-szB" secondAttribute="centerY" id="0Ex-TO-oZj"/>
-                                                <constraint firstItem="bqa-IO-fEL" firstAttribute="centerY" secondItem="ao3-X8-BDQ" secondAttribute="centerY" id="Ux5-hI-3xK"/>
-                                                <constraint firstItem="bqa-IO-fEL" firstAttribute="leading" secondItem="ao3-X8-BDQ" secondAttribute="leadingMargin" constant="6" id="mag-bN-i2c"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="hXe-77-szB" secondAttribute="trailing" constant="9" id="y8s-oU-DLz"/>
-                                                <constraint firstItem="hXe-77-szB" firstAttribute="leading" secondItem="bqa-IO-fEL" secondAttribute="trailing" constant="13" id="ylM-eG-9EO"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="hXe-77-szB" secondAttribute="trailing" constant="9" id="7q4-kW-kOu"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="ThU-O4-PSJ" secondAttribute="bottom" constant="-8.5" id="DiU-fH-bgt"/>
+                                                <constraint firstItem="hXe-77-szB" firstAttribute="leading" secondItem="bqa-IO-fEL" secondAttribute="trailing" constant="13" id="E1K-ag-5vd"/>
+                                                <constraint firstItem="hXe-77-szB" firstAttribute="centerY" secondItem="bqa-IO-fEL" secondAttribute="centerY" id="EPU-hr-fYF"/>
+                                                <constraint firstAttribute="trailing" secondItem="ThU-O4-PSJ" secondAttribute="trailing" id="QdE-oR-uzl"/>
+                                                <constraint firstItem="bqa-IO-fEL" firstAttribute="centerY" secondItem="ao3-X8-BDQ" secondAttribute="centerY" id="WZT-ie-qdu"/>
+                                                <constraint firstItem="ThU-O4-PSJ" firstAttribute="leading" secondItem="ao3-X8-BDQ" secondAttribute="leading" id="ZHt-pN-amZ"/>
+                                                <constraint firstItem="bqa-IO-fEL" firstAttribute="leading" secondItem="ao3-X8-BDQ" secondAttribute="leadingMargin" constant="6" id="gfI-Jm-1Ar"/>
+                                                <constraint firstItem="ThU-O4-PSJ" firstAttribute="top" secondItem="hXe-77-szB" secondAttribute="bottom" constant="14" id="qQY-le-B0V"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -209,6 +218,9 @@
                             <constraint firstItem="PeS-hT-rAx" firstAttribute="leading" secondItem="MQt-0R-a1p" secondAttribute="leading" id="lB6-T1-TQ1"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableViewFeedEdit" destination="PeS-hT-rAx" id="bQQ-e5-YD2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KLu-ti-xKm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

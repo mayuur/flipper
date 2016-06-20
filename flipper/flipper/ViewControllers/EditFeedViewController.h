@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class People;
+
 @interface EditFeedViewController : UIViewController
+
+@property (nonatomic, strong) People* celebrity;
 
 @end

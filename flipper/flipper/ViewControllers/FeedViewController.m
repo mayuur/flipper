@@ -889,6 +889,7 @@
 
 - (void) editFeedButtonClicked : (id) sender {
     EditFeedViewController* editFeedController = [MAIN_STORYBOARD instantiateViewControllerWithIdentifier:@"EditFeedViewController"];
+    editFeedController.celebrity = self.celebrity;
     [self.navigationController pushViewController:editFeedController animated:YES];
 }
 
