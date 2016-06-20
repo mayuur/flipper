@@ -76,6 +76,13 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="adi-zt-2Tx">
                         <rect key="frame" x="0.0" y="222" width="520" height="39"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mmj-j5-48y">
+                                <rect key="frame" x="0.0" y="0.0" width="520" height="1"/>
+                                <color key="backgroundColor" red="0.78431372549019607" green="0.78431372549019607" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="lPJ-ZY-lvm"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dxT-Bh-2HS">
                                 <rect key="frame" x="15" y="10" width="100" height="19"/>
                                 <constraints>
@@ -109,11 +116,14 @@
                         <constraints>
                             <constraint firstItem="15p-wP-XgG" firstAttribute="leading" secondItem="dxT-Bh-2HS" secondAttribute="trailing" constant="25" id="S2i-Tb-FmN"/>
                             <constraint firstItem="BvL-VH-4E4" firstAttribute="centerY" secondItem="15p-wP-XgG" secondAttribute="centerY" id="SYB-FQ-QYN"/>
+                            <constraint firstAttribute="trailing" secondItem="Mmj-j5-48y" secondAttribute="trailing" id="TK1-hW-gk8"/>
                             <constraint firstAttribute="trailing" secondItem="BvL-VH-4E4" secondAttribute="trailing" constant="10" id="Ugl-IF-gVU"/>
                             <constraint firstItem="dxT-Bh-2HS" firstAttribute="centerY" secondItem="15p-wP-XgG" secondAttribute="centerY" id="Wxo-7M-PLA"/>
                             <constraint firstAttribute="height" constant="39" id="mn6-iy-1ax"/>
+                            <constraint firstItem="Mmj-j5-48y" firstAttribute="leading" secondItem="adi-zt-2Tx" secondAttribute="leading" id="rXn-C3-7Cp"/>
                             <constraint firstItem="dxT-Bh-2HS" firstAttribute="leading" secondItem="adi-zt-2Tx" secondAttribute="leading" constant="15" id="x7L-XY-hSg"/>
                             <constraint firstItem="dxT-Bh-2HS" firstAttribute="centerY" secondItem="adi-zt-2Tx" secondAttribute="centerY" id="yaf-gF-Ens"/>
+                            <constraint firstItem="Mmj-j5-48y" firstAttribute="top" secondItem="adi-zt-2Tx" secondAttribute="top" id="zjP-pk-b4d"/>
                         </constraints>
                     </view>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="5yy-Lu-K6c">
