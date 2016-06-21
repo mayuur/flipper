@@ -51,6 +51,9 @@
 #define IDENTIFIER_YOUTUBE_CELL @"YouTubeCell"
 
 @interface FeedViewController() <UITableViewDataSource,UITableViewDelegate,IGSessionDelegate,IGRequestDelegate>
+{
+    UIRefreshControl *refreshControlTable;
+}
 @property (strong, nonatomic) IBOutlet UITableView *tableViewSocialFeed;
 @property (nonatomic, strong) NSMutableArray* arrayAllSocial;
 
@@ -61,6 +64,10 @@
 #pragma mark - General methods
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    refreshControlTable = [[UIRefreshControl alloc]init];
+    [refreshControlTable addTarget:self action:@selector(getCelebritiesFollowedByUser) forControlEvents:UIControlEventValueChanged];
+    [self.tableViewSocialFeed addSubview:refreshControlTable];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
 
@@ -130,6 +137,7 @@
     NSPredicate* userPredicate = [NSPredicate predicateWithFormat:@"fk_user_id = %@", [PFUser currentUser].objectId];
     PFQuery *fetchCelebrityQuery = [PFQuery queryWithClassName:@"User_People" predicate:userPredicate];
     [fetchCelebrityQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        [refreshControlTable endRefreshing];
         NSArray* arrayCelebrities = [objects valueForKey:@"fk_people_id"];
         
         PFQuery* fetchCelebDetailsQuery = [PFQuery queryWithClassName:@"People"];
@@ -564,10 +572,14 @@
             cell.labelTitle.text = tempModel.message;
             
 //            [cell.imageMain setImageWithURL:[NSURL URLWithString:tempModel.picture]];
-            [cell.buttonMainImage setBackgroundImageForState:UIControlStateNormal withURL:[NSURL URLWithString:tempModel.picture]];
-            cell.buttonMainImage.tag = indexPath.row;
-            [cell.buttonMainImage addTarget:self action:@selector(buttonMainImageClicked:) forControlEvents:UIControlEventTouchUpInside];
             
+            if(tempModel.picture.length > 0) {
+                [cell.buttonMainImage setBackgroundImageForState:UIControlStateNormal withURL:[NSURL URLWithString:tempModel.picture]];
+                cell.buttonMainImage.tag = indexPath.row;
+                [cell.buttonMainImage addTarget:self action:@selector(buttonMainImageClicked:) forControlEvents:UIControlEventTouchUpInside];
+            }else {
+                [cell.buttonMainImage setBackgroundImage:nil forState:UIControlStateNormal];
+            }
             [cell.buttonComment setTitle:tempModel.totalComments forState:UIControlStateNormal];
             [cell.buttonLike setTitle:tempModel.totalLikes forState:UIControlStateNormal];
             NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
@@ -601,9 +613,13 @@
             cell.labelCreatedAt.text = [NSString stringWithFormat:@"%@", mydate];
             [cell.buttonFavorite setTitle:[NSString stringWithFormat:@"%@", tempModel.favoriteCount] forState:UIControlStateNormal];
             [cell.buttonRetweet setTitle:[NSString stringWithFormat:@"%@", tempModel.retweetCount] forState:UIControlStateNormal];
-            [cell.buttonMainImage setBackgroundImageForState:UIControlStateNormal withURL:[NSURL URLWithString:tempModel.tweetImage]];
-            cell.buttonMainImage.tag = indexPath.row;
-            [cell.buttonMainImage addTarget:self action:@selector(buttonMainImageClicked:) forControlEvents:UIControlEventTouchUpInside];
+            if(tempModel.tweetImage.length > 0) {
+                [cell.buttonMainImage setBackgroundImageForState:UIControlStateNormal withURL:[NSURL URLWithString:tempModel.tweetImage]];
+                cell.buttonMainImage.tag = indexPath.row;
+                [cell.buttonMainImage addTarget:self action:@selector(buttonMainImageClicked:) forControlEvents:UIControlEventTouchUpInside];
+            }else {
+                [cell.buttonMainImage setBackgroundImage:nil forState:UIControlStateNormal];
+            }
             return cell;
         }
             break;
@@ -625,10 +641,13 @@
             NSString *mydate=[dateFormatter stringFromDate:date];
             [cell.labelCreatedAt setText:mydate];
             
-            [cell.buttonMainImage setBackgroundImageForState:UIControlStateNormal withURL:[NSURL URLWithString:tempModel.urlAvatar]];
-            cell.buttonMainImage.tag = indexPath.row;
-            [cell.buttonMainImage addTarget:self action:@selector(buttonMainImageClicked:) forControlEvents:UIControlEventTouchUpInside];
-            
+            if(tempModel.urlAvatar.length > 0) {
+                [cell.buttonMainImage setBackgroundImageForState:UIControlStateNormal withURL:[NSURL URLWithString:tempModel.urlAvatar]];
+                cell.buttonMainImage.tag = indexPath.row;
+                [cell.buttonMainImage addTarget:self action:@selector(buttonMainImageClicked:) forControlEvents:UIControlEventTouchUpInside];
+            }else {
+                [cell.buttonMainImage setBackgroundImage:nil forState:UIControlStateNormal];
+            }
             return cell;
         }
             break;
@@ -641,10 +660,14 @@
             [cell.labelUserName setText:tempModel.username];
             
 //            [cell.imageMain setImageWithURL:[NSURL URLWithString:tempModel.mainImage]];
-            [cell.buttonMainImage setBackgroundImageForState:UIControlStateNormal withURL:[NSURL URLWithString:tempModel.mainImage]];
-            cell.buttonMainImage.tag = indexPath.row;
-            [cell.buttonMainImage addTarget:self action:@selector(buttonMainImageClicked:) forControlEvents:UIControlEventTouchUpInside];
-            
+            if(tempModel.mainImage.length > 0) {
+                [cell.buttonMainImage setBackgroundImageForState:UIControlStateNormal withURL:[NSURL URLWithString:tempModel.mainImage]];
+                cell.buttonMainImage.tag = indexPath.row;
+                [cell.buttonMainImage addTarget:self action:@selector(buttonMainImageClicked:) forControlEvents:UIControlEventTouchUpInside];
+            }
+            else {
+                [cell.buttonMainImage setBackgroundImage:nil forState:UIControlStateNormal];
+            }
             [cell.imageProfile setImageWithURL:[NSURL URLWithString:tempModel.profile_picture]];
             [cell.buttonComment setTitle:tempModel.commentCount forState:UIControlStateNormal];
             [cell.buttonFavorite setTitle:tempModel.likesCount forState:UIControlStateNormal];
@@ -673,9 +696,13 @@
             NSString *mydate=[dateFormatter stringFromDate:date];
             [cell.labelCreatedAt setText:mydate];
 //            [cell.imageMain setImageWithURL:[NSURL URLWithString:tempModel.urlThumb]];
-            [cell.buttonMainImage setBackgroundImageForState:UIControlStateNormal withURL:[NSURL URLWithString:tempModel.urlThumb]];
-            cell.buttonMainImage.tag = indexPath.row;
-            [cell.buttonMainImage addTarget:self action:@selector(buttonMainImageClicked:) forControlEvents:UIControlEventTouchUpInside];
+            if(tempModel.urlThumb.length > 0){
+                [cell.buttonMainImage setBackgroundImageForState:UIControlStateNormal withURL:[NSURL URLWithString:tempModel.urlThumb]];
+                cell.buttonMainImage.tag = indexPath.row;
+                [cell.buttonMainImage addTarget:self action:@selector(buttonMainImageClicked:) forControlEvents:UIControlEventTouchUpInside];
+            }else {
+                [cell.buttonMainImage setBackgroundImage:nil forState:UIControlStateNormal];
+            }
             return cell;
         }
             break;
