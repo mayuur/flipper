@@ -4,16 +4,15 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="VineCell" rowHeight="297" id="gpV-mB-agG" customClass="VineCell">
-            <rect key="frame" x="0.0" y="0.0" width="520" height="297"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="VineCell" rowHeight="355" id="gpV-mB-agG" customClass="VineCell">
+            <rect key="frame" x="0.0" y="0.0" width="520" height="355"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gpV-mB-agG" id="Abo-KT-Gro">
-                <rect key="frame" x="0.0" y="0.0" width="520" height="296"/>
+                <rect key="frame" x="0.0" y="0.0" width="520" height="354"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JwF-jH-Ic9">
@@ -57,16 +56,13 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J13-bN-7mF">
-                        <rect key="frame" x="10" y="10" width="500" height="21"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="21" id="akk-fB-fyh"/>
-                        </constraints>
+                        <rect key="frame" x="10" y="10" width="500" height="24"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t8l-nQ-n5I">
-                        <rect key="frame" x="0.0" y="236" width="520" height="60"/>
+                        <rect key="frame" x="0.0" y="294" width="520" height="60"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kHS-en-Pbo">
                                 <rect key="frame" x="0.0" y="0.0" width="520" height="1"/>
@@ -120,14 +116,16 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ScR-26-b0p">
                         <rect key="frame" x="0.0" y="41" width="520" height="195"/>
                     </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e2F-bw-92g">
-                        <rect key="frame" x="0.0" y="41" width="520" height="195"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e2F-bw-92g">
+                        <rect key="frame" x="0.0" y="44" width="520" height="250"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="250" id="5UR-st-Ccn"/>
+                        </constraints>
                     </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="ScR-26-b0p" firstAttribute="top" secondItem="J13-bN-7mF" secondAttribute="bottom" constant="10" id="28U-fm-cax"/>
                     <constraint firstAttribute="bottom" secondItem="t8l-nQ-n5I" secondAttribute="bottom" id="2vU-he-Wim"/>
-                    <constraint firstItem="J13-bN-7mF" firstAttribute="centerX" secondItem="JwF-jH-Ic9" secondAttribute="centerX" id="33J-JV-mCv"/>
                     <constraint firstItem="e2F-bw-92g" firstAttribute="top" secondItem="J13-bN-7mF" secondAttribute="bottom" constant="10" id="4G3-k7-nVi"/>
                     <constraint firstAttribute="trailing" secondItem="e2F-bw-92g" secondAttribute="trailing" id="4pU-1T-zRb"/>
                     <constraint firstItem="JwF-jH-Ic9" firstAttribute="leading" secondItem="Abo-KT-Gro" secondAttribute="leading" id="BNt-bf-oeC"/>
@@ -139,9 +137,10 @@
                     <constraint firstItem="ScR-26-b0p" firstAttribute="leading" secondItem="Abo-KT-Gro" secondAttribute="leading" id="bzA-m7-m2h"/>
                     <constraint firstItem="t8l-nQ-n5I" firstAttribute="top" secondItem="ScR-26-b0p" secondAttribute="bottom" id="f9I-7w-4ma"/>
                     <constraint firstAttribute="trailing" secondItem="ScR-26-b0p" secondAttribute="trailing" id="hFA-6v-kFe"/>
+                    <constraint firstAttribute="trailing" secondItem="J13-bN-7mF" secondAttribute="trailing" constant="10" id="iqv-ZX-nIF"/>
                     <constraint firstItem="JwF-jH-Ic9" firstAttribute="top" secondItem="Abo-KT-Gro" secondAttribute="top" constant="-60" id="jyo-lL-iSp"/>
                     <constraint firstAttribute="trailing" secondItem="JwF-jH-Ic9" secondAttribute="trailing" id="loI-zz-fln"/>
-                    <constraint firstItem="J13-bN-7mF" firstAttribute="leading" secondItem="Abo-KT-Gro" secondAttribute="leadingMargin" constant="2" id="uUy-H9-LSt"/>
+                    <constraint firstItem="J13-bN-7mF" firstAttribute="leading" secondItem="Abo-KT-Gro" secondAttribute="leading" constant="10" id="uUy-H9-LSt"/>
                 </constraints>
                 <variation key="default">
                     <mask key="subviews">
@@ -155,12 +154,13 @@
                 <outlet property="buttonMainImage" destination="e2F-bw-92g" id="cW2-6o-Yud"/>
                 <outlet property="buttonShare" destination="HaF-PN-WdQ" id="GSK-E2-GwQ"/>
                 <outlet property="imageAvatar" destination="3PM-cA-FMe" id="DOF-jA-SNu"/>
+                <outlet property="imageMainHeightConstraint" destination="5UR-st-Ccn" id="sbh-iR-XpQ"/>
                 <outlet property="imageThumb" destination="ScR-26-b0p" id="VUB-wq-Cdx"/>
                 <outlet property="labelCreatedAt" destination="sQv-US-QX0" id="veP-iY-1vL"/>
                 <outlet property="labelDescription" destination="J13-bN-7mF" id="wuf-Rf-6zb"/>
                 <outlet property="labelUserName" destination="T7Q-c1-Xw9" id="Zzg-rf-y5h"/>
             </connections>
-            <point key="canvasLocation" x="429" y="154.5"/>
+            <point key="canvasLocation" x="429" y="183.5"/>
         </tableViewCell>
     </objects>
     <resources>

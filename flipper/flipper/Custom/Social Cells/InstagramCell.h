@@ -18,4 +18,5 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageProfile;
 @property (weak, nonatomic) IBOutlet UIButton *buttonShare;
 @property (weak, nonatomic) IBOutlet UIButton *buttonMainImage;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageMainHeightConstraint;
 @end

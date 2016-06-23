@@ -145,7 +145,7 @@
         [fetchCelebDetailsQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
             if(!error){
                 for (People* people in objects) {
-                    NSLog(@"FacebookID - %@\nTwitterHandle - %@\nYoutubePlaylistID - %@\nInstagramID - %@\nVineID - %@\n",people.facebook_page_id, people.twitter_handle_name, people.youtube_playlist_id, people.instagram_user_id, people.vine_page_id);
+//                    NSLog(@"FacebookID - %@\nTwitterHandle - %@\nYoutubePlaylistID - %@\nInstagramID - %@\nVineID - %@\n",people.facebook_page_id, people.twitter_handle_name, people.youtube_playlist_id, people.instagram_user_id, people.vine_page_id);
 
                     PFQuery* fetchFeedSettings = [PFQuery queryWithClassName:@"User_People"];
                     [fetchFeedSettings whereKey:@"fk_user_id" equalTo:[PFUser currentUser].objectId];
@@ -195,7 +195,7 @@
     [fetchCelebDetailsQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         if(!error){
             for (People* people in objects) {
-                NSLog(@"FacebookID - %@\nTwitterHandle - %@\nYoutubePlaylistID - %@\nInstagramID - %@\nVineID - %@\n",people.facebook_page_id, people.twitter_handle_name, people.youtube_playlist_id, people.instagram_user_id, people.vine_page_id);
+//                NSLog(@"FacebookID - %@\nTwitterHandle - %@\nYoutubePlaylistID - %@\nInstagramID - %@\nVineID - %@\n",people.facebook_page_id, people.twitter_handle_name, people.youtube_playlist_id, people.instagram_user_id, people.vine_page_id);
                 
                 PFQuery* fetchFeedSettings = [PFQuery queryWithClassName:@"User_People"];
                 [fetchFeedSettings whereKey:@"fk_user_id" equalTo:[PFUser currentUser].objectId];
@@ -281,7 +281,7 @@
 #pragma mark - Data Fetch Functions
 - (void) fetchDataForYoutube : (NSString* ) playlistID withImageFile:(PFFile* ) imageFile {
     [[YoutubeSharedManager manager] getTimeLineByScreenName:playlistID pageSize:5 Success:^(id responseObject) {
-        NSLog(@"ResponseObject >> %@", responseObject);
+//        NSLog(@"ResponseObject >> %@", responseObject);
         
         NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
         
@@ -312,7 +312,7 @@
 
 - (void) fetchDataForVine: (NSString* ) vineID withImageFile:(PFFile* ) imageFile {
     [[VineFeedSharedManager manager] getTimeLineByScreenName:vineID pageSize:5 Success:^(id responseObject) {
-        NSLog(@"ResponseObject >> %@", responseObject);
+//        NSLog(@"ResponseObject >> %@", responseObject);
         if([(NSDictionary *)responseObject objectForKey:@"success"]) {
             
             NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
@@ -344,7 +344,7 @@
 
 - (void) fetchDataForTwitter : (NSString* ) handleName withImageFile:(PFFile* ) imageFile {
     [[TwitterFeedSharedManager manager] getTimeLineByScreenName:handleName pageSize:15 Success:^(id responseObject) {
-        NSLog(@"ResponseObject >> %@", responseObject);
+//        NSLog(@"ResponseObject >> %@", responseObject);
         NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
         
         for (NSDictionary *dict in responseObject) {
@@ -457,7 +457,7 @@
                                                        delegate:nil
                                               cancelButtonTitle:@"Ok"
                                               otherButtonTitles:nil];
-    [alertView show];
+//    [alertView show];
 }
 
 - (void)request:(IGRequest *)request didLoad:(id)result {
@@ -574,11 +574,15 @@
 //            [cell.imageMain setImageWithURL:[NSURL URLWithString:tempModel.picture]];
             
             if(tempModel.picture.length > 0) {
-                [cell.buttonMainImage setBackgroundImageForState:UIControlStateNormal withURL:[NSURL URLWithString:tempModel.picture]];
+                cell.imageMainHeightConstraint.constant = 250;
+                [[cell.buttonMainImage imageView]setContentMode:UIViewContentModeScaleAspectFill];
+                
+                [cell.buttonMainImage setImageForState:UIControlStateNormal withURL:[NSURL URLWithString:tempModel.picture]];
                 cell.buttonMainImage.tag = indexPath.row;
                 [cell.buttonMainImage addTarget:self action:@selector(buttonMainImageClicked:) forControlEvents:UIControlEventTouchUpInside];
             }else {
-                [cell.buttonMainImage setBackgroundImage:nil forState:UIControlStateNormal];
+                cell.imageMainHeightConstraint.constant = 0;
+                [cell.buttonMainImage setImage:nil forState:UIControlStateNormal];
             }
             [cell.buttonComment setTitle:tempModel.totalComments forState:UIControlStateNormal];
             [cell.buttonLike setTitle:tempModel.totalLikes forState:UIControlStateNormal];
@@ -614,11 +618,16 @@
             [cell.buttonFavorite setTitle:[NSString stringWithFormat:@"%@", tempModel.favoriteCount] forState:UIControlStateNormal];
             [cell.buttonRetweet setTitle:[NSString stringWithFormat:@"%@", tempModel.retweetCount] forState:UIControlStateNormal];
             if(tempModel.tweetImage.length > 0) {
-                [cell.buttonMainImage setBackgroundImageForState:UIControlStateNormal withURL:[NSURL URLWithString:tempModel.tweetImage]];
+                cell.imageMainHeightConstraint.constant = 250;
+                [[cell.buttonMainImage imageView]setContentMode:UIViewContentModeScaleAspectFill];
+                
+                [cell.buttonMainImage setImageForState:UIControlStateNormal withURL:[NSURL URLWithString:tempModel.tweetImage]];
+
                 cell.buttonMainImage.tag = indexPath.row;
                 [cell.buttonMainImage addTarget:self action:@selector(buttonMainImageClicked:) forControlEvents:UIControlEventTouchUpInside];
             }else {
-                [cell.buttonMainImage setBackgroundImage:nil forState:UIControlStateNormal];
+                [cell.buttonMainImage setImage:nil forState:UIControlStateNormal];
+                cell.imageMainHeightConstraint.constant = 0;
             }
             return cell;
         }
@@ -641,12 +650,16 @@
             NSString *mydate=[dateFormatter stringFromDate:date];
             [cell.labelCreatedAt setText:mydate];
             
-            if(tempModel.urlAvatar.length > 0) {
-                [cell.buttonMainImage setBackgroundImageForState:UIControlStateNormal withURL:[NSURL URLWithString:tempModel.urlAvatar]];
+            if(tempModel.urlThumb.length > 0) {
+                cell.imageMainHeightConstraint.constant = 250;
+                [[cell.buttonMainImage imageView]setContentMode:UIViewContentModeScaleAspectFill];
+                
+                [cell.buttonMainImage setImageForState:UIControlStateNormal withURL:[NSURL URLWithString:tempModel.urlThumb]];
                 cell.buttonMainImage.tag = indexPath.row;
                 [cell.buttonMainImage addTarget:self action:@selector(buttonMainImageClicked:) forControlEvents:UIControlEventTouchUpInside];
             }else {
-                [cell.buttonMainImage setBackgroundImage:nil forState:UIControlStateNormal];
+                cell.imageMainHeightConstraint.constant = 0;
+                [cell.buttonMainImage setImage:nil forState:UIControlStateNormal];
             }
             return cell;
         }
@@ -661,12 +674,16 @@
             
 //            [cell.imageMain setImageWithURL:[NSURL URLWithString:tempModel.mainImage]];
             if(tempModel.mainImage.length > 0) {
-                [cell.buttonMainImage setBackgroundImageForState:UIControlStateNormal withURL:[NSURL URLWithString:tempModel.mainImage]];
+                cell.imageMainHeightConstraint.constant = 250;
+                [[cell.buttonMainImage imageView]setContentMode:UIViewContentModeScaleAspectFill];
+                
+                [cell.buttonMainImage setImageForState:UIControlStateNormal withURL:[NSURL URLWithString:tempModel.mainImage]];
                 cell.buttonMainImage.tag = indexPath.row;
                 [cell.buttonMainImage addTarget:self action:@selector(buttonMainImageClicked:) forControlEvents:UIControlEventTouchUpInside];
             }
             else {
-                [cell.buttonMainImage setBackgroundImage:nil forState:UIControlStateNormal];
+                cell.imageMainHeightConstraint.constant = 0;
+                [cell.buttonMainImage setImage:nil forState:UIControlStateNormal];
             }
             [cell.imageProfile setImageWithURL:[NSURL URLWithString:tempModel.profile_picture]];
             [cell.buttonComment setTitle:tempModel.commentCount forState:UIControlStateNormal];
@@ -697,11 +714,15 @@
             [cell.labelCreatedAt setText:mydate];
 //            [cell.imageMain setImageWithURL:[NSURL URLWithString:tempModel.urlThumb]];
             if(tempModel.urlThumb.length > 0){
-                [cell.buttonMainImage setBackgroundImageForState:UIControlStateNormal withURL:[NSURL URLWithString:tempModel.urlThumb]];
+                cell.imageMainHeightConstraint.constant = 250;
+                [[cell.buttonMainImage imageView]setContentMode:UIViewContentModeScaleAspectFill];
+                
+                [cell.buttonMainImage setImageForState:UIControlStateNormal withURL:[NSURL URLWithString:tempModel.urlThumb]];
                 cell.buttonMainImage.tag = indexPath.row;
                 [cell.buttonMainImage addTarget:self action:@selector(buttonMainImageClicked:) forControlEvents:UIControlEventTouchUpInside];
             }else {
-                [cell.buttonMainImage setBackgroundImage:nil forState:UIControlStateNormal];
+                cell.imageMainHeightConstraint.constant = 0;
+                [cell.buttonMainImage setImage:nil forState:UIControlStateNormal];
             }
             return cell;
         }

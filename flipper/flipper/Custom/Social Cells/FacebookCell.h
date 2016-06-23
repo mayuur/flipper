@@ -20,4 +20,5 @@
 @property (weak, nonatomic) IBOutlet UIButton *buttonLike;
 @property (weak, nonatomic) IBOutlet UIButton *buttonComment;
 @property (weak, nonatomic) IBOutlet UIButton *buttonShare;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageMainHeightConstraint;
 @end

@@ -4,7 +4,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -56,15 +55,6 @@
                             <constraint firstAttribute="height" constant="60" id="xGP-6f-QYq"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ef-dK-wYs">
-                        <rect key="frame" x="10" y="10" width="500" height="21"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="21" id="EDx-ZJ-cBA"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cpZ-ff-ct5">
                         <rect key="frame" x="0.0" y="294" width="520" height="60"/>
                         <subviews>
@@ -122,16 +112,24 @@
                             <constraint firstAttribute="height" constant="150" id="FOw-DJ-LBZ"/>
                         </constraints>
                     </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KMQ-jr-MoU">
-                        <rect key="frame" x="0.0" y="41" width="520" height="253"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KMQ-jr-MoU">
+                        <rect key="frame" x="0.0" y="44" width="520" height="250"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="250" id="3XB-xe-ZU7"/>
+                        </constraints>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ef-dK-wYs">
+                        <rect key="frame" x="10" y="10" width="500" height="24"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="2Ef-dK-wYs" firstAttribute="top" secondItem="SMA-cl-wEu" secondAttribute="bottom" constant="10" id="0te-w2-SNl"/>
                     <constraint firstItem="SMA-cl-wEu" firstAttribute="leading" secondItem="lCX-ww-Rtd" secondAttribute="leading" id="6iM-mF-CIN"/>
                     <constraint firstItem="KMQ-jr-MoU" firstAttribute="leading" secondItem="lCX-ww-Rtd" secondAttribute="leading" id="DDl-d2-5BY"/>
-                    <constraint firstItem="2Ef-dK-wYs" firstAttribute="leading" secondItem="lCX-ww-Rtd" secondAttribute="leadingMargin" constant="2" id="E5x-ZM-jpC"/>
-                    <constraint firstItem="2Ef-dK-wYs" firstAttribute="centerX" secondItem="SMA-cl-wEu" secondAttribute="centerX" id="LAI-fv-LUV"/>
+                    <constraint firstItem="2Ef-dK-wYs" firstAttribute="leading" secondItem="lCX-ww-Rtd" secondAttribute="leading" constant="10" id="E5x-ZM-jpC"/>
                     <constraint firstAttribute="trailing" secondItem="SMA-cl-wEu" secondAttribute="trailing" id="P37-p1-FHb"/>
                     <constraint firstItem="SMA-cl-wEu" firstAttribute="top" secondItem="lCX-ww-Rtd" secondAttribute="top" constant="-60" id="QTj-OR-h0H"/>
                     <constraint firstAttribute="trailing" secondItem="Gxc-gV-k2d" secondAttribute="trailing" id="Wgk-r3-WMd"/>
@@ -144,6 +142,7 @@
                     <constraint firstItem="cpZ-ff-ct5" firstAttribute="top" secondItem="Gxc-gV-k2d" secondAttribute="bottom" id="q2g-Z5-eeD"/>
                     <constraint firstItem="Gxc-gV-k2d" firstAttribute="top" secondItem="2Ef-dK-wYs" secondAttribute="bottom" constant="10" id="sup-As-w1T"/>
                     <constraint firstAttribute="trailing" secondItem="KMQ-jr-MoU" secondAttribute="trailing" id="vOO-YH-QCI"/>
+                    <constraint firstAttribute="trailing" secondItem="2Ef-dK-wYs" secondAttribute="trailing" constant="10" id="zEw-Lx-SwZ"/>
                 </constraints>
                 <variation key="default">
                     <mask key="subviews">
@@ -157,6 +156,7 @@
                 <outlet property="buttonMainImage" destination="KMQ-jr-MoU" id="QMO-bT-slO"/>
                 <outlet property="buttonShare" destination="JCf-7V-aiY" id="xkd-EA-VPR"/>
                 <outlet property="imageMain" destination="Gxc-gV-k2d" id="hSt-zB-Bcm"/>
+                <outlet property="imageMainHeightConstraint" destination="3XB-xe-ZU7" id="sKf-Jb-LA4"/>
                 <outlet property="labelCreatedAt" destination="pIo-en-I1F" id="cGw-G7-1fI"/>
                 <outlet property="labelName" destination="Bdp-QA-dM4" id="b3Y-4A-dJb"/>
                 <outlet property="labelTitle" destination="2Ef-dK-wYs" id="F9I-05-YpI"/>

@@ -4,16 +4,15 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="InstagramCell" rowHeight="262" id="U2V-1j-IVo" customClass="InstagramCell">
-            <rect key="frame" x="0.0" y="0.0" width="520" height="262"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="InstagramCell" rowHeight="383" id="U2V-1j-IVo" customClass="InstagramCell">
+            <rect key="frame" x="0.0" y="0.0" width="520" height="383"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="U2V-1j-IVo" id="1xU-kT-JSO">
-                <rect key="frame" x="0.0" y="0.0" width="520" height="261"/>
+                <rect key="frame" x="0.0" y="0.0" width="520" height="382"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0MV-wV-fcy">
@@ -56,22 +55,8 @@
                             <constraint firstItem="zu1-cO-dyj" firstAttribute="top" secondItem="OzU-Uw-MXS" secondAttribute="bottom" constant="2" id="t4U-gh-9zZ"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="URK-2i-rIw">
-                        <rect key="frame" x="10" y="10" width="500" height="17"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="21" id="CVm-zc-v4n"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="CVm-zc-v4n"/>
-                            </mask>
-                        </variation>
-                    </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NwH-Ew-CIj">
-                        <rect key="frame" x="0.0" y="201" width="520" height="60"/>
+                        <rect key="frame" x="0.0" y="322" width="520" height="60"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xac-0d-gLq">
                                 <rect key="frame" x="0.0" y="0.0" width="520" height="1"/>
@@ -124,9 +109,18 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="ch9-DZ-K0Q">
                         <rect key="frame" x="0.0" y="41" width="520" height="160"/>
                     </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZKD-a3-oEQ">
-                        <rect key="frame" x="0.0" y="37" width="520" height="164"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZKD-a3-oEQ">
+                        <rect key="frame" x="0.0" y="72" width="520" height="250"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="250" id="gno-8h-egr"/>
+                        </constraints>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="URK-2i-rIw">
+                        <rect key="frame" x="10" y="8" width="500" height="52"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="ZKD-a3-oEQ" secondAttribute="trailing" id="1GP-XV-M08"/>
@@ -137,15 +131,15 @@
                     <constraint firstItem="0MV-wV-fcy" firstAttribute="top" secondItem="1xU-kT-JSO" secondAttribute="top" constant="-60" id="Npp-yM-oKc"/>
                     <constraint firstItem="ch9-DZ-K0Q" firstAttribute="top" secondItem="URK-2i-rIw" secondAttribute="bottom" constant="10" id="PCj-eD-A0r"/>
                     <constraint firstAttribute="trailing" secondItem="ch9-DZ-K0Q" secondAttribute="trailing" id="Uyp-Z5-rI0"/>
-                    <constraint firstItem="URK-2i-rIw" firstAttribute="centerX" secondItem="0MV-wV-fcy" secondAttribute="centerX" id="WSo-aH-KkP"/>
                     <constraint firstItem="0MV-wV-fcy" firstAttribute="leading" secondItem="1xU-kT-JSO" secondAttribute="leading" id="b4K-rd-1Zi"/>
+                    <constraint firstAttribute="trailing" secondItem="URK-2i-rIw" secondAttribute="trailing" constant="10" id="bw4-L2-QTy"/>
                     <constraint firstItem="ZKD-a3-oEQ" firstAttribute="top" secondItem="URK-2i-rIw" secondAttribute="bottom" constant="10" id="d6G-1H-5Pf"/>
                     <constraint firstItem="NwH-Ew-CIj" firstAttribute="leading" secondItem="1xU-kT-JSO" secondAttribute="leading" id="eRY-71-lhe"/>
                     <constraint firstItem="NwH-Ew-CIj" firstAttribute="top" secondItem="ZKD-a3-oEQ" secondAttribute="bottom" id="esM-Cc-Rwi"/>
                     <constraint firstItem="URK-2i-rIw" firstAttribute="top" secondItem="0MV-wV-fcy" secondAttribute="bottom" constant="10" id="gCr-Qq-fDn"/>
                     <constraint firstAttribute="bottom" secondItem="NwH-Ew-CIj" secondAttribute="bottom" id="kwB-MW-GUp"/>
                     <constraint firstAttribute="trailing" secondItem="0MV-wV-fcy" secondAttribute="trailing" id="m9r-cf-AwD"/>
-                    <constraint firstItem="URK-2i-rIw" firstAttribute="leading" secondItem="1xU-kT-JSO" secondAttribute="leadingMargin" constant="2" id="x8J-Kv-FBz"/>
+                    <constraint firstItem="URK-2i-rIw" firstAttribute="leading" secondItem="1xU-kT-JSO" secondAttribute="leading" constant="10" id="x8J-Kv-FBz"/>
                 </constraints>
                 <variation key="default">
                     <mask key="subviews">
@@ -160,12 +154,13 @@
                 <outlet property="buttonMainImage" destination="ZKD-a3-oEQ" id="hW8-oH-Ucg"/>
                 <outlet property="buttonShare" destination="DBa-OY-YLD" id="i14-Md-9sF"/>
                 <outlet property="imageMain" destination="ch9-DZ-K0Q" id="Xwa-qr-9Kk"/>
+                <outlet property="imageMainHeightConstraint" destination="gno-8h-egr" id="hRL-qY-0mN"/>
                 <outlet property="imageProfile" destination="TWx-Aa-ewa" id="wJG-qd-pkL"/>
                 <outlet property="labelCaption" destination="URK-2i-rIw" id="nI4-P5-zXA"/>
                 <outlet property="labelCreatedAt" destination="zu1-cO-dyj" id="VcO-U5-ghH"/>
                 <outlet property="labelUserName" destination="OzU-Uw-MXS" id="5kc-AC-1Fz"/>
             </connections>
-            <point key="canvasLocation" x="375" y="412"/>
+            <point key="canvasLocation" x="375" y="351.5"/>
         </tableViewCell>
     </objects>
     <resources>
