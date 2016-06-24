@@ -11,16 +11,18 @@
 #import "Categories.h"
 #import "FollowPeopleViewController.h"
 #import "Utility.h"
+#import "UIImageView+AFNetworking.h"
+
 //#import "UIAlertView+Extra.h"
 
 @interface CategoriesViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 {
-    NSMutableArray *arrCategories,*arrImages;
     __weak IBOutlet NSLayoutConstraint *collectionBottomLayoutConstraint;
     UIActivityIndicatorView *activityView;
 }
 @property (weak, nonatomic) IBOutlet UICollectionView *categoriesCollectionView;
-
+@property (nonatomic, strong) NSMutableArray* arrCategories;
+@property (nonatomic, strong) NSMutableArray* arrImages;
 @end
 
 @implementation CategoriesViewController
@@ -32,8 +34,8 @@
     [self.navigationController.navigationItem setHidesBackButton:YES];
     self.navigationItem.hidesBackButton = YES;
     self.navigationItem.leftBarButtonItem = nil;
-    arrCategories = [NSMutableArray array];
-    arrImages = [NSMutableArray array];
+    self.arrCategories = [NSMutableArray array];
+    self.arrImages = [NSMutableArray array];
     activityView = [[UIActivityIndicatorView alloc]
                                              initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     
@@ -56,7 +58,7 @@
 #pragma mark - UICollectionView DataSource
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return arrCategories.count;
+    return self.arrCategories.count;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -64,24 +66,40 @@
     cell.imageViewSelected.hidden = YES;
     cell.imageViewSelectedTick.hidden = YES;
     
-    Categories *tempCategory = [arrCategories objectAtIndex:indexPath.row];
+    Categories *tempCategory = [self.arrCategories objectAtIndex:indexPath.row];
     if(tempCategory.isSelected) {
         cell.imageViewSelected.hidden = NO;
         cell.imageViewSelectedTick.hidden = NO;
     }
     
     [cell.labelCategoryName setText:tempCategory.category_name];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [tempCategory.category_image getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
-            [cell.imageCategory setImage:[UIImage imageWithData:data]];
-        }];
-    });
+    NSMutableDictionary* imageDictionary;
+    for (NSMutableDictionary* images in self.arrImages) {
+        if([[images objectForKey:@"categoryName"] isEqualToString:tempCategory.category_name]) {
+            imageDictionary = images;
+        }
+    }
+    
+    if(imageDictionary) {
+        [cell.imageCategory setImage:imageDictionary[@"categoryImage"]];
+    }
+    else {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [tempCategory.category_image getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+                NSMutableDictionary* imageDictionary = [NSMutableDictionary dictionaryWithCapacity:0];
+                imageDictionary[@"categoryName"] = tempCategory.category_name;
+                imageDictionary[@"categoryImage"] = [UIImage imageWithData:data];
+                [cell.imageCategory setImage:imageDictionary[@"categoryImage"]];
+                [self.arrImages addObject:imageDictionary];
+            }];
+        });
+    }
     
     return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    Categories *tempCategory = [arrCategories objectAtIndex:indexPath.row];
+    Categories *tempCategory = [self.arrCategories objectAtIndex:indexPath.row];
     if(tempCategory.isSelected) {
         tempCategory.isSelected = NO;
     }
@@ -90,7 +108,7 @@
         
     }
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isSelected=1"];
-    NSArray* selectedArray = [arrCategories filteredArrayUsingPredicate:predicate];
+    NSArray* selectedArray = [self.arrCategories filteredArrayUsingPredicate:predicate];
     
     
     if(selectedArray.count > 0) {
@@ -112,7 +130,7 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         [activityView stopAnimating];
         if(!error){
-            [arrCategories addObjectsFromArray:objects];
+            [self.arrCategories addObjectsFromArray:objects];
             
             [self.categoriesCollectionView reloadData];
         }else {
@@ -130,7 +148,7 @@
     if([segue.identifier isEqualToString:@"FollowPeople"] && [[segue destinationViewController] isKindOfClass:[FollowPeopleViewController class]]) {
         
         NSMutableArray* selectedCategories = [NSMutableArray arrayWithCapacity:0];
-        for (Categories* category in arrCategories) {
+        for (Categories* category in self.arrCategories) {
             if(category.isSelected)
                 [selectedCategories addObject:category.objectId];
         }
