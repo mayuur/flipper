@@ -566,6 +566,8 @@
     switch (socialType) {
         case SocialMediaTypeFacebook: {
             FacebookCell *cell = [tableView dequeueReusableCellWithIdentifier:IDENTIFIER_FACEBOOK_CELL];
+            cell.buttonMainImage.contentHorizontalAlignment = UIControlContentHorizontalAlignmentFill;
+            cell.buttonMainImage.contentVerticalAlignment = UIControlContentVerticalAlignmentFill;
             
             FacebookModel *tempModel = (FacebookModel* ) socialDict[GLOBAL_KEY_MODEL];
             cell.labelName.text = tempModel.pageName;
@@ -602,7 +604,9 @@
             
         case SocialMediaTypeTwitter: {
             TwitterCell *cell = [tableView dequeueReusableCellWithIdentifier:IDENTIFIER_TWITTER_CELL];
-            
+            cell.buttonMainImage.contentHorizontalAlignment = UIControlContentHorizontalAlignmentFill;
+            cell.buttonMainImage.contentVerticalAlignment = UIControlContentVerticalAlignmentFill;
+
             TwitterModel *tempModel = (TwitterModel* ) socialDict[GLOBAL_KEY_MODEL];
             cell.labelName.text = [NSString stringWithFormat:@"%@", tempModel.name];
             cell.labelTweet.text = [NSString stringWithFormat:@"%@", tempModel.twitterText];
@@ -635,7 +639,9 @@
             
         case SocialMediaTypeVine: {
             VineCell *cell = [tableView dequeueReusableCellWithIdentifier:IDENTIFIER_VINE_CELL];
-            
+            cell.buttonMainImage.contentHorizontalAlignment = UIControlContentHorizontalAlignmentFill;
+            cell.buttonMainImage.contentVerticalAlignment = UIControlContentVerticalAlignmentFill;
+
             VineModel *tempModel = (VineModel* ) socialDict[GLOBAL_KEY_MODEL];
             [cell.labelUserName setText:tempModel.username];
             [cell.labelDescription setText:tempModel.vineDescription];
@@ -667,7 +673,9 @@
             
         case SocialMediaTypeInstagram: {
             InstagramCell *cell = [tableView dequeueReusableCellWithIdentifier:IDENTIFIER_INSTAGRAM_CELL];
-            
+            cell.buttonMainImage.contentHorizontalAlignment = UIControlContentHorizontalAlignmentFill;
+            cell.buttonMainImage.contentVerticalAlignment = UIControlContentVerticalAlignmentFill;
+
             InstagramModel *tempModel = (InstagramModel* ) socialDict[GLOBAL_KEY_MODEL];
             [cell.labelCaption setText:tempModel.captionText];
             [cell.labelUserName setText:tempModel.username];
@@ -702,7 +710,9 @@
             
         case SocialMediaTypeYoutube: {
             YouTubeCell *cell = [tableView dequeueReusableCellWithIdentifier:IDENTIFIER_YOUTUBE_CELL];
-            
+            cell.buttonMainImage.contentHorizontalAlignment = UIControlContentHorizontalAlignmentFill;
+            cell.buttonMainImage.contentVerticalAlignment = UIControlContentVerticalAlignmentFill;
+
             YouTubeModel *tempModel = (YouTubeModel* ) socialDict[GLOBAL_KEY_MODEL];
             [cell.labelName setText:tempModel.channelTitle];
             [cell.labelDescription setText:tempModel.postTitle];
