@@ -45,6 +45,12 @@
     // Do any additional setup after loading the view.
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     
+    imageProfile.layer.cornerRadius = CGRectGetWidth(imageProfile.frame)/2;
+    
+    labelName.textColor = [UIColor followPeopleBlueBackground];
+    labelCreatedAt.textColor = [UIColor feedCellButtonColor];
+
+    
     NSInteger socialType = [_socialDict[GLOBAL_KEY_SOCIAL_TYPE] integerValue];
     
     switch (socialType) {
@@ -69,6 +75,12 @@
             [labelCreatedAt setText:mydate];
             
             [buttonShare addTarget:self action:@selector(openLink:) forControlEvents:UIControlEventTouchUpInside];
+            
+            if(tempModel.picture.length > 0) {
+                [imageMain setImageWithURL:[NSURL URLWithString:tempModel.picture]];
+            }else {
+                [imageMain removeFromSuperview];
+            }
         }
             break;
             
@@ -96,6 +108,12 @@
             [imageFile getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
                 imageProfile.image = [UIImage imageWithData:data];
             }];
+            
+            if(tempModel.tweetImage.length > 0) {
+                [imageMain setImageWithURL:[NSURL URLWithString:tempModel.tweetImage]];
+            }else {
+                [imageMain removeFromSuperview];
+            }
         }
             break;
             
@@ -121,7 +139,12 @@
             [imageFile getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
                 imageProfile.image = [UIImage imageWithData:data];
             }];
-
+            
+            if(tempModel.urlThumb.length > 0) {
+                [imageMain setImageWithURL:[NSURL URLWithString:tempModel.urlThumb]];
+            }else {
+                [imageMain removeFromSuperview];
+            }
             
         }
             break;
@@ -142,8 +165,13 @@
             NSString* dateString = [dateFormatter stringFromDate:date];
             [labelCreatedAt setText:dateString];
             
+            if(tempModel.mainImage.length > 0) {
+                [imageMain setImageWithURL:[NSURL URLWithString:tempModel.mainImage]];
+            }else {
+                [imageMain removeFromSuperview];
+            }
             
-                    }
+        }
             break;
             
         case SocialMediaTypeYoutube: {
@@ -164,6 +192,12 @@
             [imageFile getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
                 imageProfile.image = [UIImage imageWithData:data];
             }];
+            
+            if(tempModel.urlThumb.length > 0) {
+                [imageMain setImageWithURL:[NSURL URLWithString:tempModel.urlThumb]];
+            }else {
+                [imageMain removeFromSuperview];
+            }
         }
             break;
             
