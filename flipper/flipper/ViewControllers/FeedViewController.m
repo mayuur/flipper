@@ -136,24 +136,24 @@
     //get all the celebrities followed by this user
     NSPredicate* userPredicate = [NSPredicate predicateWithFormat:@"fk_user_id = %@", [PFUser currentUser].objectId];
     PFQuery *fetchCelebrityQuery = [PFQuery queryWithClassName:@"User_People" predicate:userPredicate];
-    [fetchCelebrityQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+    [fetchCelebrityQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable parentObjects, NSError * _Nullable error) {
         [refreshControlTable endRefreshing];
-        NSArray* arrayCelebrities = [objects valueForKey:@"fk_people_id"];
+        NSArray* arrayCelebrities = [parentObjects valueForKey:@"fk_people_id"];
         
         PFQuery* fetchCelebDetailsQuery = [PFQuery queryWithClassName:@"People"];
         [fetchCelebDetailsQuery whereKey:@"objectId" containedIn:arrayCelebrities];
-        [fetchCelebDetailsQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        [fetchCelebDetailsQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable peopleObjects, NSError * _Nullable error) {
             if(!error){
-                for (People* people in objects) {
+                for (People* people in peopleObjects) {
 //                    NSLog(@"FacebookID - %@\nTwitterHandle - %@\nYoutubePlaylistID - %@\nInstagramID - %@\nVineID - %@\n",people.facebook_page_id, people.twitter_handle_name, people.youtube_playlist_id, people.instagram_user_id, people.vine_page_id);
 
                     PFQuery* fetchFeedSettings = [PFQuery queryWithClassName:@"User_People"];
                     [fetchFeedSettings whereKey:@"fk_user_id" equalTo:[PFUser currentUser].objectId];
                     [fetchFeedSettings whereKey:@"fk_people_id" equalTo:people.objectId];
                     
-                    [fetchFeedSettings findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-                        if(!error && objects.count > 0) {
-                            PFObject* user_settings = objects[0];
+                    [fetchFeedSettings findObjectsInBackgroundWithBlock:^(NSArray * _Nullable feedObjects, NSError * _Nullable error) {
+                        if(!error && feedObjects.count > 0) {
+                            PFObject* user_settings = feedObjects[0];
                             if([[user_settings objectForKey:@"followsFacebook"] boolValue]) {
                                 [self fetchDataForFacebook:people.facebook_page_id withImageFile:people.person_image];
                             }
@@ -192,18 +192,18 @@
     
     PFQuery* fetchCelebDetailsQuery = [PFQuery queryWithClassName:@"People"];
     [fetchCelebDetailsQuery whereKey:@"objectId" containedIn:arrayCelebrities];
-    [fetchCelebDetailsQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+    [fetchCelebDetailsQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable peopleObjects, NSError * _Nullable error) {
         if(!error){
-            for (People* people in objects) {
+            for (People* people in peopleObjects) {
 //                NSLog(@"FacebookID - %@\nTwitterHandle - %@\nYoutubePlaylistID - %@\nInstagramID - %@\nVineID - %@\n",people.facebook_page_id, people.twitter_handle_name, people.youtube_playlist_id, people.instagram_user_id, people.vine_page_id);
                 
                 PFQuery* fetchFeedSettings = [PFQuery queryWithClassName:@"User_People"];
                 [fetchFeedSettings whereKey:@"fk_user_id" equalTo:[PFUser currentUser].objectId];
                 [fetchFeedSettings whereKey:@"fk_people_id" equalTo:people.objectId];
                 
-                [fetchFeedSettings findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-                    if(!error && objects.count > 0) {
-                        PFObject* user_settings = objects[0];
+                [fetchFeedSettings findObjectsInBackgroundWithBlock:^(NSArray * _Nullable feedObjects, NSError * _Nullable error) {
+                    if(!error && feedObjects.count > 0) {
+                        PFObject* user_settings = feedObjects[0];
                         if([[user_settings objectForKey:@"followsFacebook"] boolValue]) {
                             [self fetchDataForFacebook:people.facebook_page_id withImageFile:people.person_image];
                         }

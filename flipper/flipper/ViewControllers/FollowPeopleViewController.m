@@ -224,6 +224,11 @@
         PFObject *objUserPeople = [PFObject objectWithClassName:@"User_People"];
         [objUserPeople setValue:tempPeople.objectId forKey:@"fk_people_id"];
         [objUserPeople setValue:[PFUser currentUser].objectId forKey:@"fk_user_id"];
+        [objUserPeople setObject:[NSNumber numberWithBool:YES] forKey:@"followsFacebook"];
+        [objUserPeople setObject:[NSNumber numberWithBool:YES] forKey:@"followsTwitter"];
+        [objUserPeople setObject:[NSNumber numberWithBool:YES] forKey:@"followsInstagram"];
+        [objUserPeople setObject:[NSNumber numberWithBool:YES] forKey:@"followsVine"];
+        [objUserPeople setObject:[NSNumber numberWithBool:YES] forKey:@"followsYoutube"];
         [objUserPeople saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
             NSLog(@"Object saved error:%@",error.localizedDescription);
         }];
