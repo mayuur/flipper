@@ -9,10 +9,12 @@
 #import "SearchViewController.h"
 #import "SearchCell.h"
 #import "People.h"
+#import <FHSTwitterEngine/FHSTwitterEngine.h>
 
 @interface SearchViewController () <UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate>
 {
     
+    __weak IBOutlet UIButton *buttonCreateNew;
     __weak IBOutlet UITableView *tableSearch;
     __weak IBOutlet UISearchBar *searchBarPeople;
     NSMutableArray *arrayResult,*arrayPeople;
@@ -112,13 +114,20 @@
     PFQuery *searchQuery = [People query];
     [searchQuery whereKey:@"person_name" containsString:searchBar.text];
     [searchQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-        NSPredicate* userPredicate = [NSPredicate predicateWithFormat:@"fk_user_id = %@", [PFUser currentUser].objectId];
-        PFQuery *fetchCelebrityQuery = [PFQuery queryWithClassName:@"User_People" predicate:userPredicate];
-        [fetchCelebrityQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-            
-        }];
-        [arrayResult addObjectsFromArray:objects];
-        [tableSearch reloadData];
+        if(objects.count > 0) {
+            tableSearch.hidden = FALSE;
+            buttonCreateNew.hidden = TRUE;
+            NSPredicate* userPredicate = [NSPredicate predicateWithFormat:@"fk_user_id = %@", [PFUser currentUser].objectId];
+            PFQuery *fetchCelebrityQuery = [PFQuery queryWithClassName:@"User_People" predicate:userPredicate];
+            [fetchCelebrityQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+                
+            }];
+            [arrayResult addObjectsFromArray:objects];
+            [tableSearch reloadData];
+        }else {
+            tableSearch.hidden = TRUE;
+            buttonCreateNew.hidden = FALSE;
+        }
     }];
 }
 
@@ -152,6 +161,12 @@
             }
         }];
     }];
+}
+
+#pragma mark - UIButton Actions
+
+- (IBAction)createNewClicked:(UIButton *)sender {
+    [[FHSTwitterEngine sharedEngine]searchUsersWithQuery:@"Sachin" andCount:50];
 }
 
 /*
