@@ -10,4 +10,6 @@
 
 @interface SignUpViewController : UIViewController
 
+@property (nonatomic, strong) NSMutableArray* arrayFollowPeople;
+
 @end

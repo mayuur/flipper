@@ -8,6 +8,7 @@
 
 #import "WalkthroughViewController.h"
 #import "PageWalkthrough.h"
+#import "CategoriesViewController.h"
 
 #define IMAGE_OFFSET_SPEED 250
 
@@ -63,7 +64,9 @@
 #pragma mark - Button actions
 - (IBAction)startClicked:(id)sender {
     //move to the Categories controller without signing up
-    
+    CategoriesViewController* categoriesViewController = [INTRO_STORYBOARD instantiateViewControllerWithIdentifier:@"CategoriesViewController"];
+    categoriesViewController.isFromStart = YES;
+    [self.navigationController pushViewController:categoriesViewController animated:YES];
 }
 
 #pragma mark - UIScrollViewDelegate functions

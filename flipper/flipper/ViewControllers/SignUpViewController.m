@@ -18,6 +18,7 @@
 #import <FHSTwitterEngine/FHSTwitterEngine.h>
 #import "CategoriesViewController.h"
 #import "Utility.h"
+#import "People.h"
 
 #define kOFFSET_FOR_KEYBOARD 180.0
 
@@ -171,6 +172,12 @@
     }];
 }
 
+/*
+ - Check if user is already a user
+ - If new user, let user establish himselves and then make him follow selected celebrities
+ - If coming from start, directly go to FeedView instead of Categories View
+ */
+
 - (IBAction)facebookSignUp:(UIButton *)sender {
     if([Utility isNetAvailable]) {
         [activityView startAnimating];
@@ -217,7 +224,38 @@
                               else {
                                   // [self dismissViewControllerAnimated:NO completion:nil];
                                   //[self.navigationController popToRootViewControllerAnimated:NO];
-                                  [self performSegueWithIdentifier:@"inbox" sender:self];
+                                  
+                                  //user has been created, so if there are people, follow it right now
+                                  if(self.arrayFollowPeople.count > 0) {
+                                      //add categories for this user
+                                      for(People *tempPeople in self.arrayFollowPeople) {
+                                          PFObject *objUserPeople = [PFObject objectWithClassName:@"User_People"];
+                                          [objUserPeople setValue:tempPeople.objectId forKey:@"fk_people_id"];
+                                          [objUserPeople setValue:user.objectId forKey:@"fk_user_id"];
+                                          [objUserPeople setObject:[NSNumber numberWithBool:YES] forKey:@"followsFacebook"];
+                                          [objUserPeople setObject:[NSNumber numberWithBool:YES] forKey:@"followsTwitter"];
+                                          [objUserPeople setObject:[NSNumber numberWithBool:YES] forKey:@"followsInstagram"];
+                                          [objUserPeople setObject:[NSNumber numberWithBool:YES] forKey:@"followsVine"];
+                                          [objUserPeople setObject:[NSNumber numberWithBool:YES] forKey:@"followsYoutube"];
+                                          [objUserPeople saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                                              NSLog(@"Object saved error:%@",error.localizedDescription);
+                                          }];
+                                      }
+                                      
+                                      //add people to follow for this user
+                                      PFUser* currentUser = [PFUser currentUser];
+                                      [currentUser setObject:[NSNumber numberWithBool:YES] forKey:@"follows_celebrities"];
+                                      [currentUser saveInBackground];
+                                  }
+                                  
+                                  if(self.arrayFollowPeople.count > 0) {
+                                      UINavigationController* homeNavigationViewController = [MAIN_STORYBOARD instantiateViewControllerWithIdentifier:@"HomeNavigationController"];
+                                      [APP_DELEGATE.window setRootViewController:homeNavigationViewController];
+                                  }
+                                  else {
+                                      CategoriesViewController *categories = [self.storyboard instantiateViewControllerWithIdentifier:@"CategoriesViewController"];
+                                      [self.navigationController pushViewController:categories animated:YES];
+                                  }
                               }
                           }];
                      }
@@ -225,7 +263,9 @@
                 
             } else {
                 NSLog(@"User logged in through Facebook!");
-                [self performSegueWithIdentifier:@"inbox" sender:self];
+                [UIAlertView addDismissableAlertWithText:@"Already an existing user. Logging in!" OnController:self];
+                UINavigationController* homeNavigationViewController = [MAIN_STORYBOARD instantiateViewControllerWithIdentifier:@"HomeNavigationController"];
+                [APP_DELEGATE.window setRootViewController:homeNavigationViewController];
             }
         }];
     }else {

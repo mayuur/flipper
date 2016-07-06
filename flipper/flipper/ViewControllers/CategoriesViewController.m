@@ -154,6 +154,7 @@
         }
         
         FollowPeopleViewController* followViewController =(FollowPeopleViewController* ) [segue destinationViewController];
+        followViewController.isFromStart = self.isFromStart;
         followViewController.arraySelectedCategories = selectedCategories;
     }
     
