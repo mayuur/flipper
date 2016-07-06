@@ -7,6 +7,7 @@
 //
 
 #import "FollowPeopleViewController.h"
+#import "SignUpViewController.h"
 #import "PeopleTableViewCell.h"
 #import "IntroHeaderView.h"
 #import "HomeViewController.h"
@@ -218,45 +219,52 @@
         [UIAlertView addDismissableAlertWithText:@"Please follow some people first!" OnController:self];
         return;
     }
-
-    //add categories for this user
-    for(People *tempPeople in selectedPeople) {
-        PFObject *objUserPeople = [PFObject objectWithClassName:@"User_People"];
-        [objUserPeople setValue:tempPeople.objectId forKey:@"fk_people_id"];
-        [objUserPeople setValue:[PFUser currentUser].objectId forKey:@"fk_user_id"];
-        [objUserPeople setObject:[NSNumber numberWithBool:YES] forKey:@"followsFacebook"];
-        [objUserPeople setObject:[NSNumber numberWithBool:YES] forKey:@"followsTwitter"];
-        [objUserPeople setObject:[NSNumber numberWithBool:YES] forKey:@"followsInstagram"];
-        [objUserPeople setObject:[NSNumber numberWithBool:YES] forKey:@"followsVine"];
-        [objUserPeople setObject:[NSNumber numberWithBool:YES] forKey:@"followsYoutube"];
-        [objUserPeople saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-            NSLog(@"Object saved error:%@",error.localizedDescription);
-        }];
-
-        //PFObject* userCategories = [];
-/*        if(tempPeople.isSelected) {
-            tempPeople.isSelected = false;
+    
+    if(self.isFromStart) {
+        SignUpViewController* signUpViewController = [INTRO_STORYBOARD instantiateViewControllerWithIdentifier:@"SignUpViewController"];
+        signUpViewController.arrayFollowPeople = selectedPeople;
+        [self.navigationController pushViewController:signUpViewController animated:YES];
+    }
+    else {
+        
+        //add categories for this user
+        for(People *tempPeople in selectedPeople) {
             PFObject *objUserPeople = [PFObject objectWithClassName:@"User_People"];
             [objUserPeople setValue:tempPeople.objectId forKey:@"fk_people_id"];
             [objUserPeople setValue:[PFUser currentUser].objectId forKey:@"fk_user_id"];
+            [objUserPeople setObject:[NSNumber numberWithBool:YES] forKey:@"followsFacebook"];
+            [objUserPeople setObject:[NSNumber numberWithBool:YES] forKey:@"followsTwitter"];
+            [objUserPeople setObject:[NSNumber numberWithBool:YES] forKey:@"followsInstagram"];
+            [objUserPeople setObject:[NSNumber numberWithBool:YES] forKey:@"followsVine"];
+            [objUserPeople setObject:[NSNumber numberWithBool:YES] forKey:@"followsYoutube"];
             [objUserPeople saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
                 NSLog(@"Object saved error:%@",error.localizedDescription);
             }];
-        }*/
-    }
-    
-    //add people to follow for this user
-    
-    PFUser* currentUser = [PFUser currentUser];
-    [currentUser setObject:[NSNumber numberWithBool:YES] forKey:@"follows_celebrities"];
-    [currentUser saveInBackground];
-    
-    if(self.fromPeopleViewController) {
-        [self.navigationController popViewControllerAnimated:YES];
-    }
-    else {
-        UINavigationController* homeNavigationViewController = [MAIN_STORYBOARD instantiateViewControllerWithIdentifier:@"HomeNavigationController"];
-        [APP_DELEGATE.window setRootViewController:homeNavigationViewController];
+            
+            //PFObject* userCategories = [];
+            /*        if(tempPeople.isSelected) {
+             tempPeople.isSelected = false;
+             PFObject *objUserPeople = [PFObject objectWithClassName:@"User_People"];
+             [objUserPeople setValue:tempPeople.objectId forKey:@"fk_people_id"];
+             [objUserPeople setValue:[PFUser currentUser].objectId forKey:@"fk_user_id"];
+             [objUserPeople saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+             NSLog(@"Object saved error:%@",error.localizedDescription);
+             }];
+             }*/
+        }
+        
+        //add people to follow for this user
+        PFUser* currentUser = [PFUser currentUser];
+        [currentUser setObject:[NSNumber numberWithBool:YES] forKey:@"follows_celebrities"];
+        [currentUser saveInBackground];
+        
+        if(self.fromPeopleViewController) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+        else {
+            UINavigationController* homeNavigationViewController = [MAIN_STORYBOARD instantiateViewControllerWithIdentifier:@"HomeNavigationController"];
+            [APP_DELEGATE.window setRootViewController:homeNavigationViewController];
+        }
     }
 }
 

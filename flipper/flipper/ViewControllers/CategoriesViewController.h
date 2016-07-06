@@ -10,4 +10,6 @@
 
 @interface CategoriesViewController : UIViewController
 
+@property(nonatomic, readwrite) BOOL isFromStart;
+
 @end
