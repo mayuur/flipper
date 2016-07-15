@@ -20,6 +20,7 @@
 #import "FBSDKCoreKit/FBSDKGraphRequest.h"
 #import "FBSDKLoginKit/FBSDKLoginKit.h"
 #import "FBSDKCoreKit/FBSDKAccessToken.h"
+#import "PFFacebookUtils.h"
 #import "FacebookCell.h"
 
 #import "InstagramModel.h"
@@ -53,6 +54,7 @@
 @interface FeedViewController() <UITableViewDataSource,UITableViewDelegate,IGSessionDelegate,IGRequestDelegate>
 {
     UIRefreshControl *refreshControlTable;
+    AppDelegate* appDelegate;
 }
 @property (strong, nonatomic) IBOutlet UITableView *tableViewSocialFeed;
 @property (nonatomic, strong) NSMutableArray* arrayAllSocial;
@@ -64,6 +66,8 @@
 #pragma mark - General methods
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     
     refreshControlTable = [[UIRefreshControl alloc]init];
     [refreshControlTable addTarget:self action:@selector(getCelebritiesFollowedByUser) forControlEvents:UIControlEventValueChanged];
@@ -82,6 +86,14 @@
     [_tableViewSocialFeed registerNib:[UINib nibWithNibName:@"InstagramCell" bundle:nil] forCellReuseIdentifier:IDENTIFIER_INSTAGRAM_CELL];
     [_tableViewSocialFeed registerNib:[UINib nibWithNibName:@"FacebookCell" bundle:nil] forCellReuseIdentifier:IDENTIFIER_FACEBOOK_CELL];
 
+    
+    
+    if ([PFFacebookUtils isLinkedWithUser:[PFUser currentUser]] && [[NSUserDefaults standardUserDefaults] objectForKey:@"isInstaAuthShown"] == nil) {
+        [self showInstaAuthentication];
+    }
+    
+    
+    
     if([Utility isNetAvailable]) {
         if(self.isForFeedDetail) {
             UIBarButtonItem *editFeedButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit"
@@ -234,6 +246,23 @@
     }];
 }
 
+-(void)showInstaAuthentication {
+    UIAlertController *instaAuthAlert = [UIAlertController alertControllerWithTitle:@"Connect to Instagram?" message:@"Would like to connect your Instagram Account?" preferredStyle:UIAlertControllerStyleAlert];
+    
+    [instaAuthAlert addAction:[UIAlertAction actionWithTitle:@"Connect" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [appDelegate.instagram authorize:[NSArray arrayWithObjects:@"public_content", @"comments", @"likes", nil]];
+    }]];
+    
+    [instaAuthAlert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }]];
+    
+    [self.navigationController presentViewController:instaAuthAlert animated:YES completion:^{
+        [[NSUserDefaults standardUserDefaults]setBool:TRUE forKey:@"isInstaAuthShown"];
+        [[NSUserDefaults standardUserDefaults]synchronize];
+    }];
+}
+
 -(void)openLink:(UIButton *)button {
     NSMutableDictionary* socialDict = self.arrayAllSocial[button.tag];
     NSInteger socialType = [socialDict[GLOBAL_KEY_SOCIAL_TYPE] integerValue];
@@ -375,7 +404,7 @@
 
 -(void)fetchDataFromInstagram: (NSString* ) userID withImageFile:(PFFile* ) imageFile {
     
-    AppDelegate* appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    
     appDelegate.instagram.sessionDelegate = self;
     appDelegate.instagram.accessToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"IGAccessToken"];
     
