@@ -64,7 +64,11 @@
     if (indexPath.section == 3) {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
+            
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"isInstaAuthShown"];
+            
             [MBProgressHUD hideHUDForView:self.view animated:YES];
+            
             
             UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Intro" bundle:nil];
             LoginViewController *login = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];

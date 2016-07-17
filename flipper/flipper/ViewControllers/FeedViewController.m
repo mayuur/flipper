@@ -69,6 +69,8 @@
     
     appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     
+    appDelegate.instagram.sessionDelegate = self;
+    
     refreshControlTable = [[UIRefreshControl alloc]init];
     [refreshControlTable addTarget:self action:@selector(getCelebritiesFollowedByUser) forControlEvents:UIControlEventValueChanged];
     [self.tableViewSocialFeed addSubview:refreshControlTable];
@@ -86,28 +88,12 @@
     [_tableViewSocialFeed registerNib:[UINib nibWithNibName:@"InstagramCell" bundle:nil] forCellReuseIdentifier:IDENTIFIER_INSTAGRAM_CELL];
     [_tableViewSocialFeed registerNib:[UINib nibWithNibName:@"FacebookCell" bundle:nil] forCellReuseIdentifier:IDENTIFIER_FACEBOOK_CELL];
 
-    
-    
     if ([PFFacebookUtils isLinkedWithUser:[PFUser currentUser]] && [[NSUserDefaults standardUserDefaults] objectForKey:@"isInstaAuthShown"] == nil) {
         [self showInstaAuthentication];
-    }
-    
-    
-    
-    if([Utility isNetAvailable]) {
-        if(self.isForFeedDetail) {
-            UIBarButtonItem *editFeedButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit"
-                                                                               style:UIBarButtonItemStyleDone target:self action:@selector(editFeedButtonClicked:)];
-            self.navigationItem.rightBarButtonItem = editFeedButton;
-            [self getDataForCelebrity];
-        }
-        else {
-            [self getCelebritiesFollowedByUser];
-        }
-        
     }else {
-        [UIAlertView addDismissableAlertWithText:@"No Internet Connection" OnController:self];
+        [self getFeeds];
     }
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -246,6 +232,23 @@
     }];
 }
 
+-(void)getFeeds {
+    if([Utility isNetAvailable]) {
+        if(self.isForFeedDetail) {
+            UIBarButtonItem *editFeedButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit"
+                                                                               style:UIBarButtonItemStyleDone target:self action:@selector(editFeedButtonClicked:)];
+            self.navigationItem.rightBarButtonItem = editFeedButton;
+            [self getDataForCelebrity];
+        }
+        else {
+            [self getCelebritiesFollowedByUser];
+        }
+        
+    }else {
+        [UIAlertView addDismissableAlertWithText:@"No Internet Connection" OnController:self];
+    }
+}
+
 -(void)showInstaAuthentication {
     UIAlertController *instaAuthAlert = [UIAlertController alertControllerWithTitle:@"Connect to Instagram?" message:@"Would like to connect your Instagram Account?" preferredStyle:UIAlertControllerStyleAlert];
     
@@ -254,7 +257,7 @@
     }]];
     
     [instaAuthAlert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        
+        [self getFeeds];
     }]];
     
     [self.navigationController presentViewController:instaAuthAlert animated:YES completion:^{
@@ -518,9 +521,10 @@
 -(void)igDidLogin {
     NSLog(@"Instagram did login");
     // here i can store accessToken
-    AppDelegate* appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     [[NSUserDefaults standardUserDefaults] setObject:appDelegate.instagram.accessToken forKey:@"IGAccessToken"];
     [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    [self getFeeds];
 }
 
 -(void)igDidNotLogin:(BOOL)cancelled {
