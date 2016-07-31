@@ -196,7 +196,7 @@
                   moduleName = "flipper"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Ashu/Desktop/flipper/flipper/flipper/ViewControllers/SearchViewController.m"
-                  timestampString = "490364702.974602"
+                  timestampString = "491643180.143107"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "127"
@@ -211,7 +211,7 @@
                   moduleName = "flipper"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Ashu/Desktop/flipper/flipper/flipper/ViewControllers/SearchViewController.m"
-                  timestampString = "490364702.974786"
+                  timestampString = "491643180.143248"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "127"
@@ -247,70 +247,6 @@
             timestampString = "490364702.868186"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "flipper/ViewControllers/FeedViewController.m"
-            timestampString = "490364702.868186"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "flipper/ViewControllers/FeedViewController.m"
-            timestampString = "490364702.868186"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "497"
-            endingLineNumber = "497"
-            landmarkName = "-request:didLoad:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "flipper/ViewControllers/FeedViewController.m"
-            timestampString = "490364702.868186"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "flipper/ViewControllers/FeedViewController.m"
-            timestampString = "490364702.868186"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
             startingLineNumber = "522"
             endingLineNumber = "522"
             landmarkName = "-igDidLogin"
@@ -324,12 +260,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "flipper/ViewControllers/FeedViewController.m"
-            timestampString = "490364702.868186"
+            timestampString = "491641171.20045"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "486"
-            endingLineNumber = "486"
-            landmarkName = "-request:didFailWithError:"
+            startingLineNumber = "602"
+            endingLineNumber = "602"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -340,12 +276,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "flipper/ViewControllers/FeedViewController.m"
-            timestampString = "490365177.090591"
+            timestampString = "491642162.782818"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "416"
-            endingLineNumber = "416"
-            landmarkName = "-fetchDataFromInstagram:withImageFile:"
+            startingLineNumber = "426"
+            endingLineNumber = "426"
+            landmarkName = "-fetchDataForFacebook:withImageFile:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -355,29 +291,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "flipper/Vendors/instagram-ios-sdk/Instagram.m"
-            timestampString = "490365237.674475"
+            filePath = "flipper/ViewControllers/FeedViewController.m"
+            timestampString = "491642206.793833"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
-            landmarkName = "-openUrl:params:httpMethod:delegate:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "flipper/Vendors/instagram-ios-sdk/Instagram.m"
-            timestampString = "490365244.682002"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
-            landmarkName = "-openUrl:params:httpMethod:delegate:"
+            startingLineNumber = "456"
+            endingLineNumber = "456"
+            landmarkName = "-fetchDataForFacebook:withImageFile:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

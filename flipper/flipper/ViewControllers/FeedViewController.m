@@ -446,7 +446,7 @@
     }
     else {
         FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]
-                                      initWithGraphPath:[NSString stringWithFormat:@"/%@/feed", pageID]
+                                      initWithGraphPath:[NSString stringWithFormat:@"/%@/posts", pageID]
                                       parameters:@{@"fields": @"id, message,full_picture,link,name,caption,description,icon,created_time,from,likes.summary(true),comments.summary(true)"}
                                       HTTPMethod:@"GET"];
         [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
